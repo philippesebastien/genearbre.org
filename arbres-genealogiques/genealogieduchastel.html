@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['orgchart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Manager');
+        data.addColumn('string', 'ToolTip');
+        data.addRows([
+	  ['Grand-père de Jacques et Jean', '', 'Grand-père'],
+	  ['Père de Jacques', 'Grand-père de Jacques et Jean', 'Père'],
+	  ['Père de Jean', 'Grand-père de Jacques et Jean', 'Père'],
+          [{v:'Jacques du Chastel', f:'Jacques du Chastel n.~1624<div style="color:red; font-style:italic">m.~1661 Jeanne Desombres m.1702 Marie Lamotte </div>'}, 'Père de Jacques', '1er Mariage ~1650'],
+          [{v:'Jean du chastel (n.1637 d.1687)', f:'Jean du chastel (n.1637 d.1687)<div style="color:red; font-style:italic">2e Jeanne Dugny</div>'}, 'Père de Jacques', ''],
+          [{v:'Margueritte Duchastel (n.1645 d.1702)', f:'Margueritte Duchastel (n.1645 d.1702)<div style="color:red; font-style:italic">Jean Reno</div>'}, 'Père de Jacques', 'Marraine de Jean, Gérard et Marguerite'],
+          [{v:'Marie du Chastel', f:'Marie du Chastel<div style="color:red; font-style:italic"></div>'}, 'Père de Jacques', 'Marraine de Pierre'],
+          ['Pierre Chastel (b.17 avril 1656)', 'Jacques du Chastel', ''],
+          ['Anthoinette du Chastel (b.16 juillet 1662)', 'Jacques du Chastel', ''],
+          ['Pierre Duchastel (b.16 juillet 1662)', 'Jacques du Chastel', ''],
+          ['Gérard Duchastel (b.2 septembre 1663)', 'Jacques du Chastel', 'marraine Margueritte Duchastel'],
+          [{v:'Jean Duchastel (b.12 juin 1665)', f:'Jean Duchastel (b.12 juin 1665)<div style="color:red; font-style:italic">Jeanne Husson</div>'}, 'Jacques du Chastel', 'marraine Margueritte Duchastel'],
+          ['Jacques Duchatel (b.8 octobre 1690)', 'Jean Duchastel (b.12 juin 1665)', ''],
+          ['Nicolas Duchatel (b.22 avril 1692)', 'Jean Duchastel (b.12 juin 1665)', ''],
+          ['Jean-Baptiste Duchastel (n.22 septembre 1693, St-Etienne)', 'Jean Duchastel (b.12 juin 1665)', ''],
+          [{v:'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', f:'Pierre Duchastel (n.01 décembre 1694, St-Etienne)<div style="color:red; font-style:italic">Marie Jeanne Nicolle</div>'}, 'Jean Duchastel (b.12 juin 1665)', ''],
+          ['Guillaume Duchastel (n.30 mars 1697, Reims St-Etienne)', 'Jean Duchastel (b.12 juin 1665)', ''],
+          ['Jacques-Paul Duchastel (12 mars 1708, Reims St-Etienne)', 'Jean Duchastel (b.12 juin 1665)', ''],
+          ['Jean-Baptiste Duchastel (n. 22 juillet 1710, Reims St-Etienne)', 'Jean Duchastel (b.12 juin 1665)', ''],
+          [{v:'François Duchastel (n. 20 mai 1702 Reims St-Etienne)', f:'François Duchastel (n. 20 mai 1702 Reims St-Etienne)<div style="color:red; font-style:italic">Marie-Jeanne GALLOTEAU</div>'}, 'Jean Duchastel (b.12 juin 1665)', ''],
+          ['Catherine Duchastel (b.31 janvier 1667)', 'Jacques du Chastel', ''],
+          [{v:'Jean-Baptiste Duchastel (n.17 octobre 1670)', f:'Jean-Baptiste Duchastel (n.17 octobre 1670)<div style="color:red; font-style:italic">Marguerite Plantin</div>'}, 'Jacques du Chastel', ''],
+          ['Pierre Duchastel (n.01 décembre 1692 Reims St-Etienne, d. 24 septembre 1753)', 'Jean-Baptiste Duchastel (n.17 octobre 1670)', ''],
+          ['Jeanne Duchastel (n.03 octobre 1693 Reims St-Etienne, d.13 juin 1736 âge 43 ans)', 'Jean-Baptiste Duchastel (n.17 octobre 1670)', ''],
+          ['Marie Duchastel (n.24 janvier 1695 Reims St-Etienne)', 'Jean-Baptiste Duchastel (n.17 octobre 1670)', ''],
+          [{v:'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)', f:'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)<div style="color:red; font-style:italic">Barbe Miteau</div>'}, 'Jean-Baptiste Duchastel (n.17 octobre 1670)', ''],
+          [{v:'Pierre Duchastel (n.01 avril 1697 Reims St-Etienne, d.03 novembre 1745 âge 45 ans)', f:'Pierre Duchastel (n.01 avril 1697 Reims St-Etienne, d.03 novembre 1745 âge 45 ans)<div style="color:red; font-style:italic">Antoinette Miteau</div>'}, 'Jean-Baptiste Duchastel (n.17 octobre 1670)', ''],
+          [{v:'Jacques Duchastel (n.17 octobre 1700, d.29 octobre ou novembre 1740)', f:'Jacques Duchastel (n.17 octobre 1700, d.29 octobre ou novembre 1740)<div style="color:red; font-style:italic">Marie Jeanne Mitteau</div>'}, 'Jean-Baptiste Duchastel (n.17 octobre 1670)', ''],
+          ['Noël Duchastel (n.06 septembre 1701 St-Etienne, d.)', 'Jean-Baptiste Duchastel (n.17 octobre 1670)', ''],
+          ['Jacqueline Duchastel (n. 1671, d. 28 janvier 1693 à Reims,  Saint-Etienne)', 'Jacques du Chastel', ''],
+          ['Margueritte Duchastel (n. 20 juillet 1674 Reims,  Saint-Etienne)', 'Jacques du Chastel', 'marraine Margueritte Duchastel'],
+          [{v:'Jean Duchastel', f:'Jean Duchastel<div style="color:red; font-style:italic">Elisabeth le Jeune</div>'}, 'Père de Jean', 'cousin de Jacques'],
+          [{v:'Adam Duchastel', f:'Adam Duchastel n.1663<div style="color:red; font-style:italic">Magdeleine Doyen</div>'}, 'Jean Duchastel', ''],
+          ['Marie Duchastel (b. 27 août 1691)', 'Adam Duchastel', ''],
+          ['Elisabeth Duchastel (b. 21 août 1695)', 'Adam Duchastel', ''],
+          ['Jeanne Duchatel (n.1728-12-06, Reims St-Denis)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain Jean Duchastel marraine Jeanne Husson'],
+          ['François Duchatel (n.1730-09-02, Reims St-Denis)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain François Duchastelle marraine Françoise Duchastelle'],
+          ['Marie Françoise Duchatel (n.1731-10-26, Reims St-Denis)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain François Duchastelle marraine Marie Jeanne Galoteau'],
+          ['Gille Duchatel (m.1733-05-07, Reims St-Denis)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain Gille Nicolle marraine Marguerite Thartes'],
+          ['Marguerite Duchatel (n.1735-02-05, Reims St-Denis)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain Jean-Baptiste Duchastel marraine Marguerite Plantin'],
+          ['Jean Baptiste Duchastel (n.1737-09-16, Reims St-Hilaire, d.1763)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain Jean-Baptiste Duchastel marraine Barbe Mitteau'],
+          ['Elizabeth Duchatel (n.1739-02-16, Reims St-Hilaire)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain Pierre Savart marraine Elizabeth Jecquelot'],
+          ['Jean Baptiste Duchatel (n.1740-06-16, Reims St-Hilaire)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain Jean-Baptiste Duchastel marraine Elizabeth Duchatel'],
+          ['Antoinette Duchatel (n.1741-06-21, Reims St-Hilaire)', 'Pierre Duchastel (n.01 décembre 1694, St-Etienne)', 'parrain Jean-Baptiste Duchastel marraine Antoinette Mitteau'],
+
+          ['Marie Suzanne Duchatel (n. 1727 Reims St-Denis, d. 1773, m. François Jean Tronsson)', 'François Duchastel (n. 20 mai 1702 Reims St-Etienne)', ''],
+	  [{v:'Nicolas Duchatel (n.03 juillet 1729 Reims St-Denis)', f:'Nicolas Duchatel (n.03 juillet 1729 Reims St-Denis)<div style="color:red; font-style:italic">Elizabeth Deperthes</div>'}, 'François Duchastel (n. 20 mai 1702 Reims St-Etienne)', ''],
+          ['Jean-Baptiste Duchatel (n.31 décembre 1730 Reims St-Denis,  d. 12 novembre 1757 âge 26 ans, par. Reims St-Denis)', 'François Duchastel (n. 20 mai 1702 Reims St-Etienne)', ''],
+          ['Nicolas Lié Duchatel (n. 03 juin 1734 Reims St-Denis,  d. 12 novembre 1757 âge 26 ans, par. Reims St-Denis)', 'François Duchastel (n. 20 mai 1702 Reims St-Etienne)', ''],
+          ['Jean-Baptiste Nicolas Duchatel (n.23 août 1737 Reims St-Denis)', 'François Duchastel (n. 20 mai 1702 Reims St-Etienne)', 'parrain : Nicolas Duchatel frère de l’enfant'],
+
+          ['Claude Félix Duchatel (b.18 juin 1762 Reims St-Hilaire)', 'Nicolas Duchatel (n.03 juillet 1729 Reims St-Denis)', ''],
+          ['François Duchatel (b.12 mars 1766 Reims St-Hilaire)', 'Nicolas Duchatel (n.03 juillet 1729 Reims St-Denis)', ''],
+
+          ['Marie-Madeleine-Marthe (29-07-1762) (n~1759, d.23 avril 1823 à 66 ans 10 mois)', 'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)', ''],
+          ['Catherine-Thérèse (9-10-1765) (b.10 octobre 1765)', 'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)', ''],
+          ['Martin-Victor (20-07-1767 ; aux Indes)', 'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)', ''],
+          ['Barbe-Nicole (24-05-1769)', 'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)', ''],
+          ['Louise (15-09-1770)', 'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)', ''],
+          ['Louis-Barnabé  (10-06-1774 ; à la Guadeloupe)', 'Jean-Baptiste Duchastel (n.11 avril 1696 Reims St-Etienne, d. 29 janvier 1763)', ''],
+
+          ['Jean-Baptiste Duchastel (b.7 août 1725, d.18 février 1758 âge 37 ans  ??  33 ans)', 'Pierre Duchastel (n.01 avril 1697 Reims St-Etienne, d.03 novembre 1745 âge 45 ans)', 'parrain Jean Baptiste Duchastel, marraine Mlle Jeanne Duchastel'],
+          ['Marie Jeanne Duchastel (b.13 février 1735)', 'Pierre Duchastel (n.01 avril 1697 Reims St-Etienne, d.03 novembre 1745 âge 45 ans)', 'Parrain : Jacques Duchastel, Marraine : Marie Jeanne Mitteaux'],
+          ['Catherine Monique Duchastel (n.1736, m. Martin Bara, Notaire Royal, par. St-Etienne, 3 août 1756)', 'Pierre Duchastel (n.01 avril 1697 Reims St-Etienne, d.03 novembre 1745 âge 45 ans)', ''],
+          ['Barbe Duchastel (n.1738,  m. Nicolas Fourneaux, par. St-Etienne, 17 août 1756)', 'Pierre Duchastel (n.01 avril 1697 Reims St-Etienne, d.03 novembre 1745 âge 45 ans)', ''],
+
+          [{v:'Jacques Jean-Baptiste Duchastel (n.18 mars 1723, d.2 février 1809)', f:'Jacques Jean-Baptiste Duchastel (n.18 mars 1723, d.2 février 1809)<div style="color:red; font-style:italic">Louise-Nicole Cadot</div>'}, 'Jacques Duchastel (n.17 octobre 1700, d.29 octobre ou novembre 1740)', '3e génération'],
+          [{v:'Jacques-Jean-Baptiste Duchastel-Berthelin, Baron de Montflambert (n.16 juin 1756  d.21 février 1830)', f:'Jacques-Jean-Baptiste Duchastel-Berthelin, Baron de Montflambert (n.16 juin 1756  d.21 février 1830)<div style="color:red; font-style:italic">Elisabeth Berthelin</div>'}, 'Jacques Jean-Baptiste Duchastel (n.18 mars 1723, d.2 février 1809)', '4e génération'],
+          ['Jean-Baptiste-Philippe Duchastel de Montflambert (n.13 mars 1757, d.19 mars 1757)', 'Jacques Jean-Baptiste Duchastel (n.18 mars 1723, d.2 février 1809)', '4e génération'],
+          [{v:'Jacques-Gabriel Duchastel de Montrouge (n.14 avril 1758, d.25 mars 1792)', f:'Jacques-Gabriel Duchastel de Montrouge (n.14 avril 1758, d.25 mars 1792)<div style="color:red; font-style:italic">Philippine-Elisabeth Durand de Courmont</div>'}, 'Jacques Jean-Baptiste Duchastel (n.18 mars 1723, d.2 février 1809)', '4e génération'],
+
+          [{v:'Jeanne-Elisabeth Duchastel de Montrouge (n. 4 septembre 1781 à Rethel   d. 20 février 1838 à Reims)', f:'Jeanne-Elisabeth Duchastel de Montrouge (n. 4 septembre 1781 à Rethel   d. 20 février 1838 à Reims)<div style="color:red; font-style:italic">Henri Jean-Baptiste Lucas</div>'}, 'Jacques-Gabriel Duchastel de Montrouge (n.14 avril 1758, d.25 mars 1792)', '5e génération'],
+          [{v:'Alexandre-Louis-François Duchastel de Montrouge (n.30 juin 1784)', f:'Alexandre-Louis-François Duchastel de Montrouge (n.30 juin 1784)<div style="color:red; font-style:italic">Sophie LeGoix</div>'}, 'Jacques-Gabriel Duchastel de Montrouge (n.14 avril 1758, d.25 mars 1792)', '5e génération'],
+          ['Jean-Jacques Duchastel de Montrouge (n.30 décembre 1786    d. 15 avril 1809 à 22 ans)', 'Jacques-Gabriel Duchastel de Montrouge (n.14 avril 1758, d.25 mars 1792)', '5e génération'],
+
+          ['Jean-Baptiste Duchastel-Berthelin 13 mai 1779 Troyes, d. 12 novembre 1800,  21 ans, célibataire', 'Jacques-Jean-Baptiste Duchastel-Berthelin, Baron de Montflambert (n.16 juin 1756  d.21 février 1830)', '5e génération'],
+          ['Un enfant mort en bas-âge (bébé)', 'Jacques-Jean-Baptiste Duchastel-Berthelin, Baron de Montflambert (n.16 juin 1756  d.21 février 1830)', '5e génération'],
+          [{v:'Florimonde Duchastel-Berthelin (n. 27 décembre 1779 à Troyes   d. 20 février 1838 à Reims)', f:'Florimonde Duchastel-Berthelin (n. 27 décembre 1779 à Troyes   d. 20 février 1838 à Reims)<div style="color:red; font-style:italic">Jean-Baptiste Cadot</div>'}, 'Jacques-Jean-Baptiste Duchastel-Berthelin, Baron de Montflambert (n.16 juin 1756  d.21 février 1830)', '5e génération'],
+
+          ['Victor Duchastel de Montrouge (n. 12 février 1820 Reims, d.27 août 1843)', 'Alexandre-Louis-François Duchastel de Montrouge (n.30 juin 1784)', '6e génération'],
+          [{v:'Jules Jean-Baptiste Duchastel de Montrouge (n.19 juillet 1823)', f:'Jules Jean-Baptiste Duchastel de Montrouge (n.19 juillet 1823)<div style="color:red; font-style:italic">1-m.19 mai 1845 Julie-Sylvia-Félicie Pèlerin 2=m. Bertha Follias</div>'}, 'Alexandre-Louis-François Duchastel de Montrouge (n.30 juin 1784)', '6e génération'],
+
+          [{v:'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Paris d. 27 mars 1929 à Paris)', f:'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Troyes   d. 27 mars 1929 à Paris)<div style="color:red; font-style:italic">Anita Snyder</div>'}, 'Jules Jean-Baptiste Duchastel de Montrouge (n.19 juillet 1823)', '7e génération'],
+          [{v:'Léopold Duchastel de Montrouge (n. 19 mars 1855 à Troyes d. 1921 à Paris)', f:'Léopold Duchastel de Montrouge (n. 19 mars 1855 à Troyes d. 1921 à Paris)<div style="color:red; font-style:italic">Marie Lebois</div>'}, 'Jules Jean-Baptiste Duchastel de Montrouge (n.19 juillet 1823)', '7e génération'],
+          ['Lucien Duchastel de Montrouge (n. 21 août 1859 au château de Monthoury, Aisne, prêtre)', 'Jules Jean-Baptiste Duchastel de Montrouge (n.19 juillet 1823)', '7e génération'],
+
+          [{v:'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', f:'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)<div style="color:red; font-style:italic">Jeanne Lacoste</div>'}, 'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Paris d. 27 mars 1929 à Paris)', '8e génération'], 
+          [{v:'France-Anita Duchastel de Montrouge (n. 6 janvier 1880 à New York d. 16 avril 1963 à Montréal)', f:'France-Anita Duchastel de Montrouge (n. 6 janvier 1880 à New York d. 16 avril 1963 à Montréal)<div style="color:red; font-style:italic">Paul Lacoste</div>'}, 'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Paris d. 27 mars 1929 à Paris)', '8e génération'], 
+          [{v:'Jacques Duchastel de Montrouge (n. 25 septembre 1888 à Québec d. 20 février 1938 à Montréal)', f:'Jacques Duchastel de Montrouge (n. 25 septembre 1888 à Québec d. 20 février 1938 à Montréal)<div style="color:red; font-style:italic">Maria Grant</div>'}, 'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Paris d. 27 mars 1929 à Paris)', '8e génération'], 
+          [{v:'Louise Duchastel de Montrouge (n. 08 janvier 1882)', f:'Louise Duchastel de Montrouge (n. 08 janvier 1882)<div style="color:red; font-style:italic">1er Frank Springer 2e Albert Duchesnay</div>'}, 'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Paris d. 27 mars 1929 à Paris)', '8e génération'], 
+          ['Gabrielle Duchastel de Montrouge (n. 31 décembre 1883)', 'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Paris d. 27 mars 1929 à Paris)', '8e génération'], 
+          ['Marie-Renée Duchastel de Montrouge (n. 24 juin 1893 à Soissons d. 16 mars 1901 à Montréal)', 'Léon-Hilaire-Alexandre Duchastel de Montrouge (n. 17 avril 1848 à Paris d. 27 mars 1929 à Paris)', '8e génération'], 	
+
+          [{v:'Léon-Alexandre Duchastel de Montrouge (n. 22 juillet 1905 à Montréal d. 21 mars 1962 à Montréal)', f:'Léon-Alexandre Duchastel de Montrouge (n. 22 juillet 1905 à Montréal d. 21 mars 1962 à Montréal)<div style="color:red; font-style:italic">Yvette Beauchamps</div>'}, 'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', '9e génération'], 
+          [{v:'Renée Duchastel de Montrouge (n. 29 octobre 1906 à Montréal d. 04 octobre 1999 à Montréal)', f:'Renée Duchastel de Montrouge (n. 29 octobre 1906 à Montréal d. 04 octobre 1999 à Montréal)<div style="color:red; font-style:italic">Nora Edma Day</div>'}, 'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', '9e génération'], 
+          [{v:'Jean Lucien Duchastel de Montrouge (n. 13 mars 1908 à Montréal d. 08 octobre 1983 à Montréal)', f:'Jean Lucien Duchastel de Montrouge (n. 13 mars 1908 à Montréal d. 08 octobre 1983 à Montréal)<div style="color:red; font-style:italic">Joseph de La Durantaye</div>'}, 'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', '9e génération'], 
+          [{v:'Louise Duchastel de Montrouge (n. 12 septembre 1909 à Montréal d. 27 septembre 2004 à Montréal)', f:'Louise Duchastel de Montrouge (n. 12 septembre 1909 à Montréal d. 27 septembre 2004 à Montréal)<div style="color:red; font-style:italic">Albert Charles Fleishmann</div>'}, 'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', '9e génération'], 
+          [{v:'Marguerite Duchastel de Montrouge (n. 7 mars 1912 à Montréal d. 25 janvier 2004 à Montréal)', f:'Marguerite Duchastel de Montrouge (n. 7 mars 1912 à Montréal d. 25 janvier 2004 à Montréal)<div style="color:red; font-style:italic">François Bisaillon</div>'}, 'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', '9e génération'], 
+          [{v:'Paule Duchastel de Montrouge (n. 6 juillet 1914 à Montréal d. 03 janvier 1990 à Montréal)', f:'Paule Duchastel de Montrouge (n. 6 juillet 1914 à Montréal d. 03 janvier 1990 à Montréal)<div style="color:red; font-style:italic">Clément Charest</div>'}, 'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', '9e génération'], 
+          [{v:'Pierre Arthur Duchastel de Montrouge (n. 5 décembre 1915 à Outremont d. 17 avril 1991 à Montréal)', f:'Pierre Arthur Duchastel de Montrouge (n. 5 décembre 1915 à Outremont d. 17 avril 1991 à Montréal)<div style="color:red; font-style:italic">Phyllis Anna McKenna</div>'}, 'Jules-Alexandre Duchastel de Montrouge (n. 1er septembre 1878 à New York d. 20 février 1938 à Montréal)', '9e génération'], 
+
+
+        ]);
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        chart.draw(data, {allowHtml:true});
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id='chart_div'></div>
+  </body>
+</html>

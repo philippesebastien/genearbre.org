@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blais — Archives généalogiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--parchment:#f1e8d6;--parchment-deep:#e5d7b7;--ink:#241d13;--ink-soft:#4a4030;--navy:#1c2740;--navy-deep:#131b2d;--burgundy:#7c2331;--gold:#a4802f;--gold-bright:#c79b3f;--rule:rgba(36,29,19,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--parchment);color:var(--ink);font-family:'EB Garamond',serif;font-size:18px;line-height:1.65}
+.eyebrow{font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;margin:0;color:var(--navy)}
+.wrap{max-width:920px;margin:auto;padding:0 32px}
+.hero{background:radial-gradient(ellipse 900px 500px at 50% -10%,rgba(199,155,63,.16),transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--navy) 60%,#223154 100%);color:var(--parchment);padding:96px 32px 120px;text-align:center;border-bottom:1px solid rgba(199,155,63,.35)}
+.seal{width:118px;height:118px;margin:0 auto 30px}.seal svg{width:100%;height:100%}
+.hero .eyebrow{color:var(--gold-bright)}.hero h1{font-family:'Cormorant SC',serif;font-size:clamp(52px,9vw,96px);color:var(--parchment);margin:14px 0 6px}
+.hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(18px,2.6vw,24px);color:#d9c9a3}
+.hero .rule{width:64px;height:1px;background:var(--gold);margin:26px auto}.hero p.lede{max-width:650px;margin:auto;color:#cdbfa0;font-size:17px}
+section{padding:84px 0;border-bottom:1px solid var(--rule)}.section-head{margin-bottom:44px}.section-head h2{font-size:clamp(30px,4vw,42px);margin-top:8px}
+.lede-block p{margin:0 0 20px;color:var(--ink-soft)}.lede-block p:first-child::first-letter{font-family:'Cormorant SC';font-size:64px;float:left;line-height:.8;padding:6px 10px 0 0;color:var(--burgundy)}
+blockquote{margin:36px 0;padding:22px 28px;border-left:3px solid var(--gold);background:var(--parchment-deep);font-style:italic}blockquote cite{display:block;margin-top:10px;font-style:normal;font-family:'Cinzel';font-size:11px;letter-spacing:.15em;color:var(--ink-soft)}
+.figure-note{display:flex;gap:18px;background:var(--parchment-deep);border:1px solid var(--rule);padding:20px 24px;margin:32px 0;font-size:15.5px;color:var(--ink-soft)}.figure-note .mark{font-size:28px;color:var(--burgundy)}
+.ladder{position:relative}.ladder:before{content:'';position:absolute;left:29px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,transparent,var(--gold) 6%,var(--gold) 94%,transparent)}
+.rung{display:grid;grid-template-columns:60px 1fr;gap:22px;padding:26px 0;border-bottom:1px dashed var(--rule)}
+.rung .numeral{font-family:'Cormorant SC';font-size:25px;width:60px;height:60px;border-radius:50%;background:var(--parchment);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:1}
+.rung.current .numeral{background:var(--burgundy);color:var(--parchment);border-color:var(--burgundy)}
+.rung h3{font-size:23px}.role{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);margin:4px 0 8px}.meta{font-size:15.5px;color:var(--ink-soft)}
+details.gen{background:var(--parchment-deep);border:1px solid var(--rule);margin-bottom:14px}
+details.gen summary{list-style:none;cursor:pointer;padding:20px 26px;display:flex;justify-content:space-between;gap:16px;font-family:'Cormorant Garamond';font-size:22px;color:var(--navy)}
+details.gen summary::-webkit-details-marker{display:none}.tag{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;color:var(--gold)}.chevron{color:var(--burgundy)}
+.gen-body{padding:0 26px 26px;font-size:16px;color:var(--ink-soft)}.children{padding-left:20px;border-left:2px solid var(--rule)}.child{margin-bottom:10px}
+.chart-wrap{background:var(--navy-deep);color:var(--parchment);padding:48px 40px;border:1px solid var(--gold)}
+.chart-title{text-align:center;font-family:'Cormorant SC';font-size:26px}.chart-sub{text-align:center;font-style:italic;color:#c9b98a;margin-bottom:32px}
+.chart-row{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid rgba(199,155,63,.2)}.rn{font-family:'Cormorant SC';color:var(--gold-bright)}
+.names{color:var(--parchment)}.date{display:block;font-size:13px;color:#a99a72}
+.sources ul{padding-left:20px;color:var(--ink-soft);font-size:15px}.sources li{margin-bottom:10px}
+.callout-next{margin-top:40px;padding:24px 28px;border:1px dashed var(--gold);background:var(--parchment-deep);font-size:15.5px;color:var(--ink-soft)}
+footer{background:var(--navy-deep);color:#a99a72;text-align:center;padding:56px 32px 40px;font-size:14px}footer .contrib{color:#d9c9a3;margin-top:18px;font-style:italic;font-size:16px}
+@media(max-width:640px){.wrap{padding:0 20px}.rung{grid-template-columns:44px 1fr;gap:14px}.rung .numeral{width:44px;height:44px;font-size:19px}.chart-wrap{padding:32px 20px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="seal">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC'" font-size="22" fill="#e5d7b7">B</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC'" font-size="17" fill="#e5d7b7">BLAIS</text>
+    </svg>
+  </div>
+  <span class="eyebrow">Poitou · Île d'Orléans · Bellechasse · Beauce · Montréal</span>
+  <h1>Blais</h1>
+  <p class="sub">De Pierre Blais aux familles Blais du Québec</p>
+  <div class="rule"></div>
+  <p class="lede">Une archive généalogique retraçant sept générations de la descendance de Pierre Blais, depuis Hanc-au-Poitou en France jusqu'à l'Île d'Orléans, Bellechasse, Yamachiche, la Beauce et Montréal.</p>
+</header>
+
+<main>
+
+<section>
+<div class="wrap">
+  <div class="section-head"><span class="eyebrow">Chapitre premier</span><h2>De France à la Nouvelle-France</h2></div>
+  <div class="lede-block">
+    <p>La lignée documentée commence avec <strong>Pierre Blais</strong>, né vers 1639 à Hanc-au-Poitou, près de Niort dans les Deux-Sèvres. Il traverse l'Atlantique et s'établit à l'Île d'Orléans, où il décède en 1700.</p>
+    <p>Son mariage avec <strong>Anne Perrault</strong>, célébré le 12 octobre 1669 à Saint-Jean de l'Île d'Orléans, marque le début de la descendance Blais présentée dans le document. Leur fils Pierre Blais naît en 1673 à Sainte-Famille. fileciteturn7file0L11-L22</p>
+    <p>La branche principale progresse ensuite vers Berthier-en-Bas, Bellechasse, Berthier-sur-Mer, Saint-Gervais, puis Saint-Évariste-de-Forsyth. Au XIX<sup>e</sup> siècle, la famille se poursuit notamment par Honoré Blais, Louis Blais et leurs descendants. fileciteturn7file0L23-L55</p>
+  </div>
+  <div class="figure-note"><span class="mark">§</span><div><strong>Sept générations.</strong> Le PDF est intitulé « Descendants de Pierre Blais — Jusqu'à la 7e génération » et présente deux branches principales, dont celles issues de Pierre Blais et de Jacques Blais. fileciteturn7file0L11-L18 fileciteturn7file0L74-L82</div></div>
+  <blockquote>« Descendants de Pierre Blais — Jusqu'à la 7e génération. »<cite>Genealogie Blais.pdf · Export proposé par Geneanet</cite></blockquote>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="section-head"><span class="eyebrow">La lignée principale</span><h2>De Pierre Blais à Honoré Blais</h2></div>
+  <p style="color:var(--ink-soft);max-width:690px;margin-bottom:50px">La succession ci-dessous suit la branche documentée qui mène de Pierre Blais à Honoré Blais, puis à Louis Blais et à ses enfants. Les autres descendants et conjoints sont présentés dans le registre.</p>
+
+  <div class="ladder">
+    <div class="rung"><div class="numeral">I</div><div><h3>Pierre Blais</h3><div class="role">France · Île d'Orléans</div><div class="meta">Né vers 1639 à Hanc-au-Poitou, Niort, Deux-Sèvres. Décédé le 16 février 1700 à Saint-Jean, Île d'Orléans. Marié à <b>Anne Perrault</b>. fileciteturn7file0L11-L18</div></div></div>
+    <div class="rung"><div class="numeral">II</div><div><h3>Pierre Blais</h3><div class="role">Île d'Orléans · Berthier-en-Bas</div><div class="meta">Né le 2 février 1673 à Sainte-Famille, Île d'Orléans; décédé le 12 mars 1733 à Berthier-en-Bas. Marié à <b>Françoise Beaudoin</b>. fileciteturn7file0L17-L22</div></div></div>
+    <div class="rung"><div class="numeral">III</div><div><h3>Jean Baptiste Blais</h3><div class="role">Bellechasse · Berthier</div><div class="meta">Né le 10 février 1701 à Saint-Michel-de-Bellechasse; décédé le 22 mai 1780 à Berthier-en-Bas. Marié à <b>Marguerite Roy</b>. fileciteturn7file0L23-L28</div></div></div>
+    <div class="rung"><div class="numeral">IV</div><div><h3>Jean Baptiste Blais</h3><div class="role">Berthier · Montmagny</div><div class="meta">Né le 13 février 1745 à Berthier, Montmagny; décédé le 15 février 1803. Marié à <b>Marie-Anne Mercier</b>. fileciteturn7file0L30-L34</div></div></div>
+    <div class="rung"><div class="numeral">V</div><div><h3>Augustin Blais</h3><div class="role">Berthier-sur-Mer · Saint-Gervais</div><div class="meta">Né le 24 mars 1774 à Berthier-sur-Mer; décédé le 19 juillet 1827 à Saint-Gervais, Bellechasse. Marié à <b>Marie-Angélique Samson</b>. fileciteturn7file0L35-L40</div></div></div>
+    <div class="rung"><div class="numeral">VI</div><div><h3>Honoré Blais</h3><div class="role">Saint-Gervais · Saint-Évariste</div><div class="meta">Né le 15 juin 1824 à Saint-Gervais-de-Bellechasse; décédé le 5 décembre 1901 à Saint-Évariste-de-Forsyth. Marié à <b>Hermine Beaudoin</b>. fileciteturn7file0L41-L47</div></div></div>
+    <div class="rung current"><div class="numeral">VII</div><div><h3>Louis Blais</h3><div class="role">Saint-Évariste-de-Forsyth · marchand</div><div class="meta">Né le 27 août 1869 à Saint-Évariste-de-Forsyth; décédé le 31 août 1949. Marchand. Marié le 20 septembre 1892 à <b>Celina Lachance</b>. fileciteturn7file0L49-L55</div></div></div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="section-head"><span class="eyebrow">La branche Jacques Blais</span><h2>De Yamachiche à Trois-Rivières</h2></div>
+  <div class="chart-wrap">
+    <div class="chart-title">Branche Blais · XVIII<sup>e</sup>–XX<sup>e</sup> siècles</div>
+    <div class="chart-sub">Île d'Orléans · Neuville · Yamachiche · Trois-Rivières</div>
+    <div class="chart-row"><div class="rn">I</div><div><span class="names">Jacques Blais × Marie-Jeanne-Louise Sévigny Lafleur</span><span class="date">1682–1759 · mariage à Neuville en 1734</span></div></div>
+    <div class="chart-row"><div class="rn">II</div><div><span class="names">Jean-Baptiste Blais × Marguerite Aide-Créquy</span><span class="date">1741–1818 · mariage à Trois-Rivières en 1764</span></div></div>
+    <div class="chart-row"><div class="rn">III</div><div><span class="names">Antoine Blais × Judith Boisvert</span><span class="date">1770–1847 · mariage à Yamachiche en 1799</span></div></div>
+    <div class="chart-row"><div class="rn">IV</div><div><span class="names">Jacques Benoni Blais × Apolline Gélinas</span><span class="date">1808–1891 · mariage à Yamachiche en 1829</span></div></div>
+    <div class="chart-row"><div class="rn">V</div><div><span class="names">Caroline Blais × Joseph Sébastien / Thomas Laveau</span><span class="date">1834–1907 · mariages à Trois-Rivières en 1853 et 1871</span></div></div>
+  </div>
+  <div class="figure-note"><span class="mark">✦</span><div><strong>Une branche distincte.</strong> Jacques Blais, né en 1682 à l'Île d'Orléans, s'établit dans la région de Yamachiche. Sa descendance mène à Caroline Blais, née en 1834 et décédée à Trois-Rivières en 1907. fileciteturn7file0L74-L98</div></div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="section-head"><span class="eyebrow">La génération moderne</span><h2>Les enfants de Louis Blais</h2></div>
+  <div class="lede-block">
+    <p>Louis Blais et <strong>Celina Lachance</strong> se marient le 20 septembre 1892 à Saint-Évariste-de-Forsyth. Le dossier mentionne notamment <strong>Marie-Ange Blais</strong>, <strong>Blanche Blais</strong> et <strong>Yvonne Blais</strong>. fileciteturn7file0L49-L73</p>
+    <p>Marie-Ange Blais, née le 23 octobre 1894, épouse Conrad Lebrun en 1921. Blanche Blais, née le 9 mars 1901, épouse Henri Sébastien le 2 juin 1927 et décède à Montréal en 1976. Yvonne Blais est née le 21 juin 1905. fileciteturn7file0L57-L73</p>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+  <div class="section-head"><span class="eyebrow">Le registre complet</span><h2>Les familles, branche par branche</h2></div>
+  <p style="color:var(--ink-soft);max-width:690px;margin-bottom:36px">Cliquez sur une génération pour afficher les principaux événements, conjoints et descendants documentés dans le PDF.</p>
+
+  <details class="gen" open><summary><span class="tag">Gén. 1</span><span>Pierre Blais & Anne Perrault</span><span class="chevron">›</span></summary><div class="gen-body"><p>Pierre Blais, né vers 1639 à Hanc-au-Poitou, Niort, arrive en Nouvelle-France et décède à Saint-Jean de l'Île d'Orléans le 16 février 1700. Il épouse Anne Perrault le 12 octobre 1669. Leur fils Pierre naît en 1673. fileciteturn7file0L11-L18</p></div></details>
+
+  <details class="gen"><summary><span class="tag">Gén. 2</span><span>Pierre Blais & Françoise Beaudoin</span><span class="chevron">›</span></summary><div class="gen-body"><p>Pierre Blais, né en 1673 à Sainte-Famille, décède en 1733 à Berthier-en-Bas. Il épouse Françoise Beaudoin en 1695. Leur descendance comprend Jean Baptiste Blais. fileciteturn7file0L17-L23</p></div></details>
+
+  <details class="gen"><summary><span class="tag">Gén. 3</span><span>Jean Baptiste Blais & Marguerite Roy</span><span class="chevron">›</span></summary><div class="gen-body"><p>Né en 1701 à Saint-Michel-de-Bellechasse, Jean Baptiste Blais décède en 1780 à Berthier-en-Bas. Marié en 1726 à Marguerite Roy. fileciteturn7file0L23-L30</p></div></details>
+
+  <details class="gen"><summary><span class="tag">Gén. 4</span><span>Jean Baptiste Blais & Marie-Anne Mercier</span><span class="chevron">›</span></summary><div class="gen-body"><p>Né en 1745 à Berthier, Montmagny, Jean Baptiste Blais décède en 1803. Il épouse Marie-Anne Mercier le 7 janvier 1771. Leur fils Augustin naît en 1774. fileciteturn7file0L30-L35</p></div></details>
+
+  <details class="gen"><summary><span class="tag">Gén. 5</span><span>Augustin Blais & Marie-Angélique Samson</span><span class="chevron">›</span></summary><div class="gen-body"><p>Augustin Blais, né en 1774 à Berthier-sur-Mer, décède en 1827 à Saint-Gervais. Marié en 1818 à Marie-Angélique Samson, née en 1794 et décédée en 1882 à Saint-Évariste-de-Forsyth. fileciteturn7file0L35-L40</p></div></details>
+
+  <details class="gen"><summary><span class="tag">Gén. 6</span><span>Honoré Blais & Hermine Beaudoin</span><span class="chevron">›</span></summary><div class="gen-body"><p>Honoré Blais, né en 1824 à Saint-Gervais-de-Bellechasse, décède en 1901 à Saint-Évariste-de-Forsyth. Il épouse Hermine Beaudoin le 1er avril 1845. Hermine naît en 1823 et décède en 1916. fileciteturn7file0L41-L48</p></div></details>
+
+  <details class="gen"><summary><span class="tag">Gén. 7</span><span>Louis Blais & Celina Lachance</span><span class="chevron">›</span></summary><div class="gen-body"><p>Louis Blais, né en 1869 à Saint-Évariste-de-Forsyth, est marchand et décède en 1949. Il épouse Celina Lachance en 1892. Le document mentionne notamment Marie-Ange, Blanche et Yvonne Blais. fileciteturn7file0L49-L73<div class="children"><div class="child"><b>Marie-Ange Blais</b> — née en 1894; mariée à Conrad Lebrun en 1921.</div><div class="child"><b>Blanche Blais</b> — 1901–1976; mariée à Henri Sébastien en 1927.</div><div class="child"><b>Yvonne Blais</b> — née en 1905.</div></div></div></details>
+
+  <details class="gen"><summary><span class="tag">Branche</span><span>Jacques Blais & Marie-Jeanne-Louise Sévigny Lafleur</span><span class="chevron">›</span></summary><div class="gen-body"><p>Jacques Blais, né le 6 avril 1682 à Saint-Jean, Île d'Orléans, décède le 24 décembre 1759 à Yamachiche. Marié en 1734 à Marie-Jeanne-Louise Sévigny Lafleur. Leur descendance comprend Jean-Baptiste, Antoine, Jacques Benoni et Caroline Blais. fileciteturn7file0L74-L98</p></div></details>
+
+  <details class="gen"><summary><span class="tag">Descendance</span><span>Caroline Blais & Joseph Sébastien / Thomas Laveau</span><span class="chevron">›</span></summary><div class="gen-body"><p>Caroline Blais, née le 15 mai 1834 à Yamachiche, décède le 27 septembre 1907 à Trois-Rivières. Elle épouse Joseph Sébastien en 1853; après le décès de celui-ci, elle épouse Thomas Laveau en 1871. fileciteturn7file0L96-L108</p><div class="children"><div class="child"><b>Joseph Sébastien</b>, né en 1824, décédé en 1869 dans la région de la rivière Vermillon. Le document indique qu'il aurait disparu lors d'une tournée et qu'il est présumé noyé. fileciteturn7file0L99-L108</div></div></div></details>
+</div>
+</section>
+
+<section class="sources">
+<div class="wrap">
+  <div class="section-head"><span class="eyebrow">Archives & sources</span><h2>Une généalogie documentée</h2></div>
+  <ul>
+    <li><strong>Genealogie Blais.pdf</strong> — export proposé par Geneanet, arbre en ligne de Philippe Sébastien. fileciteturn7file0L67-L68</li>
+    <li><strong>FamilySearch</strong> — actes de baptême, mariage et autres registres cités dans le dossier. fileciteturn7file0L137-L148</li>
+    <li><strong>Bibliothèque et Archives nationales du Québec (BAnQ)</strong> — actes et documents de naissance, union, décès et inhumation. fileciteturn7file0L117-L148</li>
+    <li><strong>Registres religieux du Québec</strong> — Saint-Jean, Sainte-Famille, Berthier, Yamachiche, Trois-Rivières, Saint-Évariste-de-Forsyth et autres paroisses.</li>
+  </ul>
+  <div class="callout-next"><b>Note sur les données.</b> Les dates approximatives et les informations incomplètes du PDF ont été conservées telles qu'elles apparaissent dans le document. La page ne complète pas les filiations par déduction.</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Archives généalogiques</span>
+  <div>Famille Blais · De Pierre Blais aux descendants du Québec</div>
+  <div class="contrib">Document source : « Genealogie Blais.pdf » · Export proposé par Geneanet</div>
+</footer>
+
+</body>
+</html>

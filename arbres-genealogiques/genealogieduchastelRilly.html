@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['orgchart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Manager');
+        data.addColumn('string', 'ToolTip');
+        data.addRows([
+          [{v:'Estienne du Chastel', f:'Estienne du Chastel<div style="color:red; font-style:italic">m.avant 1606 Margueritte Hanoche</div>'}, '', ''],
+          [{v:'Jean du Chastel', f:'Jean du Chastel<div style="color:red; font-style:italic">m.avant 1607 Françoise Pertois</div>'}, '', ''],
+          [{v:'Nicolas l`ainé du Chastel', f:'Nicolas l`ainé  du Chastel<div style="color:red; font-style:italic">m.avant 1607 Nicolle Levigron</div>'}, '', ''],
+          [{v:'Nicolas le jeune du Chastel', f:'Nicolas le jeune  du Chastel<div style="color:red; font-style:italic">m.avant 1607 Jeanne Dudin</div>'}, '', ''],
+          [{v:'Jean du Chastel', f:'Jean du Chastel<div style="color:red; font-style:italic">m.avant 1615 Ane Quenardel</div>'}, '', ''],
+          [{v:'Etienne du Chastel', f:'Etienne du Chastel<div style="color:red; font-style:italic">m.avant 1616 Françoise Etienne</div>'}, '', ''],
+          [{v:'Simon du Chastel', f:'Simon du Chastel<div style="color:red; font-style:italic">m.avant 1617 Margueritte LeGrand</div>'}, '', ''],
+          [{v:'Simon Duchastel', f:'Simon Duchastel<div style="color:red; font-style:italic">m.avant 1617 Jacquette Prioulx</div>'}, '', ''],
+          [{v:'Urbain du Chastel', f:'Urbain du Chastel<div style="color:red; font-style:italic">m.avant 1619 Elizabeth Prestot</div>'}, 'Jean du Chastel', ''],
+          [{v:'Alizon du Chastel', f:'Alizon du Chastel<div style="color:red; font-style:italic">inconnu</div>'}, 'Jean du Chastel', ''],
+          [{v:'Agathe du Chastel', f:'Agathe du Chastel<div style="color:red; font-style:italic">m.avant 1619 Jean Marizot</div>'}, '', ''],
+          [{v:'Poncette du Chastel', f:'Poncette du Chastel<div style="color:red; font-style:italic">m.avant 1622 Martin Regnart</div>'}, '', ''],
+          [{v:'Barbe Duchastel', f:'Barbe Duchastel<div style="color:red; font-style:italic">m.avant 1622 Regnault Godinot</div>'}, '', ''],
+          [{v:'Pierre Duchastel', f:'Pierre Duchastel<div style="color:red; font-style:italic">m.avant 1624 Marie Renart</div>'}, '', ''],
+	  [{v:'Jacques du Chastel ~1575', f:'Jacques du Chastel ~1575<div style="color:red; font-style:italic">m.avant 1615 Françoise Merancy</div>'}, '', 'Père de Jacques'],
+          [{v:'Nicolas du Chastel (n.1606-07-31)', f:'Nicolas du Chastel (n.1606-07-31)<div style="color:red; font-style:italic">inconnue</div>'}, 'Jacques du Chastel ~1575', ''],
+          [{v:'Marie du Chastel (n.1607-12-05)', f:'Marie du Chastel (n.1607-12-05)<div style="color:red; font-style:italic">inconnu</div>'}, 'Jacques du Chastel ~1575', ''],
+          [{v:'Françoise du Chastel (n.1619-09-29)', f:'Françoise du Chastel (n.1619-09-29)<div style="color:red; font-style:italic">inconnu</div>'}, 'Jacques du Chastel ~1575', ''],
+	  [{v:'Jacques du Chastel ~1590', f:'Jacques du Chastel ~1590<div style="color:red; font-style:italic">m.avant 1615 Denise Lebossu</div>'}, '', 'Père de Jacques'],
+          [{v:'Marie du Chastel (n.1615-08-15)', f:'Marie du Chastel (n.1615-08-15)<div style="color:red; font-style:italic">inconnu</div>'}, 'Jacques du Chastel ~1590', ''],
+          [{v:'Elisabeth du Chastel (n.1617-09-06)', f:'Elisabeth du Chastel (n.1617-09-06)<div style="color:red; font-style:italic">inconnu</div>'}, 'Jacques du Chastel ~1590', ''],
+          [{v:'Jacques du Chastel (n.1620-04-18)', f:'Jacques du Chastel (n.1620-04-18)<div style="color:red; font-style:italic">inconnue</div>'}, 'Jacques du Chastel ~1590', ''],
+          [{v:'Poncette du Chastel (n.1620-08-01)', f:'Poncette du Chastel (n.1620-08-01)<div style="color:red; font-style:italic">inconnu</div>'}, 'Urbain du Chastel', ''],
+          [{v:'Jean du Chastel (n.1621-05-14)', f:'Jean du Chastel (n.1621-05-14)<div style="color:red; font-style:italic">inconnue</div>'}, 'Jacques du Chastel ~1590', ''],
+          [{v:'Louise du Chastel (n.1622-08-25)', f:'Louise du Chastel (n.1622-08-25)<div style="color:red; font-style:italic">inconnu</div>'}, 'Jacques du Chastel ~1590', ''],
+
+          [{v:'Anne du Chastel (n.1616-09-07)', f:'Anne du Chastel (n.1616-09-07)<div style="color:red; font-style:italic">inconnu</div>'}, 'Simon du Chastel', ''],
+          [{v:'Anne du Chastel (n.1617-11-10)', f:'Anne du Chastel (n.1617-11-10)<div style="color:red; font-style:italic">inconnu</div>'}, 'Simon du Chastel', ''],
+          [{v:'Alizon du Chastel (n.1621-05-22)', f:'Alizon du Chastel (n.1621-05-22)<div style="color:red; font-style:italic">inconnu</div>'}, 'Simon du Chastel', ''],
+          [{v:'Anne du Chastel (n.1622-07-27)', f:'Anne du Chastel (n.1622-07-27)<div style="color:red; font-style:italic">inconnu</div>'}, 'Simon du Chastel', ''],
+
+          [{v:'Nicolas Duchastel (n.1623-01-22)', f:'Nicolas Duchastel (n.1623-01-22)<div style="color:red; font-style:italic">inconnue</div>'}, 'Simon Duchastel', ''],
+
+
+
+
+
+
+
+          [{v:'Medart Duchastel', f:'Medart Duchastel<div style="color:red; font-style:italic">m.1676-11-09 Agathe Rollet</div>'}, '', ''],
+          [{v:'Jeanne Duchastel (n.1678-01-20)', f:'Jeanne Duchastel (n.1678-01-20)<div style="color:red; font-style:italic">inconnu</div>'}, 'Medart Duchastel', ''],
+          [{v:'Laurence Duchastel (n.1679-02-10)', f:'Laurence Duchastel (n.1679-02-10)<div style="color:red; font-style:italic">inconnu</div>'}, 'Medart Duchastel', ''],
+          [{v:'Marie Duchastel (n.1680-08-06)', f:'Marie Duchastel (n.1680-08-06)<div style="color:red; font-style:italic">inconnu</div>'}, 'Medart Duchastel', ''],
+          [{v:'Nicaisse Duchastel (n.1682-06-23)', f:'Nicaisse Duchastel (n.1682-06-23)<div style="color:red; font-style:italic">inconnue</div>'}, 'Medart Duchastel', ''],
+          [{v:'Nicolas Duchastel (n.1684-05-20)', f:'Nicolas Duchastel (n.1684-05-20)<div style="color:red; font-style:italic">inconnue</div>'}, 'Medart Duchastel', ''],
+
+        ]);
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        chart.draw(data, {allowHtml:true});
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id='chart_div'></div>
+  </body>
+</html>
