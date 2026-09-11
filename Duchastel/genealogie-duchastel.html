@@ -1,288 +1,335 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Généalogie de la Famille du Chastel / Duchastel de Reims</title>
-    <style>
-        :root {
-            --primary: #1e3a5f;
-            --primary-light: #2c5282;
-            --accent: #8c6d3b;
-            --accent-light: #dfd5c6;
-            --bg: #f8fafc;
-            --surface: #ffffff;
-            --text: #2d3748;
-            --text-muted: #64748b;
-            --border: #e2e8f0;
-            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>du Chastel / Duchastel — Archives généalogiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #f1e8d6;
+    --parchment-deep: #e5d7b7;
+    --ink: #241d13;
+    --ink-soft: #4a4030;
+    --navy: #1c2740;
+    --navy-deep: #131b2d;
+    --burgundy: #7c2331;
+    --gold: #a4802f;
+    --gold-bright: #c79b3f;
+    --rule: rgba(36,29,19,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--gold); color:var(--navy-deep);}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  .eyebrow{
+    font-family:'Cinzel', serif;
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
 
-        body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.65;
-            padding: 2rem 1rem;
-        }
+  h1,h2,h3{ font-family:'Cormorant Garamond', serif; font-weight:600; margin:0; color:var(--navy);}
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background: var(--surface);
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-            border: 1px solid var(--border);
-            overflow: hidden;
-        }
+  a{ color:inherit; }
 
-        header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: #ffffff;
-            padding: 2.5rem 2rem;
-            border-bottom: 4px solid var(--accent);
-            text-align: center;
-        }
+  .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
 
-        header h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 0.5rem;
-        }
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+    color:var(--parchment);
+    padding:96px 32px 120px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid rgba(199,155,63,0.35);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
+  .seal{
+    width:118px; height:118px; margin:0 auto 30px;
+    position:relative;
+    animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes sealDrop{
+    0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
+    100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
+  }
+  .seal svg{ width:100%; height:100%; }
+  .hero .eyebrow{ color:var(--gold-bright); }
+  .hero h1{
+    font-family:'Cormorant SC', serif;
+    font-size:clamp(52px, 9vw, 96px);
+    color:var(--parchment);
+    letter-spacing:.02em;
+    margin:14px 0 6px;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero .sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(18px,2.6vw,24px);
+    color:#d9c9a3;
+    letter-spacing:.03em;
+  }
+  .hero .rule{
+    width:64px; height:1px; background:var(--gold); margin:26px auto;
+    opacity:.7;
+  }
+  .hero p.lede{
+    max-width:560px; margin:0 auto; color:#cdbfa0; font-size:17px;
+  }
 
-        header .subtitle {
-            font-size: 1.1rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:8px; }
+  .section-head .eyebrow{ display:block; }
 
-        .intro-box {
-            background-color: #f1f5f9;
-            border-left: 4px solid var(--accent);
-            padding: 1.25rem 1.5rem;
-            margin: 2rem;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.98rem;
-        }
+  /* ---------- NARRATIVE ---------- */
+  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
+  .lede-block p:first-child::first-letter{
+    font-family:'Cormorant SC', serif;
+    font-size:64px;
+    float:left;
+    line-height:.8;
+    padding:6px 10px 0 0;
+    color:var(--burgundy);
+  }
+  blockquote{
+    margin:36px 0; padding:22px 28px;
+    border-left:3px solid var(--gold);
+    background:var(--parchment-deep);
+    font-style:italic; color:var(--ink);
+  }
+  blockquote cite{ display:block; margin-top:10px; font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:var(--ink-soft); }
 
-        main {
-            padding: 0 2rem 2.5rem 2rem;
-        }
+  .figure-note{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
+  }
+  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
 
-        h2 {
-            font-size: 1.35rem;
-            color: var(--primary);
-            margin: 2rem 0 1rem 0;
-            padding-bottom: 0.4rem;
-            border-bottom: 2px solid var(--accent-light);
-            display: flex;
-            align-items: center;
-        }
+  /* ---------- LINEAGE LADDER (signature element) ---------- */
+  .ladder-intro{ margin-bottom:56px; max-width:640px; }
+  .ladder{ position:relative; }
+  .ladder::before{
+    content:""; position:absolute; left:29px; top:8px; bottom:8px; width:1px;
+    background:linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
+  }
+  .rung{
+    position:relative; display:grid; grid-template-columns:60px 1fr; gap:22px;
+    padding:26px 0; border-bottom:1px dashed var(--rule);
+  }
+  .rung:last-child{ border-bottom:none; }
+  .rung .numeral{
+    font-family:'Cormorant SC', serif; font-size:26px; color:var(--navy);
+    width:60px; height:60px; border-radius:50%;
+    background:var(--parchment); border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:1;
+  }
+  .rung.current .numeral{ background:var(--burgundy); color:var(--parchment); border-color:var(--burgundy); }
+  .rung h3{ font-size:23px; color:var(--navy); }
+  .rung .role{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--burgundy); margin:4px 0 8px; }
+  .rung .meta{ font-size:15.5px; color:var(--ink-soft); }
+  .rung .meta b{ color:var(--ink); font-weight:600; }
 
-        /* Arborescence & Générations */
-        .generation-block {
-            margin-bottom: 2rem;
-            background: #ffffff;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.25rem 1.5rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-        }
+  /* ---------- GENERATION RECORDS (lecture continue, sans accordéon) ---------- */
+  .gen{
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    margin-bottom:14px; padding:0;
+  }
+  .gen-summary{
+    padding:20px 26px 16px; display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    font-family:'Cormorant Garamond', serif;
+    border-bottom:1px dashed var(--rule);
+  }
+  .gen-summary .tag{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; color:var(--gold); flex-shrink:0; }
+  .gen-summary .name{ font-size:22px; color:var(--navy); flex:1; }
+  .gen-body{ padding:18px 26px 26px; font-size:16px; color:var(--ink-soft); }
+  .gen-body p{ margin:0 0 14px; }
+  .gen-body .children{ margin-top:12px; padding-left:20px; border-left:2px solid var(--rule); }
+  .gen-body .children .child{ margin-bottom:10px; }
+  .gen-body sup.note{ font-size:11px; color:var(--gold); }
 
-        .gen-badge {
-            display: inline-block;
-            background-color: var(--primary);
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 0.8rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            margin-bottom: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+  /* ---------- ASCENDANCE / CHART ---------- */
+  .chart-wrap{
+    background:var(--navy-deep); color:var(--parchment);
+    padding:48px 40px; position:relative;
+    border:1px solid var(--gold);
+  }
+  .chart-wrap::before, .chart-wrap::after{
+    content:"◆"; color:var(--gold); font-size:12px; position:absolute;
+  }
+  .chart-wrap::before{ top:16px; left:16px; }
+  .chart-wrap::after{ bottom:16px; right:16px; }
+  .chart-title{ text-align:center; font-family:'Cormorant SC',serif; font-size:26px; margin-bottom:6px; }
+  .chart-sub{ text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; color:#c9b98a; margin-bottom:32px; }
+  .chart-row{ display:grid; grid-template-columns:40px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid rgba(199,155,63,0.2); }
+  .chart-row:last-child{ border-bottom:none; }
+  .chart-row .rn{ font-family:'Cormorant SC',serif; color:var(--gold-bright); font-size:18px; }
+  .chart-row .rd{ font-size:15px; }
+  .chart-row .rd .names{ color:var(--parchment); }
+  .chart-row .rd .date{ display:block; font-size:13px; color:#a99a72; margin-top:2px; }
 
-        .person-card {
-            padding: 0.75rem 0;
-            border-bottom: 1px dashed var(--border);
-        }
+  /* ---------- SOURCES ---------- */
+  .sources ul{ padding-left:20px; color:var(--ink-soft); font-size:15px; }
+  .sources li{ margin-bottom:10px; }
 
-        .person-card:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
+  footer{
+    background:var(--navy-deep); color:#a99a72; text-align:center;
+    padding:56px 32px 40px; font-size:14px;
+  }
+  footer .eyebrow{ display:block; margin-bottom:10px; }
+  footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
 
-        .person-name {
-            font-size: 1.05rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
+  .callout-next{
+    margin-top:60px; padding:24px 28px; border:1px dashed var(--gold);
+    background:var(--parchment-deep); font-size:15.5px; color:var(--ink-soft);
+  }
+  .callout-next b{ color:var(--navy); }
 
-        .person-name a {
-            color: var(--primary-light);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .person-name a:hover {
-            color: var(--accent);
-        }
-
-        .person-meta {
-            font-size: 0.92rem;
-            color: #475569;
-            margin-top: 0.2rem;
-        }
-
-        .person-details {
-            font-size: 0.94rem;
-            color: var(--text);
-            margin-top: 0.35rem;
-        }
-
-        .branches-list {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-        }
-
-        .branches-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.96rem;
-        }
-
-        .branches-list li::before {
-            content: "→";
-            position: absolute;
-            left: 0.25rem;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            background-color: #ffffff;
-        }
-    </style>
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .rung{ grid-template-columns:44px 1fr; gap:14px; }
+    .rung .numeral{ width:44px; height:44px; font-size:19px; }
+    .chart-wrap{ padding:32px 20px; }
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Généalogie de la Famille du Chastel / Duchastel</h1>
-        <div class="subtitle">Des maîtres sergers et bourgeois de Reims à la noblesse de robe</div>
-    </header>
+<header class="hero">
+  <div class="seal" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">DU</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">CHASTEL</text>
+    </svg>
+  </div>
+  <span class="eyebrow">Reims · Champagne — Bourgeoisie marchande &amp; noblesse de robe</span>
+  <h1>du Chastel<br>Duchastel</h1>
+  <p class="sub">Des maîtres sergers et bourgeois de Reims à la noblesse de robe</p>
+  <div class="rule"></div>
+  <p class="lede">Cette notice retrace la filiation et les principales alliances de la famille du Chastel (Duchastel), solidement enracinée à Reims dès la fin du XVI<sup>e</sup> siècle dans la bourgeoisie marchande (laine et draperie), avant son ascension dans les offices de justice, la magistrature et les seigneuries de Montflambert et de Montrouge.</p>
+</header>
 
-    <div class="intro-box">
-        Cette notice retrace la filiation et les principales alliances de la famille <strong>du Chastel (Duchastel)</strong>, solidement enracinée à Reims dès la fin du XVI<sup>e</sup> siècle dans la bourgeoisie marchande (laine et draperie), avant son ascension dans les offices de justice, la magistrature et les seigneuries de Montflambert et de Montrouge.
+<main>
+
+  <!-- ===================== GÉNÉRATION 1 ===================== -->
+  <section id="origines">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Génération I</span>
+        <h2>Les origines rémoises</h2>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. I</span><span class="name"><a href="Jean-du-Chastel-1590-1660.html">Jean du Chastel</a> &amp; Nicole Cochart</span></div>
+        <div class="gen-body">
+          <p><b>Jean du Chastel</b> (~1590 – av. 1660), bourgeois de Reims, commerçant textile (drap et laine). Épouse vers 1618–1620 <b>Nicole Cochart</b> (Cauchart / Couchart), issue d'une lignée de marchands et notables rémois.</p>
+          <p>Père fondateur de la lignée suivie ici. Couple pivot ayant permis l'ancrage économique de la famille à Reims.</p>
+          <div class="children">
+            <div class="child">I.1 <b><a href="jacques-du-chastel.html">Jacques du Chastel</a></b> (1624–1714), qui suit en génération&nbsp;II.</div>
+            <div class="child">I.2 <b>Marie du Chastel</b> (née ~1635).</div>
+            <div class="child">I.3 <b>Jean du Chastel</b> (1637–1687), marié à Jeanne Dugny.</div>
+            <div class="child">I.4 <b>Marguerite du Chastel</b> (1645–1702), mariée à Jean Renot.</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <main>
-        <!-- Génération 1 -->
-        <h2>Génération 1 — Les Origines Rémoises</h2>
-        <div class="generation-block">
-            <span class="gen-badge">Génération I</span>
-            <div class="person-card">
-                <div class="person-name">
-                    <a href="Jean-du-Chastel-1590-1660.html">Jean du Chastel (~1590 – av. 1660)</a>
-                </div>
-                <div class="person-meta">
-                    <strong>Statut :</strong> Bourgeois de Reims, commerçant textile (drap et laine).<br>
-                    <strong>Mariage :</strong> Épouse vers 1618–1620 <strong>Nicole Cochart</strong> (Cauchart / Couchart), issue d'une lignée de marchands et notables rémois.
-                </div>
-                <div class="person-details">
-                    Père fondateur de la lignée suivie. Couple pivot ayant permis l'ancrage économique de la famille à Reims.
-                    <br><strong>Enfants identifiés :</strong>
-                    <ul class="branches-list">
-                        <li><strong>Jacques du Chastel</strong> (1624–1714), qui suit en Génération II.</li>
-                        <li><strong>Marie du Chastel</strong> (née ~1635).</li>
-                        <li><strong>Jean du Chastel</strong> (1637–1687), marié à Jeanne Dugny.</li>
-                        <li><strong>Marguerite du Chastel</strong> (1645–1702), mariée à Jean Renot.</li>
-                    </ul>
-                </div>
-            </div>
+  <!-- ===================== GÉNÉRATION 2 ===================== -->
+  <section id="enracinement">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Génération II</span>
+        <h2>L'enracinement et la maîtrise</h2>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. II</span><span class="name"><a href="jacques-du-chastel.html">Jacques du Chastel</a></span></div>
+        <div class="gen-body">
+          <p>Né en 1624, décédé le 10 janvier 1714, en la paroisse Saint-Étienne de Reims, à l'âge de 90 ans. <b>Maître serger</b>, bourgeois de Reims, connétable de la ville.</p>
+          <p><b>Union 1&nbsp;:</b> marié avant 1656 avec <b>Jeanne Desombres</b> (1627–1702).<br>
+          <b>Union 2&nbsp;:</b> marié en 1702 avec <b>Marie de La Motte</b> († 1717 à l'Hôtel-Dieu de Reims).</p>
+          <p>Pilier de la lignée, il assure à sa descendance l'accès aux charges notariales et juridiques.</p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Génération 2 -->
-        <h2>Génération 2 — L'Enracinement et la Maîtrise</h2>
-        <div class="generation-block">
-            <span class="gen-badge">Génération II</span>
-            <div class="person-card">
-                <div class="person-name">
-                    <a href="jacques-du-chastel.html">Jacques du Chastel (1624 – 10 janvier 1714)</a>
-                </div>
-                <div class="person-meta">
-                    <strong>Statut :</strong> Maître serger, Bourgeois de Reims, Connétable de la ville.<br>
-                    <strong>Décès :</strong> Paroisse Saint-Étienne de Reims à l'âge de 90 ans.
-                </div>
-                <div class="person-details">
-                    <strong>Union 1 :</strong> Marié avant 1656 avec <strong>Jeanne Desombres</strong> (1627 – 1702).<br>
-                    <strong>Union 2 :</strong> Marié en 1702 avec <strong>Marie de La Motte</strong> († 1717 à l'Hôtel-Dieu de Reims).<br>
-                    Pilier de la lignée, il assure à sa descendance l'accès aux charges notariales et juridiques.
-                </div>
-            </div>
+  <!-- ===================== GÉNÉRATIONS SUIVANTES ===================== -->
+  <section id="ascension">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Générations III &amp; IV</span>
+        <h2>L'ascension juridique et seigneuriale</h2>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. III–IV</span><span class="name">Nicolas Duchastel et sa descendance</span></div>
+        <div class="gen-body">
+          <p><b>Offices&nbsp;:</b> avocats en Parlement, lieutenants de police, lieutenants des Eaux et Forêts, notaires royaux.</p>
+          <p>Cette génération marque le passage définitif vers la haute bourgeoisie de robe rémoise et l'acquisition de charges royales héréditaires.</p>
         </div>
+      </div>
 
-        <!-- Génération 3 et suivantes -->
-        <h2>Générations Suivantes — L'Ascension Juridique et Seigneuriale</h2>
-        
-        <div class="generation-block">
-            <span class="gen-badge">Génération III & IV</span>
-            
-            <div class="person-card">
-                <div class="person-name">Nicolas Duchastel et sa descendance</div>
-                <div class="person-meta">
-                    <strong>Offices :</strong> Avocats en Parlement, Lieutenants de police, Lieutenants des Eaux et Forêts, Notaires royaux.
-                </div>
-                <div class="person-details">
-                    Cette génération marque le passage définitif vers la haute bourgeoisie de robe rémoise et l'acquisition de charges royales héréditaires.
-                </div>
-            </div>
+      <div class="figure-note">
+        <span class="mark">§</span>
+        <div><b>Les rameaux seigneuriaux.</b> Branche Duchastel de Montflambert&nbsp;: titulaires de seigneuries champenoises, officiers et magistrats. Branche Duchastel de Montrouge&nbsp;: alliances avec la noblesse régionale et intégration aux cours souveraines.</div>
+      </div>
+    </div>
+  </section>
 
-            <div class="person-card" style="margin-top: 1rem;">
-                <div class="person-name">Les Rameaux Seigneuriaux</div>
-                <div class="person-details">
-                    <ul class="branches-list">
-                        <li>
-                            <strong>Branche Duchastel de Montflambert :</strong> Titulaires de seigneuries champenoises, officiers et magistrats.
-                        </li>
-                        <li>
-                            <strong>Branche Duchastel de Montrouge :</strong> Alliances avec la noblesse régionale et intégration aux cours souveraines.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <!-- ===================== FICHES DÉTAILLÉES ===================== -->
+  <section id="ascendance">
+    <div class="wrap">
+      <div class="chart-wrap">
+        <div class="chart-title">Pages et fiches détaillées</div>
+        <div class="chart-sub">notices biographiques complètes disponibles</div>
 
-        <!-- Répertoire des fiches biographiques -->
-        <h2>Pages et Fiches Détaillées Disponibles</h2>
-        <ul class="branches-list">
-            <li>
-                <a href="Jean-du-Chastel-1590-1660.html"><strong>Jean du Chastel (~1590–~1660)</strong> — Notice biographique complète, alliance Cochart et analyses d'archives</a>
-            </li>
-            <li>
-                <a href="jacques-du-chastel.html"><strong>Jacques du Chastel (1624–1714)</strong> — Serger et connétable de Reims, actes paroissiaux et descendance</a>
-            </li>
-        </ul>
-    </main>
+        <div class="chart-row"><div class="rn">I</div><div class="rd"><span class="names"><a href="Jean-du-Chastel-1590-1660.html">Jean du Chastel</a></span><span class="date">~1590 – ~1660 — alliance Cochart, analyses d'archives</span></div></div>
+        <div class="chart-row"><div class="rn">II</div><div class="rd"><span class="names"><a href="jacques-du-chastel.html">Jacques du Chastel</a></span><span class="date">1624 – 1714 — serger et connétable de Reims, actes paroissiaux et descendance</span></div></div>
+      </div>
 
-    <footer>
-        Généalogie Famille du Chastel / Duchastel — Reims (Marne) — Tous droits réservés
-    </footer>
-</div>
+      <div class="callout-next">
+        <b>Cette archive continuera de croître.</b> D'autres documents de famille viendront enrichir ce registre — chaque nouvelle source ajoutera ses actes, portraits et précisions aux générations déjà consignées ici.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Reims (Marne)</span>
+  Généalogie Famille du Chastel / Duchastel — tous droits réservés
+  <div class="contrib">« Des maîtres sergers et bourgeois de Reims à la noblesse de robe. »</div>
+</footer>
 
 </body>
 </html>
