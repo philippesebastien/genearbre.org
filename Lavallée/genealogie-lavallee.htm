@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavallée — Archives généalogiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #f1e8d6;
+    --parchment-deep: #e5d7b7;
+    --ink: #241d13;
+    --ink-soft: #4a4030;
+    --navy: #1c2740;
+    --navy-deep: #131b2d;
+    --burgundy: #7c2331;
+    --gold: #a4802f;
+    --gold-bright: #c79b3f;
+    --rule: rgba(36,29,19,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--gold); color:var(--navy-deep);}
+
+  .eyebrow{
+    font-family:'Cinzel', serif;
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  h1,h2,h3{ font-family:'Cormorant Garamond', serif; font-weight:600; margin:0; color:var(--navy);}
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+    color:var(--parchment);
+    padding:96px 32px 120px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid rgba(199,155,63,0.35);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
+  .seal{
+    width:118px; height:118px; margin:0 auto 30px;
+    position:relative;
+    animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes sealDrop{
+    0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
+    100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
+  }
+  .seal svg{ width:100%; height:100%; }
+  .hero .eyebrow{ color:var(--gold-bright); }
+  .hero h1{
+    font-family:'Cormorant SC', serif;
+    font-size:clamp(52px, 9vw, 96px);
+    color:var(--parchment);
+    letter-spacing:.02em;
+    margin:14px 0 6px;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero .sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(18px,2.6vw,24px);
+    color:#d9c9a3;
+    letter-spacing:.03em;
+  }
+  .hero .rule{
+    width:64px; height:1px; background:var(--gold); margin:26px auto;
+    opacity:.7;
+  }
+  .hero p.lede{
+    max-width:560px; margin:0 auto; color:#cdbfa0; font-size:17px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:8px; }
+  .section-head .eyebrow{ display:block; }
+
+  /* ---------- NARRATIVE ---------- */
+  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
+  .lede-block p:first-child::first-letter{
+    font-family:'Cormorant SC', serif;
+    font-size:64px;
+    float:left;
+    line-height:.8;
+    padding:6px 10px 0 0;
+    color:var(--burgundy);
+  }
+  blockquote{
+    margin:36px 0; padding:22px 28px;
+    border-left:3px solid var(--gold);
+    background:var(--parchment-deep);
+    font-style:italic; color:var(--ink);
+  }
+  blockquote cite{ display:block; margin-top:10px; font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:var(--ink-soft); }
+
+  .figure-note{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
+  }
+  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
+
+  /* ---------- LINEAGE LADDER (signature element) ---------- */
+  .ladder-intro{ margin-bottom:56px; max-width:640px; }
+  .ladder{ position:relative; }
+  .ladder::before{
+    content:""; position:absolute; left:29px; top:8px; bottom:8px; width:1px;
+    background:linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
+  }
+  .rung{
+    position:relative; display:grid; grid-template-columns:60px 1fr; gap:22px;
+    padding:26px 0; border-bottom:1px dashed var(--rule);
+  }
+  .rung:last-child{ border-bottom:none; }
+  .rung .numeral{
+    font-family:'Cormorant SC', serif; font-size:26px; color:var(--navy);
+    width:60px; height:60px; border-radius:50%;
+    background:var(--parchment); border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:1;
+  }
+  .rung.current .numeral{ background:var(--burgundy); color:var(--parchment); border-color:var(--burgundy); }
+  .rung h3{ font-size:23px; color:var(--navy); }
+  .rung .role{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--burgundy); margin:4px 0 8px; }
+  .rung .meta{ font-size:15.5px; color:var(--ink-soft); }
+  .rung .meta b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- GENERATION RECORDS (lecture continue, sans accordéon) ---------- */
+  .gen{
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    margin-bottom:14px; padding:0;
+  }
+  .gen-summary{
+    padding:20px 26px 16px; display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    font-family:'Cormorant Garamond', serif;
+    border-bottom:1px dashed var(--rule);
+  }
+  .gen-summary .tag{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; color:var(--gold); flex-shrink:0; }
+  .gen-summary .name{ font-size:22px; color:var(--navy); flex:1; }
+  .gen-body{ padding:18px 26px 26px; font-size:16px; color:var(--ink-soft); }
+  .gen-body p{ margin:0 0 14px; }
+  .gen-body .children{ margin-top:12px; padding-left:20px; border-left:2px solid var(--rule); }
+  .gen-body .children .child{ margin-bottom:10px; }
+  .gen-body sup.note{ font-size:11px; color:var(--gold); }
+
+  /* ---------- ASCENDANCE / CONVERGENCE CHART ---------- */
+  .chart-wrap{
+    background:var(--navy-deep); color:var(--parchment);
+    padding:48px 40px; position:relative;
+    border:1px solid var(--gold);
+  }
+  .chart-wrap::before, .chart-wrap::after{
+    content:"◆"; color:var(--gold); font-size:12px; position:absolute;
+  }
+  .chart-wrap::before{ top:16px; left:16px; }
+  .chart-wrap::after{ bottom:16px; right:16px; }
+  .chart-title{ text-align:center; font-family:'Cormorant SC',serif; font-size:26px; margin-bottom:6px; }
+  .chart-sub{ text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; color:#c9b98a; margin-bottom:32px; }
+  .chart-row{ display:grid; grid-template-columns:40px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid rgba(199,155,63,0.2); }
+  .chart-row:last-child{ border-bottom:none; }
+  .chart-row .rn{ font-family:'Cormorant SC',serif; color:var(--gold-bright); font-size:18px; }
+  .chart-row .rd{ font-size:15px; }
+  .chart-row .rd .names{ color:var(--parchment); }
+  .chart-row .rd .date{ display:block; font-size:13px; color:#a99a72; margin-top:2px; }
+
+  /* ---------- SOURCES ---------- */
+  .sources ul{ padding-left:20px; color:var(--ink-soft); font-size:15px; }
+  .sources li{ margin-bottom:10px; }
+
+  footer{
+    background:var(--navy-deep); color:#a99a72; text-align:center;
+    padding:56px 32px 40px; font-size:14px;
+  }
+  footer .eyebrow{ display:block; margin-bottom:10px; }
+  footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
+
+  .callout-next{
+    margin-top:60px; padding:24px 28px; border:1px dashed var(--gold);
+    background:var(--parchment-deep); font-size:15.5px; color:var(--ink-soft);
+  }
+  .callout-next b{ color:var(--navy); }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .rung{ grid-template-columns:44px 1fr; gap:14px; }
+    .rung .numeral{ width:44px; height:44px; font-size:19px; }
+    .chart-wrap{ padding:32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="seal" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">LA</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">VALLÉE</text>
+    </svg>
+  </div>
+  <span class="eyebrow">Familles Lavallée · Bergeron · Janelle — Vallée du Saint-Laurent</span>
+  <h1>Lavallée</h1>
+  <p class="sub">De la Nouvelle-France jusqu'à Gilles et Ginette</p>
+  <div class="rule"></div>
+  <p class="lede">Une archive généalogique bâtie à partir des registres compilés dans le projet « Généalogie Bergeron » (mamieblue.ca), retraçant les ancêtres de Gilles Lavallée et de son épouse Ginette Paul Hus.</p>
+</header>
+
+<main>
+
+  <!-- ===================== NARRATIVE ===================== -->
+  <section id="histoire">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Origines</span>
+        <h2>Une famille de la vallée du Saint-Laurent</h2>
+      </div>
+      <div class="lede-block">
+        <p>Le patronyme Lavallée illustre bien une pratique courante dans la vallée du Saint-Laurent aux XVII<sup>e</sup> et XVIII<sup>e</sup> siècles&nbsp;: le « nom dit ». Le porteur le plus ancien retrouvé dans cette lignée, <b>Louis Vallée</b>, était déjà connu sous le surnom de <em>« dit Lavallée »</em>, surnom que sa descendance a fini par adopter comme nom de famille à part entière.</p>
+        <p>C'est de cette souche que descend, plusieurs générations plus tard, <b>Gilles Lavallée</b> (1941–2020), fils de Pierre Lavallée (1906–1991) et de Simone Bergeron (1906–1998), et époux de <b>Ginette Paul Hus</b>. En remontant les registres, on retrouve d'ailleurs, plus haut dans l'arbre, une certaine <em>Catherine Paul-Hus</em> (née en 1817) — un nom qui refait surface au fil des générations, sans qu'un lien de parenté avec la famille de Ginette n'ait été établi ici.</p>
+      </div>
+
+      <div class="figure-note">
+        <span class="mark">§</span>
+        <div>En reconstituant séparément la branche paternelle (Lavallée) et la branche maternelle (Bergeron) de Gilles, les deux chemins se rejoignent de façon inattendue quatre générations plus haut, chez un même couple d'ancêtres&nbsp;: <b>Antoine Lavallée</b> (1782–1850) et <b>Judith Dufault</b> (1788–1867). Pierre Lavallée et Simone Bergeron seraient donc, selon cette généalogie, cousins au troisième degré. Le détail de cette rencontre de lignées est présenté plus bas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LADDER: LIGNÉE BERGERON ===================== -->
+  <section id="lignee-bergeron">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">La lignée maternelle</span>
+        <h2>De Michel Bergeron à Gilles Lavallée</h2>
+      </div>
+      <p class="ladder-intro" style="color:var(--ink-soft)">Le nom Bergeron se transmet de père en fils pendant six générations, avant de passer aux Lavallée avec le mariage de Simone Bergeron et de Pierre Lavallée. Voici les sept porteurs successifs de la lignée directe, tels que documentés sur mamieblue.ca.</p>
+
+      <div class="ladder">
+
+        <div class="rung">
+          <div class="numeral">I</div>
+          <div>
+            <h3>Michel Bergeron</h3>
+            <div class="role">Souche familiale</div>
+            <div class="meta">Marié à <b>Marie Josephe Masson Barnabe</b>. Dates non documentées.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">II</div>
+          <div>
+            <h3>Michel Bergeron</h3>
+            <div class="role">18 juillet 1764 – 1<sup>er</sup> novembre 1846</div>
+            <div class="meta">Marié à <b>Rosalie Lasiseraie</b> (1<sup>er</sup> janvier 1777 – 10 novembre 1861).</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">III</div>
+          <div>
+            <h3>Ignace Bergeron</h3>
+            <div class="role">26 mars 1807 – 12 avril 1890</div>
+            <div class="meta">Marié à <b>Christine Ethier</b> (6 janvier 1817 – 10 février 1888). Dix-sept enfants, dont Jean-Baptiste, qui suit.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">IV</div>
+          <div>
+            <h3>Jean-Baptiste Bergeron</h3>
+            <div class="role">16 mars 1843 – 12 décembre 1924</div>
+            <div class="meta">Marié à <b>Sophie Bergeron</b> (9 octobre 1845 – 28 mars 1920), fille de Pierre Bergeron et Emilie Eleonore Lavallee. Dix enfants, dont Felix Simon, qui suit.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">V</div>
+          <div>
+            <h3>Felix Simon Bergeron</h3>
+            <div class="role">30 août 1879 – 4 janvier 1950</div>
+            <div class="meta">Marié à <b>Julie Anne Janelle</b> (5 mars 1884 – 10 janvier 1957), fille d'Athanase Antoine Janelle et Marie Julie Caya. Douze enfants, dont Simone, qui suit.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">VI</div>
+          <div>
+            <h3>Simone Bergeron</h3>
+            <div class="role">13 avril 1906 – 29 mars 1998 · le nom passe aux Lavallée</div>
+            <div class="meta">Épouse <b>Pierre Lavallée</b> (11 juin 1906 – 9 septembre 1991), fils de David Lavallée et Elizabeth Plante. Cinq enfants, dont Gilles, qui suit.</div>
+          </div>
+        </div>
+
+        <div class="rung current">
+          <div class="numeral">VII</div>
+          <div>
+            <h3>Gilles Lavallée</h3>
+            <div class="role">1941 – 2020</div>
+            <div class="meta">Épouse <b>Ginette Paul Hus</b>.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GEN RECORDS: BRANCHE LAVALLÉE ===================== -->
+  <section id="lavallee">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">La branche paternelle</span>
+        <h2>Les Lavallée, de Joseph à Gilles</h2>
+      </div>
+      <div class="lede-block">
+        <p>Le nom Lavallée lui-même remonte, dans les registres consultés, à Joseph Lavallée, dont l'ascendance n'a pas été retracée au-delà de son propre couple. C'est par la mère de David Lavallée — Marie Farly — que l'on rejoint la branche des Vallée dit Lavallée et son origine au XVIII<sup>e</sup> siècle.</p>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 1</span><span class="name">Gilles Lavallée &amp; Ginette Paul Hus</span></div>
+        <div class="gen-body">
+          <p>1941 – 2020. Fils de Pierre Lavallée et Simone Bergeron.</p>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 2</span><span class="name">Pierre Lavallée &amp; Simone Bergeron</span></div>
+        <div class="gen-body">
+          <p>Pierre Lavallée, né le 11 juin 1906, décédé le 9 septembre 1991. Épouse Simone Bergeron, née le 13 avril 1906, décédée le 29 mars 1998. Fils de David Lavallée et Elizabeth Plante.</p>
+          <div class="children">
+            <div class="child">2.1 <b>Gilles Lavallée</b> (1941–2020) — voir génération 1.</div>
+            <div class="child">2.2–2.5 Quatre autres enfants (données non détaillées sur la page source).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 3</span><span class="name">David Lavallée &amp; Elizabeth Plante</span></div>
+        <div class="gen-body">
+          <p>David Lavallée, décédé le 21 novembre 1952 (date de naissance non documentée). Épouse Elizabeth Plante, née le 4 février 1880, décédée en 1968 — dont l'ascendance n'a pas été retracée plus haut.</p>
+          <div class="children">
+            <div class="child">3.1 <b>Pierre Lavallée</b> — voir génération 2.</div>
+            <div class="child">3.2 Jean-Baptiste Lavallée</div>
+            <div class="child">3.3 Louis Lavallée</div>
+            <div class="child">3.4 Simon Lavallée</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 4</span><span class="name">David Lavallée &amp; Marie Farly</span></div>
+        <div class="gen-body">
+          <p>Dates non documentées. Parents de David Lavallée (génération 3).</p>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 5</span><span class="name">Joseph Lavallée &amp; Basilice Letendre</span></div>
+        <div class="gen-body">
+          <p>Dates non documentées. Parents de David Lavallée (génération 4) — l'ascendance Lavallée proprement dite n'a pas été retracée au-delà de ce couple.</p>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 5</span><span class="name">Antoine Lavallée &amp; Catherine Paul-Hus</span></div>
+        <div class="gen-body">
+          <p>Antoine Lavallée, né le 24 janvier 1815, décédé le 11 octobre 1876. Épouse Catherine Paul-Hus, née le 1<sup>er</sup> décembre 1817 (date de décès non documentée). Parents de Marie Farly (génération 4).</p>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 6</span><span class="name">Antoine Lavallée &amp; Judith Dufault</span></div>
+        <div class="gen-body">
+          <p>Antoine Lavallée, né le 13 mars 1782, décédé le 5 octobre 1850. Épouse Judith Dufault, née le 23 septembre 1788, décédée le 13 mars 1867. Parents d'Antoine Lavallée (génération 5) — et, comme on le verra plus loin, ancêtres communs avec la branche Bergeron.</p>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 7</span><span class="name">Louis Vallée (dit Lavallée) &amp; Louise Michelle Despins</span></div>
+        <div class="gen-body">
+          <p>Dates non documentées. Parents d'Antoine Lavallée (génération 6) — le porteur le plus ancien du surnom « dit Lavallée » retrouvé dans cette lignée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONVERGENCE DES DEUX LIGNÉES ===================== -->
+  <section id="convergence">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Une rencontre inattendue</span>
+        <h2>Quand les deux lignées se rejoignent</h2>
+      </div>
+      <div class="lede-block">
+        <p>La branche paternelle de Gilles Lavallée (par Marie Farly) et la branche maternelle de Gilles (par Emilie Eleonore Lavallee, arrière-grand-mère de Simone Bergeron) remontent, indépendamment l'une de l'autre, jusqu'au même couple&nbsp;: <b>Antoine Lavallée</b> (1782–1850) et <b>Judith Dufault</b> (1788–1867). Leurs deux enfants, Antoine (1815–1876) et Emilie Eleonore (1816–1883), nés à un an d'intervalle, ont chacun fondé l'une des deux branches qui se retrouveraient, quatre générations plus tard, dans le mariage de Pierre Lavallée et Simone Bergeron.</p>
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-title">Deux chemins, un même couple</div>
+        <div class="chart-sub">d'Antoine Lavallée &amp; Judith Dufault à Gilles Lavallée</div>
+
+        <div class="chart-row"><div class="rn">•</div><div class="rd"><span class="names">Antoine Lavallée &amp; Judith Dufault</span><span class="date">1782–1850 / 1788–1867 — ancêtres communs</span></div></div>
+        <div class="chart-row"><div class="rn">↙</div><div class="rd"><span class="names">Antoine Lavallée &amp; Catherine Paul-Hus</span><span class="date">1815–1876 — branche paternelle</span></div></div>
+        <div class="chart-row"><div class="rn">↘</div><div class="rd"><span class="names">Emilie Eleonore Lavallee &amp; Pierre Bergeron</span><span class="date">1816–1883 — branche maternelle</span></div></div>
+        <div class="chart-row"><div class="rn">↓</div><div class="rd"><span class="names">Marie Farly &amp; David Lavallée</span><span class="date">branche paternelle</span></div></div>
+        <div class="chart-row"><div class="rn">↓</div><div class="rd"><span class="names">Sophie Bergeron &amp; Jean-Baptiste Bergeron</span><span class="date">1845–1920 — branche maternelle</span></div></div>
+        <div class="chart-row"><div class="rn">↓</div><div class="rd"><span class="names">David Lavallée &amp; Elizabeth Plante</span><span class="date">–1952 / 1880–1968 — branche paternelle</span></div></div>
+        <div class="chart-row"><div class="rn">↓</div><div class="rd"><span class="names">Felix Simon Bergeron &amp; Julie Anne Janelle</span><span class="date">1879–1950 / 1884–1957 — branche maternelle</span></div></div>
+        <div class="chart-row"><div class="rn">↘</div><div class="rd"><span class="names">Pierre Lavallée</span><span class="date">1906–1991</span></div></div>
+        <div class="chart-row"><div class="rn">↙</div><div class="rd"><span class="names">Simone Bergeron</span><span class="date">1906–1998 — les deux branches se rejoignent</span></div></div>
+        <div class="chart-row"><div class="rn">★</div><div class="rd"><span class="names">Gilles Lavallée &amp; Ginette Paul Hus</span><span class="date">1941–2020</span></div></div>
+      </div>
+
+      <div class="callout-next">
+        <b>À prendre avec la prudence de circonstance.</b> Cette convergence repose sur les liens de filiation tels qu'indiqués sur mamieblue.ca ; le nom de famille de Marie Farly, distinct de celui de son père documenté (Lavallée), n'a pas pu être expliqué à partir des seules pages consultées. D'autres documents pourraient préciser ou nuancer ce rapprochement.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AUTRES BRANCHES DOCUMENTÉES ===================== -->
+  <section id="autres-branches">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Pour aller plus loin</span>
+        <h2>Autres branches documentées</h2>
+      </div>
+      <div class="lede-block">
+        <p>La page source retrace encore plus haut plusieurs des familles ci-dessus, jusqu'au milieu du XVIII<sup>e</sup> siècle. En voici un aperçu, par couple d'ancêtres, pour qui souhaite pousser la recherche sur mamieblue.ca.</p>
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-title">Ancêtres complémentaires</div>
+        <div class="chart-sub">branches Bergeron, Ethier, Janelle et Caya</div>
+
+        <div class="chart-row"><div class="rn">·</div><div class="rd"><span class="names">Pierre Ethier &amp; Marguerite Tessier</span><span class="date">1769–1828 / 1787–1843 — parents de Christine Ethier</span></div></div>
+        <div class="chart-row"><div class="rn">·</div><div class="rd"><span class="names">Joseph Bergeron &amp; Genevieve Antaya</span><span class="date">1773–1857 / 1779–1852 — parents de Pierre Bergeron</span></div></div>
+        <div class="chart-row"><div class="rn">·</div><div class="rd"><span class="names">Athanase Antoine Janelle &amp; Marie Julie Caya</span><span class="date">1850–1945 / 1849–1925 — parents de Julie Anne Janelle</span></div></div>
+        <div class="chart-row"><div class="rn">·</div><div class="rd"><span class="names">Jean Baptiste Janelle &amp; Josephte Barnabe Martin</span><span class="date">1809–1891 / 1816–1877 — parents d'Athanase Antoine Janelle</span></div></div>
+        <div class="chart-row"><div class="rn">·</div><div class="rd"><span class="names">Pierre Caya &amp; Julie Bertrand</span><span class="date">1807–1883 / 1813–1879 — parents de Marie Julie Caya</span></div></div>
+        <div class="chart-row"><div class="rn">·</div><div class="rd"><span class="names">Jean-Baptiste Dufault Raclos &amp; Marie Josephe (Josette) Rajotte</span><span class="date">dates non documentées — parents de Judith Dufault</span></div></div>
+      </div>
+
+      <div class="callout-next">
+        <b>Cette archive continuera de croître.</b> D'autres pages du même registre (mamieblue.ca) remontent encore plus loin sur certaines de ces branches — jusque dans les années 1770 pour les Janelle, Caya et Bertrand.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOURCES ===================== -->
+  <section class="sources" id="sources">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Provenance</span>
+        <h2>Sources</h2>
+      </div>
+      <ul>
+        <li>« Généalogie Bergeron — Public », arbre ascendant, <a href="https://www.mamieblue.ca/Web_Bergerm/pc01/pc01_319.htm" target="_blank" rel="noopener">mamieblue.ca</a> — fiche de départ pour les ancêtres de Pierre Lavallée et Simone Bergeron.</li>
+        <li>Fiche individuelle de David Lavallée, <a href="https://www.mamieblue.ca/Web_Bergerm/pc09/pc09_313.htm" target="_blank" rel="noopener">mamieblue.ca</a>.</li>
+        <li>Fiche individuelle d'Elizabeth Plante, <a href="https://www.mamieblue.ca/Web_Bergerm/pc09/pc09_314.htm" target="_blank" rel="noopener">mamieblue.ca</a>.</li>
+        <li>Fiche individuelle de Felix Simon Bergeron, <a href="https://www.mamieblue.ca/Web_Bergerm/pc01/pc01_007.htm" target="_blank" rel="noopener">mamieblue.ca</a>.</li>
+        <li>Fiche individuelle de Julie Anne Janelle, <a href="https://www.mamieblue.ca/Web_Bergerm/pc01/pc01_008.htm" target="_blank" rel="noopener">mamieblue.ca</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Généalogie Bergeron — Public</span>
+  Archives Lavallée — compilées à partir de mamieblue.ca
+  <div class="contrib">« De Joseph Lavallée à Gilles, en passant par les Bergeron et les Janelle — une famille de la vallée du Saint-Laurent. »</div>
+</footer>
+
+</body>
+</html>
