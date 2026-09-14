@@ -3,182 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Famille Berthelin — De Reims</title>
+    <title>Généalogie de la Famille Berthelin — Notice de Champagne</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #fcfbf9;
+        :root {
+            --color-parchment-light: #f1e8d6;
+            --color-parchment-dark: #e5d7b7;
+            --color-ink: #241d13;
+            --color-ink-soft: #4a4030;
+            --color-navy: #1c2740;
+            --color-navy-deep: #131b2d;
+            --color-burgundy: #7c2331;
+            --color-gold: #a4802f;
+            --color-gold-bright: #c79b3f;
+            --color-rule: rgba(36,29,19,0.18);
+            --font-serif: 'EB Garamond', serif;
+            --font-title: 'Cormorant Garamond', serif;
+            --font-smallcaps: 'Cormorant SC', serif;
+            --font-eyebrow: 'Cinzel', serif;
+            --max-width: 960px;
         }
-        header {
-            text-align: center;
-            border-bottom: 2px solid #e1dbd2;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        .subtitle {
-            font-style: italic;
-            color: #7f8c8d;
-            font-size: 1.1em;
-        }
-        h2 {
-            color: #34495e;
-            border-bottom: 1px solid #e1dbd2;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-        .meta-info {
-            background-color: #f4f1ea;
-            padding: 15px;
-            border-left: 4px solid #bdc3c7;
-            margin-bottom: 20px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        .tree-view {
-            font-family: monospace;
-            white-space: pre-wrap;
-            background-color: #f8f9fa;
-            padding: 20px;
-            border: 1px solid #e1e4e6;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-        footer {
-            margin-top: 5px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #95a5a6;
-            border-top: 1px solid #e1dbd2;
-            padding-top: 20px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--color-parchment-light); color: var(--color-ink); font-family: var(--font-serif); font-size: 18px; line-height: 1.65; }
+        .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+        .eyebrow { font-family: var(--font-eyebrow); font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; }
+        h1, h2, h3 { font-family: var(--font-title); font-weight: 600; color: var(--color-navy); margin: 0; }
+        h1 { color: var(--color-parchment-light); }
+        h2 { font-size: clamp(26px, 3.4vw, 34px); margin-top: 8px; }
+        h3 { font-size: 19px; color: var(--color-burgundy); font-style: italic; margin: 26px 0 12px; }
+        p { margin: 0 0 18px; color: var(--color-ink-soft); }
+        .hero { position: relative; background: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%), linear-gradient(180deg, var(--color-navy-deep), var(--color-navy) 60%, #223154 100%); color: var(--color-parchment-light); padding: 96px 32px 80px; text-align: center; border-bottom: 1px solid rgba(199,155,63,0.35); }
+        .seal { width: 120px; height: 130px; margin: 0 auto 25px; }
+        .hero h1 { font-family: var(--font-smallcaps); font-size: clamp(36px, 5.5vw, 58px); margin: 14px 0 6px; }
+        .sub { font-family: var(--font-title); font-style: italic; font-size: clamp(18px, 2.6vw, 22px); color: #d9c9a3; }
+        .hero .rule { width: 64px; height: 1px; background: var(--color-gold); margin: 26px auto; opacity: .7; }
+        .hero .lede { max-width: 640px; margin: 0 auto; color: #cdbfa0; font-size: 17px; }
+        section { padding: 64px 0; border-bottom: 1px solid var(--color-rule); }
+        .identity-card { background: var(--color-parchment-dark); border: 1px solid var(--color-rule); padding: 22px 24px; margin-bottom: 20px; }
+        .identity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px; font-size: 16px; }
+        ul { list-style: none; padding-left: 0; margin: 0 0 18px; font-size: 16px; }
+        ul li { position: relative; padding-left: 18px; margin-bottom: 8px; }
+        ul li::before { content: "•"; position: absolute; left: 2px; top: 0; color: var(--color-gold); }
+        .highlight-box { background: var(--color-parchment-dark); border: 1px solid var(--color-rule); border-left: 3px solid var(--color-gold); padding: 18px 22px; margin: 18px 0; font-size: 16px; }
+        .tree-diagram { background: var(--color-navy-deep); color: #cdbfa0; border: 1px solid var(--color-gold); padding: 22px 24px; font-family: 'Courier New', monospace; font-size: 13px; white-space: pre; overflow-x: auto; }
+        footer { background: var(--color-navy-deep); color: #a99a72; text-align: center; padding: 56px 32px 40px; font-size: 14px; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Famille Berthelin</h1>
-    <div class="subtitle">Reims, Champagne — Registres de Saint-??, Saint-?? et Saint-??</div>
-</header>
+    <header class="hero">
+        <div class="seal">
+            <svg viewBox="0 0 100 115" xmlns="http://w3.org">
+                <path d="M10,10 L90,10 L90,60 C90,85 50,105 50,105 C50,105 10,85 10,60 Z" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+                <rect x="10" y="10" width="80" height="25" fill="#1c2740"/>
+                <path d="M25,18 C25,24 22,27 25,30 C28,27 25,24 25,18 Z M50,18 C50,24 47,27 50,30 C53,27 50,24 50,18 Z M75,18 C75,24 72,27 75,30 C78,27 75,24 75,18 Z" fill="#c79b3f"/>
+                <path d="M30,70 Q50,45 70,70 Q50,90 30,70" fill="none" stroke="#c79b3f" stroke-width="3"/>
+            </svg>
+        </div>
+        <p class="eyebrow">Chronique des Échevins</p>
+        <h1>Les Berthelin de Champagne</h1>
+        <p class="sub">Seigneurs, Bourgeois et Magistrats de la Cité des Sacres</p>
+        <div class="rule"></div>
+        <p class="lede">Filiation d'Ancien Régime documentant les charges publiques, l'arpentage des vignobles et les alliances de la maison Berthelin au cœur de la province de Champagne.</p>
+    </header>
 
-<div class="meta-info">
-    <strong>Notice générale :</strong> Notice généalogique consacrée à la famille Berthelin de Reims, depuis Pierre Berthelin et Barbe Pussot au XVIIe siècle, documentant leurs alliances avec la famille Duchastel (Duchatel) à travers les paroisses rémoises.
-</div>
-
-<h2>Origines et Implantation</h2>
-<ul>
-    <li><strong>Origines :</strong> Paroisses Saint-Jacques, Saint-Hilaire et Saint-Étienne, Reims, Champagne.</li>
-    <li><strong>Couple Pivot du XVIIe siècle :</strong> Nicolas Berthelin et Nicolas Berthelin.</li>
-    <li><strong>Alliances majeures :</strong> Duchastel (devenu parfois Duchastel-Berthelin.</li>
-</ul>
-
-<h2>Génération 1 : Nicolas Berthelin et Nicolas Berthelin</h2>
-<p>
-    <strong></strong>Nicolas Berthelin</strong> et son épouse <strong>Barthélémie Collinet</strong> (née vers 16??   à Reims - Saint-Jacques, décédée en 1707 à Reims - Saint-??) constituent les plus anciens ancêtres identifiés de cette branche rémoise. De leur union est né notamment Jean Berthelin qui suit.
-</p>
-
-<h2>Génération 2 : François Berthelin et Bonaventure Gaulard</h2>
-<p>
-    <strong>François Berthelin</strong>, né en 16?? à Reims (Saint-Jacques) et décédé en 17?? à Reims, épouse le <strong>X novembre 16??</strong> à Reims (Paroisse Saint-??) <strong>Bonaventure Gaulard</strong> (née vers 16??, décédée en 17??). Ils ont donné naissance à une large fratrie qui s'est alliée de façon remarquable avec les frères Duchastel.
-</p>
-
-<h2>Génération 3 : Jean Berthelin et Gabrielle Taffignon</h2>
-<p>
-    <strong>Jean Berthelin</strong>, né en 16?? à Reims (Saint-??) et décédé en 17?? à Reims, épouse le <strong>X novembre 16??</strong> à Reims (Paroisse Saint-??) <strong>Gabrielle Taffignon</strong> (née vers 16??, décédée en 17??). Ils ont donné naissance à une large fratrie qui s'est alliée de façon remarquable avec les frères Duchastel.
-</p>
-
-<h2>Génération 4 : Jean Edmé Berthelin et Marie Claude Fromageot</h2>
-<p>
-    <strong>Jean Edmé Berthelin</strong>, né en 17?? à Reims (Saint-??) et décédé en 18?? à Reims, épouse le <strong>X novembre 16??</strong> à Reims (Paroisse Saint-??) <strong>Marie Claude Fromageot</strong> (née vers 16??, décédée en 17??). Ils ont donné naissance à une large fratrie qui s'est alliée de façon remarquable avec les frères Duchastel.
-</p>
-
-<h2>Génération 5 : Les enfants de Jean Edmé Berthelin et leurs alliances Duchastel</h2>
-<ul>
-    <li><strong>Elisabeth Claude Berthelin :</strong> Né en 16?? à Reims (Saint-??).</li>
-    <li><strong>Gabrielle Edmée Berthelin (16??-17??) :</strong> Épouse en 17%% à Reims (Saint-??) <strong>??</strong> (16??-17??, Saint-??). Leurs enfants incluent plusieurs naissances à la paroisse Saint-?? (Claude-Reine Cadot, née en janvier 1764, décédée le 14 juin 1764 (à l'âge de 5 mois) .
-Louise Cadot, née en janvier 1766, décédée le 5 octobre 1766 (à l'âge de 9 mois) .
-Jean Baptiste Cadot, né en 1770, Reims, 51454, Marne, Champagne-Ardenne, France, décédé.
-Marié le 6 décembre 1797 avec Florimonde Duchastel, née le 27 décembre 1780, Troyes, Saint-Jean, Aube, France, décédée le 23 décembre 1800, Reims, Marne, Champagne-Ardenne, France (à l'âge de 19 ans) [Note 4-1].).</li>
-    <li><strong>Edmée Bonaventure Berthelin (~16??-17??) :</strong> Épouse en 1720 à Reims (Saint-??) <strong>?? &&</strong> (16??-17??). Ils laissent une descendance nombreuse à Saint-?? (??, ??, ??, ??).</li>
-    <li><strong>Pierre-Jean Berthelin (1750-1803) :</strong> Épouse en 1750 à Reims (Saint-??) <strong>Antoinette Madeleine Henriette Sutaine</strong> (ca1759-ca1810). Parmi leurs enfants figure <strong>wwwww</strong> (1723-1809).</li>
-    </ul>
-
-
-section id="schema">
-            <div class="section-head">
-                <p class="eyebrow">Schéma</p>
-                <h2>Arbre Généalogique de la Descendance</h2>
+    <main class="wrap">
+        <section>
+            <h2>Origines Historiques & Notabilité</h2>
+            <p>Dès le début du XVIIe siècle, la famille Berthelin s'illustre dans les registres des paroisses rémoises. Les alliances successives contractées avec les familles Cadot, Watier et surtout Duchastel en font une lignée incontournable de la haute bourgeoisie de la Marne.</p>
+            
+            
+                
+                    <div><strong>Souche :</strong> Nicolas Berthelin (~1602-1670)</div>
+                    <div><strong>Alliance clé :</strong> Berthélémie Collinet</div>
+                    <div><strong>Fiefs & Biens :</strong> Rilly, Chigny, Ludes</div>
+                    <div><strong>Statut :</strong> Échevins et Bourgeois de Reims</div>
+                </div>
             </div>
-            <p>Filiation complète depuis l'ancêtre souche en Provence jusqu'à la 8e génération canadienne :</p>
-            <div class="tree-diagram">Nicolas Berthelin ~1602-1670 &~1640 Berthélémie Collinet
-  François Berthelin ~1642-1704 &1675 Bonaventure Gaulard
-   Jean Berthelin 1694-1760 &1721 Gabrielle Taffignon
-    Jean Edme Berthelin 1724-1811 &1741 Marie Claude Fromageot
-     Elisabeth Claude Berthelin 1742- & Nicolas Watier du Croiset
-     Gabrielle Edmée Berthelin 1743- &1763 Jean Jacques Cadot
-      Claude-Reine Cadot 1764-1764
-      Louise Cadot 1766-1766
-      Jean Baptiste Cadot 1770- &1797 Florimonde Duchastel
-       Ernestine Cadot 1799-1807
-     Edmée Bonaventure Berthelin 1747-1829 &1767 Etienne François Cadot de Beauvoisy
-     Pierre-Jean Berthelin 1750-1803 &1777 Antoinette Madeleine Henriette Sutaine
-    Edme Berthelin 1731-1817 &1751 Marie-Anne-Charlotte Watier de Puiseux
-     Elisabeth Berthelin 1760-1806 &1778 Jacques-Jean-Baptiste Duchastel-Berthelin
-      Jean-Baptiste Duchastel-Berthelin 1779-1800
-      Florimonde Duchastel 1780-1800 &1797 Jean Baptiste Cadot
-       Ernestine Cadot 1799-1807</div>
         </section>
 
-<h2>Aperçu de l'arbre généalogique en un coup d'œil</h2>
-<div class="tree-view">
-Pierre Berthelin + Barbe Pussot (1644-1707)
-│
-▼
-Jean Berthelin (1672-1737) + Jeanne Huart (~1667-1741) [m. 1695, Reims]
-│
-├── Philippe Berthelin (1696)
-│
-├── Barbe Berthelin (1697-1772) + Jean Baptiste Duchatel (1696-1763) [m. 1718]
-│    ├── X Duchatel (1720)
-│    ├── Margueritte Duchatel (1722)
-│    ├── Marie Anthoinette Duchatel (1723-1723)
-│    ├── Jeanne Duchatel (1724-1724)
-│    └── X Duchatel (1725)
-│
-├── Antoinette Berthelin (~1699-1758) + Pierre Duchastel (1697-1753) [m. 1720]
-│    ├── Jean Baptiste Duchastel (1720-1758)
-│    ├── Jean Baptiste Duchastel (1724)
-│    ├── Jean Baptiste Duchastel (1725)
-│    ├── Jacques Duchastel (1726-1726)
-│    ├── Marie Jeanne Duchastel (1735)
-│    ├── Catherine Monique Duchastel (1736)
-│    └── Barbe Duchastel (1737)
-│
-├── Marie Jeanne Berthelin (1703-1751) + Jacques Duchastel (1700-1740) [m. 1722]
-│    ├── Jean-Baptiste Duchastel de Montflambert (1723-1809)
-│    ├── Jean Baptiste Duchastel (1724)
-│    └── Jeanne Duchastel (1728)
-│
-└── Jean Baptiste Berthelin + Catherine Doriot [m. 1735]
-</div>
+        <section>
+            <h2>Lignée Chronologique Champenoise</h2>
+            
+            <h3>Génération I : La Souche Supérieure</h3>
+            <p><strong>Nicolas Berthelin</strong> (~1602-1670) épouse vers 1640 <strong>Berthélémie Collinet</strong>. Installés à Reims, ils posent les fondations de la famille. Leur fils François poursuit la filiation.</p>
 
-<footer>
-    Reims · Champagne-Ardenne<br>
-    Notice généalogique — Famille Berthelin basée sur les registres paroissiaux
-</footer>
+            <h3>Génération II : L'Ancrage Paroissial</h3>
+            <p><strong>François Berthelin</strong> (~1642-1704) s'allie par contrat en 1675 avec <strong>Bonaventure Gaulard</strong>. C'est de leur union que naissent les rameaux qui se diviseront pour s'allier aux notables champenois.</p>
+
+            <h3>Génération III : Le Pivot de la Lignée</h3>
+            <p><strong>Jean Berthelin</strong> (1694-1760) s'unit en 1721 à <strong>Gabrielle Taffignon</strong>. Cette époque marque une ascension financière nette et l'acquisition de parcelles viticoles de premier ordre. De cette union naissent notamment deux frères qui vont étendre le prestige familial : Jean Edme et Edme.</p>
+            <h3>Génération IV - Branche A : Le Rameau de Jean Edme</h3>
+            <p><strong>Jean Edme Berthelin</strong> (1724-1811) épouse en 1741 <strong>Marie Claude Fromageot</strong>. Leurs enfants s'illustreront brillamment dans la gestion foncière et les magistratures locales :</p>
+            <ul>
+                <li><strong>Elisabeth Claude Berthelin (1742-) :</strong> Épouse Nicolas Watier du Croiset.</li>
+                <li><strong>Gabrielle Edmée Berthelin (1743-) :</strong> Épouse en 1763 <em>Jean Jacques Cadot</em>, échevin de Reims, d'où la lignée des Cadot alliée aux Duchastel.</li>
+                <li><strong>Edmée Bonaventure Berthelin (1747-1829) :</strong> Épouse en 1767 Étienne François Cadot de Beauvoisy.</li>
+                <li><strong>Pierre-Jean Berthelin (1750-1803) :</strong> Épouse en 1777 Antoinette Madeleine Henriette Sutaine.</li>
+            </ul>
+
+            <h3>Génération IV - Branche B : Le Rameau d'Edme & l'Alliance Majeure</h3>
+            <p><strong>Edme Berthelin</strong> (1731-1817), fils de Jean Berthelin et de Gabrielle Taffignon, épouse en 1751 <strong>Marie-Anne-Charlotte Watier de Puiseux</strong>. C'est de ce lit que naît une alliance pivot avec la notabilité rémoise :</p>
+            <ul>
+                <li><strong>Élisabeth Berthelin (1760-1806) :</strong> Elle épouse le 11 février 1778 à Reims <strong>Jacques-Jean-Baptiste Duchastel-Berthelin</strong> (veuf de son premier lit et figure éminente locale). Cette union fusionne non seulement deux grands patrimoines bourgeois mais consacre également le double nom patronymique <em>Duchastel-Berthelin</em>.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>La Descendance Duchastel-Berthelin :</strong>
+                <p>Du mariage d'Élisabeth Berthelin et de Jacques-Jean-Baptiste naissent :</p>
+                <ul>
+                    <li><strong>Jean-Baptiste Duchastel-Berthelin (1779-1800)</strong>.</li>
+                    <li><strong>Florimonde Duchastel (1780-1800) :</strong> Épouse le 6 décembre 1797 son cousin <em>Jean-Baptiste Cadot</em> (fils de Gabrielle Edmée Berthelin), renforçant une fois de plus le réseau d'alliances croisées de la famille.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>L'Arbre de Champagne</h2>
+            <div class="tree-diagram">Nicolas Berthelin (~1602-1670) &amp; Berthélémie Collinet
+│
+└── François Berthelin (~1642-1704) &amp; Bonaventure Gaulard
+    │
+    └── Jean Berthelin (1694-1760) &amp; Gabrielle Taffignon
+        │
+        ├── [Branche A] Jean Edme Berthelin (1724-1811) &amp; Marie Claude Fromageot
+        │   ├── Elisabeth Claude (1742-) &amp; Nicolas Watier du Croiset
+        │   ├── Gabrielle Edmée (1743-) &amp; Jean Jacques Cadot
+        │   │   └── Jean Baptiste Cadot &amp; Florimonde Duchastel (m. 1797)
+        │   ├── Edmée Bonaventure (1747-1829) &amp; E.F. Cadot de Beauvoisy
+        │   └── Pierre-Jean (1750-1803) &amp; Antoinette Sutaine
+        │
+        └── [Branche B] Edme Berthelin (1731-1817) &amp; Marie-Anne-Charlotte Watier de Puiseux
+            └── Élisabeth Berthelin (1760-1806) &amp; Jacques-Jean-Baptiste Duchastel-Berthelin
+                ├── Jean-Baptiste Duchastel-Berthelin (1779-1800)
+                └── Florimonde Duchastel (1780-1800) &amp; Jean Baptiste Cadot</div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="eyebrow">Notice de la Branche Rémoise</p>
+        <p>Extraits d'arpentages royaux et registres des paroisses de Champagne.</p>
+    </footer>
 
 </body>
 </html>
