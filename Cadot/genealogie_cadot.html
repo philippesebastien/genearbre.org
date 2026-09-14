@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Généalogie de la famille Cadot</title>
+<style>
+  :root {
+    --bordeaux: #6b1f2a;
+    --bordeaux-dark: #4a1620;
+    --cream: #f7f3ec;
+    --gold: #b08d57;
+    --ink: #2c2620;
+    --line: #ddd3c2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff;
+    padding: 60px 20px 50px;
+    text-align: center;
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 2.3em; letter-spacing: 1px; }
+  .hero p.subtitle { margin: 0; font-style: italic; color: var(--cream); opacity: 0.9; font-size: 1.1em; }
+  .container { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+  h2.section-title {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--bordeaux); font-size: 1.5em;
+    border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 55px;
+  }
+  h2.section-title .num {
+    background: var(--bordeaux); color: #fff; width: 34px; height: 34px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.55em; flex-shrink: 0;
+  }
+  p { text-align: justify; }
+  .identity-card {
+    background: #fff; border-left: 5px solid var(--bordeaux); border-radius: 4px;
+    padding: 20px 26px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .identity-card h3 { margin-top: 0; color: var(--bordeaux-dark); font-size: 1.3em; }
+  .identity-card .surnom { font-style: italic; color: #7a6f5e; font-size: 0.95em; margin-top: -8px; }
+  .identity-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 24px;
+    margin: 14px 0; font-size: 0.97em;
+  }
+  .identity-grid .label { color: var(--gold); font-weight: bold; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+  .highlight-box {
+    background: #fdf6e8; border: 1px solid var(--gold); border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .highlight-box strong { color: var(--bordeaux); }
+  .caution-box {
+    background: #fbeceb; border: 1px solid #c98d87; border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .caution-box strong { color: var(--bordeaux-dark); }
+  .sources { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin-top: 20px; }
+  .sources ul { padding-left: 20px; }
+  .sources a, .highlight-box a, .caution-box a, p a { color: var(--bordeaux); }
+  .links-external { display: grid; gap: 14px; margin: 18px 0; }
+  .links-external a.tree-link {
+    display: block; background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff; text-decoration: none; padding: 16px 22px; border-radius: 6px;
+    font-weight: bold; transition: opacity 0.2s;
+  }
+  .links-external a.tree-link:hover { opacity: 0.88; }
+  .links-external a.tree-link span.small {
+    display: block; font-weight: normal; font-style: italic; font-size: 0.85em; margin-top: 4px; opacity: 0.9;
+  }
+  footer { text-align: center; padding: 30px; color: #8a7d68; font-size: 0.85em; }
+</style>
+</head>
+<body>
 
+<div class="hero">
+  <h1>Famille Cadot</h1>
+  <p class="subtitle">Sur les traces d'un patronyme rare, entre Champagne-Ardenne et la Nouvelle-France</p>
+</div>
+
+<div class="container">
+
+  <h2 class="section-title"><span class="num">1</span> Ce que révèle l'arbre Geneanet</h2>
+  <div class="identity-card">
+    <h3>Jacques Cadot</h3>
+    <p class="surnom">Identifié comme « Jacques Cadot (2) » dans l'arbre de Philippe Sébastien — le chiffre « 2 » signale qu'il existe au moins un homonyme (un autre Jacques Cadot) dans le même arbre</p>
+    <div class="identity-grid">
+      <div><span class="label">Numéro Sosa/Ahnentafel</span><br>3 592 (dans l'arbre de Philippe Sébastien, Sosa n° 1)</div>
+      <div><span class="label">Épouse</span><br>Marguerite Delaplace</div>
+    </div>
+    <p>D'après le numéro Sosa 3592, Jacques Cadot appartient à une génération ancienne de l'ascendance de Philippe Sébastien — les numéros Sosa de cet ordre de grandeur (autour de 3 500-4 000) correspondent généralement à des ancêtres situés entre 10 et 12 générations en amont, soit approximativement aux XVIe et XVIIe siècles, mais cela reste une estimation à confirmer avec les dates exactes de l'arbre.</p>
+  </div>
+  <div class="caution-box">
+    <strong>Limite technique importante :</strong> l'arbre Geneanet de Philippe Sébastien (gw.geneanet.org/philsebastien_w) affiche son contenu de façon dynamique via JavaScript. Les outils de récupération automatique ne peuvent donc pas en extraire les dates de naissance, mariage et décès, ni la liste des parents, enfants ou frères et sœurs de Jacques Cadot — seules les métadonnées ci-dessus (nom, numéro Sosa, épouse) ont pu être confirmées. Pour compléter cette page avec la lignée complète (ascendants et descendants), il faudra soit copier-coller le contenu de la fiche directement depuis Geneanet, soit fournir un export GEDCOM ou une capture d'écran de l'arbre.
+  </div>
+
+  <h2 class="section-title"><span class="num">2</span> Origine et répartition du patronyme Cadot</h2>
+  <p>Le nom de famille Cadot est peu répandu en France : on dénombre environ 3 700 naissances sous ce patronyme entre 1891 et 1990, réparties dans 78 départements. Son origine reste incertaine et fait l'objet de plusieurs hypothèses chez les spécialistes de l'onomastique.</p>
+  <p>Selon Marie-Thérèse Morlet, Cadot pourrait désigner un « petit chien » (du latin <em>catellus</em>), un sens qu'elle attribue également au patronyme voisin Cadet ; le nom serait alors un surnom, peut-être donné à un piqueux ou un veneur. Une autre hypothèse évoque une variante de Cadet, désignant le plus jeune des frères d'une famille. En Bretagne, Cadot se rencontre aussi comme variante de Cadou. Le picard <em>cadot</em>, qui signifie « fauteuil », est parfois cité, mais le lien avec le patronyme reste incertain. C'est en Saône-et-Loire que le nom est aujourd'hui le plus porté.</p>
+  <p>Le nom de famille étant rare, il est probable qu'il ait été donné à l'origine à une seule lignée, ce qui signifierait que l'ensemble des porteurs actuels du patronyme Cadot descendent de très lointains cousins communs — bien qu'aucun lien direct ne puisse être établi sans une recherche généalogique approfondie propre à chaque branche.</p>
+
+  <h2 class="section-title"><span class="num">3</span> Une branche Cadot bien documentée : Louise-Nicole Cadot (Reims / Ardennes)</h2>
+  <div class="identity-card">
+    <h3>Louise-Nicole Cadot</h3>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>1736</div>
+      <div><span class="label">Décès</span><br>1776</div>
+      <div><span class="label">Époux</span><br>Jean-Baptiste Duchastel, baron de Montflambert (1723-1809)</div>
+    </div>
+    <p>Cette Cadot est la mieux documentée dans l'entourage généalogique de la famille Sébastien : elle épouse Jean-Baptiste Duchastel, baron de Montflambert, avec qui elle a plusieurs enfants, dont <strong>Jacques-Gabriel Duchastel de Montrouge</strong> (1758-1792), déjà traité en détail sur le site consacré à la famille Duchastel. La famille vivait dans la région de Reims et des Ardennes au XVIIIe siècle.</p>
+    <div class="caution-box">
+      <strong>Lien non établi :</strong> rien ne permet pour l'instant d'affirmer que Louise-Nicole Cadot appartient à la même lignée que le Jacques Cadot (Sosa 3592, époux de Marguerite Delaplace) mentionné dans l'arbre de Philippe Sébastien pour la branche Cadot ci-dessus. Il pourrait s'agir de deux familles Cadot distinctes, ou de branches cousines plus ou moins éloignées ; seule une recherche d'actes d'état civil ou notariés dans la région de Reims/Ardennes au XVIIIe siècle permettrait de trancher.
+    </div>
+  </div>
+
+  <h2 class="section-title"><span class="num">4</span> Une autre branche portant un nom apparenté : les Cadotte d'Amérique du Nord</h2>
+  <p>Sans lien établi avec la lignée de Philippe Sébastien, il existe une famille Cadotte bien connue de l'histoire nord-américaine, active dans le commerce des fourrures autour du lac Supérieur et de Sault-Sainte-Marie aux XVIIIe et XIXe siècles. Fondée par Mathurin Cadot, originaire de France, la famille adopta progressivement l'orthographe « Cadotte » — variante canadienne du patronyme Cadot, qui signifie « petit chien ». Parmi ses membres notables figurent Jean-Baptiste Cadot et son fils Michel Cadotte, tous deux mariés à des femmes issues de nations autochtones et devenus des figures importantes du commerce des fourrures. Cette mention est incluse à titre indicatif, comme illustration de la dispersion géographique du patronyme, et non comme une branche rattachée à l'arbre de Philippe Sébastien.</p>
+
+  <h2 class="section-title"><span class="num">5</span> Arbre généalogique de référence</h2>
+  <p>La source principale pour la branche Cadot de la famille de Philippe Sébastien reste son arbre Geneanet, à consulter directement pour la lignée complète :</p>
+  <div class="links-external">
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=en&amp;n=cadot&amp;oc=2&amp;p=jacques&amp;type=tree" target="_blank" rel="noopener">
+      Arbre Geneanet — Jacques Cadot (2), Sosa 3592
+      <span class="small">gw.geneanet.org/philsebastien_w — n=cadot, oc=2, p=jacques</span>
+    </a>
+  </div>
+
+  <h2 class="section-title"><span class="num">6</span> Sources et références</h2>
+  <div class="sources">
+    <ul>
+      <li><a href="https://gw.geneanet.org/philsebastien_w?lang=en&n=cadot&oc=2&p=jacques&type=tree" target="_blank" rel="noopener">Geneanet — arbre de Philippe Sébastien, fiche Jacques Cadot (2)</a></li>
+      <li><a href="https://www.geneanet.org/nom-de-famille/CADOT" target="_blank" rel="noopener">Geneanet — origine et signification du nom de famille Cadot</a></li>
+      <li><a href="https://fr.wiktionary.org/wiki/Cadot" target="_blank" rel="noopener">Wiktionnaire — entrée « Cadot »</a></li>
+      <li><a href="https://www.filae.com/nom-de-famille/CADOT.html" target="_blank" rel="noopener">Filae — popularité et répartition du nom Cadot</a></li>
+      <li><a href="https://gw.geneanet.org/pchevillotte?lang=en&n=duchastel+de+montrouge&p=jacques+gabriel" target="_blank" rel="noopener">Geneanet — arbre de Patrick Chevillotte, fiche Jacques-Gabriel Duchastel de Montrouge (Louise-Nicole Cadot)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Cadotte_family" target="_blank" rel="noopener">Wikipedia (en) — Cadotte family</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Généalogie de la famille Cadot — page compilée à partir des métadonnées disponibles de l'arbre Geneanet et de recherches généalogiques complémentaires ; à compléter avec le détail de l'arbre une fois son contenu transmis.
+</footer>
+
+</body>
+</html>
