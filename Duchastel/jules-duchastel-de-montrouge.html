@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jules-Alexandre Duchastel de Montrouge (1878–1938) — Archives généalogiques Duchastel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #f1e8d6;
+    --parchment-deep: #e5d7b7;
+    --ink: #241d13;
+    --ink-soft: #4a4030;
+    --navy: #1c2740;
+    --navy-deep: #131b2d;
+    --burgundy: #7c2331;
+    --gold: #a4802f;
+    --gold-bright: #c79b3f;
+    --rule: rgba(36,29,19,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--gold); color:var(--navy-deep);}
+
+  .eyebrow{
+    font-family:'Cinzel', serif;
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  h1,h2,h3{ font-family:'Cormorant Garamond', serif; font-weight:600; margin:0; color:var(--navy);}
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+    color:var(--parchment);
+    padding:96px 32px 120px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid rgba(199,155,63,0.35);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
+  .seal{
+    width:118px; height:118px; margin:0 auto 30px;
+    position:relative;
+    animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes sealDrop{
+    0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
+    100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
+  }
+  .seal svg{ width:100%; height:100%; }
+  .hero .eyebrow{ color:var(--gold-bright); }
+  .hero h1{
+    font-family:'Cormorant SC', serif;
+    font-size:clamp(46px, 8vw, 88px);
+    color:var(--parchment);
+    letter-spacing:.02em;
+    margin:14px 0 6px;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero .sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(18px,2.6vw,24px);
+    color:#d9c9a3;
+    letter-spacing:.03em;
+  }
+  .hero .rule{
+    width:64px; height:1px; background:var(--gold); margin:26px auto;
+    opacity:.7;
+  }
+  .hero p.lede{
+    max-width:580px; margin:0 auto; color:#cdbfa0; font-size:17px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:8px; }
+  .section-head .eyebrow{ display:block; }
+
+  /* ---------- NARRATIVE ---------- */
+  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
+  .lede-block p:first-child::first-letter{
+    font-family:'Cormorant SC', serif;
+    font-size:64px;
+    float:left;
+    line-height:.8;
+    padding:6px 10px 0 0;
+    color:var(--burgundy);
+  }
+  blockquote{
+    margin:36px 0; padding:22px 28px;
+    border-left:3px solid var(--gold);
+    background:var(--parchment-deep);
+    font-style:italic; color:var(--ink);
+  }
+  blockquote cite{ display:block; margin-top:10px; font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:var(--ink-soft); }
+
+  .figure-note{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
+  }
+  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
+
+  /* ---------- CHILDREN (continuous, non-collapsible) ---------- */
+  .family-flow{ margin-top:8px; }
+  .family-flow .member{
+    padding:26px 0; border-bottom:1px dashed var(--rule);
+  }
+  .family-flow .member:last-child{ border-bottom:none; }
+  .family-flow .member .who{
+    display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px;
+  }
+  .family-flow .member .tag{
+    font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; color:var(--gold); flex-shrink:0;
+  }
+  .family-flow .member .name{ font-family:'Cormorant Garamond',serif; font-size:23px; color:var(--navy); }
+  .family-flow .member .dates{ font-size:14px; color:var(--ink-soft); font-style:italic; }
+  .family-flow .member p{ margin:0; color:var(--ink-soft); font-size:16px; }
+
+  /* ---------- IMAGES ---------- */
+  .figure{ margin:36px 0; }
+  .figure img{ display:block; width:100%; height:auto; border:1px solid var(--rule); background:var(--parchment-deep); }
+  .figure figcaption{ margin-top:10px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.08em; color:var(--ink-soft); text-align:center; }
+  .figure-pair{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
+  .figure-pair .figure{ margin:0; }
+
+  /* ---------- SOURCES ---------- */
+  .sources ul{ padding-left:20px; color:var(--ink-soft); font-size:15px; }
+  .sources li{ margin-bottom:10px; }
+
+  footer{
+    background:var(--navy-deep); color:#a99a72; text-align:center;
+    padding:56px 32px 40px; font-size:14px;
+  }
+  footer .eyebrow{ display:block; margin-bottom:10px; }
+  footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
+
+  .callout-next{
+    margin-top:60px; padding:24px 28px; border:1px dashed var(--gold);
+    background:var(--parchment-deep); font-size:15.5px; color:var(--ink-soft);
+  }
+  .callout-next b{ color:var(--navy); }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .figure-pair{ grid-template-columns:1fr; }
+    .family-flow .member .who{ flex-direction:column; gap:2px; }
+  }
+
+  .back-link{
+    display:inline-block; margin-bottom:18px;
+    font-family:'Cinzel', serif; font-size:11px; letter-spacing:.15em;
+    text-transform:uppercase; color:var(--gold-bright);
+    text-decoration:none; border-bottom:1px solid rgba(199,155,63,0.4);
+    padding-bottom:2px;
+  }
+  .back-link:hover{ color:var(--parchment); border-color:var(--parchment); }
+  .hero .back-link{ margin-bottom:26px; }
+  footer a.back-link{ color:var(--gold-bright); border-color:rgba(199,155,63,0.4); }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="seal" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">DU</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">CHASTEL</text>
+    </svg>
+  </div>
+  <a class="back-link" href="genealogie-duchastel.html#barons">‹ Retour à l'arbre Duchastel de Montrouge</a>
+  <span class="eyebrow">Génération IX — New York · Outremont · Grande Guerre</span>
+  <h1>Jules-Alexandre<br>Duchastel de Montrouge</h1>
+  <p class="sub">1878 – 1938 · Baron de Montrouge, ingénieur civil</p>
+  <div class="rule"></div>
+  <p class="lede">Fils du consul <a href="genealogie-duchastel.html#barons" style="color:#d9c9a3; text-decoration:underline;">Léon-Hilaire-Alexandre Duchastel</a> et d'Anita Snyder, il est le premier de la lignée à s'établir durablement au Canada, à Outremont, où il fonde avec Jeanne Lacoste une famille de sept enfants.</p>
+</header>
+
+<main>
+
+  <!-- ===================== JEUNESSE ET FORMATION ===================== -->
+  <section id="jeunesse">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Chapitre premier</span>
+        <h2>Un fils de diplomate, né en exil</h2>
+      </div>
+
+      <div class="lede-block">
+        <p>Jules-Alexandre Duchastel de Montrouge naît le 1<sup>er</sup> septembre 1878 à New York, où son père Léon-Hilaire-Alexandre débute alors sa carrière de chancelier à la chancellerie française. L'enfance de Jules-Alexandre suit les affectations paternelles : il fait ses études en France, en Hollande, puis au Canada, où la famille finit par s'installer au fil des postes de son père à Québec, à Amsterdam, puis à Montréal.</p>
+        <p>Il étudie d'abord au Mont-Saint-Louis à Montréal, avant d'entreprendre des études d'ingénieur à l'École Polytechnique de Montréal. Il en sort diplômé en 1901, ingénieur civil, avec la mention « Grande Distinction ». Il réside à Outremont depuis 1897 — la ville où il fera toute sa carrière et où il élèvera ses sept enfants.</p>
+      </div>
+
+      <div class="figure-note">
+        <span class="mark">§</span>
+        <div>En 1909, il se déclare lui-même « arpenteur », bien qu'il ne figure pas au registre de l'Ordre des arpenteurs — une mention curieuse qui témoigne de la polyvalence des jeunes ingénieurs civils de l'époque, souvent appelés à tracer eux-mêmes les rues et les lots des nouvelles municipalités de banlieue.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CARRIERE ===================== -->
+  <section id="carriere">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">1901 – 1938</span>
+        <h2>De la voie ferrée à l'administration municipale</h2>
+      </div>
+
+      <div class="lede-block">
+        <p>Fraîchement diplômé, Jules-Alexandre entre au service de la compagnie du Canadien Pacifique, où il travaille comme ingénieur jusqu'en 1906. Il opte ensuite pour la fonction publique : selon les Mémoires de la Société généalogique canadienne-française, il devient ingénieur administrateur à la Ville d'Outremont de 1906 à 1924, où sa contribution au tracement des rues et à l'implantation des parcs de la jeune municipalité sera jugée très importante par l'historien Robert Rumilly.</p>
+        <p>La Première Guerre mondiale interrompt cette carrière municipale : il s'engage dans l'armée canadienne et n'est démobilisé qu'en 1919, avec le grade de major.</p>
+        <p>Dans les années 1920, il se tourne vers l'industrie forestière : en 1925, il occupe le poste de gérant de « The Quebec Forest Industries Association, Ltd. », logée au Dominion Building, rue St. Peter, à Québec. Il gravit les échelons de cette association jusqu'à en devenir directeur général dans les années 1930, tout en demeurant au 640, avenue Dunlop, à Outremont — son adresse en 1935.</p>
+      </div>
+
+      <div class="figure">
+        <img src="images/jules-alexandre.jpg" alt="Jules-Alexandre Duchastel de Montrouge">
+        <figcaption>Jules-Alexandre Duchastel de Montrouge</figcaption>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MARIAGE ===================== -->
+  <section id="mariage">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">25 octobre 1904</span>
+        <h2>L'alliance Lacoste</h2>
+      </div>
+
+      <div class="lede-block">
+        <p>Le 25 octobre 1904, à la cathédrale Saint-Jacques-la-Mineure de Montréal, Jules-Alexandre épouse <b>Jeanne Lacoste</b>, née le 24 juin 1879 et décédée le 26 mai 1962 à Outremont (paroisse Saint-Germain). Elle est la fille du juge en chef de la province de Québec, Sir Alexandre Lacoste (né le 13 février 1842 à Boucherville), et de Marie-Louise Globensky.</p>
+        <p>Par sa mère, Jeanne descend de l'honorable Louis Lacoste (1798–1878), notaire, patriote de 1837 incarcéré comme prisonnier politique, premier maire de Boucherville en 1857 — poste qu'il occupera vingt ans durant — député du comté de Chambly de 1834 à 1861, membre du Conseil législatif, puis sénateur de 1867 jusqu'à sa mort en 1878.</p>
+        <p>Ce mariage fait de Jules-Alexandre le beau-frère de Paul Lacoste et, par lui, de Justine Lacoste-Beaubien (1877–1967), fondatrice de l'Hôpital Sainte-Justine pour les enfants en 1907 — une des grandes œuvres philanthropiques du Montréal du début du XX<sup>e</sup> siècle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DESCENDANCE ===================== -->
+  <section id="descendance">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Sept enfants</span>
+        <h2>Une famille nombreuse à Outremont</h2>
+      </div>
+
+      <div class="lede-block">
+        <p>Entre 1905 et 1915, Jules-Alexandre et Jeanne Lacoste élèvent sept enfants, nés à Outremont ou à Westmount. Cette génération dispersera la descendance des Duchastel de Montrouge à travers le Québec, l'Ontario, les États-Unis et l'Angleterre.</p>
+      </div>
+
+      <div class="figure">
+        <img src="images/famille-1920.jpg" alt="La famille de Jules-Alexandre Duchastel de Montrouge, vers 1920">
+        <figcaption>La famille de Jules-Alexandre Duchastel de Montrouge, vers 1920</figcaption>
+      </div>
+
+      <div class="family-flow">
+
+        <div class="member">
+          <div class="who"><span class="tag">9.1 — Aîné</span><span class="name">Léon-Alexandre</span><span class="dates">1905 – 1962</span></div>
+          <p>Né le 22 juillet 1905 à Outremont, il suit les traces de son père et devient ingénieur civil, diplômé de l'École Polytechnique de Montréal en 1927. Major dans le régiment de Maisonneuve, il épouse Yvette Beauchamp le 29 avril 1933 à Outremont. C'est à lui que revient le titre de baron de Montrouge à la mort de son père — sa propre descendance, qui mène jusqu'à l'actuel baron, poursuit le récit sur la page suivante de cette généalogie.</p>
+        </div>
+
+        <div class="member">
+          <div class="who"><span class="tag">9.2</span><span class="name">Renée</span><span class="dates">1906 – 1999</span></div>
+          <p>Née le 29 octobre 1906 à Montréal, elle épouse Joseph de La Durantaye le 5 janvier 1929 à Outremont. Leur fille Andrée, née en 1930, se marie à Paris en 1951 avec Marc Brière; le couple aura cinq enfants.</p>
+        </div>
+
+        <div class="member">
+          <div class="who"><span class="tag">9.3</span><span class="name">Jean-Lucien</span><span class="dates">1908 – 1983</span></div>
+          <p>Né le 13 juin 1908 à Westmount, il se marie en Angleterre en 1943 avec Nora Edma Day (1910–1995). De leurs quatre enfants — Paul, Philippe, André et Jeanne — descend une lignée dispersée entre le Québec, les États-Unis et l'Angleterre.</p>
+        </div>
+
+        <div class="member">
+          <div class="who"><span class="tag">9.4</span><span class="name">Louise</span><span class="dates">1909 – 2004</span></div>
+          <p>Née le 12 septembre 1909 à Montréal, elle épouse le 14 novembre 1931 à Outremont l'ingénieur Albert Charles Fleishmann (1899–1965), originaire de Léon, dans les Landes, en France. Trois enfants naissent de cette union.</p>
+        </div>
+
+        <div class="member">
+          <div class="who"><span class="tag">9.5</span><span class="name">Marguerite</span><span class="dates">1912 – 2004</span></div>
+          <p>Née le 7 mars 1912 à Montréal, elle épouse François Bisaillon (1911–1977) le 13 mai 1936 à Outremont. Trois enfants naissent de cette union.</p>
+        </div>
+
+        <div class="member">
+          <div class="who"><span class="tag">9.6</span><span class="name">Paule</span><span class="dates">1914 – 1989</span></div>
+          <p>Née le 6 juillet 1914 à Montréal, agent d'immeuble de profession, elle épouse Clément Charest (1912–1989) le 22 avril 1936 à Outremont. Le couple, qui aura quatre enfants, fonde une branche cousine bien documentée — celle qui mène, par sa fille Renée « Nini » Charest et son mariage avec Pierre Sébastien, à la famille dont l'histoire est racontée sur la page consacrée aux Sébastien de ce site.</p>
+        </div>
+
+        <div class="member">
+          <div class="who"><span class="tag">9.7 — Cadet</span><span class="name">Pierre-Arthur</span><span class="dates">1915 – 1991</span></div>
+          <p>Né le 12 mai 1915 à Outremont, ingénieur électricien formé à l'Université McGill, il épouse vers 1940 Phyllis Anna McKenna (1917–1991). Il devient ingénieur en chef au Département d'ingénierie de la Québec Power Co. de 1946 à 1966, puis, après la nationalisation de l'électricité sous le gouvernement Lesage, ingénieur en chef pour le gouvernement provincial. Actif dans la vie civique de Sillery, il siège à la Ligue des propriétaires de Sillery lors de l'établissement du plan d'urbanisme de la ville en 1953, préside en 1961 la campagne de souscription de la section québécoise de la Ligue navale du Canada, et siège au conseil de l'ACFAS. Cinq enfants naissent de son mariage avec Phyllis McKenna.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DERNIER REPOS ===================== -->
+  <section id="inhumation">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">20 février 1938</span>
+        <h2>Le dernier repos</h2>
+      </div>
+
+      <div class="lede-block">
+        <p>Jules-Alexandre Duchastel de Montrouge meurt à Montréal le 20 février 1938, à l'âge de 59 ans. Il est inhumé le 23 février suivant à la basilique Notre-Dame de Montréal, puis mis en terre dans le lot familial des Duchastel de Montrouge au cimetière Notre-Dame-des-Neiges (section B, lot 88), où son épouse Jeanne Lacoste le rejoindra à sa mort, en 1962.</p>
+      </div>
+
+      <div class="callout-next">
+        Le titre de baron de Montrouge passe à son fils aîné <b>Léon-Alexandre</b> (1905–1962), puis à son petit-fils <b>Yves-Jules</b>, actuel baron — dont le parcours complet est déjà retracé dans le registre de la page principale de cette généalogie.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOURCES ===================== -->
+  <section class="sources" id="sources">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Provenance</span>
+        <h2>Sources</h2>
+      </div>
+      <ul>
+        <li>Jean-Yves Bronze, en collaboration avec le D<sup>r</sup> Yves Duchastel, « Des barons d'Empire au Québec : les Duchastel de Montrouge », <a href="https://laurentduchastel.com/wp-content/uploads/2018/12/duchastel.pdf" target="_blank" rel="noopener">Mémoires de la Société généalogique canadienne-française</a>, vol. 56, n° 4, cahier 246, hiver 2005, p. 289–305.</li>
+        <li>Relevé généalogique <a href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;alwsurn=yes&amp;p=jules+alexandre+leon&amp;n=duchastel+de+montrouge" target="_blank" rel="noopener">Geneanet — arbre philsebastien_w</a>.</li>
+        <li>Robert Rumilly, <i>Histoire d'Outremont 1875–1975</i>, Montréal, Leméac, 1975, cité par la Société généalogique canadienne-française au sujet de la carrière municipale de Jules-Alexandre.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Société généalogique canadienne-française</span>
+  Archives Duchastel — compilé à partir des sources familiales
+  <div class="contrib">« … une famille champenoise établie chez nous depuis plus de cent ans dont les membres se perçoivent comme Canadiens-français. »</div>
+  <div style="margin-top:22px;"><a class="back-link" href="genealogie-duchastel.html#barons">‹ Retour à l'arbre Duchastel de Montrouge</a></div>
+</footer>
+
+</body>
+</html>

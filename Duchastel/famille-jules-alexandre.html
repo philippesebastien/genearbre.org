@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jules-Alexandre Duchastel de Montrouge &amp; Jeanne Lacoste — Duchastel de Montrouge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #f1e8d6;
+    --parchment-deep: #e5d7b7;
+    --ink: #241d13;
+    --ink-soft: #4a4030;
+    --navy: #1c2740;
+    --navy-deep: #131b2d;
+    --burgundy: #7c2331;
+    --gold: #a4802f;
+    --gold-bright: #c79b3f;
+    --rule: rgba(36,29,19,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--gold); color:var(--navy-deep);}
+
+  .eyebrow{
+    font-family:'Cinzel', serif;
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  h1,h2,h3{ font-family:'Cormorant Garamond', serif; font-weight:600; margin:0; color:var(--navy);}
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+    color:var(--parchment);
+    padding:80px 32px 96px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid rgba(199,155,63,0.35);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
+  .back-link{
+    display:inline-block; margin-bottom:22px; font-family:'Cinzel',serif; font-size:11px;
+    letter-spacing:.12em; text-transform:uppercase; color:var(--gold-bright); text-decoration:none;
+    border-bottom:1px solid rgba(199,155,63,0.5); padding-bottom:3px;
+  }
+  .back-link:hover{ color:var(--parchment); }
+  .hero .eyebrow{ color:var(--gold-bright); }
+  .hero h1{
+    font-family:'Cormorant SC', serif;
+    font-size:clamp(38px, 6vw, 58px);
+    color:var(--parchment);
+    letter-spacing:.01em;
+    margin:14px 0 6px;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero .sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(17px,2.4vw,21px);
+    color:#d9c9a3;
+    letter-spacing:.03em;
+  }
+  .hero .rule{
+    width:64px; height:1px; background:var(--gold); margin:24px auto;
+    opacity:.7;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:64px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ margin-bottom:32px; }
+  .section-head h2{ font-size:clamp(26px,3.6vw,34px); margin-top:8px; }
+  .section-head .eyebrow{ display:block; }
+
+  /* ---------- NARRATIVE ---------- */
+  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
+  .lede-block p:first-child::first-letter{
+    font-family:'Cormorant SC', serif;
+    font-size:58px;
+    float:left;
+    line-height:.8;
+    padding:6px 10px 0 0;
+    color:var(--burgundy);
+  }
+
+  .figure-note{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
+  }
+  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
+
+  /* ---------- IMAGES ---------- */
+  .figure-pair{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
+  .figure{ margin:0; }
+  .figure img{ display:block; width:100%; height:auto; border:1px solid var(--rule); background:var(--parchment-deep); cursor:zoom-in; transition:opacity .2s ease; }
+  .figure img:hover{ opacity:.9; }
+  .figure figcaption{ margin-top:10px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.08em; color:var(--ink-soft); text-align:center; }
+
+  /* ---------- ZOOM LIGHTBOX ---------- */
+  .lightbox{
+    display:none; position:fixed; inset:0; z-index:1000;
+    background:rgba(19,27,45,0.92);
+    align-items:center; justify-content:center;
+    padding:40px; cursor:zoom-out;
+    animation:lbFade .2s ease;
+  }
+  .lightbox.open{ display:flex; }
+  @keyframes lbFade{ from{opacity:0;} to{opacity:1;} }
+  .lightbox img{
+    max-width:100%; max-height:100%; width:auto; height:auto;
+    border:1px solid var(--gold); box-shadow:0 10px 60px rgba(0,0,0,.5);
+  }
+  .lightbox .lb-close{
+    position:absolute; top:22px; right:30px;
+    font-family:'Cinzel',serif; font-size:13px; letter-spacing:.15em; text-transform:uppercase;
+    color:var(--gold-bright); cursor:pointer; padding:8px 14px; border:1px solid rgba(199,155,63,0.5);
+  }
+  .lightbox .lb-close:hover{ color:var(--parchment); border-color:var(--parchment); }
+
+  /* ---------- FAMILY LIST (no drill-through) ---------- */
+  .family-list{ margin-top:12px; }
+  .family-item{
+    display:grid; grid-template-columns:48px 1fr; gap:20px;
+    padding:20px 0; border-bottom:1px dashed var(--rule);
+  }
+  .family-item:last-child{ border-bottom:none; }
+  .family-item .num{
+    font-family:'Cormorant SC', serif; font-size:20px; color:var(--gold);
+    padding-top:2px;
+  }
+  .family-item h3{ font-size:20px; color:var(--navy); margin-bottom:4px; }
+  .family-item p{ margin:0; color:var(--ink-soft); font-size:15.5px; }
+  .family-item .tag{ font-family:'Cinzel',serif; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--burgundy); margin-left:8px; }
+
+  footer{
+    background:var(--navy-deep); color:#a99a72; text-align:center;
+    padding:48px 32px 36px; font-size:14px;
+  }
+  footer .eyebrow{ display:block; margin-bottom:10px; }
+  footer .contrib{ color:#d9c9a3; margin-top:16px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .figure-pair{ grid-template-columns:1fr; }
+    .family-item{ grid-template-columns:32px 1fr; gap:12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="back-link" href="genealogie-duchastel.html">‹ Retour aux archives Duchastel de Montrouge</a>
+    <span class="eyebrow">Génération IX — Outremont, 1904–1938</span>
+    <h1>Jules-Alexandre Duchastel<br>de Montrouge &amp; Jeanne Lacoste</h1>
+    <p class="sub">Sept enfants, une maison d'Outremont, une famille tournée vers le Québec du XX<sup>e</sup> siècle</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== NARRATIVE ===================== -->
+  <section id="couple">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Le couple</span>
+        <h2>Un ingénieur, une famille nombreuse</h2>
+      </div>
+
+      <div class="lede-block">
+        <p>Jules-Alexandre Duchastel de Montrouge naît le 1<sup>er</sup> septembre 1878 à New York, fils du consul Léon-Hilaire-Alexandre Duchastel et d'Anita Snyder. Diplômé de l'École Polytechnique de Montréal en 1901, il devient ingénieur administrateur à la Ville d'Outremont de 1906 à 1924, contribuant notamment au tracement des rues et à l'implantation des parcs de la jeune municipalité. Il sert aussi comme major dans l'armée canadienne durant la Première Guerre mondiale.</p>
+        <p>Le 25 octobre 1904, à Montréal, il épouse <b>Jeanne Lacoste</b>. Le couple s'installe à Outremont, où naissent leurs sept enfants entre 1905 et 1915. Jules-Alexandre meurt le 20 février 1938 à Montréal; il est inhumé avec son épouse au cimetière Notre-Dame-des-Neiges.</p>
+      </div>
+
+      <div class="figure-pair">
+        <div class="figure">
+          <img src="images/famille-1920-edited.jpg" alt="La famille de Jules-Alexandre Duchastel de Montrouge, vers 1920, photographie d'époque" onclick="openLightbox(this.src, this.alt)">
+          <figcaption>Photographie d'époque, vers 1920 — cliquer pour agrandir</figcaption>
+        </div>
+        <div class="figure">
+          <img src="images/famille-1920-colorisee.png" alt="La famille de Jules-Alexandre Duchastel de Montrouge, vers 1920, version colorisée" onclick="openLightbox(this.src, this.alt)">
+          <figcaption>Version colorisée (interprétation numérique) — cliquer pour agrandir</figcaption>
+        </div>
+      </div>
+
+      <div class="figure-note">
+        <span class="mark">§</span>
+        <span>
+            La version colorisée est une reconstitution numérique réalisée à partir de la photographie originale; les teintes sont une interprétation et non un enregistrement d'époque. Sur la photo on voit de haut en bas et de gauche à droite, Jules Duchastel avec Paule dans ces bras, Léon-Alexandre à droite, deuxième niveau, Jean-Lucien au cheveux blonds et Jeanne Lacoste.  Sur le banc, Renée, Louise, Pierre-Arthur dans les bras de sa mère et marguerite à droite.
+            Et tout à droite, la soeur de Jules Duchastel, France Anita Duchastel épouse de Paul Lacoste et leur fille Fernande Lacoste dans les bras de sa mère.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CHILDREN ===================== -->
+  <section id="enfants">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">La descendance</span>
+        <h2>Sept enfants</h2>
+      </div>
+
+      <div class="family-list">
+        <div class="family-item">
+          <div class="num">9.1</div>
+          <div>
+            <h3>Léon-Alexandre <span class="tag">Gén. X</span></h3>
+            <p>1905–1962. Ingénieur civil, diplômé de Polytechnique (1927); major, régiment de Maisonneuve. Marié en 1933 à Yvette Beauchamp — poursuit la lignée baronniale.</p>
+          </div>
+        </div>
+        <div class="family-item">
+          <div class="num">9.2</div>
+          <div>
+            <h3>Renée</h3>
+            <p>1906–1999. Mariée à Joseph de La Durantaye.</p>
+          </div>
+        </div>
+        <div class="family-item">
+          <div class="num">9.3</div>
+          <div>
+            <h3>Jean-Lucien</h3>
+            <p>1908–1983. Marié en Angleterre à Nora Edma Day; quatre enfants (Paul, Philippe, André, Jeanne), avec descendance au Québec, aux États-Unis et en Angleterre.</p>
+          </div>
+        </div>
+        <div class="family-item">
+          <div class="num">9.4</div>
+          <div>
+            <h3>Louise</h3>
+            <p>Née en 1909. Mariée à Albert Charles Fleishmann; trois enfants (Jacques-Alexandre, Jean, Louise).</p>
+          </div>
+        </div>
+        <div class="family-item">
+          <div class="num">9.5</div>
+          <div>
+            <h3>Marguerite</h3>
+            <p>1912–2004. Mariée à François Bisaillon; trois enfants (Guy, Jacques, Lynne).</p>
+          </div>
+        </div>
+        <div class="family-item">
+          <div class="num">9.6</div>
+          <div>
+            <h3>Paule</h3>
+            <p>1914–1989. Mariée à Clément Charest; quatre enfants (Michel, Renée, Andrée, Denis) — fonde la branche cousine Charest-Sébastien à Outremont.</p>
+          </div>
+        </div>
+        <div class="family-item">
+          <div class="num">9.7</div>
+          <div>
+            <h3>Pierre-Arthur</h3>
+            <p>1915–1991. Ingénieur en électricité (McGill), marié à Phyllis Anna McKenna; cinq enfants (Anita, Pierre, Lynne, Thomas, Jacques-Alexandre).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Société généalogique canadienne-française</span>
+  Archives Duchastel — compilé à partir des sources familiales
+  <div class="contrib"><a href="genealogie-duchastel.html" style="color:inherit; text-decoration:underline;">‹ Retour à l'accueil des archives</a></div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lb-close" onclick="closeLightbox()">Fermer ✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+  function openLightbox(src, alt){
+    var lb = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    var lb = document.getElementById('lightbox');
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>

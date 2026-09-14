@@ -1,0 +1,60 @@
+var _____WB$wombat$assign$function_____=function(name){return (globalThis._wb_wombat && globalThis._wb_wombat.local_init && globalThis._wb_wombat.local_init(name))||globalThis[name];};if(!globalThis.__WB_pmw){globalThis.__WB_pmw=function(obj){this.__WB_source=obj;return this;}}{
+let window = _____WB$wombat$assign$function_____("window");
+let self = _____WB$wombat$assign$function_____("self");
+let document = _____WB$wombat$assign$function_____("document");
+let location = _____WB$wombat$assign$function_____("location");
+let top = _____WB$wombat$assign$function_____("top");
+let parent = _____WB$wombat$assign$function_____("parent");
+let frames = _____WB$wombat$assign$function_____("frames");
+let opener = _____WB$wombat$assign$function_____("opener");
+/**
+ * navigation.js
+ *
+ * Handles toggling the navigation menu for small screens.
+ */
+( function() {
+	var container, button, menu;
+
+	container = document.getElementById( 'site-navigation' );
+	if ( ! container )
+		return;
+
+	button = container.getElementsByTagName( 'h1' )[0];
+	if ( 'undefined' === typeof button )
+		return;
+
+	menu = container.getElementsByTagName( 'ul' )[0];
+
+	// Hide menu toggle button if menu is empty and return early.
+	if ( 'undefined' === typeof menu ) {
+		button.style.display = 'none';
+		return;
+	}
+
+	if ( -1 === menu.className.indexOf( 'nav-menu' ) )
+		menu.className += ' nav-menu';
+
+	button.onclick = function() {
+		if ( -1 !== container.className.indexOf( 'toggled' ) )
+			container.className = container.className.replace( ' toggled', '' );
+		else
+			container.className += ' toggled';
+	};
+} )();
+
+}
+
+/*
+     FILE ARCHIVED ON 08:48:52 Jul 14, 2017 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 05:56:09 Aug 07, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.875
+  load_resource: 70.064
+  PetaboxLoader3.datanode: 68.559
+*/

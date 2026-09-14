@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Heynemand — Archives généalogiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--parchment:#f1e8d6;--parchment-deep:#e5d7b7;--ink:#241d13;--ink-soft:#4a4030;--navy:#1c2740;--navy-deep:#131b2d;--burgundy:#7c2331;--gold:#a4802f;--gold-bright:#c79b3f;--rule:rgba(36,29,19,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--parchment);color:var(--ink);font-family:'EB Garamond',serif;font-size:18px;line-height:1.65}
+.eyebrow{font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;margin:0;color:var(--navy)}
+.wrap{max-width:920px;margin:auto;padding:0 32px}
+.hero{background:radial-gradient(ellipse 900px 500px at 50% -10%,rgba(199,155,63,.16),transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--navy) 60%,#223154 100%);color:var(--parchment);padding:96px 32px 120px;text-align:center;border-bottom:1px solid rgba(199,155,63,.35)}
+.seal{width:118px;height:118px;margin:0 auto 30px}.seal svg{width:100%;height:100%}
+.hero .eyebrow{color:var(--gold-bright)}.hero h1{font-family:'Cormorant SC',serif;font-size:clamp(50px,9vw,92px);color:var(--parchment);margin:14px 0 6px}
+.hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(18px,2.6vw,24px);color:#d9c9a3}.hero .rule{width:64px;height:1px;background:var(--gold);margin:26px auto}.hero p.lede{max-width:660px;margin:auto;color:#cdbfa0;font-size:17px}
+section{padding:84px 0;border-bottom:1px solid var(--rule)}.section-head{margin-bottom:44px}.section-head h2{font-size:clamp(30px,4vw,42px);margin-top:8px}
+.lede-block p{margin:0 0 20px;color:var(--ink-soft)}.lede-block p:first-child::first-letter{font-family:'Cormorant SC';font-size:64px;float:left;line-height:.8;padding:6px 10px 0 0;color:var(--burgundy)}
+blockquote{margin:36px 0;padding:22px 28px;border-left:3px solid var(--gold);background:var(--parchment-deep);font-style:italic}blockquote cite{display:block;margin-top:10px;font-style:normal;font-family:'Cinzel';font-size:11px;letter-spacing:.15em;color:var(--ink-soft)}
+.figure-note{display:flex;gap:18px;background:var(--parchment-deep);border:1px solid var(--rule);padding:20px 24px;margin:32px 0;font-size:15.5px;color:var(--ink-soft)}.figure-note .mark{font-size:28px;color:var(--burgundy)}
+.ladder{position:relative}.ladder:before{content:'';position:absolute;left:29px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,transparent,var(--gold) 6%,var(--gold) 94%,transparent)}
+.rung{display:grid;grid-template-columns:60px 1fr;gap:22px;padding:26px 0;border-bottom:1px dashed var(--rule)}
+.rung .numeral{font-family:'Cormorant SC';font-size:25px;width:60px;height:60px;border-radius:50%;background:var(--parchment);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:1}
+.rung.current .numeral{background:var(--burgundy);color:var(--parchment);border-color:var(--burgundy)}
+.rung h3{font-size:23px}.role{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);margin:4px 0 8px}.meta{font-size:15.5px;color:var(--ink-soft)}
+details.gen{background:var(--parchment-deep);border:1px solid var(--rule);margin-bottom:14px}
+details.gen summary{list-style:none;cursor:pointer;padding:20px 26px;display:flex;justify-content:space-between;gap:16px;font-family:'Cormorant Garamond';font-size:22px;color:var(--navy)}
+details.gen summary::-webkit-details-marker{display:none}.tag{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;color:var(--gold)}.chevron{color:var(--burgundy)}
+.gen-body{padding:0 26px 26px;font-size:16px;color:var(--ink-soft)}.children{padding-left:20px;border-left:2px solid var(--rule)}.child{margin-bottom:10px}
+.chart-wrap{background:var(--navy-deep);color:var(--parchment);padding:48px 40px;border:1px solid var(--gold)}
+.chart-title{text-align:center;font-family:'Cormorant SC';font-size:26px}.chart-sub{text-align:center;font-style:italic;color:#c9b98a;margin-bottom:32px}
+.chart-row{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid rgba(199,155,63,.2)}.rn{font-family:'Cormorant SC';color:var(--gold-bright)}
+.names{color:var(--parchment)}.date{display:block;font-size:13px;color:#a99a72}
+.sources ul{padding-left:20px;color:var(--ink-soft);font-size:15px}.sources li{margin-bottom:10px}
+.callout-next{margin-top:40px;padding:24px 28px;border:1px dashed var(--gold);background:var(--parchment-deep);font-size:15.5px;color:var(--ink-soft)}
+footer{background:var(--navy-deep);color:#a99a72;text-align:center;padding:56px 32px 40px;font-size:14px}footer .contrib{color:#d9c9a3;margin-top:18px;font-style:italic;font-size:16px}
+@media(max-width:640px){.wrap{padding:0 20px}.rung{grid-template-columns:44px 1fr;gap:14px}.rung .numeral{width:44px;height:44px;font-size:19px}.chart-wrap{padding:32px 20px}}
+</style></head><body>
+
+<header class="hero">
+<div class="seal"><svg viewBox="0 0 120 120">
+<circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+<circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+<text x="60" y="53" text-anchor="middle" font-family="'Cormorant SC'" font-size="22" fill="#e5d7b7">H</text>
+<text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC'" font-size="15" fill="#e5d7b7">HEYNEMAND</text>
+</svg></div>
+<span class="eyebrow">Prusse · Berthier · Lanoraie · Beauce · Montréal</span>
+<h1>Heynemand</h1>
+<p class="sub">De Christoph Friedrich Heinemann aux Heynemand de Montréal</p>
+<div class="rule"></div>
+<p class="lede">Une archive généalogique retraçant six générations, depuis Christoph Friedrich Heinemann, né en Prusse vers 1758, jusqu'aux familles Heynemand établies à Montréal au XX<sup>e</sup> siècle.</p>
+</header>
+
+<main>
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Chapitre premier</span><h2>De Prusse à la vallée du Saint-Laurent</h2></div>
+<div class="lede-block">
+<p>La lignée commence avec <strong>Christoph Friedrich Heinemann</strong>, né vers 1758 à Schermke, Brunsweig, Prusse. Il décède le 4 juin 1833 à Berthier, au Québec, à l'âge d'environ 75 ans.</p>
+<p>Il épouse <strong>Marie-Louise Gilbert dit Comtois</strong>, née le 17 mai 1766 à Berthier, et décédée vers 1795. Leur fils <strong>Louis-De-Gonzague Heynemand</strong> naît en 1788 à Maskinongé et meurt à Lanoraie en 1850.</p>
+<p>La descendance se poursuit à Lanoraie avec Norbert Albert Elie Heynemand, puis Edouard Heynemand et Arthias Heynemand. Au XX<sup>e</sup> siècle, la famille est solidement implantée à Montréal.</p>
+</div>
+<div class="figure-note"><span class="mark">§</span><div><strong>Une transformation du patronyme.</strong> Le document présente Christoph Friedrich Heinemann comme l'ancêtre de la lignée qui porte ensuite le nom Heynemand. La généalogie est donnée « jusqu'à la 6e génération ».</div></div>
+<blockquote>« Descendants de Christoph Friedrich Heinemann — Jusqu'à la 6e génération. »<cite>Genealogie Heynemand.pdf · Export proposé par Geneanet</cite></blockquote>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">La lignée directe</span><h2>De Heinemann à Heynemand</h2></div>
+<p style="color:var(--ink-soft);max-width:690px;margin-bottom:50px">La succession principale suit les générations documentées jusqu'à Arthias Heynemand, avant de détailler la nombreuse descendance montréalaise du XX<sup>e</sup> siècle.</p>
+<div class="ladder">
+<div class="rung"><div class="numeral">I</div><div><h3>Christoph Friedrich Heinemann</h3><div class="role">Prusse · Berthier</div><div class="meta">Né vers 1758 à Schermke, Brunsweig, Prusse. Décédé le 4 juin 1833 à Berthier, QC. Marié à <b>Marie-Louise Gilbert dit Comtois</b>.</div></div></div>
+<div class="rung"><div class="numeral">II</div><div><h3>Louis-De-Gonzague Heynemand</h3><div class="role">Maskinongé · Lanoraie</div><div class="meta">Né le 27 février 1788 à Maskinongé; décédé le 10 janvier 1850 à Lanoraie. Marié le 22 novembre 1811 à <b>Sophie Marion</b>.</div></div></div>
+<div class="rung"><div class="numeral">III</div><div><h3>Norbert Albert Elie Heynemand</h3><div class="role">Lanoraie · navigateur</div><div class="meta">Né en 1826 à Lanoraie; décédé le 18 janvier 1859 à Lanoraie, à l'âge de 33 ans. Navigateur. Marié à <b>Vitaline Dufault</b>.</div></div></div>
+<div class="rung"><div class="numeral">IV</div><div><h3>Edouard Heynemand</h3><div class="role">Lanoraie · carossier</div><div class="meta">Né le 7 novembre 1854 à Lanoraie; décédé le 7 janvier 1931 à Lanoraie, à l'âge de 76 ans. Carossier. Marié à <b>Mathilde Levasseur dit Carmel</b>.</div></div></div>
+<div class="rung"><div class="numeral">V</div><div><h3>Arthias Heynemand</h3><div class="role">Lanoraie · Montréal</div><div class="meta">Né le 24 janvier 1894 à Lanoraie; décédé le 23 août 1963 à Notre-Dame-de-Grâce, Montréal. Inhumé le 27 août 1963 à Saint-Joseph, Lanoraie. Marié à <b>Marie Jeanne Vallerand</b>.</div></div></div>
+<div class="rung current"><div class="numeral">VI</div><div><h3>La génération montréalaise</h3><div class="role">Montréal · XX<sup>e</sup> siècle</div><div class="meta">Jeannine, Maurice, Paul, Robert, Marcelle, Lucien, Jacques, Jean, Denise, Huguette, Rolande, Lise, Louise et Pierre Heynemand figurent parmi les descendants documentés.</div></div></div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">La génération montréalaise</span><h2>Arthias & Marie Jeanne Vallerand</h2></div>
+<div class="chart-wrap">
+<div class="chart-title">Descendance Heynemand · Montréal</div>
+<div class="chart-sub">1919 · mariage à l'Immaculée-Conception de Montréal</div>
+<div class="chart-row"><div class="rn">I</div><div><span class="names">Arthias Heynemand × Marie Jeanne Vallerand</span><span class="date">1894–1963 × 1899–1994</span></div></div>
+<div class="chart-row"><div class="rn">II</div><div><span class="names">Jeannine · Maurice · Paul · Robert · Marcelle · Lucien · Jacques · Jean · Denise · Huguette · Rolande</span><span class="date">Nés de 1920 à 1935 · Montréal</span></div></div>
+<div class="chart-row"><div class="rn">III</div><div><span class="names">Lise · Louise · Pierre Heynemand</span><span class="date">Nés de 1937 à 1942 · Montréal</span></div></div>
+</div>
+<div class="figure-note"><span class="mark">✦</span><div><strong>Une famille nombreuse.</strong> Le document recense un total de 21 personnes, conjoints non compris. La génération née à Montréal entre 1920 et 1942 constitue le cœur de la descendance documentée.</div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Une alliance familiale</span><h2>Chantal Heynemand & Philippe Sébastien</h2></div>
+<div class="lede-block">
+<p><strong>Chantal Heynemand</strong>, née le 19 avril 1966 à l'Hôpital de la Miséricorde de Montréal, est baptisée le 3 juillet 1966 à Saint-Hippolyte, Saint-Laurent.</p>
+<p>Elle épouse <strong>Philippe Sébastien</strong> le 21 mai 1994 à Saint-Hippolyte, Saint-Laurent. Le document indique que Philippe Sébastien est né le 19 octobre 1965 à l'Hôpital Notre-Dame de Montréal et baptisé à l'église Notre-Dame-des-Anges, paroisse Sainte-Famille-de-Bordeaux-Cartierville.</p>
+</div>
+<div class="figure-note"><span class="mark">✦</span><div><strong>Jonction des lignées.</strong> Cette union constitue le lien documenté entre la famille Heynemand et la famille Sébastien dans l'arbre source.</div></div>
+</div></section>
+
+<section><div class="wrap">
+<div class="section-head"><span class="eyebrow">Le registre complet</span><h2>Les familles, branche par branche</h2></div>
+<p style="color:var(--ink-soft);max-width:690px;margin-bottom:36px">Cliquez sur une génération pour afficher les principaux événements et descendants documentés dans le PDF.</p>
+
+<details class="gen" open><summary><span class="tag">Gén. 1</span><span>Christoph Friedrich Heinemann & Marie-Louise Gilbert dit Comtois</span><span class="chevron">›</span></summary><div class="gen-body"><p>Christoph Friedrich Heinemann est né vers 1758 à Schermke, Brunsweig, Prusse, et décède en 1833 à Berthier. Son épouse Marie-Louise Gilbert dit Comtois naît en 1766 à Berthier et décède vers 1795. Leur descendance comprend Louis-De-Gonzague Heynemand.</p></div></details>
+
+<details class="gen"><summary><span class="tag">Gén. 2</span><span>Louis-De-Gonzague Heynemand & Sophie Marion</span><span class="chevron">›</span></summary><div class="gen-body"><p>Louis-De-Gonzague Heynemand naît le 27 février 1788 à Maskinongé et décède le 10 janvier 1850 à Lanoraie. Mariage le 22 novembre 1811 à Lanoraie d'Autray avec Sophie Marion, née le 21 juillet 1797 à Lanoraie.</p></div></details>
+
+<details class="gen"><summary><span class="tag">Gén. 3</span><span>Norbert Albert Elie Heynemand & Vitaline Dufault</span><span class="chevron">›</span></summary><div class="gen-body"><p>Norbert Albert Elie Heynemand naît en 1826 à Lanoraie et décède le 18 janvier 1859. Il est navigateur. Mariage le 21 octobre 1849 à Saint-Joseph, Lanoraie, avec Vitaline Dufault, née en 1821 à Lachenaie et décédée en 1901 à Lanoraie.</p></div></details>
+
+<details class="gen"><summary><span class="tag">Gén. 4</span><span>Edouard Heynemand & Mathilde Levasseur dit Carmel</span><span class="chevron">›</span></summary><div class="gen-body"><p>Edouard Heynemand naît le 7 novembre 1854 à Lanoraie et décède le 7 janvier 1931 à Lanoraie. Il est carossier. Mariage le 28 janvier 1883 à Saint-Urbain-Premier, Châteauguay, avec Mathilde Levasseur dit Carmel, née vers 1860.</p></div></details>
+
+<details class="gen"><summary><span class="tag">Gén. 5</span><span>Arthias Heynemand & Marie Jeanne Vallerand</span><span class="chevron">›</span></summary><div class="gen-body"><p>Arthias Heynemand naît le 24 janvier 1894 à Lanoraie et décède le 23 août 1963 à Notre-Dame-de-Grâce, Montréal. Mariage le 16 septembre 1919 à l'Immaculée-Conception de Montréal avec Marie Jeanne Vallerand, née en 1899 à Saint-Sauveur et décédée en 1994.</p></div></details>
+
+<details class="gen"><summary><span class="tag">Gén. 6</span><span>Les enfants Heynemand de Montréal</span><span class="chevron">›</span></summary><div class="gen-body"><div class="children">
+<div class="child"><b>Jeannine Heynemand</b> — 1920–2008, Montréal.</div>
+<div class="child"><b>Maurice Heynemand</b> — 1921–2000, Montréal.</div>
+<div class="child"><b>Paul Heynemand</b> — né en 1923 à Saint-Stanislas-de-Kostka, Montréal; marié à Madeleine Gaudet en 1965.</div>
+<div class="child"><b>Robert Heynemand</b> — 1924–2011, Montréal; médecin.</div>
+<div class="child"><b>Marcelle Heynemand</b> — née en 1927; mariée à Claude Bonaventure en 1953, ingénieur.</div>
+<div class="child"><b>Lucien Heynemand</b> — né en 1929.</div>
+<div class="child"><b>Jacques Heynemand</b> — 1930–2015, Montréal.</div>
+<div class="child"><b>Jean Heynemand</b> — 1932–2000, Montréal.</div>
+<div class="child"><b>Denise Heynemand</b> — 1933–2014, Montréal.</div>
+<div class="child"><b>Huguette Heynemand</b> — 1934–1990, St-Lambert.</div>
+<div class="child"><b>Rolande Heynemand</b> — née en 1935 à Montréal.</div>
+<div class="child"><b>Lise Heynemand</b> — 1937–1998, Montréal.</div>
+<div class="child"><b>Louise Heynemand</b> — née en 1937.</div>
+<div class="child"><b>Pierre Heynemand</b> — 1942–2019; ingénieur.</div>
+</div></div></details>
+
+<details class="gen"><summary><span class="tag">Descendance</span><span>Paul Heynemand & Madeleine Gaudet</span><span class="chevron">›</span></summary><div class="gen-body"><p>Paul Heynemand, né le 7 mars 1923 à Montréal, épouse Madeleine Gaudet le 21 août 1965. Leur fille <b>Chantal Heynemand</b> naît le 19 avril 1966 et épouse Philippe Sébastien le 21 mai 1994.</p></div></details>
+
+<details class="gen"><summary><span class="tag">Branche</span><span>Véronique Heynemand & Craig Lagendyk</span><span class="chevron">›</span></summary><div class="gen-body"><p>Véronique Heynemand, née le 19 avril 1966, est mariée à Craig Lagendyk, né le 23 novembre 1962 et décédé le 13 janvier 2017.</p></div></details>
+
+<details class="gen"><summary><span class="tag">Branche</span><span>Sophie Heynemand & André Touzin</span><span class="chevron">›</span></summary><div class="gen-body"><p>Sophie Heynemand est indiquée comme née en 1838 à Saint-Joseph, Lanoraie, Berthier, et décédée en 1887. Elle épouse André Touzin le 2 février 1857.</p></div></details>
+</div></section>
+
+<section class="sources"><div class="wrap">
+<div class="section-head"><span class="eyebrow">Archives & sources</span><h2>Une généalogie documentée</h2></div>
+<ul>
+<li><strong>Genealogie Heynemand.pdf</strong> — export proposé par Geneanet, arbre en ligne de Philippe Sébastien.</li>
+<li><strong>BAnQ</strong> — les notes du document citent des actes d'union et de baptême conservés dans les collections numériques de Bibliothèque et Archives nationales du Québec.</li>
+<li><strong>Actes cités</strong> — notamment baptême d'Arthias Heynemand, union d'Arthias Heynemand et Marie Jeanne Vallerand, baptême de Marie Jeanne Vallerand et union d'Edouard Heynemand.</li>
+</ul>
+<div class="callout-next"><b>Note sur les données.</b> Les dates approximatives, les lieux et les renseignements tels qu'ils apparaissent dans le PDF ont été conservés. La page ne complète pas les filiations par déduction et ne tente pas de résoudre les éventuelles anomalies ou ambiguïtés du document source.</div>
+</div></section>
+</main>
+
+<footer><span class="eyebrow">Archives généalogiques</span>
+<div>Famille Heynemand · De Christoph Friedrich Heinemann aux descendants de Montréal</div>
+<div class="contrib">Document source : « Genealogie Heynemand.pdf » · Export proposé par Geneanet</div>
+</footer>
+</body></html>

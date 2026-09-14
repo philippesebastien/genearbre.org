@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Généalogique — Famille Joubert</title>
+    <style>
+        :root{
+            --color-parchment-light: #f1e8d6;
+            --color-parchment-dark: #e5d7b7;
+            --color-ink: #241d13;
+            --color-ink-soft: #4a4030;
+            --color-navy: #1c2740;
+            --color-navy-deep: #131b2d;
+            --color-burgundy: #7c2331;
+            --color-gold: #a4802f;
+            --color-gold-bright: #c79b3f;
+            --color-rule: rgba(36,29,19,0.18);
+            --font-serif: 'EB Garamond', serif;
+            --font-title: 'Cormorant Garamond', serif;
+            --font-smallcaps: 'Cormorant SC', serif;
+            --font-eyebrow: 'Cinzel', serif;
+            --max-width: 960px;
+            --shadow-soft: 0 2px 4px rgba(0,0,0,0.08);
+        }
+        *{ box-sizing:border-box; margin:0; padding:0; }
+        html{ scroll-behavior:smooth; }
+        body{
+            background:var(--color-parchment-light);
+            color:var(--color-ink);
+            font-family:var(--font-serif);
+            font-size:18px;
+            line-height:1.65;
+        }
+        ::selection{ background:var(--color-gold); color:var(--color-navy-deep); }
+        .eyebrow{
+            font-family:var(--font-eyebrow);
+            font-size:11.5px;
+            letter-spacing:.22em;
+            text-transform:uppercase;
+            color:var(--color-gold);
+            font-weight:600;
+        }
+        h1,h2,h3{ font-family:var(--font-title); font-weight:600; color:var(--color-navy-deep); margin:0; }
+        .hero h1 { color: var(--color-parchment-light); }
+        h2 { color: var(--color-navy); }
+        h3{ font-size:19px; color:var(--color-burgundy); font-style:italic; margin:26px 0 12px; }
+        p{ margin:0 0 18px; color:var(--color-ink-soft); }
+        section p:first-of-type{ margin-top:0; }
+        a{ color:inherit; text-decoration:underline; text-underline-offset:2px; }
+        a:hover{ color:var(--color-burgundy); }
+        .wrap{ max-width:var(--max-width); margin:0 auto; padding:0 32px; }
+        .hero{
+            position:relative;
+            background:
+                radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+                linear-gradient(180deg, var(--color-navy-deep), var(--color-navy) 60%, #223154 100%);
+            color:var(--color-parchment-light);
+            padding:96px 32px 80px;
+            text-align:center;
+            overflow:hidden;
+            border-bottom:1px solid rgba(199,155,63,0.35);
+        }
+        .hero::before{
+            content:""; position:absolute; inset:0;
+            background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+            pointer-events:none;
+        }
+        .seal{ width:118px; height:118px; margin:0 auto 30px; position:relative; animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both; }
+        @keyframes sealDrop{
+            0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
+            100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
+        }
+        .seal svg{ width:100%; height:100%; }
+        .hero .eyebrow{ color:var(--color-gold-bright); }
+        .hero h1{ font-family:var(--font-smallcaps); font-size:clamp(40px, 6vw, 64px); letter-spacing:.02em; margin:14px 0 6px; text-shadow:0 2px 24px rgba(0,0,0,.35); }
+        .subtitle-years{ font-size:0.7em; }
+        .hero .sub{ font-family:var(--font-title); font-style:italic; font-size:clamp(18px,2.6vw,22px); color:#d9c9a3; letter-spacing:.03em; }
+        .hero .rule{ width:64px; height:1px; background:var(--color-gold); margin:26px auto; opacity:.7; }
+        .hero .lede{ max-width:640px; margin:0 auto; color:#cdbfa0; font-size:17px; }
+        section{ padding:64px 0; border-bottom:1px solid var(--color-rule); }
+        section:last-of-type{ border-bottom:none; }
+        .section-head{ margin-bottom:32px; }
+        .section-head .eyebrow{ display:block; }
+        .section-head h2{ font-size:clamp(26px,3.4vw,34px); margin-top:8px; }
+        .identity-card{ background:var(--color-parchment-dark); border:1px solid var(--color-rule); padding:22px 24px; margin-bottom:20px; }
+        .identity-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px 24px; font-size:16px; color:var(--color-ink-soft); }
+        .identity-item strong{ color:var(--color-navy); }
+        .identity-note{ margin-top:14px; padding-top:14px; border-top:1px dashed var(--color-rule); font-size:15.5px; color:var(--color-ink-soft); }
+        ul{ list-style:none; padding-left:0; margin:0 0 18px; color:var(--color-ink-soft); font-size:16px; }
+        ul li{ position:relative; padding-left:18px; margin-bottom:8px; }
+        ul li::before{ content:"•"; position:absolute; left:2px; top:0; color:var(--color-gold); font-size:15px; }
+        ul li strong{ color:var(--color-ink); }
+        .highlight-box{ background:var(--color-parchment-dark); border:1px solid var(--color-rule); border-left:3px solid var(--color-gold); padding:18px 22px; margin:18px 0; font-size:16px; color:var(--color-ink-soft); }
+        .highlight-box strong{ color:var(--color-navy); }
+        .highlight-box em{ display:block; font-style:italic; color:var(--color-ink); line-height:1.6; }
+        .tree-diagram{ background:var(--color-navy-deep); color:#cdbfa0; border:1px solid var(--color-gold); padding:22px 24px; margin:20px 0; font-family:'Courier New', Courier, monospace; font-size:13px; line-height:1.55; white-space:pre; overflow-x:auto; }
+        footer{ background:var(--color-navy-deep); color:#a99a72; text-align:center; padding:56px 32px 40px; font-size:14px; }
+        footer .eyebrow{ display:block; margin-bottom:10px; }
+        footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:var(--font-title); font-style:italic; font-size:16px; }
+        @media (max-width:640px){ .wrap{ padding:0 20px; } .hero{ padding:72px 20px 60px; } .tree-diagram{ font-size:11px; } }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="seal">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="45" stroke="#c79b3f" stroke-width="2" stroke-dasharray="4,4"/>
+                <path d="M50 15 L25 35 V70 L50 85 L75 70 V35 Z" fill="none" stroke="#c79b3f" stroke-width="2"/>
+                <path d="M50 25 L35 40 V65 L50 75 L65 65 V40 Z" fill="#c79b3f" opacity="0.15"/>
+                <text x="50" y="56" font-family='Cinzel' font-size="14" fill="#c79b3f" text-anchor="middle" font-weight="bold">J</text>
+            </svg>
+        </div>
+        <p class="eyebrow">Notice Généalogique</p>
+        <h1>Famille Joubert <span class="subtitle-years">(1689 — 1968)</span></h1>
+        <p class="sub">Des montagnes de la Provence à l'Empire Laitier de Montréal</p>
+        <div class="rule"></div>
+        <p class="lede">
+            Reconstitution documentaire de la lignée de Pierre-Honoré Jaubert dit Sansregret, soldat du Régiment de la Reine originaire d'Auzet en Provence, dont la descendance a bâti l'une des institutions industrielles et commerciales les plus marquantes du paysage montréalais au XXe siècle.
+        </p>
+    </header>
+
+    <div class="wrap">
+        <section id="origines">
+            <div class="section-head">
+                <p class="eyebrow">Origines & Statut</p>
+                <h2>Fiche d'Identité Familiale</h2>
+            </div>
+            <div class="identity-card">
+                <div class="identity-grid">
+                    <div class="identity-item"><strong>Patronyme d'origine :</strong> Jaubert / Joubert</div>
+                    <div class="identity-item"><strong>Surnom militaire :</strong> Sansregret</div>
+                    <div class="identity-item"><strong>Région d'ancrage :</strong> Auzet (Alpes-de-Haute-Provence), France</div>
+                    <div class="identity-item"><strong>Principales alliances :</strong> Lafoix dit Laframboise, Jutteau, David, Dagenais, Robin, Charest</div>
+                    <div class="identity-item"><strong>Filiation charnière :</strong> Alliance Joubert-Charest (1901) &amp; Charest-Duchastel (1937)</div>
+                    <div class="identity-item"><strong>Ramifications :</strong> Canada (Québec, Montréal, Sault-au-Récollet, Laval)</div>
+                </div>
+                <div class="identity-note">
+                    <strong>Note historique :</strong> Initialement composée de meuniers et de maîtres d'armes, la famille s'illustre de façon spectaculaire sous l'impulsion de Janvier-Jacques Joubert, pionnier mondial de l'industrie laitière moderne (premier à distribuer le lait en bouteilles capsulées dans l'Empire britannique en 1892). Par l'alliance de sa fille Berthilde avec Napoléon Charest, la lignée fusionne gestion industrielle, engagement civique et s'unit à la noblesse française des comtes Duchastel de Montrouge au XXe siècle.
+                </div>
+            </div>
+        </section>
+
+        <section id="chronologie">
+            <div class="section-head">
+                <p class="eyebrow">Chronologie</p>
+                <h2>Les Générations Successives</h2>
+            </div>
+
+            <h3>Génération 1 : Le Couple Souche en Haute-Provence</h3>
+            <p>
+                <strong>Louis Jaubert</strong> et <strong>Marguerite Aubert</strong> se marient le 18 avril 1689 à Auzet, dans la province de Provence (aujourd'hui les Alpes-de-Haute-Provence, France). Marguerite Aubert y est baptisée le 12 février 1677 et inhumée le 5 avril 1705. Louis Joubert y est inhumé le 19 août 1712. De leur union naît Joseph Jaubert, qui s'unira à Madeleine Pascal.
+            </p>
+
+            <h3>Génération 2 : L'Ancêtre Militaire en Nouvelle-France</h3>
+            <p>
+                <strong>Pierre-Honoré Jaubert dit Sansregret (Joubert)</strong>, fils de Joseph Jaubert et Madeleine Pascal, naît le 30 janvier 1730 à Auzet, France. Soldat des troupes de la Marine au sein du 2ème bataillon du prestigieux Régiment de la Reine, il débarque en Nouvelle-France vers 1755. Il participe activement aux grandes batailles de la guerre de Sept Ans (Fort George, Carillon, Sainte-Foy, et la défense de Montréal). Resté au pays après la capitulation, il épouse <strong>Geneviève Lafoix dite Laframboise (La Foy)</strong> le 23 décembre 1758. Il décède à Chambly le 25 mars 1788.
+            </p>
+
+            <h3>Génération 3 : Les Artisans Meuniers du Sault-au-Récollet</h3>
+            <p>
+                <strong>Didier Joubert</strong>, fils d'Honoré et Geneviève, s'établit au Sault-au-Récollet au nord de Montréal. Exerçant le métier de meunier et de constructeur de moulins, il s'inscrit dans la tradition de développement pré-industriel du Québec. Le 7 octobre 1805, il épouse <strong>Marie-Louise Jutteau</strong> à la paroisse de La Visitation de la Bienheureuse Vierge Marie.
+            </p>
+
+            <h3>Génération 4 : Les Terres de la Visitation</h3>
+            <p>
+                <strong>Zéphirin Joubert</strong>, fils de Didier et Marie-Louise, naît au Sault-au-Récollet en 1813. Cultivateur prospère, il gère la transition agraire de l'île de Montréal au milieu du XIXe siècle. Il épouse <strong>Marie Clémence David</strong> le 24 octobre 1837. Le recensement de 1852 témoigne d'un noyau familial de 7 enfants, dont Didier Zéphirin (qui s'exilera à Boston comme polisseur de pianos) et Jacques Charles.
+            </p>
+
+            <h3>Génération 5 : L'Enracinement à la Longue-Pointe</h3>
+            <p>
+                <strong>Jacques Charles Zéphirin Joubert</strong>, fils de Zéphirin et Clémence, naît en 1843. Cultivateur au Sault-au-Récollet et à la Longue-Pointe, il s'allie aux familles pionnières locales en épousant <strong>Marie Célina Dagenais</strong> le 11 février 1868. Ce couple donnera naissance à l'architecte économique de la famille, Janvier-Jacques, ainsi qu'à Berthilde Joubert.
+            </p>
+
+            <h3>Génération 6 : L'Empire Capitaliste et Industriel</h3>
+            <p>
+                Cette génération marque l'entrée magistrale de la famille dans la haute bourgeoisie d'affaires montréalaise :
+            </p>
+            <ul>
+                <li>
+                    <strong>Janvier-Jacques Joubert (1869 - 1943) :</strong> Fondateur de la légendaire <em>Laiterie J.-J. Joubert Ltée</em>. Visionnaire commercial hors pair, il révolutionne la distribution du lait en Amérique du Nord britannique, introduit la pasteurisation obligatoire dès 1908 et implante la distribution de lait gratuite dans les écoles pour les démunis. Il épouse <strong>Antoinette Robin</strong> en 1910 et lègue à sa mort une fortune immense comprenant la célèbre conserverie et ferme modèle « des Écores » de Saint-Vincent-de-Paul.
+                </li>
+                <li>
+                    <strong>Berthilde Joubert (1875 - 1958) :</strong> Elle épouse le 14 mai 1901 <strong>Napoléon Charest (1873 - 1961)</strong>. Homme de confiance rigoureux, Napoléon devient gérant général puis président de la Laiterie J.-J. Joubert, propulsant l'entreprise familiale au rang des plus grandes compagnies du Canada.
+                </li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Focus Historique — Napoléon Charest (1873 – 1961) :</strong>
+                <em>Fils d'un cultivateur de Vaudreuil, Napoléon Charest incarne l'élite d'affaires canadienne-française du début du XXe siècle. Commençant sa carrière au bas de l'échelle comme simple commis de magasin en 1889, sa rigueur mathématique et son sens des affaires attirent l'attention de Janvier-Jacques Joubert. En 1907, le fondateur de la grande laiterie lui confie la direction de sa comptabilité. Devenu le bras droit et l'homme de confiance de la famille Joubert, Napoléon est nommé gérant général en 1909, puis accède à la présidence de la maison J.-J. Joubert Ltée. Son mariage avec Berthilde Joubert en 1901 scelle une alliance parfaite entre le capital industriel et une gestion rigoureuse. Sous sa gouverne, la laiterie de la rue Saint-André devient l'une des plus colossales du Canada, comptant plus de 400 employés. Homme discret, fuyant les tribunes politiques, il consacre ses temps libres au tourisme automobile à travers le Canada et les États-Unis.</em>
+            </div>
+
+            <h3>Génération 7 &amp; Épilogue : L'Alliance Aristocratique</h3>
+            <p>
+                Fils de Berthilde Joubert et Napoléon Charest, <strong>Clément C. Charest (1912 — 1989)</strong> intègre la haute direction de l'entreprise familiale. Le 22 avril 1936 à Outremont, il épouse <strong>Paule Duchastel de Montrouge</strong>, scellant définitivement le sang de l'ancêtre provençal Jaubert avec la noblesse française des comtes Duchastel. De cette union naîtra **Renée Charest** (épouse de Pierre Sébastien), dont les enfants poussent la lignée jusqu'aux portes du XXIe siècle.
+            </p>
+
+            <div class="highlight-box">
+                <strong>L'Innovation de 1892 :</strong>
+                <em>« À la suite d'un échange avec un oncle de Boston en 1892, J.-J. Joubert prend le risque audacieux de remplacer les jarres à confiture par des bouteilles en verre scellées d'une rondelle de carton. Il devient ainsi le tout premier laitier de l'Empire britannique à distribuer le lait embouteillé, jetant les bases d'un empire industriel qui comptera plus de 400 employés. »</em>
+            </div>
+        </section>
+
+        <section id="schema">
+            <div class="section-head">
+                <p class="eyebrow">Schéma</p>
+                <h2>Arbre Généalogique de la Descendance</h2>
+            </div>
+            <p>Filiation complète depuis l'ancêtre souche en Provence jusqu'à la 8e génération canadienne :</p>
+            <div class="tree-diagram">Louis Jaubert &amp;1689 Marguerite Aubert
+└── Joseph Jaubert &amp; Madeleine Pascal
+    └── Pierre-Honoré Jaubert dit Sansregret (1730-1788) &amp;1758 Geneviève Lafoix
+        ├── Joseph Joubert
+        ├── Louis-Honoré Joubert
+        ├── Didier Joubert &amp;1805 Marie-Louise Jutteau
+        │   └── Zéphirin Joubert (1813-) &amp;1837 Marie Clémence David
+        │       ├── Didier Zéphirin Joubert (1838-1912)
+        │       ├── Ludger Joubert (1841-)
+        │       ├── Jacques Charles Zéphirin Joubert (1843-) &amp;1868 Marie Célina Dagenais
+        │       │   ├── **Janvier-Jacques Joubert** (1869-1943) &amp;1910 Antoinette Robin
+        │       │   │   ├── Jean Joubert (1913-1982) &amp; Madeleine Raymond
+        │       │   │   ├── Maurice Joubert (1915-1991) &amp;1937 Suzanne Baril
+        │       │   │   ├── Annette Joubert (1911-1993)
+        │       │   │   └── Juliette Joubert (1916-1959) &amp;1940 Louis Beaugrand-Champagne
+        │       │   ├── **Berthilde Joubert** (1875-1958) &amp;1901 Napoléon Charest (1873-1961)
+        │       │   │   ├── Jean Charest
+        │       │   │   ├── Pierre Charest &amp; Thérèse Gadbois
+        │       │   │   ├── **Clément C. Charest** (1912-1989) &amp;1936 Paule Duchastel de Montrouge
+        │       │   │   │   ├── Michel Charest &amp;1963 Louise McDonald
+        │       │   │   │   ├── Renée Charest (1941-) &amp; Pierre Sébastien
+        │       │   │   │   │   ├── Jean Sébastien (1963-)
+        │       │   │   │   │   ├── Philippe Sébastien (1965-)
+        │       │   │   │   │   └── Louis Sébastien (1968-)
+        │       │   │   │   ├── Andrée Charest &amp; Jean Rinfret
+        │       │   │   │   └── Denis Charest &amp; Suzanne Robert
+        │       │   │   ├── Gertrude Charest
+        │       │   │   ├── Thérèse Charest
+        │       │   │   └── Françoise Charest
+        │       │   ├── Emma Joubert (1878-)
+        │       │   ├── Amanda Joubert (1877-)
+        │       │   └── Didier Joubert (1883-)
+        │       ├── Desilda Joubert (1844-)
+        │       ├── Albina Joubert (1846-)
+        │       ├── Léon Joubert (1849-)
+        │       └── Emilie Joubert (1851-)
+        ├── M. Anne Joubert
+        ├── V. Angélique Joubert
+        └── Geneviève Joubert &amp; Antoine Poirrier</div>
+        </section>
+
+        <section id="archives">
+            <div class="section-head">
+                <p class="eyebrow">Sources &amp; Actes</p>
+                <h2>Notice Documentaire</h2>
+            </div>
+            <p>
+                Registres paroissiaux d'Auzet (Provence), Archives d'état civil du Sault-au-Récollet, de La Visitation de Montréal, de Saint-Jean-Baptiste et d'Outremont. Documents corporatifs de la Laiterie J.-J. Joubert Ltée, rapports de la Commission d'Industrie Laitière de la Province de Québec (1932) et notices biographiques de Raphaël Ouimet (<em>Biographies canadiennes françaises</em>, 1937).
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p class="eyebrow">Histoire Familiale Élaborée</p>
+        <p>© 2026 — Document de mémoire et d'histoire. Tous droits réservés.</p>
+        <p class="contrib">Compilé d'après les précieuses recherches d'archives de la famille Joubert &amp; Charest.</p>
+    </footer>
+</body>
+</html>

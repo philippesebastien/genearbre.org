@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacques du Chastel (1624–1714) — Connétable et Bourgeois de Reims</title>
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #8c6d3b;
+            --accent-light: #dfd5c6;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #2d3748;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            padding: 2.5rem 2rem;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        header h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.35rem;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .identity-card {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .identity-item {
+            font-size: 0.95rem;
+        }
+
+        .identity-item strong {
+            color: var(--primary);
+        }
+
+        .identity-note {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+            font-size: 0.92rem;
+            color: #334155;
+        }
+
+        main {
+            padding: 0 2rem 2.5rem 2rem;
+        }
+
+        section {
+            margin-top: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--accent-light);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--primary-light);
+            margin: 1.25rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 0.9rem;
+            font-size: 0.98rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.65rem;
+            font-size: 0.96rem;
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0.35rem;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .highlight-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid var(--primary-light);
+            padding: 1.1rem 1.25rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        /* Schéma Fratrie */
+        .tree-diagram {
+            background: #fafaf9;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.25rem 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+
+        /* Tableaux */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.25rem 0;
+            font-size: 0.92rem;
+        }
+
+        .styled-table th, .styled-table td {
+            border: 1px solid var(--border);
+            padding: 0.75rem 0.85rem;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .styled-table th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .styled-table tr:nth-child(even) {
+            background-color: #fafbfc;
+        }
+
+        /* Généalogie */
+        .genealogy-tree {
+            background-color: #fafaf9;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .tree-root {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tree-marriage-block {
+            margin-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tree-marriage-title {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .tree-children {
+            margin-left: 1rem;
+            border-left: 2px solid var(--accent-light);
+            padding-left: 1rem;
+        }
+
+        .child-item {
+            margin-bottom: 1.15rem;
+            font-size: 0.94rem;
+        }
+
+        .child-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        /* Sources */
+        .sources-section {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .source-item {
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .source-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .source-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .source-links {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.35rem;
+        }
+
+        .source-links li {
+            padding-left: 0;
+            margin-bottom: 0.25rem;
+            word-break: break-all;
+        }
+
+        .source-links li::before {
+            display: none;
+        }
+
+        a {
+            color: var(--primary-light);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .total-badge {
+            display: inline-block;
+            background-color: var(--accent-light);
+            color: #443217;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            margin-top: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Jacques du Chastel (1624–1714)</h1>
+        <div class="subtitle">Notice généalogique — dynastie Duchastel de Reims</div>
+    </header>
+
+    <div class="identity-card">
+        <div class="identity-grid">
+            <div class="identity-item"><strong>Naissance :</strong> 1622 ou 1624 à Reims</div>
+            <div class="identity-item"><strong>Décès :</strong> 10 janvier 1714 à Reims (St-Étienne) à 90 ans</div>
+            <div class="identity-item"><strong>Charges & Métiers :</strong> Maître Serger, Connétable de Reims</div>
+            <div class="identity-item"><strong>Statut :</strong> Bourgeois de Reims</div>
+        </div>
+        <div class="identity-note">
+            <strong>Filiation paternelle :</strong> Fils très probable de <a href="Jean-du-Chastel-1590-1660.html"><strong>Jean du Chastel (l'Ancien, ~1590–~1660)</strong></a> et de Nicole Cochart.
+        </div>
+    </div>
+
+    <main>
+        <p>L'information concernant les charges civiles de Jacques Du Chastel (1624–1714) apporte une pièce maîtresse à la compréhension de cette dynastie rémoise. Les recherches confirment son statut de notable au cœur de la cité impériale.</p>
+
+        <!-- Section 1 -->
+        <section>
+            <h2>1. Le rôle de Jacques du Chastel : connétable à Reims</h2>
+            <p>La mention de Jacques Du Chastel en tant que connétable (ou officier de la connétablie) est capitale. Sous l'Ancien Régime, cette fonction ne doit pas être confondue avec le sens médiéval militaire suprême, mais s'inscrit dans l'administration locale et la sécurité publique :</p>
+            <ul>
+                <li><strong>La juridiction de la Connétablie :</strong> À Reims, le corps des archers ou gardes de la Connétablie et Maréchaussée de France relevait de la juridiction de la « Table de Marbre ». Les connétables locaux étaient des officiers civils et de petite robe chargés du maintien de l'ordre, de la surveillance des corporations, de l'exécution des mandats de justice et de la police des foires.</li>
+                <li><strong>Un poste de confiance :</strong> Pour occuper cette charge, il fallait être un bourgeois établi, d'une honorabilité sans faille et reconnu par le Conseil de Ville. Sa présence répétée comme parrain et témoin à l'église Saint-Étienne démontre qu'il était une figure d'autorité morale et publique incontournable de sa paroisse.</li>
+            </ul>
+        </section>
+
+        <!-- Section 2 -->
+        <section>
+            <h2>2. Premier mariage avec Jeanne Desombres (vers 1656)</h2>
+            <p>Jacques Du Chastel épouse <strong>Jeanne Desombres</strong>, née en 1627 et décédée à Reims (paroisse Saint-Étienne) le 15 janvier 1702, âgée d'environ 75 ans. Le couple se serait uni au milieu du XVII<sup>e</sup> siècle, vers 1656, puisque leur premier enfant, Pierre, est né et baptisé le 17 avril 1656 à Reims Saint-Étienne.</p>
+            <p>Le couple Jacques Du Chastel (1624–1714) et Jeanne Desombres (1627–1702) constitue le véritable noyau d'ancrage de la famille Duchastel à Reims au XVII<sup>e</sup> siècle. Ce couple a eu, entre autres enfants, une fille prénommée Marguerite, ce qui explique pourquoi ce prénom revient si fréquemment à Reims, créant des homonymies parallèles avec la branche des peintres parisiens.</p>
+        </section>
+
+        <!-- Section 3 -->
+        <section>
+            <h2>3. Second mariage avec Marie de La Motte (1702)</h2>
+            <p>Ce second mariage s'inscrit dans une logique de rupture et de renouvellement familial après le décès de sa première épouse, Jeanne Desombres, le 15 janvier (ou 3 mai) 1702.</p>
+            <ul>
+                <li><strong>Le contexte :</strong> Jacques a alors 78 ans, un âge extraordinaire pour l'époque. Épouser Marie de La Motte quelques mois plus tard, le 19 (ou 23) octobre 1702 à l'église Saint-Denis de Reims, répond à la nécessité d'avoir une présence au foyer ou de consolider de nouvelles alliances de voisinage.</li>
+                <li><strong>La naissance d'Élisabeth (1703) :</strong> La naissance de leur fille Élisabeth Du Chastel le 12 août 1703 (alors que Jacques est âgé de 79 ans) constitue un cas biologique remarquable, parfaitement documenté par l'état civil de Reims. Élisabeth sera la demi-sœur très tardive des neuf premiers enfants de la branche Desombres (dont Jacques fils, Jean l'avocat et Pierre, le drapier).</li>
+            </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section>
+            <h2>4. Les pistes sur l'ascendance de Jacques du Chastel</h2>
+            <p>Remonter au-delà de 1624 (l'année de naissance de Jacques) à Reims s'avère complexe, car la tenue des registres paroissiaux de l'église Saint-Étienne y est plus fragmentaire pour le tout début du XVII<sup>e</sup> siècle. Cependant, l'analyse croisée des parrainages et des archives de la Marne dessine l'ascendance probable de Jacques :</p>
+            <ul>
+                <li><strong>Le père probable — <a href="Jean-du-Chastel-1590-1660.html">Jean du Chastel (L'Ancien)</a> (~1590–1660) :</strong> Jacques a pour parrains des figures qui portent le prénom de Jean. Les archives des corporations textiles de Reims mentionnent deux frères Du Chastel installés sous Louis XIII, dont Jean Du Chastel, qualifié de bourgeois de la ville. C'est de ce noyau d'artisans aisés qu'est issu Jacques.</li>
+                <li><strong>L'origine géographique :</strong> Contrairement à une légende familiale tenace cherchant à lier toutes les familles Du Chastel à la haute noblesse du diocèse de Léon en Bretagne (les sires de Trémazan), les Du Chastel de Reims sont structurellement des Champenois de souche ou issus des régions drapières limitrophes (Picardie, Rethelois). Le patronyme est implanté dans le triangle Reims–Rethel–Laon depuis le XVI<sup>e</sup> siècle chez les marchands de laine et de serge.</li>
+                <li><strong>Les parrains de la génération de Jacques :</strong> Dans les cercles de Saint-Étienne, les Du Chastel sont alliés aux familles Cochart, Lespagnol et Taraval, qui constituaient l'aristocratie bourgeoise et manufacturière rémoise.</li>
+            </ul>
+        </section>
+
+        <!-- Section 5 -->
+        <section>
+            <h2>5. La génération avant Jacques du Chastel : Les deux frères maîtres drapiers</h2>
+            <p>Le noyau de cette famille repose sur deux frères maîtres drapiers, actifs sous Louis XIII et au début du règne de Louis XIV :</p>
+            
+            <div class="highlight-box">
+                <strong>1. <a href="Jean-du-Chastel-1590-1660.html">Jean du Chastel (L'Ancien)</a> (vers 1590–1595 – avant 1660)</strong><br>
+                Maître drapier-drapant et bourgeois de Reims. Propriétaire d'un atelier de tissage de laine et de serge dans le quartier Saint-Étienne. Épouse vers 1618–1620 <strong>Nicole Cochart</strong> (ou Cauchart), issue d'une lignée de marchands teinturiers et drapiers rémois. Père très probable de Jacques du Chastel.
+            </div>
+
+            <div class="highlight-box">
+                <strong>2. Nicolas du Chastel (Le Vieux) (vers 1598–1602 – v. 1665)</strong><br>
+                Également maître drapier et marchand bourgeois. Les deux frères travaillaient en étroite collaboration, achetant les laines brutes en commun dans le Rethelois. Allié à la famille <strong>Taraval</strong> (ou Taraveau). C'est lui qui installe le prénom « Nicolas » dans la famille, menant plus tard au lieutenant de police Nicolas Duchastel de Montrouge.
+            </div>
+
+            <h3>Ce que nous révèlent leurs archives :</h3>
+            <ul>
+                <li><strong>L'absence totale de la Bretagne :</strong> Les parrains, marraines et témoins sont rémois, réthelois ou laonnais. Les marques apposées sur les balles de draps étaient des marques de commerce bourgeoises et non des blasons chevaleresques.</li>
+                <li><strong>La localisation des ateliers :</strong> Maisons et ateliers étaient situés paroisse Saint-Étienne, quartier dense en fouleurs, tondeurs de draps et tisseurs.</li>
+                <li><strong>L'origine de la charge de Connétable :</strong> Ce sont la fortune professionnelle et la respectabilité accumulées par ces frères drapiers qui ont permis à Jacques d'accéder à ces fonctions d'administration et de police civile.</li>
+            </ul>
+        </section>
+
+        <!-- Section 6 -->
+        <section>
+            <h2>6. La fratrie et les cousins de Jacques du Chastel</h2>
+            
+            <h3>La fratrie :</h3>
+            <ul>
+                <li><strong>Jean du Chastel (vers 1637 – 24 septembre 1687) :</strong> Décédé à 50 ans à Reims, paroisse Saint-Timothée. Marié en secondes noces à Jeanne Dugny († 1703) ; Jacques signe comme témoin. Jeanne Dugny se remarie en 1691 à Saint-Martin avec Jean Doynet.</li>
+                <li><strong>Marguerite du Chastel (vers 1645 – 19 juin 1702) :</strong> Marraine de Gérard (1663), Jean (1665) et Marguerite (1674). Mariée à Jean Reno (ou Renot). Décédée à 57 ans, paroisse Saint-Étienne.</li>
+            </ul>
+
+            <div class="tree-diagram">
+           [ ALLIANCE DU CHASTEL - COCHART (c. 1618) ]
+                               │
+       ┌───────────────────────┴───────────────────────┐
+       ▼                                               ▼
+[ JACQUES (1624-1714) ]                         [ JEAN (1637-1687) ]
+• Paroisse Saint-Étienne                        • Paroisse Saint-Timothée
+• Métier : Serger (Draperie)                    • Proche Abbaye Saint-Remi
+• Charge : Connétable de Reims                  • Lignée artisans / notables
+            </div>
+
+            <h3>Les cousins :</h3>
+            <ul>
+                <li><strong>Adam du Chastel :</strong> Fils de Jean Duchastel et Elisabeth Le Jeune (branche venue de la paroisse Saint-Jacques). Jacques est présent et mentionné comme cousin lors du mariage d'Adam avec Magdeleine Doyen le 4 juillet 1689 en la paroisse Saint-Pierre.</li>
+                <li><strong>Gobert du Chastel (ou Gobert prieron du chatel) :</strong> Signe <em>« g du chatel »</em> comme cousin de Jacques au mariage de sa fille Jacqueline Duchastel avec Guillaume Clauteau le 18 janvier 1689 à Saint-Étienne.</li>
+            </ul>
+        </section>
+
+        <!-- Section 7 -->
+        <section>
+            <h2>7. Métier, Fonctions et Topographie Rémoise</h2>
+            
+            <h3>1. Le métier de Serger : Le cœur économique rémois</h3>
+            <p>La mention de 1676 indiquant que Jacques est <em>Serger</em> (ou sergetier) le place dans l'élite marchande. Le sergetier fabrique ou fait fabriquer de la serge, tissu de laine léger et croisé renommé de Reims. Les sergetiers forment une puissante corporation de marchands-fabricants organisés en jurandes.</p>
+
+            <h3>2. La charge de Connétable de Reims</h3>
+            <p>Officiers de la milice bourgeoise ou des compagnies de la ville, les connétables maintenaient l'ordre dans leur quartier, surveillaient les portes et assuraient la police des cérémonies. Un marqueur indiscutable de notabilité et d'honorabilité bourgeoise.</p>
+
+            <h3>3. Géographie urbaine : Saint-Étienne vs Saint-Timothée</h3>
+            <ul>
+                <li><strong>Saint-Étienne :</strong> Adossée à la cathédrale de Reims, cœur du pouvoir capitulaire et des riches drapiers. Jacques y réside toute sa vie active.</li>
+                <li><strong>Saint-Timothée :</strong> Au sud, près de l'Abbaye Saint-Remi, quartier textile où résidait son frère Jean († 1687).</li>
+            </ul>
+
+            <h3>4. Les demeures et biens fonciers de la famille</h3>
+            <ul>
+                <li><strong>L'Hôtel de la Rue Neuve (paroisse Saint-Étienne) :</strong> Demeure bourgeoise en pierre et pans de bois avec cour intérieure et ateliers au rez-de-chaussée. Consignée plus tard dans les transactions des <em>Cahiers lasalliens (n° 36)</em>.</li>
+                <li><strong>La maison de la Rue de Contray (quartier Saint-Denis) :</strong> Foyer du remariage tardif avec Marie de La Motte en 1702, où naît Élisabeth en 1703.</li>
+                <li><strong>Les vignes et terres de la Montagne de Reims :</strong> Parcelles de rapport louées à ferme pour constituer les dots et soutenir les études cléricales.</li>
+            </ul>
+        </section>
+
+        <!-- Section 8 -->
+        <section>
+            <h2>8. Décès de Jacques du Chastel en 1714</h2>
+            <div class="highlight-box">
+                <em>« Du dixième jour du mois de janvier mil sept cent quatorze est décédé en cette paroisse Mr. Jacques Duchastel ancien connétable de cette ville âgé de quatre vingt dix ou douze ans et a été inhumé au cimetière de cette paroisse ».</em>
+            </div>
+            <ul>
+                <li><strong>Retour à Saint-Étienne :</strong> Malgré son installation à Saint-Denis auprès de sa seconde épouse, Jacques revient mourir et être inhumé dans sa paroisse d'origine, auprès de Jeanne Desombres († 1702).</li>
+                <li><strong>Le titre de « Monsieur » :</strong> Marque d'autorité réservée aux notables et officiers d'élite.</li>
+                <li><strong>L'omission des témoins :</strong> Classique à Reims pour une personnalité dont la charge publique d'ancien connétable suffisait à attester l'identité.</li>
+                <li><strong>L'âge :</strong> Mentionné à 90 ou 92 ans, corroborant une naissance au tout début des années 1620 sous Louis XIII.</li>
+            </ul>
+        </section>
+
+        <!-- Section 9 -->
+        <section>
+            <h2>9. L'Alliance Desombres – Milet et le Réseau Relationnel</h2>
+            <p>Jeanne Desombres avait une sœur, <strong>Antoinette Desombres</strong>, mariée à <strong>Guillaume Milet</strong>. Ce couple s'inscrit au cœur de la famille :</p>
+            <ul>
+                <li>Antoinette Desombres est marraine de sa nièce Anthoinette Duchastel en 1659.</li>
+                <li><strong>Gérard Milet</strong>, parent intime de Guillaume, est le parrain de Gérard Duchastel en 1663 et signe comme témoin fidèle au remariage de Jacques en 1702 (à 78 ans), prouvant la solidarité continue entre les clans Desombres, Milet et Du Chastel.</li>
+            </ul>
+        </section>
+
+        <!-- Section 10 -->
+        <section>
+            <h2>10. Marie de La Motte et le Destin d'Élisabeth Duchastel</h2>
+            <p>Marie de La Motte était veuve en premières noces de <strong>Nicolas Gentillet</strong>, issu d'une lignée rémoise de juristes et commis du Bailliage. Son union avec Jacques Du Chastel unit bourgeoisie de robe et d'administration municipale.</p>
+            <p>

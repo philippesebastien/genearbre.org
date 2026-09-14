@@ -1,0 +1,162 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.36617.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Genearbre.org _ Custom Family Trees_files", "..\..\..\Documents\Visual Studio 2017\Projects\genearbre.org\Genearbre.org _ Custom Family Trees_files", "{30919E45-6B18-4434-85CC-CD0F80AA0B74}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_57212"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2017\Projects\genearbre.org\Genearbre.org _ Custom Family Trees_files\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57212\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_57212"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2017\Projects\genearbre.org\Genearbre.org _ Custom Family Trees_files\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_57212\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "57212"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CEC3A859-FE0F-4E4E-9101-CDCDE019229F}"
+	ProjectSection(SolutionItems) = preProject
+		index.html = index.html
+		index_old.html = index_old.html
+		scripts.js.download = scripts.js.download
+		skip-link-focus-fix.js.download = skip-link-focus-fix.js.download
+		style.css = style.css
+		styles.css = styles.css
+		superfish.js.download = superfish.js.download
+		tv = tv
+		tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html = tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html
+		ui.js.download = ui.js.download
+		UpgradeLog.htm = UpgradeLog.htm
+		UpgradeLog2.htm = UpgradeLog2.htm
+		web.css = web.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Duchastel", "Duchastel", "{38208769-1164-424C-B3DC-940E865A4C7C}"
+	ProjectSection(SolutionItems) = preProject
+		Duchastel\genealogie-duchastel.html = Duchastel\genealogie-duchastel.html
+		Duchastel\jacques-du-chastel.html = Duchastel\jacques-du-chastel.html
+		Duchastel\jacques-duchastel.html = Duchastel\jacques-duchastel.html
+		Duchastel\jean-baptiste-du-chastel.html = Duchastel\jean-baptiste-du-chastel.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Genearbre.org _ Custom Family Trees_files", "Genearbre.org _ Custom Family Trees_files", "{4A5A4248-66F0-48BA-BF16-AA41D2C0EFBF}"
+	ProjectSection(SolutionItems) = preProject
+		Genearbre.org _ Custom Family Trees_files\911 = Genearbre.org _ Custom Family Trees_files\911
+		Genearbre.org _ Custom Family Trees_files\all.js.download = Genearbre.org _ Custom Family Trees_files\all.js.download
+		Genearbre.org _ Custom Family Trees_files\americana = Genearbre.org _ Custom Family Trees_files\americana
+		Genearbre.org _ Custom Family Trees_files\apollo.js.download = Genearbre.org _ Custom Family Trees_files\apollo.js.download
+		Genearbre.org _ Custom Family Trees_files\archive.min.css = Genearbre.org _ Custom Family Trees_files\archive.min.css
+		Genearbre.org _ Custom Family Trees_files\archive.min.js.download = Genearbre.org _ Custom Family Trees_files\archive.min.js.download
+		Genearbre.org _ Custom Family Trees_files\athena(1).js.download = Genearbre.org _ Custom Family Trees_files\athena(1).js.download
+		Genearbre.org _ Custom Family Trees_files\athena.js.download = Genearbre.org _ Custom Family Trees_files\athena.js.download
+		Genearbre.org _ Custom Family Trees_files\banner-styles.css = Genearbre.org _ Custom Family Trees_files\banner-styles.css
+		Genearbre.org _ Custom Family Trees_files\bootstrap.min.css = Genearbre.org _ Custom Family Trees_files\bootstrap.min.css
+		Genearbre.org _ Custom Family Trees_files\bootstrap.min.js.download = Genearbre.org _ Custom Family Trees_files\bootstrap.min.js.download
+		Genearbre.org _ Custom Family Trees_files\bundle-playback.js.download = Genearbre.org _ Custom Family Trees_files\bundle-playback.js.download
+		Genearbre.org _ Custom Family Trees_files\button.38c92cc0f88c473b4a9509c5027be028.js.download = Genearbre.org _ Custom Family Trees_files\button.38c92cc0f88c473b4a9509c5027be028.js.download
+		Genearbre.org _ Custom Family Trees_files\clevelandart = Genearbre.org _ Custom Family Trees_files\clevelandart
+		Genearbre.org _ Custom Family Trees_files\consolelivingroom = Genearbre.org _ Custom Family Trees_files\consolelivingroom
+		Genearbre.org _ Custom Family Trees_files\container_kzRD6OIl.js.download = Genearbre.org _ Custom Family Trees_files\container_kzRD6OIl.js.download
+		Genearbre.org _ Custom Family Trees_files\content-sidebar.css = Genearbre.org _ Custom Family Trees_files\content-sidebar.css
+		Genearbre.org _ Custom Family Trees_files\css = Genearbre.org _ Custom Family Trees_files\css
+		Genearbre.org _ Custom Family Trees_files\default.css = Genearbre.org _ Custom Family Trees_files\default.css
+		Genearbre.org _ Custom Family Trees_files\effect-bounce.min.js.download = Genearbre.org _ Custom Family Trees_files\effect-bounce.min.js.download
+		Genearbre.org _ Custom Family Trees_files\effect.min.js.download = Genearbre.org _ Custom Family Trees_files\effect.min.js.download
+		Genearbre.org _ Custom Family Trees_files\etree = Genearbre.org _ Custom Family Trees_files\etree
+		Genearbre.org _ Custom Family Trees_files\fastbutton.html = Genearbre.org _ Custom Family Trees_files\fastbutton.html
+		Genearbre.org _ Custom Family Trees_files\hoverIntent.min.js.download = Genearbre.org _ Custom Family Trees_files\hoverIntent.min.js.download
+		Genearbre.org _ Custom Family Trees_files\ia-topnav.min.js.download = Genearbre.org _ Custom Family Trees_files\ia-topnav.min.js.download
+		Genearbre.org _ Custom Family Trees_files\iconochive.css = Genearbre.org _ Custom Family Trees_files\iconochive.css
+		Genearbre.org _ Custom Family Trees_files\internetarcade = Genearbre.org _ Custom Family Trees_files\internetarcade
+		Genearbre.org _ Custom Family Trees_files\jquery-migrate.min.js.download = Genearbre.org _ Custom Family Trees_files\jquery-migrate.min.js.download
+		Genearbre.org _ Custom Family Trees_files\jquery.form.min.js.download = Genearbre.org _ Custom Family Trees_files\jquery.form.min.js.download
+		Genearbre.org _ Custom Family Trees_files\jquery.js.download = Genearbre.org _ Custom Family Trees_files\jquery.js.download
+		Genearbre.org _ Custom Family Trees_files\jquery.timeago.js.download = Genearbre.org _ Custom Family Trees_files\jquery.timeago.js.download
+		Genearbre.org _ Custom Family Trees_files\librivoxaudio = Genearbre.org _ Custom Family Trees_files\librivoxaudio
+		Genearbre.org _ Custom Family Trees_files\like.html = Genearbre.org _ Custom Family Trees_files\like.html
+		Genearbre.org _ Custom Family Trees_files\main.css = Genearbre.org _ Custom Family Trees_files\main.css
+		Genearbre.org _ Custom Family Trees_files\metropolitanmuseumofart-gallery = Genearbre.org _ Custom Family Trees_files\metropolitanmuseumofart-gallery
+		Genearbre.org _ Custom Family Trees_files\mm.js.download = Genearbre.org _ Custom Family Trees_files\mm.js.download
+		Genearbre.org _ Custom Family Trees_files\navigation.js.download = Genearbre.org _ Custom Family Trees_files\navigation.js.download
+		Genearbre.org _ Custom Family Trees_files\nivo-lightbox.css = Genearbre.org _ Custom Family Trees_files\nivo-lightbox.css
+		Genearbre.org _ Custom Family Trees_files\nivo-lightbox.min.js.download = Genearbre.org _ Custom Family Trees_files\nivo-lightbox.min.js.download
+		Genearbre.org _ Custom Family Trees_files\plusone.js.download = Genearbre.org _ Custom Family Trees_files\plusone.js.download
+		Genearbre.org _ Custom Family Trees_files\polyfill-support.js.download = Genearbre.org _ Custom Family Trees_files\polyfill-support.js.download
+		Genearbre.org _ Custom Family Trees_files\ruffle.js.download = Genearbre.org _ Custom Family Trees_files\ruffle.js.download
+		Genearbre.org _ Custom Family Trees_files\saved_resource.html = Genearbre.org _ Custom Family Trees_files\saved_resource.html
+		Genearbre.org _ Custom Family Trees_files\scripts.js.download = Genearbre.org _ Custom Family Trees_files\scripts.js.download
+		Genearbre.org _ Custom Family Trees_files\skip-link-focus-fix.js.download = Genearbre.org _ Custom Family Trees_files\skip-link-focus-fix.js.download
+		Genearbre.org _ Custom Family Trees_files\style.css = Genearbre.org _ Custom Family Trees_files\style.css
+		Genearbre.org _ Custom Family Trees_files\styles(1).css = Genearbre.org _ Custom Family Trees_files\styles(1).css
+		Genearbre.org _ Custom Family Trees_files\styles.css = Genearbre.org _ Custom Family Trees_files\styles.css
+		Genearbre.org _ Custom Family Trees_files\superfish.js.download = Genearbre.org _ Custom Family Trees_files\superfish.js.download
+		Genearbre.org _ Custom Family Trees_files\tv = Genearbre.org _ Custom Family Trees_files\tv
+		Genearbre.org _ Custom Family Trees_files\tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html = Genearbre.org _ Custom Family Trees_files\tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html
+		Genearbre.org _ Custom Family Trees_files\ui.js.download = Genearbre.org _ Custom Family Trees_files\ui.js.download
+		Genearbre.org _ Custom Family Trees_files\web.css = Genearbre.org _ Custom Family Trees_files\web.css
+		Genearbre.org _ Custom Family Trees_files\webcomponents-bundle.js.download = Genearbre.org _ Custom Family Trees_files\webcomponents-bundle.js.download
+		Genearbre.org _ Custom Family Trees_files\widgetOL.png = Genearbre.org _ Custom Family Trees_files\widgetOL.png
+		Genearbre.org _ Custom Family Trees_files\widgets.js.download = Genearbre.org _ Custom Family Trees_files\widgets.js.download
+		Genearbre.org _ Custom Family Trees_files\wombat.js.download = Genearbre.org _ Custom Family Trees_files\wombat.js.download
+		Genearbre.org _ Custom Family Trees_files\XBwzv5Yrm_1(1).html = Genearbre.org _ Custom Family Trees_files\XBwzv5Yrm_1(1).html
+		Genearbre.org _ Custom Family Trees_files\XBwzv5Yrm_1.html = Genearbre.org _ Custom Family Trees_files\XBwzv5Yrm_1.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Charest", "Charest", "{F2D7E711-F993-4AA2-924C-2D9F4C224EEB}"
+	ProjectSection(SolutionItems) = preProject
+		Charest\genealogie-charest.html = Charest\genealogie-charest.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sebastien", "Sebastien", "{65E1EC3C-5DE2-4EA4-A308-657705346298}"
+	ProjectSection(SolutionItems) = preProject
+		Sebastien\genealogie-sebastien.html = Sebastien\genealogie-sebastien.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blais", "Blais", "{FD0D4B8F-F10E-4781-94FC-D8138F92B7AB}"
+	ProjectSection(SolutionItems) = preProject
+		Blais\genealogie-blais.html = Blais\genealogie-blais.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Heynemand", "Heynemand", "{CE03DDF6-D31F-4514-BE39-6FEF6CE701FE}"
+	ProjectSection(SolutionItems) = preProject
+		Heynemand\genealogie-heynemand.html = Heynemand\genealogie-heynemand.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gaudet", "Gaudet", "{1B8AC717-15AD-4FCC-9938-467FDD82CA04}"
+	ProjectSection(SolutionItems) = preProject
+		Gaudet\genealogie-gaudet.html = Gaudet\genealogie-gaudet.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30919E45-6B18-4434-85CC-CD0F80AA0B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30919E45-6B18-4434-85CC-CD0F80AA0B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{38208769-1164-424C-B3DC-940E865A4C7C} = {CEC3A859-FE0F-4E4E-9101-CDCDE019229F}
+		{4A5A4248-66F0-48BA-BF16-AA41D2C0EFBF} = {CEC3A859-FE0F-4E4E-9101-CDCDE019229F}
+		{F2D7E711-F993-4AA2-924C-2D9F4C224EEB} = {CEC3A859-FE0F-4E4E-9101-CDCDE019229F}
+		{65E1EC3C-5DE2-4EA4-A308-657705346298} = {CEC3A859-FE0F-4E4E-9101-CDCDE019229F}
+		{FD0D4B8F-F10E-4781-94FC-D8138F92B7AB} = {CEC3A859-FE0F-4E4E-9101-CDCDE019229F}
+		{CE03DDF6-D31F-4514-BE39-6FEF6CE701FE} = {CEC3A859-FE0F-4E4E-9101-CDCDE019229F}
+		{1B8AC717-15AD-4FCC-9938-467FDD82CA04} = {CEC3A859-FE0F-4E4E-9101-CDCDE019229F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30B748D9-4D6B-4542-96BD-9EE9E0CA05D8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,724 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duchastel de Montrouge — Archives généalogiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #f1e8d6;
+    --parchment-deep: #e5d7b7;
+    --ink: #241d13;
+    --ink-soft: #4a4030;
+    --navy: #1c2740;
+    --navy-deep: #131b2d;
+    --burgundy: #7c2331;
+    --gold: #a4802f;
+    --gold-bright: #c79b3f;
+    --rule: rgba(36,29,19,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--gold); color:var(--navy-deep);}
+
+  .eyebrow{
+    font-family:'Cinzel', serif;
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  h1,h2,h3{ font-family:'Cormorant Garamond', serif; font-weight:600; margin:0; color:var(--navy);}
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+    color:var(--parchment);
+    padding:96px 32px 120px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid rgba(199,155,63,0.35);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
+  .seal{
+    width:118px; height:118px; margin:0 auto 30px;
+    position:relative;
+    animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes sealDrop{
+    0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
+    100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
+  }
+  .seal svg{ width:100%; height:100%; }
+  .hero .eyebrow{ color:var(--gold-bright); }
+  .hero h1{
+    font-family:'Cormorant SC', serif;
+    font-size:clamp(52px, 9vw, 96px);
+    color:var(--parchment);
+    letter-spacing:.02em;
+    margin:14px 0 6px;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero .sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(18px,2.6vw,24px);
+    color:#d9c9a3;
+    letter-spacing:.03em;
+  }
+  .hero .rule{
+    width:64px; height:1px; background:var(--gold); margin:26px auto;
+    opacity:.7;
+  }
+  .hero p.lede{
+    max-width:560px; margin:0 auto; color:#cdbfa0; font-size:17px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:8px; }
+  .section-head .eyebrow{ display:block; }
+
+  /* ---------- NARRATIVE ---------- */
+  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
+  .lede-block p:first-child::first-letter{
+    font-family:'Cormorant SC', serif;
+    font-size:64px;
+    float:left;
+    line-height:.8;
+    padding:6px 10px 0 0;
+    color:var(--burgundy);
+  }
+  blockquote{
+    margin:36px 0; padding:22px 28px;
+    border-left:3px solid var(--gold);
+    background:var(--parchment-deep);
+    font-style:italic; color:var(--ink);
+  }
+  blockquote cite{ display:block; margin-top:10px; font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:var(--ink-soft); }
+
+  .figure-note{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
+  }
+  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
+
+  /* ---------- LINEAGE LADDER (signature element) ---------- */
+  .ladder-intro{ margin-bottom:56px; max-width:640px; }
+  .ladder{ position:relative; }
+  .ladder::before{
+    content:""; position:absolute; left:29px; top:8px; bottom:8px; width:1px;
+    background:linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
+  }
+  .rung{
+    position:relative; display:grid; grid-template-columns:60px 1fr; gap:22px;
+    padding:26px 0; border-bottom:1px dashed var(--rule);
+  }
+  .rung:last-child{ border-bottom:none; }
+  .rung .numeral{
+    font-family:'Cormorant SC', serif; font-size:26px; color:var(--navy);
+    width:60px; height:60px; border-radius:50%;
+    background:var(--parchment); border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:1;
+  }
+  .rung.current .numeral{ background:var(--burgundy); color:var(--parchment); border-color:var(--burgundy); }
+  .rung h3{ font-size:23px; color:var(--navy); }
+  .rung .role{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--burgundy); margin:4px 0 8px; }
+  .rung .meta{ font-size:15.5px; color:var(--ink-soft); }
+  .rung .meta b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- GENERATION RECORDS (lecture continue, sans accordéon) ---------- */
+  .gen{
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    margin-bottom:14px; padding:0;
+  }
+  .gen-summary{
+    padding:20px 26px 16px; display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    font-family:'Cormorant Garamond', serif;
+    border-bottom:1px dashed var(--rule);
+  }
+  .gen-summary .tag{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; color:var(--gold); flex-shrink:0; }
+  .gen-summary .name{ font-size:22px; color:var(--navy); flex:1; }
+  .gen-body{ padding:18px 26px 26px; font-size:16px; color:var(--ink-soft); }
+  .gen-body p{ margin:0 0 14px; }
+  .gen-body .children{ margin-top:12px; padding-left:20px; border-left:2px solid var(--rule); }
+  .gen-body .children .child{ margin-bottom:10px; }
+  .gen-body .children .grand{ margin:6px 0 6px 22px; font-size:14.5px; color:var(--ink-soft); opacity:.9; }
+  .gen-body .grand ul{ margin:4px 0 4px 22px; padding:0; }
+  .gen-body sup.note{ font-size:11px; color:var(--gold); }
+
+  /* ---------- PATRILINEAL CHART ---------- */
+  .chart-wrap{
+    background:var(--navy-deep); color:var(--parchment);
+    padding:48px 40px; position:relative;
+    border:1px solid var(--gold);
+  }
+  .chart-wrap::before, .chart-wrap::after{
+    content:"◆"; color:var(--gold); font-size:12px; position:absolute;
+  }
+  .chart-wrap::before{ top:16px; left:16px; }
+  .chart-wrap::after{ bottom:16px; right:16px; }
+  .chart-title{ text-align:center; font-family:'Cormorant SC',serif; font-size:26px; margin-bottom:6px; }
+  .chart-sub{ text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; color:#c9b98a; margin-bottom:32px; }
+  .chart-row{ display:grid; grid-template-columns:40px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid rgba(199,155,63,0.2); }
+  .chart-row:last-child{ border-bottom:none; }
+  .chart-row .rn{ font-family:'Cormorant SC',serif; color:var(--gold-bright); font-size:18px; }
+  .chart-row .rd{ font-size:15px; }
+  .chart-row .rd .names{ color:var(--parchment); }
+  .chart-row .rd .date{ display:block; font-size:13px; color:#a99a72; margin-top:2px; }
+
+  /* ---------- IMAGES ---------- */
+  .figure{ margin:36px 0; }
+  .figure img{ display:block; width:100%; height:auto; border:1px solid var(--rule); background:var(--parchment-deep); }
+  .figure figcaption{ margin-top:10px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.08em; color:var(--ink-soft); text-align:center; }
+  .figure-pair{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
+  .figure-pair .figure{ margin:0; }
+  .crest-row{ display:flex; align-items:center; gap:28px; margin:0 0 32px; }
+  .crest-row img{ width:96px; height:auto; border:1px solid var(--rule); flex-shrink:0; }
+  .crest-row .blazon{ font-style:italic; color:var(--ink-soft); font-size:15px; }
+  .rung .portrait{ margin-top:14px; display:flex; gap:10px; }
+  .rung .portrait img{ width:74px; height:auto; border:1px solid var(--gold); }
+  .doc-image{ margin:16px 0 6px; }
+  .doc-image img{ width:100%; max-width:340px; height:auto; border:1px solid var(--rule); display:block; }
+  .doc-image figcaption{ font-size:13px; color:var(--ink-soft); font-style:italic; margin-top:6px; }
+
+  /* ---------- SOURCES ---------- */
+  .sources ul{ padding-left:20px; color:var(--ink-soft); font-size:15px; }
+  .sources li{ margin-bottom:10px; }
+
+  footer{
+    background:var(--navy-deep); color:#a99a72; text-align:center;
+    padding:56px 32px 40px; font-size:14px;
+  }
+  footer .eyebrow{ display:block; margin-bottom:10px; }
+  footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
+
+  .callout-next{
+    margin-top:60px; padding:24px 28px; border:1px dashed var(--gold);
+    background:var(--parchment-deep); font-size:15.5px; color:var(--ink-soft);
+  }
+  .callout-next b{ color:var(--navy); }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .rung{ grid-template-columns:44px 1fr; gap:14px; }
+    .rung .numeral{ width:44px; height:44px; font-size:19px; }
+    .chart-wrap{ padding:32px 20px; }
+    .figure-pair{ grid-template-columns:1fr; }
+    .crest-row{ flex-direction:column; align-items:flex-start; gap:14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="seal" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">DU</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="19" fill="#e5d7b7">CHASTEL</text>
+    </svg>
+  </div>
+  <span class="eyebrow">Barons d'Empire — Champagne · Reims · Québec</span>
+  <h1>Duchastel<br>de Montrouge</h1>
+  <p class="sub">Dix générations, du Reims du Grand Siècle à l'Outremont d'aujourd'hui</p>
+  <div class="rule"></div>
+  <p class="lede">Une archive généalogique bâtie à partir des documents de famille, actes et parchemins rassemblés par le D<sup>r</sup> Yves Duchastel de Montrouge et publiés par Jean-Yves Bronze dans les <em>Mémoires de la Société généalogique canadienne-française</em>.</p>
+</header>
+
+<main>
+
+  <!-- ===================== NARRATIVE ===================== -->
+  <section id="histoire">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Chapitre premier</span>
+        <h2>Du Moyen Âge à Louis&nbsp;XVI</h2>
+      </div>
+
+      <div class="crest-row">
+        <img src="images/blason-duchastel-montrouge.png" alt="Blason de la famille Duchastel de Montrouge">
+        <div class="blazon">D'azur, au chevron d'or accompagné en chef de deux gerbes de blé du même, et en pointe d'un cœur de gueules.</div>
+      </div>
+
+      <div class="crest-row">
+        <img src="images/blason-duchastel-montrouge-feminin.png" alt="Blason de la famille Duchastel de Montrouge, version féminine">
+        <div class="blazon">Version féminine du même blason, présentée en cartouche ovale timbré d'une coquille et orné de feuillages, selon l'usage héraldique réservé aux dames — les initiales « U » et « C » figurant en pointe du cartouche.</div>
+      </div>
+
+      <div class="lede-block">
+        <p>Le patronyme Du Chastel se retrace jusqu'au Moyen Âge. En Bretagne, la branche des Du Chastel de Trémazan, seigneurs de leur superbe château de Trémazan, occupe une place considérable dans la chevalerie, notamment à la bataille d'Azincourt, au moment de la guerre de Cent Ans. D'autres branches, tels les Du Chastel de La Martinière, se répandent dans le nord et l'est de la France, particulièrement en Champagne — c'est le cas de la descendance de Jacques Duchastel étudiée ici.</p>
+        <p>Aucun lien généalogique établi ne rattache, dans l'état actuel des sources disponibles, cette branche de Reims à la maison bretonne des Du Chastel de Trémazan. La seule trace trouvée à ce jour est le passage à Reims d'un Du Chastel breton, vraisemblablement à l'occasion d'un sacre royal. Il n'est pas exclu qu'il y ait séjourné quelque temps, mais, seigneur de Trémazan et maître de son château breton, ce n'est pas lui qui s'est établi à Reims. Le blason ci-dessus, propre à la famille Duchastel de Montrouge, ne doit donc pas être confondu avec celui, distinct, de la branche bretonne.</p>
+        <p>C'est avec un arrière-petit-fils de ce Jacques Duchastel, Jean-Baptiste Duchastel de Montflambert (1723–1809), résidant à Reims, que s'ouvre la lignée baronniale. Écuyer et conseiller du roi à la Maison de France, sa charge de secrétaire du roi lui vaut d'être anobli sous Louis XVI, par lettres patentes émises en 1775 lors du sacre du roi.</p>
+        <p>La famille survit à la Révolution et acquiert, sous l'Empire, un nouveau titre baronnial héréditaire. Dans la France du XIX<sup>e</sup> siècle, alors que royalistes, révolutionnaires et bonapartistes se détestent mutuellement, les Duchastel de Montrouge prospèrent et tirent habilement leur épingle du jeu au fil des changements de régime.</p>
+      </div>
+
+      <div class="figure-note">
+        <span class="mark">§</span>
+        <div>Trois documents jaunis, pourvus d'un sceau rouge, portent la signature de <em>Louis</em> — Louis&nbsp;XVI lui-même. L'un d'eux, daté du 15&nbsp;avril 1788 et fait à Versailles, nomme <a href="jacques-gabriel-duchastel-de-montrouge.html">Gabriel Duchastel de Montrouge</a> premier lieutenant de la compagnie de fusiliers de Micault, au régiment du colonel général des Dragons en garnison en Bourgogne.</div>
+      </div>
+
+      <div class="figure-pair">
+        <figure class="figure">
+          <img src="images/monthoury-parc-ancien.jpg" alt="Château de Monthoury, vu du parc, photographie ancienne">
+          <figcaption>Dammard, château de Monthoury, vu du parc</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="images/monthoury-2013.png" alt="Château de Monthoury, photographie 2013">
+          <figcaption>Château de Monthoury, tel qu'il se présente aujourd'hui</figcaption>
+        </figure>
+      </div>
+
+      <div class="lede-block">
+        <p>À l'époque du premier Empire (1804–1814), l'accession à la noblesse est réservée à certains fonctionnaires impériaux : Napoléon I<sup>er</sup> accorde le droit aux titres viagers de comte ou de baron selon l'importance des fonctions exercées — l'« anoblissement par charge ». On évalue à 1&nbsp;519 le nombre de personnes anoblies ainsi en six ans. Les titres et majorats se transmettent de mâle en mâle, par droit d'aînesse.</p>
+      </div>
+
+      <blockquote>
+        Riche négociant de Troyes, propriétaire de la forêt d'Aumont (5&nbsp;500 arpents), député de l'Aube au Conseil des Cinq-Cents puis au corps législatif — Jacques-Jean-Baptiste Duchastel-Berthelin sera fait baron d'Empire à titre héréditaire par décret impérial promulgué au Palais des Tuileries le 2&nbsp;janvier 1814.
+        <cite>Mémoires SGCF, vol. 56, n° 4, cahier 246 — p. 293</cite>
+      </blockquote>
+
+      <div class="figure-note">
+        <span class="mark">✦</span>
+        <div><strong>Visite impériale.</strong> Au lendemain de la bataille de La Rothière (1<sup>er</sup> février 1814), Napoléon, retiré au château de Brienne, gagne Troyes où il se repose du 3 au 5 février chez son hôte — nul autre que Jacques-Jean-Baptiste Duchastel-Berthelin, qu'il venait tout juste de créer baron d'Empire. Un an plus tard, en 1815, Duchastel-Berthelin fait construire le château de Monthoury à Dammard, au coût de 127&nbsp;777&nbsp;francs.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LADDER: BARONS SUCCESSION ===================== -->
+  <section id="barons">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">La succession baronniale</span>
+        <h2>De baron en baron, jusqu'à Montréal</h2>
+      </div>
+      <p class="ladder-intro" style="color:var(--ink-soft)">Le titre passe de main en main au gré des naissances, des morts prématurées et d'un exil vers le Nouveau Monde. Voici les onze porteurs successifs du nom, de Reims à Outremont.</p>
+
+      <div class="ladder">
+
+        <div class="rung">
+          <div class="numeral">I</div>
+          <a>
+            <h3>Jacques du Chastel</h3>
+            <div class="role">Souche familiale</div>
+            <div class="meta">Épouse <b>Jeanne Desombres</b> (1627 – 15 janvier 1702, Reims). Union vers le milieu du XVII<sup>e</sup> siècle, probablement à Reims.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">II</div>
+          <div>
+            <h3>Jean-Baptiste Du Chastel</h3>
+            <div class="role">1670 – 1702</div>
+            <div class="meta">Marié à <b>Marguerite Plantin</b>, décédée le 8 juillet 1754 à Reims. Cinq enfants, tous nés à Reims.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">III</div>
+          <div>
+            <h3>Jacques Du Chastel</h3>
+            <div class="role">17 octobre 1700 – 29 octobre 1740</div>
+            <div class="meta">Marié le 10 février 1722 à <b>Marie-Jeanne Miteau</b> (1703–1751).</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">IV</div>
+          <div>
+            <h3>Jean-Baptiste Duchastel</h3>
+            <div class="role">Premier baron de Montflambert · anobli par Louis XVI</div>
+            <div class="meta">18 mars 1723 – 2 février 1809, Reims. Marié à <b>Louise-Nicolle Cadot</b> (1736–1776).</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">V</div>
+          <div>
+            <h3><a href="jacques-gabriel-duchastel-de-montrouge.html">Jacques-Gabriel Duchastel de Montrouge</a></h3>
+            <div class="role">14 avril 1758 – 25 mars 1792, Reims</div>
+            <div class="meta">Militaire, lieutenant au régiment colonel de Dragons (1778). Marié à Rethel, le 9 janvier 1781, à <b>Philippine-Élisabeth Durand de Courmont</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">VI</div>
+          <div>
+            <h3>Alexandre-Louis-François Duchastel</h3>
+            <div class="role">Baron de Montrouge</div>
+            <div class="meta">Né à Rethel le 30 juin 1784. Hérite du titre en 1830 au décès sans descendance de son oncle Jacques-Jean-Baptiste Duchastel-Berthelin. Marié en 1813 à <b>Sophie Le Goix</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">VII</div>
+          <div>
+            <h3>Jules-Jean-Baptiste Duchastel</h3>
+            <div class="role">Baron de Montrouge · diplomate</div>
+            <div class="meta">19 juillet 1823 – 4 janvier 1889, Paris. Partage sa vie entre Paris et le château de Monthoury. Deux mariages : <b>Julie-Sylvia-Félicie Pèlerin</b> (New York, 1845), puis <b>Berthe Follias</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">VIII</div>
+          <div>
+            <h3>Léon-Hilaire-Alexandre Duchastel</h3>
+            <div class="role">Baron de Montrouge · consul de France</div>
+            <div class="meta">17 avril 1848 Paris – 27 avril 1929 Paris. Chancelier puis consul en poste à New York, Charleston, Chicago, <b>Québec</b> (1881), Amsterdam, puis <b>Montréal</b> (1894) et Vancouver. Chevalier de la Légion d'honneur (1902). Marié à New York en 1877 à <b>Anita Snyder</b>.</div>
+            <div class="portrait">
+              <img src="images/leon-hilaire-portrait.jpg" alt="Portrait de Léon-Hilaire-Alexandre Duchastel">
+              <img src="images/leon-hilaire-consul.jpg" alt="Léon-Hilaire-Alexandre Duchastel en habit de consul">
+            </div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">IX</div>
+          <div>
+            <h3><a href="famille-jules-alexandre.html">Jules-Alexandre Duchastel</a></h3>
+            <div class="role">Baron de Montrouge · ingénieur</div>
+            <div class="meta">1<sup>er</sup> septembre 1878 New York – 20 février 1938 Montréal. Diplômé de l'École Polytechnique de Montréal (1901); ingénieur administrateur à la Ville d'Outremont (1906–1924); major dans l'armée canadienne. Marié en 1904 à <b>Jeanne Lacoste</b>.</div>
+            <div class="portrait">
+              <img src="images/jules-alexandre.jpg" alt="Jules-Alexandre Duchastel de Montrouge">
+              <img src="images/famille-1920.jpg" alt="La famille de Jules-Alexandre Duchastel de Montrouge, vers 1920">
+            </div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">X</div>
+          <div>
+            <h3>Léon-Alexandre Duchastel</h3>
+            <div class="role">Baron de Montrouge · ingénieur civil</div>
+            <div class="meta">22 juillet 1905 Outremont – 21 mars 1962. Diplômé de Polytechnique (1927); major, régiment de Maisonneuve. Marié en 1933 à <b>Yvette Beauchamp</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung current">
+          <div class="numeral">XI</div>
+          <div>
+            <h3>Yves-Jules Duchastel</h3>
+            <div class="role">Présent baron de Montrouge</div>
+            <div class="meta">Né le 7 avril 1934 à Montréal. Neurologue; fondateur en 1964 et chef du Service de neurologie de l'Hôpital du Sacré-Cœur de Montréal jusqu'en 1980; président de l'Association des neurologues du Québec (1975–1976). Héritier présomptif du titre : son fils <b>Laurent</b> (né 1966).</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FULL RECORDS ===================== -->
+  <section id="registre">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Le registre complet</span>
+        <h2>Dix générations, branche par branche</h2>
+      </div>
+      <p style="color:var(--ink-soft); max-width:640px; margin-bottom:36px;">Chaque entrée peut être dépliée pour consulter la descendance complète telle que reconstituée dans l'article original.</p>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 1</span><span class="name">Jacques du Chastel &amp; Jeanne Desombres</span></div>
+        <div class="gen-body">
+          <p>Jeanne Desombres, née en 1627, décédée à Reims (paroisse Saint-Étienne) le 15 janvier 1702, âgée d'environ 75 ans. Le couple se serait uni au milieu du XVII<sup>e</sup> siècle, probablement à Reims.</p>
+          <div class="children">
+            <div class="child">Au moins un enfant : <b>Jean-Baptiste</b>, né en 1670 (génération 2).</div>
+          </div>
+          <p style="margin-top:18px;">Veuf, Jacques Du Chastel se remarie le 19 octobre 1702, en la paroisse Saint-Denis de Reims, avec <b>Marie Lamotte</b>, originaire de Montfaucon (Saint-Laurent, Aisne) et veuve de Nicolas Gentillet. Marie Lamotte décède le 1<sup>er</sup> janvier 1717 à l'Hôtel-Dieu de Reims.</p>
+          <div class="doc-image">
+            <img src="images/acte-mariage-1702.jpg" alt="Acte de mariage de Jacques Duchastel et Marie Lamotte, 19 octobre 1702">
+            <figcaption>Acte de mariage de Jacques Du Chastel et Marie Lamotte, 19 octobre 1702, Reims Saint-Denis</figcaption>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 2</span><span class="name">Jean-Baptiste Du Chastel &amp; Marguerite Plantin</span></div>
+        <div class="gen-body">
+          <p>Né en 1670, probablement à Reims, décédé à Reims le 12 mai 1702. Marié avec Marguerite Plantin (fille de Pierre Plantin et Nicole Vincent, mariés en 1665), décédée le 8 juillet 1754 à Reims. Mariage calculé entre 1690 et 1696.</p>
+          <div class="children">
+            <div class="child">2.1 <b>Pierre</b>, chanoine de la cathédrale de Saint-Étienne à Châlons-sur-Marne; inhumé le 24 septembre 1753.</div>
+            <div class="child">2.2 <b>Jean-Baptiste</b>, connétable de Reims; décédé le 24 septembre 1763; marié en 1718 à Barbe Miteau. Seize enfants, tous morts en bas âge.</div>
+            <div class="child">2.3 <b>Pierre</b>, fabricant d'étoffes; décédé le 3 novembre 1745; marié en 1720 à Antoinette Miteau. Neuf enfants.</div>
+            <div class="child">2.4 <b>Jacques</b> (1700–1740) — voir génération 3.</div>
+            <div class="child">2.5 <b>Jeanne</b>, célibataire, décédée en 1736.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 3</span><span class="name">Jacques Duhastel &amp; Marie-Jeanne Miteau</span></div>
+        <div class="gen-body">
+          <p>Né le 17 octobre 1700, probablement à Reims; décédé le 29 octobre 1740. Marié le 10 février 1722 à Reims avec Marie-Jeanne Miteau (1703–1751), fille de Jean Miteau et Jeanne Huart.</p>
+          <div class="children">
+            <div class="child">Au moins un enfant : <b>Jean-Baptiste Duchastel</b> (1723–1809) — voir génération 4.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 4</span><span class="name">Jean-Baptiste Duchastel, premier baron de Montflambert</span></div>
+        <div class="gen-body">
+          <p>Anobli par Louis XVI. Né le 18 mars 1723 à Reims; décédé au même endroit le 2 février 1809. Marié à Louise-Nicolle Cadot (1736–1776), fille de Jacques-François-Thomas Cadot et Reine-Anne Gard. Le 14&nbsp;avril 1753, devant M<sup>e</sup> Louis Clauteau, notaire royal à Reims, il achète le domaine de Montflambert à Pierre-Joseph Boucher de Crèvecœur et à son épouse Françoise Barbier de la Serre (fille de Joseph Barbier de la Serre et de Montflambert, et de Françoise Quernel) — origine du nom « de Montflambert » qu'il accole dès lors à son patronyme.</p>
+          <div class="children">
+            <div class="child">4.1 <b>Jacques-Jean-Baptiste Duchastel-Berthelin</b> (16 juin 1756, Reims – 21 février 1830, Troyes). Riche négociant de Troyes, propriétaire de la forêt d'Aumont; député de l'Aube au Conseil des Cinq-Cents (1795) puis au corps législatif; fait baron d'Empire héréditaire par décret impérial du 2&nbsp;janvier 1814; fait construire le château de Monthoury (1815). Marié à Élisabeth Berthelin, d'où son surnom. Mort sans descendance — le titre passe à son neveu Alexandre-Louis-François. <i>Note : le nom « de Montflambert » n'était pas un titre personnel de Jacques-Jean-Baptiste, mais provenait du domaine de Montflambert acquis par son père (voir génération&nbsp;4 ci-dessus).</i>
+              <div class="grand">Trois enfants, sans descendance : Jean-Baptiste (1779–1800); un bébé anonyme; Florimonde (1780–1800), dont la fille unique Ernestine meurt aussi jeune.</div>
+            </div>
+            <div class="child">4.2 <b>Jean-Baptiste-Philippe</b>, mort en nourrice en 1757.</div>
+            <div class="child">4.3 <b><a href="jacques-gabriel-duchastel-de-montrouge.html">Jacques-Gabriel Duchastel de Montrouge</a></b> (1758–1792) — voir génération 5.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 5</span><span class="name"><a href="jacques-gabriel-duchastel-de-montrouge.html">Jacques-Gabriel Duchastel de Montrouge</a> &amp; Philippine-Élisabeth Durand de Courmont</span></div>
+        <div class="gen-body">
+          <p>Né le 14 avril 1758 à Reims; décédé dans cette ville le 25 mars 1792, en pleine Révolution. Militaire, lieutenant au régiment colonel de Dragons (1778). Marié à Rethel le 9 janvier 1781.</p>
+          <div class="children">
+            <div class="child">5.1 <b>Jeanne-Élisabeth</b> (1781–1838), mariée à Henri-Jean-Baptiste Lucas. Cinq enfants, dont Adeline, religieuse chez les Carmélites de Reims — petite-cousine de Léon-Hilaire-Alexandre, futur consul à Montréal.</div>
+            <div class="child">5.2 <b>Alexandre-Louis-François</b> (né 1784) — voir génération 6.</div>
+            <div class="child">5.3 <b>Jean-Jacques</b> (1786–1809).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 6</span><span class="name">Alexandre-Louis-François Duchastel, baron de Montrouge</span></div>
+        <div class="gen-body">
+          <p>Né à Rethel le 30 juin 1784. Marié le 19 mai 1813 à Reims avec Sophie Le Goix. Orphelin de père à 8 ans, il hérite du titre au décès de son oncle Jacques-Jean-Baptiste Duchastel-Berthelin (1830). D'abord établi à Reims, le couple s'installe à Paris en 1823.</p>
+          <div class="children">
+            <div class="child">6.1 <b>Victor</b> (1820–1843) — mort prématurément, le titre passe à son frère puîné.</div>
+            <div class="child">6.2 <b>Jules-Jean-Baptiste</b> (1823–1889) — voir génération 7.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 7</span><span class="name">Jules-Jean-Baptiste Duchastel, baron de Montrouge</span></div>
+        <div class="gen-body">
+          <p>Né à Reims le 19 juillet 1823; décédé à Paris le 4 janvier 1889. Diplomate et homme d'affaires, il partage sa vie entre Paris et le château familial de Monthoury à Dammard (Aisne).</p>
+          <p><em>1<sup>er</sup> mariage</em> — 19 mai 1845 à New York, avec Julie-Sylvia-Félicie Pèlerin.</p>
+          <div class="children">
+            <div class="child">7.1 <b>Léon-Hilaire-Alexandre</b> (1848–1929) — voir génération 8.</div>
+            <div class="child">7.2 <b>Léopold</b> (1855 Paris – 1921 Paris); pas de descendance connue.</div>
+            <div class="child">7.3 <b>Lucien</b>, chanoine, ordonné prêtre à Soissons.</div>
+          </div>
+          <p><em>2<sup>e</sup> mariage</em> — avec Berthe Follias.</p>
+          <div class="children">
+            <div class="child">7.4 <b>Marie-Thérèse</b> (1869–1930), mariée à Edmond Keller.</div>
+            <div class="child">7.5 <b>Fernand</b> (1867–1911, Paris).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 8</span><span class="name">Léon-Hilaire-Alexandre Duchastel, baron de Montrouge</span></div>
+        <div class="gen-body">
+          <p>Né à Paris le 17 avril 1848; décédé à Paris le 27 avril 1929. Diplomate formé au ministère des Affaires étrangères (1871–1873); en poste successivement à New York, Charleston, Chicago, <b>Québec</b> (1881), Amsterdam, vice-consul puis <b>chargé de la chancellerie de Montréal</b> (1894), consul de France à Vancouver (1906). Chevalier de la Légion d'honneur (1902). Retiré de la vie publique en 1908 après un séjour à Montréal. Marié à New York en 1877 avec Anita Snyder.</p>
+          <div class="children">
+            <div class="child">8.1 <b><a href="famille-jules-alexandre.html">Jules-Alexandre</a></b> (1878–1938) — voir génération 9.</div>
+            <div class="child">8.2 <b>Jacques</b> (né 1888, Québec), diplomate à l'ambassade canadienne à Paris — seul à retourner vivre en France. Son fils Guy (1920–2005), officier de cavalerie, laisse une descendance française (Yolaine, Gérald, Patricia).</div>
+            <div class="child">8.3 <b>France-Anita</b> (1880–1963), mariée à Paul Lacoste, avocat, fils de sir Alexandre Lacoste.</div>
+            <div class="child">8.4 <b>Louise</b> (née 1882), mariée à Frank Springer puis, à Vancouver, à Albert Duchesnay.</div>
+            <div class="child">8.5 <b>Gabrielle</b> (1883–1967), religieuse chez les Dames du Sacré-Cœur.</div>
+            <div class="child">8.6 <b>Marie-Renée</b> (1893–1901, Montréal).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 9</span><span class="name"><a href="famille-jules-alexandre.html">Jules-Alexandre Duchastel, baron de Montrouge</a></span></div>
+        <div class="gen-body">
+          <p>Né le 1<sup>er</sup> septembre 1878 à New York; décédé le 20 février 1938 à Montréal. Diplômé de l'École Polytechnique de Montréal (1901); ingénieur administrateur à la Ville d'Outremont (1906–1924), contribuant notamment au tracement des rues et à l'implantation des parcs; major dans l'armée canadienne durant la Première Guerre mondiale. Marié en 1904 à Jeanne Lacoste. Inhumé avec son épouse au cimetière Notre-Dame-des-Neiges.</p>
+          <div class="children">
+            <div class="child">9.1 <b>Léon-Alexandre</b> (1905–1962) — voir génération 10.</div>
+            <div class="child">9.2 <b>Renée</b> (1906–1999), mariée à Joseph de La Durantaye.</div>
+            <div class="child">9.3 <b>Jean-Lucien</b> (1908–1983), marié en Angleterre à Nora Edma Day — quatre enfants (Paul, Philippe, André, Jeanne), avec descendance au Québec, aux États-Unis et en Angleterre.</div>
+            <div class="child">9.4 <b>Louise</b> (née 1909), mariée à Albert Charles Fleishmann — trois enfants (Jacques-Alexandre, Jean, Louise).</div>
+            <div class="child">9.5 <b>Marguerite</b> (1912–2004), mariée à François Bisaillon — trois enfants (Guy, Jacques, Lynne).</div>
+            <div class="child">9.6 <b>Paule</b> (1914–1989), mariée à Clément Charest — quatre enfants (Michel, Renée, Andrée, Denis).</div>
+            <div class="child">9.7 <b>Pierre-Arthur</b> (1915–1991), ingénieur en électricité (McGill), marié à Phyllis Anna McKenna — cinq enfants (Anita, Pierre, Lynne, Thomas, Jacques-Alexandre).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 10</span><span class="name">Léon-Alexandre Duchastel, baron de Montrouge</span></div>
+        <div class="gen-body">
+          <p>Né le 22 juillet 1905 à Outremont; décédé le 21 mars 1962. Ingénieur civil, diplômé de l'École Polytechnique de Montréal (1927); major, régiment de Maisonneuve. Marié le 29 avril 1933 à Outremont avec Yvette Beauchamp.</p>
+          <div class="children">
+            <div class="child">10.1 <b>Yves-Jules</b> (né 1934) — voir génération 11, présent baron.</div>
+            <div class="child">10.2 <b>Philippe-Léon</b> (1936, décédé jeune).</div>
+            <div class="child">10.3 <b>Louise</b> (née 1939), mariée à Georges Auriol.</div>
+            <div class="child">10.4 <b>Madeleine</b> (1941–1994), religieuse chez les sœurs Notre-Dame-du-Bon-Conseil.</div>
+            <div class="child">10.5 <b>Jules-Léon</b> (né 1943), sociologue, professeur à l'UQAM.</div>
+            <div class="child">10.6 <b>Bernard</b> (né 1951).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 11</span><span class="name">Yves-Jules Duchastel, présent baron de Montrouge</span></div>
+        <div class="gen-body">
+          <p>Né le 7 avril 1934 à Montréal. Neurologue; fondateur en 1964 et chef du Service de neurologie de l'Hôpital du Sacré-Cœur de Montréal jusqu'en 1980; président de l'Association des neurologues du Québec (1975–1976). Marié le 21 décembre 1957 à Michèle Lalonde, écrivaine, poète et professeure; divorcé en 1990; actuellement conjoint de Louise L'Espérance.</p>
+          <div class="children">
+            <div class="child">11.1 <b>Alexandra</b> (née 1962), psychologue et art-thérapeute.</div>
+            <div class="child">11.2 <b>Laurent</b> (né 1966) — <em>héritier présomptif du titre</em>. Enseignant universitaire et consultant en management international; marié à Théodora (Dora) Vassaramva, archéopaléontologue née à Athènes. Quatre enfants : Chloé, Phaidra, Ariadni, Ioannidis.</div>
+            <div class="child">11.3 <b>Morency</b> (né 1967), anthropologue et médecin; union avec Judith Berry. Deux enfants : Joseph, Nelson.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== CHAREST-SÉBASTIEN BRANCH ===================== -->
+  <section id="charest-sebastien">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Une branche cousine</span>
+        <h2>De Paule Duchastel à la famille Sébastien</h2>
+      </div>
+      <div class="lede-block">
+        <p>Le titre baronnial suit Léon-Alexandre puis Yves-Jules Duchastel de Montrouge (générations&nbsp;10 et&nbsp;11 ci-dessus). Mais une sœur de Léon-Alexandre, <b>Paule Duchastel de Montrouge</b> (9.6, fille de <a href="famille-jules-alexandre.html">Jules-Alexandre et Jeanne Lacoste</a>), fonde à Outremont une descendance tout aussi bien documentée, par les familles Charest puis Sébastien.</p>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 9.6</span><span class="name">Paule Duchastel de Montrouge &amp; Clément Charest</span></div>
+        <div class="gen-body">
+          <p>Née le 6 juillet 1914 à Outremont; décédée le 15 décembre 1989 à Ville-Mont-Royal. Épouse <b>Clément Charest</b> (né le 19 octobre 1912) le 22 avril 1936.</p>
+          <div class="children">
+            <div class="child">9.6.1 <b>Michel Charest</b> (né le 22 mai 1937), marié le 20 avril 1963 à Louise McDonald.</div>
+            <div class="child">9.6.2 <b>Renée Charest</b> (née le 31 octobre 1941) — voir génération 10.</div>
+            <div class="child">9.6.3 <b>Andrée Charest</b> (4 décembre 1945 – 1<sup>er</sup> octobre 2003, Saint-Lazare, QC), mariée à Jean Rinfret.</div>
+            <div class="child">9.6.4 <b>Denis Charest</b> (né le 26 juin 1949), marié à Suzanne Robert, puis à Denise Doiron.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 10</span><span class="name">Renée Charest &amp; Pierre Sébastien</span></div>
+        <div class="gen-body">
+          <p>Née le 31 octobre 1941, fille de Clément Charest et Paule Duchastel de Montrouge. Épouse <b>Pierre Sébastien</b> (né le 5 septembre 1936) le 26 mai 1962.</p>
+          <div class="children">
+            <div class="child">10.1 <b>Jean Sébastien</b></div>
+            <div class="child">10.2 <b>Philippe Sébastien</b> (né en 1965) — voir génération 11.</div>
+            <div class="child">10.3 <b>Louis Sébastien</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. 11</span><span class="name">Philippe Sébastien</span></div>
+        <div class="gen-body">
+          <p>Né en 1965, fils de Pierre Sébastien et Renée Charest.</p>
+          <div class="children">
+            <div class="child">11.1 <b>Stéphanie Sébastien</b> (née en 1997)</div>
+            <div class="child">11.2 <b>Heidi Sébastien</b> (née en 2000)</div>
+            <div class="child">11.3 <b>Rachel Sébastien</b> (née en 2003)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-wrap" style="margin-top:44px;">
+        <div class="chart-title">Lignée ancestrale</div>
+        <div class="chart-sub">de Jacques du Chastel à la famille Sébastien</div>
+
+        <div class="chart-row"><div class="rn">1</div><div class="rd"><span class="names"><a href="jacques-du-chastel.html">Jacques du Chastel</a></span><span class="date">~1624 – 1714</span></div></div>
+        <div class="chart-row"><div class="rn">2</div><div class="rd"><span class="names"><a href="jean-baptiste-du-chastel.html">Jean-Baptiste Duchastel</a></span><span class="date">1670 – 1702</span></div></div>
+        <div class="chart-row"><div class="rn">3</div><div class="rd"><span class="names"><a href="jacques-duchastel.html">Jacques Duchastel</a></span><span class="date">1700 – 1740</span></div></div>
+        <div class="chart-row"><div class="rn">4</div><div class="rd"><span class="names">Jean-Baptiste Duchastel</span><span class="date">1723 – 1806, premier baron de Montflambert</span></div></div>
+        <div class="chart-row"><div class="rn">5</div><div class="rd"><span class="names"><a href="jacques-gabriel-duchastel-de-montrouge.html">Jacques-Gabriel Duchastel</a></span><span class="date">1758 – 1792, premier baron de Montrouge</span></div></div>
+        <div class="chart-row"><div class="rn">6</div><div class="rd"><span class="names">Alexandre-Louis-François Duchastel</span><span class="date">1783 – 1863</span></div></div>
+        <div class="chart-row"><div class="rn">7</div><div class="rd"><span class="names">Jules-Jean-Baptiste Duchastel</span><span class="date">1823 – 1899</span></div></div>
+        <div class="chart-row"><div class="rn">8</div><div class="rd"><span class="names">Léon-Hilaire-Alexandre Duchastel</span><span class="date">1848 – 1929</span></div></div>
+        <div class="chart-row"><div class="rn">9</div><div class="rd"><span class="names"><a href="famille-jules-alexandre.html">Jules-Alexandre Duchastel de Montrouge</a></span><span class="date">1878 – 1938</span></div></div>
+        <div class="chart-row"><div class="rn">10</div><div class="rd"><span class="names">Paule Duchastel de Montrouge</span><span class="date">1914 – 1989</span></div></div>
+        <div class="chart-row"><div class="rn">11</div><div class="rd"><span class="names">Renée Charest</span><span class="date">née 1941</span></div></div>
+        <div class="chart-row"><div class="rn">12</div><div class="rd"><span class="names">Philippe Sébastien</span><span class="date">né 1965</span></div></div>
+        <div class="chart-row"><div class="rn">13</div><div class="rd"><span class="names">Stéphanie, Heidi &amp; Rachel Sébastien</span><span class="date">nées 1997, 2000, 2003</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PATRILINEAL CHART ===================== -->
+  <section id="ascendance">
+    <div class="wrap">
+      <div class="chart-wrap">
+        <div class="chart-title">Ascendance patrilinéaire</div>
+        <div class="chart-sub">du baron Yves-Jules Duchastel de Montrouge</div>
+
+        <div class="chart-row"><div class="rn">I</div><div class="rd"><span class="names">Léon-Alexandre Duchastel de Montrouge &amp; Yvette Beauchamp</span><span class="date">29 avril 1933, Outremont</span></div></div>
+        <div class="chart-row"><div class="rn">II</div><div class="rd"><span class="names"><a href="famille-jules-alexandre.html">Jules-Alexandre Duchastel de Montrouge</a> &amp; Jeanne Lacoste</span><span class="date">25 octobre 1904, Montréal</span></div></div>
+        <div class="chart-row"><div class="rn">III</div><div class="rd"><span class="names">Léon-Hilaire-Alexandre Duchastel de Montrouge &amp; Anita Snyder</span><span class="date">7 juin 1877, New York</span></div></div>
+        <div class="chart-row"><div class="rn">IV</div><div class="rd"><span class="names">Jules-Jean-Baptiste Duchastel de Montrouge &amp; Julie-Sylvia-Félicie Pèlerin</span><span class="date">19 mai 1845, New York</span></div></div>
+        <div class="chart-row"><div class="rn">V</div><div class="rd"><span class="names">Alexandre-Louis-François Duchastel de Montrouge &amp; Sophie Le Goix</span><span class="date">19 mai 1813, Reims</span></div></div>
+        <div class="chart-row"><div class="rn">VI</div><div class="rd"><span class="names"><a href="jacques-gabriel-duchastel-de-montrouge.html">Jacques-Gabriel Duchastel de Montrouge</a> &amp; Philippine-Élisabeth Durand de Courmont</span><span class="date">9 janvier 1781, Rethel (Champagne)</span></div></div>
+        <div class="chart-row"><div class="rn">VII</div><div class="rd"><span class="names">Jean-Baptiste Duchastel de Montflambert &amp; Louise-Nicolle Cadot</span><span class="date">22 avril 1755, Reims</span></div></div>
+        <div class="chart-row"><div class="rn">VIII</div><div class="rd"><span class="names"><a href="jacques-duchastel.html">Jacques Duchastel</a> &amp; Marie-Jeanne Miteau</span><span class="date">1er février 1722, Reims</span></div></div>
+        <div class="chart-row"><div class="rn">IX</div><div class="rd"><span class="names"><a href="jean-baptiste-du-chastel.html">Jean-Baptiste Du Chastel</a> &amp; Marguerite Plantin</span><span class="date">Mariage entre 1690 et 1696, probablement à Reims</span></div></div>
+        <div class="chart-row"><div class="rn">X</div><div class="rd"><span class="names"><a href="jacques-du-chastel.html">Jacques du Chastel</a> &amp; Jeanne Desombres</span><span class="date">Mariage entre 1645 et 1660, probablement à Reims</span></div></div>
+      </div>
+
+      <div class="callout-next">
+        <b>Cette archive continuera de croître.</b> D'autres documents de famille viendront enrichir ce registre — chaque nouvelle source ajoutera ses actes, portraits et précisions aux générations déjà consignées ici.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOURCES ===================== -->
+  <section class="sources" id="sources">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Provenance</span>
+        <h2>Sources</h2>
+      </div>
+      <ul>
+        <li>Jean-Yves Bronze, avec la collaboration du D<sup>r</sup> Yves Duchastel — « Des barons d'Empire au Québec : les Duchastel de Montrouge », <em>Mémoires de la Société généalogique canadienne-française</em>, vol.&nbsp;56, n°&nbsp;4, cahier&nbsp;246, hiver&nbsp;2005, p.&nbsp;289–304.</li>
+        <li>Chaix d'Est-Ange, Gustave. <em>Dictionnaire des familles françaises anciennes ou notables à la fin du XIX<sup>e</sup> siècle</em>, Paris, Éditions Vendôme, 1983, t.&nbsp;V.</li>
+        <li>Tulard, Jean (dir.), « Noblesse d'Empire », dans <em>L'ordre de la noblesse</em>, vol.&nbsp;I, Paris, Jean de Bonnot, 1978.</li>
+        <li>Audet, Francis J., « Les représentants de la France au Canada », <em>Cahiers des Dix</em>, vol.&nbsp;4, 1939.</li>
+        <li><em>Archives généalogiques et historiques</em> — acte du 14&nbsp;avril 1753 (M<sup>e</sup> Louis Clauteau, notaire royal à Reims) relatif à l'achat du domaine de Montflambert par Jean-Baptiste Duchastel. <a href="https://www.google.ca/books/edition/Archives_g%C3%A9n%C3%A9alogiques_et_historiques/YXZUAAAAYAAJ?hl=fr&amp;gbpv=1&amp;dq=Pierre+Joseph+Boucher+de+Cr%C3%A8vecoeur&amp;pg=RA4-PA16&amp;printsec=frontcover" target="_blank" rel="noopener">Google Books</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Société généalogique canadienne-française</span>
+  Archives Duchastel — compilé à partir des sources familiales
+  <div class="contrib">« … une famille champenoise établie chez nous depuis plus de cent ans dont les membres se perçoivent comme Canadiens-français. »</div>
+</footer>
+
+</body>
+</html>

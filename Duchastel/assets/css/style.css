@@ -1,0 +1,361 @@
+/* -----------------------------------------------------------
+   VARIABLES CSS — regroupées dans un seul bloc
+   ----------------------------------------------------------- */
+
+:root{
+    /* Palette principale */
+    --color-parchment-light: #f1e8d6;
+    --color-parchment-dark: #e5d7b7;
+
+    --color-ink: #241d13;
+    --color-ink-soft: #4a4030;
+
+    --color-navy: #1c2740;
+    --color-navy-deep: #131b2d;
+
+    --color-burgundy: #7c2331;
+
+    --color-gold: #a4802f;
+    --color-gold-bright: #c79b3f;
+
+    /* Décorations */
+    --color-rule: rgba(36,29,19,0.18);
+
+    /* Typographie */
+    --font-serif: 'EB Garamond', serif;
+    --font-title: 'Cormorant Garamond', serif;
+    --font-smallcaps: 'Cormorant SC', serif;
+    --font-eyebrow: 'Cinzel', serif;
+
+    /* Layout */
+    --max-width: 960px;
+
+    /* Ombres */
+    --shadow-soft: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* -----------------------------------------------------------
+   RESET & BASE
+   ----------------------------------------------------------- */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--color-parchment-light);
+    color:var(--color-ink);
+    font-family:var(--font-serif);
+    font-size:18px;
+    line-height:1.65;
+}
+
+::selection{
+    background:var(--color-gold);
+    color:var(--color-navy-deep);
+}
+
+/* -----------------------------------------------------------
+   TYPOGRAPHIE
+   ----------------------------------------------------------- */
+
+.eyebrow{
+    font-family:var(--font-eyebrow);
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--color-gold);
+    font-weight:600;
+}
+
+h1,h2,h3{
+    font-family:var(--font-title);
+    font-weight:600;
+    color:var(--color-parchment-light);
+    margin:0;
+}
+
+h3{
+    font-size:19px;
+    color:var(--color-burgundy);
+    font-style:italic;
+    margin:26px 0 12px;
+}
+
+p{
+    margin:0 0 18px;
+    color:var(--color-ink-soft);
+}
+
+section p:first-of-type{
+    margin-top:0;
+}
+
+a{
+    color:inherit;
+    text-decoration:underline;
+    text-underline-offset:2px;
+}
+
+a:hover{
+    color:var(--color-burgundy);
+}
+
+.wrap{
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding:0 32px;
+}
+
+/* -----------------------------------------------------------
+   HERO
+   ----------------------------------------------------------- */
+
+.hero{
+    position:relative;
+    background:
+        radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+        linear-gradient(180deg, var(--color-navy-deep), var(--color-navy) 60%, #223154 100%);
+    color:var(--color-parchment-light);
+    padding:96px 32px 80px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid rgba(199,155,63,0.35);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+}
+
+.seal{
+    width:118px;
+    height:118px;
+    margin:0 auto 30px;
+    position:relative;
+    animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes sealDrop{
+    0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
+    100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
+}
+
+.seal svg{
+    width:100%;
+    height:100%;
+}
+
+.hero .eyebrow{
+    color:var(--color-gold-bright);
+}
+
+.hero h1{
+    font-family:var(--font-smallcaps);
+    font-size:clamp(40px, 6vw, 64px);
+    letter-spacing:.02em;
+    margin:14px 0 6px;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+}
+
+.subtitle-years{
+    font-size:0.7em;
+}
+
+.hero .sub{
+    font-family:var(--font-title);
+    font-style:italic;
+    font-size:clamp(18px,2.6vw,22px);
+    color:#d9c9a3;
+    letter-spacing:.03em;
+}
+
+.hero .rule{
+    width:64px;
+    height:1px;
+    background:var(--color-gold);
+    margin:26px auto;
+    opacity:.7;
+}
+
+.hero .lede{
+    max-width:640px;
+    margin:0 auto;
+    color:#cdbfa0;
+    font-size:17px;
+}
+
+/* -----------------------------------------------------------
+   SECTIONS
+   ----------------------------------------------------------- */
+
+section{
+    padding:64px 0;
+    border-bottom:1px solid var(--color-rule);
+}
+
+section:last-of-type{
+    border-bottom:none;
+}
+
+.section-head{
+    margin-bottom:32px;
+}
+
+.section-head .eyebrow{
+    display:block;
+}
+
+.section-head h2{
+    font-size:clamp(26px,3.4vw,34px);
+    margin-top:8px;
+}
+
+/* -----------------------------------------------------------
+   IDENTITÉ
+   ----------------------------------------------------------- */
+
+.identity-card{
+    background:var(--color-parchment-dark);
+    border:1px solid var(--color-rule);
+    padding:22px 24px;
+    margin-bottom:20px;
+}
+
+.identity-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:10px 24px;
+    font-size:16px;
+    color:var(--color-ink-soft);
+}
+
+.identity-item strong{
+    color:var(--color-navy);
+}
+
+.identity-note{
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--color-rule);
+    font-size:15.5px;
+    color:var(--color-ink-soft);
+}
+
+/* -----------------------------------------------------------
+   LISTES
+   ----------------------------------------------------------- */
+
+ul{
+    list-style:none;
+    padding-left:0;
+    margin:0 0 18px;
+    color:var(--color-ink-soft);
+    font-size:16px;
+}
+
+ul li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:8px;
+}
+
+ul li::before{
+    content:"•";
+    position:absolute;
+    left:2px;
+    top:0;
+    color:var(--color-gold);
+    font-size:15px;
+}
+
+ul li strong{
+    color:var(--color-ink);
+}
+
+/* -----------------------------------------------------------
+   ENCADRÉS — citations et mises en avant
+   ----------------------------------------------------------- */
+
+.highlight-box{
+    background:var(--color-parchment-dark);
+    border:1px solid var(--color-rule);
+    border-left:3px solid var(--color-gold);
+    padding:18px 22px;
+    margin:18px 0;
+    font-size:16px;
+    color:var(--color-ink-soft);
+}
+
+.highlight-box strong{
+    color:var(--color-navy);
+}
+
+.highlight-box em{
+    display:block;
+    font-style:italic;
+    color:var(--color-ink);
+    line-height:1.6;
+}
+
+/* -----------------------------------------------------------
+   DIAGRAMME D'ARBRE (texte préformaté)
+   ----------------------------------------------------------- */
+
+.tree-diagram{
+    background:var(--color-navy-deep);
+    color:#cdbfa0;
+    border:1px solid var(--color-gold);
+    padding:22px 24px;
+    margin:20px 0;
+    font-family:'Courier New', Courier, monospace;
+    font-size:13px;
+    line-height:1.55;
+    white-space:pre;
+    overflow-x:auto;
+}
+
+/* -----------------------------------------------------------
+   PIED DE PAGE
+   ----------------------------------------------------------- */
+
+footer{
+    background:var(--color-navy-deep);
+    color:#a99a72;
+    text-align:center;
+    padding:56px 32px 40px;
+    font-size:14px;
+}
+
+footer .eyebrow{
+    display:block;
+    margin-bottom:10px;
+}
+
+footer .contrib{
+    color:#d9c9a3;
+    margin-top:18px;
+    font-family:var(--font-title);
+    font-style:italic;
+    font-size:16px;
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVE
+   ----------------------------------------------------------- */
+
+@media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .hero{ padding:72px 20px 60px; }
+    .tree-diagram{ font-size:11px; }
+}

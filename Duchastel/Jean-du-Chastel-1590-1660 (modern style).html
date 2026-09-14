@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean du Chastel (~1590–~1660) — Notice Généalogique</title>
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #8c6d3b;
+            --accent-light: #dfd5c6;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #2d3748;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #ffffff;
+            padding: 2.5rem 2rem;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        header h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.35rem;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .identity-card {
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            margin: 1.75rem 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .identity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .identity-item {
+            font-size: 0.95rem;
+        }
+
+        .identity-item strong {
+            color: var(--primary);
+        }
+
+        .identity-note {
+            margin-top: 0.75rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border);
+            font-size: 0.92rem;
+            color: #334155;
+        }
+
+        main {
+            padding: 0 2rem 2.5rem 2rem;
+        }
+
+        section {
+            margin-top: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--accent-light);
+            display: flex;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: var(--primary-light);
+            margin: 1.25rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 0.9rem;
+            font-size: 0.98rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 1rem;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.65rem;
+            font-size: 0.96rem;
+        }
+
+        ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0.35rem;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1.2;
+        }
+
+        /* Arbre & Généalogie */
+        .genealogy-tree {
+            background-color: #fafaf9;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .tree-root {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tree-marriage {
+            margin-left: 1rem;
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 1rem;
+        }
+
+        .tree-children {
+            margin-left: 1.5rem;
+            border-left: 2px solid var(--accent-light);
+            padding-left: 1rem;
+        }
+
+        .child-block {
+            margin-bottom: 1.25rem;
+        }
+
+        .child-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .child-details {
+            font-size: 0.92rem;
+            color: #4b5563;
+            margin-top: 0.2rem;
+        }
+
+        /* Boîtes d'action de recherche */
+        .research-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid var(--primary-light);
+            padding: 1rem 1.25rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .research-box strong {
+            color: var(--primary);
+        }
+
+        /* Sources et Notes */
+        .sources-section {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid var(--border);
+        }
+
+        .source-item {
+            margin-bottom: 1.25rem;
+            font-size: 0.9rem;
+        }
+
+        .source-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .source-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .source-links {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.35rem;
+        }
+
+        .source-links li {
+            padding-left: 0;
+            margin-bottom: 0.25rem;
+            word-break: break-all;
+        }
+
+        .source-links li::before {
+            display: none;
+        }
+
+        a {
+            color: var(--primary-light);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .total-badge {
+            display: inline-block;
+            background-color: var(--accent-light);
+            color: #443217;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Jean du Chastel (~1590–~1660)</h1>
+        <div class="subtitle">Notice généalogique — dynastie Duchastel de Reims</div>
+    </header>
+
+    <div class="identity-card">
+        <div class="identity-grid">
+            <div class="identity-item"><strong>Naissance :</strong> ~1590 à Reims</div>
+            <div class="identity-item"><strong>Décès :</strong> avant 1660 à Reims</div>
+            <div class="identity-item"><strong>Occupation :</strong> Commerçant textile (drap et laine)</div>
+            <div class="identity-item"><strong>Statut :</strong> Bourgeois de Reims</div>
+        </div>
+        <div class="identity-note">
+            <strong>Note de filiation :</strong> Père probable de Jacques du Chastel (1624–1714) et ancêtre des familles Duchastel, Duchastel de Montflambert et Duchastel de Montrouge.
+        </div>
+    </div>
+
+    <main>
+        <p>Jean du Chastel naît vers 1590 à Reims. Il est commerçant textile (le drap et la laine, spécialités de la région rémoise). Il épouse Nicole Cochart vers 1620. Il est très probable qu’il soit le père de Jacques du Chastel né entre 1622 et 1624, ancêtre de la famille Duchastel de Reims.</p>
+
+        <!-- Section 1 -->
+        <section>
+            <h2>1. L'alliance Du Chastel - Cochart : Une piste solide</h2>
+            <p>Jean du Chastel (~1590 – ~1660) et Nicole Cochart forment en effet le couple de parents le plus solide et cohérent pour votre ancêtre direct Jacques du Chastel (1624 – 1714).</p>
+            <p>L'alliance entre les familles Du Chastel et Cochart (parfois orthographié Cauchart, Couchart ou Colchart selon la phonétique de l'époque) à Reims au début du XVII<sup>e</sup> siècle est typique de la formation de la haute bourgeoisie rémoise sous les règnes d'Henri IV et Louis XIII. Sans les actes de mariage directs en main, l'analyse du tissu social et héraldique de Reims à cette époque permet de dresser un portrait très précis de ce que représentait cette union.</p>
+
+            <h3>La cohérence chronologique et sociale</h3>
+            <ul>
+                <li><strong>Les dates :</strong> Un père né vers 1590 ayant un fils (Jacques) en 1624 correspond parfaitement aux cycles de l'époque (mariage et paternité générale autour de 25–30 ans).</li>
+                <li><strong>Le milieu social :</strong> Le patronyme Cochart est très présent à Reims et dans ses environs (comme à Germigny) à cette époque. Il s'agit d'une famille de la bourgeoisie locale de Reims, souvent liée aux métiers de l'artisanat, du commerce ou de la petite robe, ce qui prépare parfaitement l'ascension de la famille vers les charges juridiques observées aux générations suivantes (avocats, lieutenants). [1]</li>
+            </ul>
+        </section>
+
+        <!-- Section 2 -->
+        <section>
+            <h2>2. Profil de la famille Cochart : Un ancrage de marchands et de notables</h2>
+            <p>À Reims, les Cochart ne sont pas des inconnus. C'est une famille solidement implantée dans le commerce textile (le drap et la laine, spécialités de Reims) et dans la magistrature locale.</p>
+            <ul>
+                <li><strong>Le niveau social :</strong> S'allier avec une Cochart au début des années 1620 signifie pour Jean du Chastel une entrée (ou une consolidation) dans la bourgeoisie d'affaires ou de robe de la ville. Les Cochart gravitent autour des institutions municipales (les échevinages) et des paroisses centrales de Reims.</li>
+                <li><strong>Le secteur géographique :</strong> C'est un patronyme que l'on retrouve beaucoup dans la vallée de la Vesle et autour du grand axe commercial rémois. Ils sont très connectés aux autres grandes familles de marchands de l'époque.</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section>
+            <h2>3. Dynamique et impact de l'alliance sur la descendance</h2>
+            <p>Cette union s'inscrit dans la stratégie classique des familles de notables de l'époque : l'ascension par le droit et les charges.</p>
+            <ul>
+                <li><strong>Le capital économique et culturel :</strong> Les Cochart apportent souvent une dot significative issue du négoce, tandis que les Du Chastel commencent à se tourner vers les carrières juridiques. C'est précisément cette alliance qui va donner les moyens financiers et les connexions nécessaires à leur fils Jacques du Chastel (1624–1714) pour s'établir durablement comme un pivot de la famille.</li>
+                <li><strong>Le résultat sur la descendance :</strong> Cette alliance est le terreau d'où sortiront, deux générations plus tard, des avocats en Parlement, des professeurs de droit et des lieutenants du Roi (comme Nicolas Duchastel). Sous l'Ancien Régime, on ne devient pas Lieutenant de police ou des Eaux et Forêts sans un solide réseau familial préexistant.</li>
+            </ul>
+        </section>
+
+        <!-- Section 4 -->
+        <section>
+            <h2>4. Stratégies de recherche pour contourner l'absence d'actes directs</h2>
+            <p>Puisque les registres paroissiaux de cette époque (1610–1630) sont souvent lacunaires ou difficiles d'accès, les généalogistes de la Champagne utilisent deux leviers majeurs pour étudier l'alliance Du Chastel - Cochart :</p>
+            
+            <div class="research-box">
+                <strong>A. Les parrains et marraines (La stratégie des réseaux)</strong>
+                <p style="margin-top: 0.4rem;">Même sans acte de mariage formel, le dépouillement des actes de baptême des enfants du couple entre 1620 et 1640 permet d'établir les liens :</p>
+                <ul>
+                    <li>Le premier fils (comme Jacques en 1624) avait presque toujours pour parrain son grand-père paternel ou un oncle Cochart.</li>
+                    <li>Trouver un acte mentionnant, par exemple, <em>« Nicole Cochart, femme de Jean du Chastel, marraine de... »</em> dans une paroisse rémoise valide officiellement l'existence et le statut du couple.</li>
+                </ul>
+            </div>
+
+            <div class="research-box">
+                <strong>B. Les baux, ventes et rentes (Série E des Archives)</strong>
+                <p style="margin-top: 0.4rem;">Sous Louis XIII, la bourgeoisie rémoise plaçait sa fortune dans des rentes constitutionnelles (des emprunts) ou achetait des terres autour de Reims. Dans les minutes des notaires rémois (conservées en série 2E aux Archives de la Marne), les noms de Jean du Chastel et de Nicole Cochart peuvent apparaître ensemble lors de la signature d'un achat de maison, d'un bail à ferme ou du règlement d'une succession Cochart.</p>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section>
+            <h2>5. Pistes de déblocage grâce à ces nouvelles données</h2>
+            <p>Avec la connaissance des paroisses exactes, deux axes documentaires permettent d'approfondir les recherches sur Jean du Chastel et Nicole Cochart :</p>
+            <ul>
+                <li><strong>Les archives de la corporation des Drapiers-Sergetiers :</strong> Conservées aux Archives de la Marne (Série E ou fonds consulaires). On y trouve les registres de réception des maîtres. Si Jacques est devenu maître serger (ce qui est probable vu son statut de connétable), son acte de réception mentionne souvent le nom de son père et précise s'il était lui-même fils de maître.</li>
+                <li><strong>L'Hôtel-Dieu de Reims :</strong> La seconde épouse de Jacques, Marie de La Motte, est décédée à l'Hôtel-Dieu en 1717. Les archives hospitalières de Reims (Série H dép.) contiennent des registres d'entrées et de décès avec parfois des inventaires de hardes et des mentions précises sur les proches venus réclamer les effets.</li>
+            </ul>
+        </section>
+
+        <!-- Section Généalogie -->
+        <section>
+            <h2>Généalogie</h2>
+            <div class="genealogy-tree">
+                <div class="tree-root">
+                    Jean du Chastel (né vers 1590, décédé avant 1660) — <em>Père probable de Jacques et Jean du Chastel</em>
+                </div>
+                <div class="tree-marriage">
+                    Marié entre 1618 et 1620 à Reims (51100, Marne) avec <strong>Nicole Cochart</strong> (Mère probable)
+                </div>
+
+                <div class="tree-children">
+                    <!-- Enfant 1 -->
+                    <div class="child-block">
+                        <div class="child-name">1. Jacques du Chastel (1624 – 10 janvier 1714) [Note 2]</div>
+                        <div class="child-details">
+                            Né en 1624, décédé le 10 janvier 1714 à Reims, paroisse Saint-Etienne (à l'âge de 90 ans).<br>
+                            <strong>Profession & Charges :</strong> Serger, connétable de Reims.<br>
+                            <strong>Union 1 :</strong> Marié avant 1656 avec <strong>Jeanne Desombres</strong> (1627 – 15 janvier 1702, Reims St-Etienne, à l'âge de 75 ans) [Note 2-1].<br>
+                            <strong>Union 2 :</strong> Marié le 19 octobre 1702 à Reims, paroisse Saint-Denis avec <strong>Marie de La Motte</strong> (décédée le 1<sup>er</sup> janvier 1717 à Reims, Hôtel-Dieu) [Note 2-2].
+                        </div>
+                    </div>
+
+                    <!-- Enfant 2 -->
+                    <div class="child-block">
+                        <div class="child-name">2. Marie du Chastel</div>
+                        <div class="child-details">
+                            Née peut-être en 1635, décédée.
+                        </div>
+                    </div>
+
+                    <!-- Enfant 3 -->
+                    <div class="child-block">
+                        <div class="child-name">3. Jean du Chastel (1637 – 24 septembre 1687) [Note 4]</div>
+                        <div class="child-details">
+                            Né en 1637, décédé le 24 septembre 1687 à Reims, paroisse Saint-Timothée (à l'âge de 50 ans).<br>
+                            <strong>Union :</strong> Marié avant 1676 avec <strong>Jeanne Dugny</strong> [Note 4-1].
+                        </div>
+                    </div>
+
+                    <!-- Enfant 4 -->
+                    <div class="child-block">
+                        <div class="child-name">4. Marguerite du Chastel (1645 – 19 juin 1702) [Note 5]</div>
+                        <div class="child-details">
+                            Née en 1645, décédée le 19 juin 1702 à Reims, paroisse Saint-Etienne (à l'âge de 57 ans).<br>
+                            <strong>Union :</strong> Mariée avec <strong>Jean Renot</strong> (décédé après le 31 mai 1688 et avant le décès de sa femme en 1702) [Note 5-1].
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-badge">Total : 4 enfants répertoriés (conjoints non compris)</div>
+            </div>
+        </section>
+
+        <!-- Section Notes & Sources -->
+        <section>
+            <h2>Notes & Sources Documentaires</h2>
+            <div class="sources-section">
+                
+                <div class="source-item">
+                    <div class="source-title">Note 2 : Jacques du Chastel (1624–1714)</div>
+                    <p>On apprend que Jacques du Chastel est Serger le 2 mai 1676 au mariage de Jean Mopinot et Jeanne Milet. Jeanne Milet est la nièce de Jacques, fille de Guillaume Milet et Antoinette Desombres.</p>
+                    <ul class="source-links">
+                        <li><strong>Fiche / Personne :</strong> <a href="https://archives.marne.fr/ark:/86869/vbn16j9t4s52/9dca7543-e2bf-4883-a8a0-937a92c3e1be" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/vbn16j9t4s52/9dca7543-e2bf-4883-a8a0-937a92c3e1be</a></li>
+                        <li><strong>Union 2 (Marie de La Motte) :</strong> <a href="http://archives.marne.fr/ark:/86869/a0113105437901xcEWi/1/187" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/a0113105437901xcEWi/1/187</a></li>
+                        <li><strong>Acte de décès :</strong> <a href="http://archives.marne.fr/ark:/86869/a01131054379061iWfz/1/19" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/a01131054379061iWfz/1/19</a></li>
+                    </ul>
+                </div>
+
+                <div class="source-item">
+                    <div class="source-title">Note 2-1 : Jeanne Desombres (1627–1702)</div>
+                    <ul class="source-links">
+                        <li><strong>Acte de décès :</strong> <a href="https://archives.marne.fr/ark:/86869/jbt6n3g8lqzp/be92e240-a19c-420c-a6f0-27a6f945baa4" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/jbt6n3g8lqzp/be92e240-a19c-420c-a6f0-27a6f945baa4</a></li>
+                    </ul>
+                </div>
+
+                <div class="source-item">
+                    <div class="source-title">Note 2-2 : Marie de La Motte († 1717)</div>
+                    <ul class="source-links">
+                        <li><strong>Union 1 (Jacques du Chastel) :</strong> <a href="http://archives.marne.fr/ark:/86869/a0113105437901xcEWi/1/187" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/a0113105437901xcEWi/1/187</a></li>
+                        <li><strong>Acte de décès (Hôtel-Dieu) :</strong> <a href="https://archives.marne.fr/ark:/86869/zstk387mrhp2/af5040c0-45e3-4824-a462-025a34861756" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/zstk387mrhp2/af5040c0-45e3-4824-a462-025a34861756</a></li>
+                    </ul>
+                </div>
+
+                <div class="source-item">
+                    <div class="source-title">Note 4 : Jean du Chastel (1637–1687)</div>
+                    <ul class="source-links">
+                        <li><strong>Acte de décès :</strong> <a href="https://archives.marne.fr/ark:/86869/jc3f2tpgdvkx/3bd0664a-ada8-4ce1-9c62-e261e1e6e89a" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/jc3f2tpgdvkx/3bd0664a-ada8-4ce1-9c62-e261e1e6e89a</a></li>
+                    </ul>
+                </div>
+
+                <div class="source-item">
+                    <div class="source-title">Note 4-1 : Jeanne Dugny</div>
+                    <ul class="source-links">
+                        <li><strong>Union :</strong> <a href="https://archives.marne.fr/ark:/86869/gf8rv261t5hk/d204f983-57d5-4819-a554-eb8d854a6c6b" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/86869/gf8rv261t5hk/d204f983-57d5-4819-a554-eb8d854a6c6b</a></li>
+                    </ul>
+                </div>
+
+                <div class="source-item">
+                    <div class="source-title">Note 5 : Marguerite du Chastel (1645–1702)</div>
+                    <ul class="source-links">
+                        <li><strong>Acte de décès :</strong> <a href="https://archives.marne.fr/ark:/86869/jbt6n3g8lqzp/c73139ac-adc9-4f65-8601-6c0a3c501c59" target="_blank" rel="noopener noreferrer">archives.marne.fr/ark:/868

@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jacques du Chastel (1624–1714) — Génération 1 · Archives Duchastel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --parchment: #f1e8d6;
+    --parchment-deep: #e5d7b7;
+    --ink: #241d13;
+    --ink-soft: #4a4030;
+    --navy: #1c2740;
+    --navy-deep: #131b2d;
+    --burgundy: #7c2331;
+    --gold: #a4802f;
+    --gold-bright: #c79b3f;
+    --rule: rgba(36,29,19,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--parchment);
+    color:var(--ink);
+    font-family:'EB Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+  }
+  ::selection{background:var(--gold); color:var(--navy-deep);}
+
+  .eyebrow{
+    font-family:'Cinzel', serif;
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  h1,h2,h3{ font-family:'Cormorant Garamond', serif; font-weight:600; margin:0; color:var(--navy);}
+
+  a{ color:inherit; }
+
+  .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+    color:var(--parchment);
+    padding:96px 32px 120px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid rgba(199,155,63,0.35);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
+    pointer-events:none;
+  }
+  .seal{
+    width:118px; height:118px; margin:0 auto 30px;
+    position:relative;
+    animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes sealDrop{
+    0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
+    100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
+  }
+  .seal svg{ width:100%; height:100%; }
+  .hero .eyebrow{ color:var(--gold-bright); }
+  .hero h1{
+    font-family:'Cormorant SC', serif;
+    font-size:clamp(52px, 9vw, 96px);
+    color:var(--parchment);
+    letter-spacing:.02em;
+    margin:14px 0 6px;
+    text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero .sub{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(18px,2.6vw,24px);
+    color:#d9c9a3;
+    letter-spacing:.03em;
+  }
+  .hero .rule{
+    width:64px; height:1px; background:var(--gold); margin:26px auto;
+    opacity:.7;
+  }
+  .hero p.lede{
+    max-width:560px; margin:0 auto; color:#cdbfa0; font-size:17px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; border-bottom:1px solid var(--rule); }
+  section:last-of-type{ border-bottom:none; }
+  .section-head{ margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:8px; }
+  .section-head .eyebrow{ display:block; }
+
+  /* ---------- NARRATIVE ---------- */
+  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
+  .lede-block p:first-child::first-letter{
+    font-family:'Cormorant SC', serif;
+    font-size:64px;
+    float:left;
+    line-height:.8;
+    padding:6px 10px 0 0;
+    color:var(--burgundy);
+  }
+  blockquote{
+    margin:36px 0; padding:22px 28px;
+    border-left:3px solid var(--gold);
+    background:var(--parchment-deep);
+    font-style:italic; color:var(--ink);
+  }
+  blockquote cite{ display:block; margin-top:10px; font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:var(--ink-soft); }
+
+  .figure-note{
+    display:flex; gap:18px; align-items:flex-start;
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
+  }
+  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
+
+  /* ---------- LINEAGE LADDER (signature element) ---------- */
+  .ladder-intro{ margin-bottom:56px; max-width:640px; }
+  .ladder{ position:relative; }
+  .ladder::before{
+    content:""; position:absolute; left:29px; top:8px; bottom:8px; width:1px;
+    background:linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
+  }
+  .rung{
+    position:relative; display:grid; grid-template-columns:60px 1fr; gap:22px;
+    padding:26px 0; border-bottom:1px dashed var(--rule);
+  }
+  .rung:last-child{ border-bottom:none; }
+  .rung .numeral{
+    font-family:'Cormorant SC', serif; font-size:26px; color:var(--navy);
+    width:60px; height:60px; border-radius:50%;
+    background:var(--parchment); border:1.5px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:1;
+  }
+  .rung.current .numeral{ background:var(--burgundy); color:var(--parchment); border-color:var(--burgundy); }
+  .rung h3{ font-size:23px; color:var(--navy); }
+  .rung .role{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--burgundy); margin:4px 0 8px; }
+  .rung .meta{ font-size:15.5px; color:var(--ink-soft); }
+  .rung .meta b{ color:var(--ink); font-weight:600; }
+
+  /* ---------- GENERATION RECORDS ---------- */
+  details.gen{
+    background:var(--parchment-deep); border:1px solid var(--rule);
+    margin-bottom:14px; padding:0;
+  }
+  details.gen > summary{
+    list-style:none; cursor:pointer;
+    padding:20px 26px; display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    font-family:'Cormorant Garamond', serif;
+  }
+  details.gen > summary::-webkit-details-marker{ display:none; }
+  details.gen > summary .tag{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; color:var(--gold); flex-shrink:0; }
+  details.gen > summary .name{ font-size:22px; color:var(--navy); flex:1; }
+  details.gen > summary .chevron{ font-size:14px; color:var(--burgundy); transition:transform .25s ease; flex-shrink:0; }
+  details.gen[open] > summary .chevron{ transform:rotate(90deg); }
+  .gen-body{ padding:0 26px 26px; font-size:16px; color:var(--ink-soft); }
+  .gen-body p{ margin:0 0 14px; }
+  .gen-body .children{ margin-top:12px; padding-left:20px; border-left:2px solid var(--rule); }
+  .gen-body .children .child{ margin-bottom:10px; }
+  .gen-body .children .grand{ margin:6px 0 6px 22px; font-size:14.5px; color:var(--ink-soft); opacity:.9; }
+  .gen-body .grand ul{ margin:4px 0 4px 22px; padding:0; }
+  .gen-body sup.note{ font-size:11px; color:var(--gold); }
+
+  /* ---------- PATRILINEAL CHART ---------- */
+  .chart-wrap{
+    background:var(--navy-deep); color:var(--parchment);
+    padding:48px 40px; position:relative;
+    border:1px solid var(--gold);
+  }
+  .chart-wrap::before, .chart-wrap::after{
+    content:"◆"; color:var(--gold); font-size:12px; position:absolute;
+  }
+  .chart-wrap::before{ top:16px; left:16px; }
+  .chart-wrap::after{ bottom:16px; right:16px; }
+  .chart-title{ text-align:center; font-family:'Cormorant SC',serif; font-size:26px; margin-bottom:6px; }
+  .chart-sub{ text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; color:#c9b98a; margin-bottom:32px; }
+  .chart-row{ display:grid; grid-template-columns:40px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid rgba(199,155,63,0.2); }
+  .chart-row:last-child{ border-bottom:none; }
+  .chart-row .rn{ font-family:'Cormorant SC',serif; color:var(--gold-bright); font-size:18px; }
+  .chart-row .rd{ font-size:15px; }
+  .chart-row .rd .names{ color:var(--parchment); }
+  .chart-row .rd .date{ display:block; font-size:13px; color:#a99a72; margin-top:2px; }
+
+  /* ---------- IMAGES ---------- */
+  .figure{ margin:36px 0; }
+  .figure img{ display:block; width:100%; height:auto; border:1px solid var(--rule); background:var(--parchment-deep); }
+  .figure figcaption{ margin-top:10px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.08em; color:var(--ink-soft); text-align:center; }
+  .figure-pair{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
+  .figure-pair .figure{ margin:0; }
+  .crest-row{ display:flex; align-items:center; gap:28px; margin:0 0 32px; }
+  .crest-row img{ width:96px; height:auto; border:1px solid var(--rule); flex-shrink:0; }
+  .crest-row .blazon{ font-style:italic; color:var(--ink-soft); font-size:15px; }
+  .rung .portrait{ margin-top:14px; display:flex; gap:10px; }
+  .rung .portrait img{ width:74px; height:auto; border:1px solid var(--gold); }
+  .doc-image{ margin:16px 0 6px; }
+  .doc-image img{ width:100%; max-width:340px; height:auto; border:1px solid var(--rule); display:block; }
+  .doc-image figcaption{ font-size:13px; color:var(--ink-soft); font-style:italic; margin-top:6px; }
+
+  /* ---------- SOURCES ---------- */
+  .sources ul{ padding-left:20px; color:var(--ink-soft); font-size:15px; }
+  .sources li{ margin-bottom:10px; }
+
+  footer{
+    background:var(--navy-deep); color:#a99a72; text-align:center;
+    padding:56px 32px 40px; font-size:14px;
+  }
+  footer .eyebrow{ display:block; margin-bottom:10px; }
+  footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
+
+  .callout-next{
+    margin-top:60px; padding:24px 28px; border:1px dashed var(--gold);
+    background:var(--parchment-deep); font-size:15.5px; color:var(--ink-soft);
+  }
+  .callout-next b{ color:var(--navy); }
+
+  @media (max-width:640px){
+    .wrap{ padding:0 20px; }
+    .rung{ grid-template-columns:44px 1fr; gap:14px; }
+    .rung .numeral{ width:44px; height:44px; font-size:19px; }
+    .chart-wrap{ padding:32px 20px; }
+    .figure-pair{ grid-template-columns:1fr; }
+    .crest-row{ flex-direction:column; align-items:flex-start; gap:14px; }
+    .fact-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- BIOGRAPHY PAGE ---------- */
+  .back-link{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Cinzel',serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold-bright); text-decoration:none; margin:28px 0 0 0;
+  }
+  .back-link:hover{ color:#fff; }
+  .bio-hero{
+    background-color:var(--navy-deep);
+    background-image:linear-gradient(180deg, var(--navy-deep), var(--navy) 70%);
+    color:var(--parchment-deep); text-align:center; padding:20px 24px 56px;
+  }
+  .bio-hero .eyebrow{ display:block; margin-bottom:14px; }
+  .bio-hero h1{ color:#fff; font-size:48px; }
+  .bio-hero .dates{ font-family:'Cormorant SC', serif; letter-spacing:.08em; color:var(--gold-bright); font-size:19px; margin-top:10px; }
+  .fact-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px;
+    background:var(--rule); border:1px solid var(--rule); margin:36px 0;
+  }
+  .fact{ background:var(--parchment); padding:16px 22px; }
+  .fact .k{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:4px; }
+  .fact .v{ font-size:16.5px; color:var(--ink); }
+  .marriage-block{
+    border-left:3px solid var(--burgundy); padding:4px 0 4px 24px; margin:30px 0;
+  }
+  .marriage-block h3{ font-size:24px; margin-bottom:8px; }
+  .marriage-block .when{ font-family:'Cinzel',serif; font-size:11px; letter-spacing:.1em; color:var(--gold); text-transform:uppercase; }
+  .sibling-note{
+    background:var(--parchment-deep); border:1px solid var(--rule); padding:22px 26px; margin:30px 0; font-size:15.5px; color:var(--ink-soft);
+  }
+  .sibling-note h4{ font-family:'Cormorant Garamond',serif; color:var(--navy); font-size:18px; margin:0 0 8px; font-weight:600; }
+  .source-list{ font-size:13.5px; color:var(--ink-soft); line-height:1.9; word-break:break-all; }
+  .source-list a{ color:var(--burgundy); text-decoration:none; border-bottom:1px dotted var(--burgundy); }
+  .footer-nav{ text-align:center; padding:50px 24px 70px; }
+</style>
+</head>
+<body>
+
+<header class="bio-hero">
+  <div class="wrap" style="max-width:760px; margin:0 auto;">
+    <span class="eyebrow">Génération 1 · Archives Duchastel</span>
+    <h1>Jacques du Chastel</h1>
+    <div class="dates">~1622/1624 – 10 janvier 1714 · Reims</div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap" style="max-width:760px; margin:0 auto; padding:0 24px;">
+
+    <a class="back-link" href="genealogieduchastel.html">‹ Retour à l'arbre généalogique</a>
+
+    <div class="lede-block" style="margin-top:32px;">
+      <p>Jacques du Chastel est le plus ancien ancêtre documenté de la lignée. Né vers 1622–1624, probablement à Reims, il y meurt le 10 janvier 1714, à l'âge de 90 ou 92 ans — un âge exceptionnel pour l'époque. Un acte du 2 mai 1676 (mariage de Jean Mopinot et Jeanne Milet) le désigne comme <em>serger</em> : il fabriquait ou faisait fabriquer la serge, ce tissu de laine léger qui faisait la renommée de Reims sous l'Ancien Régime, et appartenait à ce titre à la puissante corporation des marchands-fabricants drapiers de la paroisse Saint-Étienne. Son acte de décès le désigne quant à lui comme <em>« ancien connétable »</em> : Jacques a dirigé l'une des neuf connétablies de la milice bourgeoise de première ligne de Reims, une charge de responsabilité locale réservée aux notables établis et jugés dignes de confiance par le Conseil de Ville.</p>
+    </div>
+
+    <div class="fact-grid">
+      <div class="fact"><span class="k">Naissance</span><span class="v">~1622–1624</span></div>
+      <div class="fact"><span class="k">Décès</span><span class="v">10 janvier 1714 (90–92 ans)</span></div>
+      <div class="fact"><span class="k">Paroisse</span><span class="v">Saint-Étienne, Reims</span></div>
+      <div class="fact"><span class="k">Occupation</span><span class="v">Serger (drapier) &amp; connétable de Reims</span></div>
+    </div>
+
+    <div class="marriage-block">
+      <span class="when">Premier mariage · vers 1650–1655, Reims</span>
+      <h3>Jeanne Desombres</h3>
+      <p>Née vers 1627, Jeanne Desombres meurt à Reims (paroisse Saint-Étienne) le 15 janvier 1702, âgée d'environ 75 ans — dix-sept jours avant que son veuf ne se remarie. C'est d'elle que descend toute la lignée baronniale : leur fils Jean-Baptiste (1670–1702) forme la génération 2.</p>
+    </div>
+
+    <div class="marriage-block">
+      <span class="when">Second mariage · 19 octobre 1702, Reims Saint-Denis</span>
+      <h3>Marie de la Motte</h3>
+      <p>Dix-sept jours après la mort de Jeanne, Jacques — déjà septuagénaire — se remarie avec Marie de la Motte, originaire de Montfaucon (Saint-Laurent, Aisne) et elle-même veuve de Nicolas Gentillet. L'acte, dressé en présence de Gérard Millet et Gérard Camard, précise qu'un ban fut publié « avec dispense des deux autres, avec intimation et contrôle », signe d'un mariage conclu rapidement. Marie de la Motte meurt le 1<sup>er</sup> janvier 1717 à l'Hôtel-Dieu de Reims.</p>
+      <div class="doc-image">
+        <img src="images/acte-mariage-1702.jpg" alt="Acte de mariage de Jacques du Chastel et Marie de la Motte, 19 octobre 1702">
+        <figcaption>Acte de mariage de Jacques Du Chastel et Marie de la Motte, 19 octobre 1702, Reims Saint-Denis</figcaption>
+      </div>
+    </div>
+
+    <blockquote>
+      Du dixième jour du mois de janvier mil sept cent quatorze est décédé en cette paroisse M<sup>r</sup>. Jacques Duchastel ancien connétable de cette ville âgé de quatre vingt dix ou douze ans et a été inhumé au cimetière de cette paroisse.
+      <cite>Registre paroissial de Reims Saint-Étienne, 10 janvier 1714</cite>
+    </blockquote>
+    <p style="color:var(--ink-soft); margin-top:-14px;">Fait notable : bien que remarié en 1702 à la paroisse Saint-Denis, Jacques meurt et est inhumé à Saint-Étienne — son giron d'origine — sans doute pour reposer aux côtés de sa première épouse, Jeanne Desombres, qui y avait été enterrée en 1702. Le titre de « M<sup>r</sup> » accolé à son nom, réservé aux bourgeois notables et aux officiers, atteste de son rang dans la cité; l'absence de liste de témoins, elle, est courante lorsque le défunt est déjà bien connu de toute la paroisse.</p>
+
+    <div class="sibling-note">
+      <h4>Un frère, une sœur — et deux cousins qui restent à situer</h4>
+      <p>Jacques avait un frère, <b>Jean du Chastel</b> (né vers 1637, mort le 24 septembre 1687 à Reims Saint-Timothée, à 50 ans), remarié en secondes noces à Jeanne Dugny, et une sœur, <b>Margueritte du Chastel</b> (née vers 1645, morte le 19 juin 1702 à Reims Saint-Étienne, veuve de Jean Renot), marraine de plusieurs des enfants de Jacques. Deux cousins apparaissent aussi dans les actes : <b>Adam Duchastel</b>, fils de Jean Duchastel et Elisabeth Le Jeune, dont Jacques est témoin au mariage avec Magdeleine Doyen le 4 juillet 1689 en la paroisse Saint-Pierre (bien que cette branche vînt en réalité de la paroisse Saint-Jacques); et <b>Gobert du Chatel</b> (signant « g du chatel »), témoin au mariage de Jacqueline Duchastel avec Guillaume Clauteau le 18 janvier 1689 en la paroisse Saint-Étienne. Ces pistes pourraient un jour permettre de remonter plus haut dans l'arbre, jusqu'à un possible grand-père commun, mais demeurent à ce stade des hypothèses non confirmées.</p>
+    </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <span class="eyebrow">Hypothèse de recherche</span>
+      <h2>L'ascendance probable : deux frères maîtres drapiers</h2>
+    </div>
+    <div class="lede-block">
+      <p>Remonter au-delà de 1624 s'avère complexe : les registres de la paroisse Saint-Étienne sont plus fragmentaires pour le tout début du XVII<sup>e</sup> siècle. Le croisement des parrainages et des archives des corporations textiles de Reims dessine toutefois l'ascendance probable de Jacques, issue de deux frères maîtres drapiers actifs sous Louis XIII :</p>
+    </div>
+    <div class="fact-grid">
+      <div class="fact"><span class="k">Jean du Chastel (l'Ancien)</span><span class="v">Né v. 1590–1595 · marié v. 1618–1620 à Nicole Cochart · mort avant 1660 · père probable de Jacques</span></div>
+      <div class="fact"><span class="k">Nicolas du Chastel (le Vieux)</span><span class="v">Né v. 1598–1602 · marié à une Taraval · témoin documenté jusque v. 1665</span></div>
+    </div>
+    <p style="color:var(--ink-soft);">Ces deux frères, maîtres drapiers-drapants et bourgeois de Reims, achetaient leurs laines brutes en commun dans le Rethelois. Aucun lien avec la noblesse bretonne des Du Chastel de Trémazan n'apparaît dans leur entourage : parrains, marraines et témoins sont tous rémois, réthelois ou laonnais, et leurs marques de marchands relevaient du commerce, non de l'héraldique chevaleresque. C'est de ce milieu — fortune professionnelle et respectabilité accumulées dans la draperie — que Jacques a pu accéder à la charge de connétable. Cette filiation demeure une hypothèse de travail, non un fait établi par acte.</p>
+
+    <div class="section-head" style="margin-top:56px;">
+      <span class="eyebrow">Descendance directe</span>
+      <h2>Les dix enfants de Jacques du Chastel</h2>
+    </div>
+    <p style="color:var(--ink-soft); margin-bottom:28px;">Neuf enfants du premier mariage, avec Jeanne Desombres, et une fille du second, avec Marie de la Motte — tous baptisés à Reims.</p>
+
+    <div class="gen-body" style="padding:0;">
+      <div class="children" style="border-left:2px solid var(--rule); padding-left:20px;">
+        <div class="child"><b>1.1 Pierre</b> — né le 17 avril 1656, Reims Saint-Étienne (parrain Pierre Quentin, marraine Marie Chastel).</div>
+        <div class="child"><b>1.2 Anthoinette</b> — née le 30 mai 1659, Reims Saint-Étienne (parrain Pierre Tourtebat, marraine Anthoinette Maquart).</div>
+        <div class="child"><b>1.3 Pierre</b> — né le 16 juillet 1662, Reims Saint-Étienne (parrain Pierre Le Flan, marraine Henriette Tauxier).</div>
+        <div class="child"><b>1.4 Gérard</b> — né le 2 septembre 1663, Reims Saint-Étienne (parrain Gérard Ailer, marraine Marguerite Duchastel).</div>
+        <div class="child"><b>1.5 Jean</b> — né le 12 juin 1665, Reims Saint-Étienne, mort le 4 octobre 1734. Marié le 4 mai 1688 à Reims Saint-Étienne à <b>Jeanne Husson</b> (~1670), fille de feu Pierre Husson et Françoise François. Une descendance nombreuse est documentée sur plusieurs générations à Reims.</div>
+        <div class="child"><b>1.6 Catherine</b> — née le 31 janvier 1667, Reims Saint-Étienne (parrain Guillaume Bliez, marraine Catherine Patin).</div>
+        <div class="child"><b>1.7 Jean-Baptiste</b> — né le 17 octobre 1670, Reims Saint-Étienne, mort en 1702. Marié le 16 février 1692 à Reims Saint-Étienne à <b>Marguerite Plantin</b> (1674–1754), fille de Pierre Plantin et Nicole Vincenot — elle n'avait alors que 14 ans, bien que l'acte la dise « âgée de 18 ans ou environ ». <b>C'est de ce couple que descend la lignée baronniale</b> (génération 2).</div>
+        <div class="child"><b>1.8 Jacqueline</b> — née le 8 juillet 1671, Reims Saint-Pierre, morte le 28 janvier 1693, Reims Saint-Étienne. Mariée le 18 janvier 1689 à Guillaume Clauteau (1659 – après 1694), puis, en secondes noces le 27 décembre 1694, à Nicolle Millet.</div>
+        <div class="child"><b>1.9 Margueritte</b> — née le 20 juillet 1674, Reims Saint-Étienne (parrain Jean Duchastel, marraine Margueritte Duchastel).</div>
+        <div class="child"><b>1.10 Elisabeth</b> — née le 12 août 1703, Reims Saint-Étienne (parrain Claude Gannelon, marraine Elisabeth Gannelon), seule enfant connue du second mariage, avec Marie de la Motte.</div>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:56px;">
+      <span class="eyebrow">Notes de recherche</span>
+      <h2>Sources consultées</h2>
+    </div>
+    <div class="source-list" style="margin-bottom:60px;">
+      <p>Archives de la Marne, registres paroissiaux de Reims (Saint-Étienne, Saint-Denis, Saint-Pierre) —
+      <a href="http://www.marne-archive.com/base/reims/pdm.php3" target="_blank" rel="noopener">marne-archive.com</a> ·
+      <a href="http://archives.marne.fr/?id=recherche_guidee_etat_civil" target="_blank" rel="noopener">archives.marne.fr</a></p>
+      <p>Fiche généalogique Jeanne Desombres —
+      <a href="http://hrd-cabourg.pagesperso-orange.fr/genealogie/fiches/fiche261.htm" target="_blank" rel="noopener">hrd-cabourg.pagesperso-orange.fr</a></p>
+      <p>Relevés Ancestry.com, base <em>Marne Marriages</em> (mariages de Jeanne Desombres et de Jacques Duchatel, 1702)</p>
+      <p><em>Factum pour Jean Du Chastel et Jeanne Hu[sson]</em>, Google Books (référence à la descendance du frère Jean)</p>
+      <p>Généalogie détaillée (Geneanet) —
+      <a href="https://gw.geneanet.org/philsebastien_w?lang=fr&alwsurn=yes&n=du+chastel&oc=1&p=jacques" target="_blank" rel="noopener">gw.geneanet.org/philsebastien_w</a></p>
+      <p>Actes numérisés (naissances, baptêmes, mariages, décès) —
+      <a href="https://archives.marne.fr" target="_blank" rel="noopener">archives.marne.fr</a></p>
+      <p>Société généalogique canadienne-française, notice Duchastel —
+      <a href="https://laurentduchastel.com/wp-content/uploads/2018/12/duchastel.pdf" target="_blank" rel="noopener">laurentduchastel.com</a></p>
+      <p><em>Cuadernos/Cahiers Lasallistas</em>, vol. 36–37 (quittances de rentes foncières, famille Desombres-Duchastel) —
+      <a href="https://biblio.lasalle.org/bitstream/001/206/1/Cuadernos%20Lasallistas%2036%20Vol.%202.pdf" target="_blank" rel="noopener">biblio.lasalle.org</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-nav">
+    <a class="back-link" href="genealogieduchastel.html">‹ Retour à l'arbre généalogique</a>
+  </div>
+</main>
+
+</body>
+</html>
