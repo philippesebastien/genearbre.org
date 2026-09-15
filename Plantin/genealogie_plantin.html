@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Généalogie de la famille Plantin</title>
+<style>
+  :root {
+    --bordeaux: #6b1f2a;
+    --bordeaux-dark: #4a1620;
+    --cream: #f7f3ec;
+    --gold: #b08d57;
+    --ink: #2c2620;
+    --line: #ddd3c2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff;
+    padding: 60px 20px 50px;
+    text-align: center;
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 2.3em; letter-spacing: 1px; }
+  .hero p.subtitle { margin: 0; font-style: italic; color: var(--cream); opacity: 0.9; font-size: 1.1em; }
+  .container { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+  h2.section-title {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--bordeaux); font-size: 1.5em;
+    border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 55px;
+  }
+  h2.section-title .num {
+    background: var(--bordeaux); color: #fff; width: 34px; height: 34px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.55em; flex-shrink: 0;
+  }
+  p { text-align: justify; }
+  .identity-card {
+    background: #fff; border-left: 5px solid var(--bordeaux); border-radius: 4px;
+    padding: 20px 26px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .identity-card h3 { margin-top: 0; color: var(--bordeaux-dark); font-size: 1.3em; }
+  .identity-card .surnom { font-style: italic; color: #7a6f5e; font-size: 0.95em; margin-top: -8px; }
+  .identity-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 24px;
+    margin: 14px 0; font-size: 0.97em;
+  }
+  .identity-grid .label { color: var(--gold); font-weight: bold; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+  .highlight-box {
+    background: #fdf6e8; border: 1px solid var(--gold); border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .highlight-box strong { color: var(--bordeaux); }
+  .caution-box {
+    background: #fbeceb; border: 1px solid #c98d87; border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .caution-box strong { color: var(--bordeaux-dark); }
+  .children-list { margin-top: 16px; }
+  .children-list h4 { color: var(--bordeaux); margin-bottom: 8px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.5px; }
+  table.children {
+    width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; background: #fff;
+  }
+  table.children th, table.children td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+  table.children th { background: var(--bordeaux); color: #fff; font-weight: normal; }
+  table.children tr:nth-child(even) { background: #faf7f0; }
+  table.children td.deces-jeune { color: #a05050; font-style: italic; }
+  .sources { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin-top: 20px; }
+  .sources ul { padding-left: 20px; }
+  .sources a, .highlight-box a, .caution-box a, p a { color: var(--bordeaux); }
+  .links-external { display: grid; gap: 14px; margin: 18px 0; }
+  .links-external a.tree-link {
+    display: block; background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff; text-decoration: none; padding: 16px 22px; border-radius: 6px;
+    font-weight: bold; transition: opacity 0.2s;
+  }
+  .links-external a.tree-link:hover { opacity: 0.88; }
+  .links-external a.tree-link span.small {
+    display: block; font-weight: normal; font-style: italic; font-size: 0.85em; margin-top: 4px; opacity: 0.9;
+  }
+  footer { text-align: center; padding: 30px; color: #8a7d68; font-size: 0.85em; }
+</style>
+</head>
+<body>
 
+<div class="hero">
+  <h1>Famille Plantin</h1>
+  <p class="subtitle">Pierre Plantin et Nicolle Vincenot, une famille du XVIIe siècle</p>
+</div>
+
+<div class="container">
+
+  <h2 class="section-title"><span class="num">1</span> Pierre Plantin et Nicolle Vincenot</h2>
+  <div class="identity-card">
+    <h3>Pierre Plantin</h3>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>1639</div>
+      <div><span class="label">Mariage</span><br>1665, avec Nicolle Vincenot</div>
+    </div>
+    <p>Le couple a neuf enfants connus, nés entre 1668 et 1686 — un rythme de naissances presque annuel typique des familles de l'Ancien Régime, où l'on constate aussi une mortalité infantile élevée : trois des neuf enfants (Louyse, Ponce et Nicolas) sont décédés la même année que leur naissance, et un quatrième (le second Pierre) meurt à 28 ans.</p>
+    <div class="children-list">
+      <h4>Enfants de Pierre Plantin et Nicolle Vincenot</h4>
+      <table class="children">
+        <tr><th>Prénom</th><th>Naissance</th><th>Décès</th></tr>
+        <tr><td>Louyse Plantin</td><td>1668</td><td class="deces-jeune">1668 (même année)</td></tr>
+        <tr><td>Pierre Plantin</td><td>1671</td><td>1712 (41 ans)</td></tr>
+        <tr><td>Jean Plantin</td><td>1673</td><td>—</td></tr>
+        <tr><td>Margueritte Plantin</td><td>1674</td><td>1754 (80 ans)</td></tr>
+        <tr><td>Ponce Plantin</td><td>1678</td><td class="deces-jeune">1678 (même année)</td></tr>
+        <tr><td>Nicolas Plantin</td><td>1679</td><td class="deces-jeune">1679 (même année)</td></tr>
+        <tr><td>Nicolle Plantin</td><td>1681</td><td>—</td></tr>
+        <tr><td>Guillaume Plantin</td><td>1683</td><td>—</td></tr>
+        <tr><td>Pierre Plantin</td><td>1686</td><td>1714 (28 ans)</td></tr>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p><strong>Deux fils prénommés Pierre :</strong> comme c'était fréquent à l'époque, un second fils reçoit en 1686 le prénom Pierre — celui de son père — après la naissance d'un premier Pierre en 1671 (qui, lui, survivra jusqu'à 41 ans, en 1712). Il ne s'agit pas ici du cas classique où un enfant reprend le prénom d'un aîné décédé en bas âge, puisque le premier Pierre (1671-1712) était encore vivant en 1686 ; les deux frères portent donc le même prénom simultanément, une pratique moins courante mais attestée, notamment pour honorer le père ou un parrain.</p>
+      <p style="margin-bottom:0;">Margueritte Plantin (1674-1754) est celle qui a vécu le plus longtemps parmi la fratrie, atteignant 80 ans — un âge exceptionnel pour le XVIIe-XVIIIe siècle.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title"><span class="num">2</span> Origine et signification des patronymes</h2>
+  <p><strong>Plantin</strong> est un toponyme évoquant une plantation : selon le glossaire de Godefroy, il désignait souvent des buissons de bois taillis plantés en bordure de fossés pour en soutenir les crêtes. Une autre interprétation en fait un surnom de cultivateur ou de pépiniériste, dérivé du mot « plant » (endroit planté de vignes). Le nom, aujourd'hui porté par plus de 43 000 personnes recensées sur Geneanet, est probablement apparu indépendamment à plusieurs endroits en France ; il est aujourd'hui le plus fréquent dans les départements de la Haute-Loire et du Nord, ce qui suggère plusieurs souches distinctes plutôt qu'une origine unique.</p>
+  <p><strong>Vincenot</strong> est un diminutif du prénom Vincent, formé selon un procédé courant (ajout du suffixe -ot) typique des régions de Bourgogne, Franche-Comté et Champagne, où ce type de diminutif patronymique est particulièrement répandu.</p>
+  <div class="caution-box">
+    <strong>Un homonyme célèbre sans lien connu :</strong> le nom Plantin est aussi celui de <strong>Christophe Plantin</strong> (v. 1520-1589), imprimeur et éditeur d'origine française devenu l'une des plus grandes figures de l'histoire de l'imprimerie à Anvers (la Plantin Press, aujourd'hui musée classé au patrimoine mondial de l'UNESCO). Rien dans les sources consultées ne permet de rattacher notre Pierre Plantin (né en 1639, soit un demi-siècle après la mort de Christophe Plantin) à cette famille d'imprimeurs anversois ; il s'agit vraisemblablement d'un simple homonyme, le patronyme étant, comme indiqué plus haut, apparu à plusieurs endroits distincts.
+  </div>
+
+  <h2 class="section-title"><span class="num">3</span> Arbre généalogique de référence</h2>
+  <p>La source principale pour cette famille reste l'arbre Geneanet de Philippe Sébastien :</p>
+  <div class="links-external">
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=plantin&amp;p=pierre&amp;type=tree" target="_blank" rel="noopener">
+      Arbre Geneanet — Pierre Plantin (1639)
+      <span class="small">gw.geneanet.org/philsebastien_w — n=plantin, p=pierre</span>
+    </a>
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=vincenot&amp;p=nicolle&amp;type=tree" target="_blank" rel="noopener">
+      Fiche Geneanet — Nicolle Vincenot
+      <span class="small">gw.geneanet.org/philsebastien_w — n=vincenot, p=nicolle</span>
+    </a>
+  </div>
+
+  <h2 class="section-title"><span class="num">4</span> Sources et références</h2>
+  <div class="sources">
+    <ul>
+      <li><a href="https://gw.geneanet.org/philsebastien_w?lang=fr&n=plantin&p=pierre&type=tree" target="_blank" rel="noopener">Geneanet — arbre de Philippe Sébastien, fiche Pierre Plantin</a></li>
+      <li><a href="https://www.geneanet.org/nom-de-famille/PLANTIN" target="_blank" rel="noopener">Geneanet — origine et signification du nom de famille Plantin</a></li>
+      <li><a href="https://www.filae.com/nom-de-famille/PLANTIN.html" target="_blank" rel="noopener">Filae — popularité et étymologie du nom Plantin</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Christophe_Plantin" target="_blank" rel="noopener">Wikipedia (en) — Christophe Plantin</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Généalogie de la famille Plantin — page compilée à partir de l'arbre Geneanet de Philippe Sébastien et de recherches complémentaires sur l'origine des patronymes Plantin et Vincenot.
+</footer>
+
+</body>
+</html>
