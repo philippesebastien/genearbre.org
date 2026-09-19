@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Généalogie de la famille Berthelin</title>
+<style>
+  :root {
+    --bordeaux: #6b1f2a;
+    --bordeaux-dark: #4a1620;
+    --cream: #f7f3ec;
+    --gold: #b08d57;
+    --ink: #2c2620;
+    --line: #ddd3c2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff;
+    padding: 60px 20px 50px;
+    text-align: center;
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 2.3em; letter-spacing: 1px; }
+  .hero p.subtitle { margin: 0; font-style: italic; color: var(--cream); opacity: 0.9; font-size: 1.1em; }
+  .container { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+  h2.section-title {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--bordeaux); font-size: 1.5em;
+    border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 55px;
+  }
+  h2.section-title .num {
+    background: var(--bordeaux); color: #fff; width: 34px; height: 34px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.55em; flex-shrink: 0;
+  }
+  p { text-align: justify; }
+  .lignee { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin: 20px 0; }
+  .lignee ol { margin: 0; padding-left: 22px; }
+  .lignee li { padding: 4px 0; }
+  .lignee li.souligne { font-weight: bold; color: var(--bordeaux); }
+  .identity-card {
+    background: #fff; border-left: 5px solid var(--bordeaux); border-radius: 4px;
+    padding: 20px 26px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .identity-card h3 { margin-top: 0; color: var(--bordeaux-dark); font-size: 1.3em; }
+  .identity-card .surnom { font-style: italic; color: #7a6f5e; font-size: 0.95em; margin-top: -8px; }
+  .identity-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 24px;
+    margin: 14px 0; font-size: 0.97em;
+  }
+  .identity-grid .label { color: var(--gold); font-weight: bold; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+  .highlight-box {
+    background: #fdf6e8; border: 1px solid var(--gold); border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .highlight-box strong { color: var(--bordeaux); }
+  .caution-box {
+    background: #fbeceb; border: 1px solid #c98d87; border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .caution-box strong { color: var(--bordeaux-dark); }
+  .descent-tree { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin: 18px 0; font-size: 0.95em; }
+  .descent-tree ul { list-style: none; padding-left: 0; margin: 0; }
+  .descent-tree ul ul { padding-left: 26px; margin-top: 6px; border-left: 2px dotted var(--line); }
+  .descent-tree li { padding: 5px 0; }
+  .descent-tree .role { color: #6b5f4d; font-style: italic; font-size: 0.92em; }
+  .sources { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin-top: 20px; }
+  .sources ul { padding-left: 20px; }
+  .sources a, .highlight-box a, .caution-box a, p a { color: var(--bordeaux); }
+  .links-external { display: grid; gap: 14px; margin: 18px 0; }
+  .links-external a.tree-link {
+    display: block; background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff; text-decoration: none; padding: 16px 22px; border-radius: 6px;
+    font-weight: bold; transition: opacity 0.2s;
+  }
+  .links-external a.tree-link:hover { opacity: 0.88; }
+  .links-external a.tree-link span.small {
+    display: block; font-weight: normal; font-style: italic; font-size: 0.85em; margin-top: 4px; opacity: 0.9;
+  }
+  footer { text-align: center; padding: 30px; color: #8a7d68; font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Famille Berthelin</h1>
+  <p class="subtitle">Marchands drapiers et échevins de Troyes, du XVIIe au XXe siècle</p>
+</div>
+
+<div class="container">
+
+  <h2 class="section-title"><span class="num">1</span> Lignée ancestrale directe</h2>
+  <div class="lignee">
+    <ol>
+      <li>Nicolas Berthelin [~1605 – 1670], marchand drapier, échevin de Troyes</li>
+      <li>François Berthelin [1642 – 1704], échevin de Troyes, négociant</li>
+      <li>Édmé Berthelin [1682 – 1721]</li>
+      <li>(Jean-)Edmé Berthelin, marié à Marie-Claude Fromageot</li>
+      <li class="souligne">Edmée-Bonaventure Berthelin [1747 – 1829] — épouse d'Étienne-François Cadot de Beauvoisy</li>
+    </ol>
+  </div>
+  <div class="caution-box">
+    <strong>Note de méthode :</strong> le passage entre Édmé Berthelin (1682-1721) et le père d'Edmée-Bonaventure (marié à Marie-Claude Fromageot, prénommé « Jean-Edmé » dans l'arbre de Hervé Watier) n'est pas documenté de façon certaine dans les sources consultées : il pourrait s'agir du même individu si les dates étaient inexactes dans l'une des sources, ou plus vraisemblablement d'un fils portant un prénom composé proche de celui de son père — pratique fréquente à cette époque. À vérifier avec des actes d'état civil de Troyes.
+  </div>
+
+  <h2 class="section-title"><span class="num">2</span> Génération 1 — Nicolas Berthelin</h2>
+  <div class="identity-card">
+    <h3>Nicolas Berthelin</h3>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>vers 1605</div>
+      <div><span class="label">Décès</span><br>1670</div>
+      <div><span class="label">Paroisse / ville</span><br>Troyes, Aube</div>
+      <div><span class="label">Occupation</span><br>Marchand drapier, échevin de Troyes</div>
+      <div><span class="label">Épouse</span><br>Barthélemie (Berthélémie) Collinet, née vers 1602</div>
+    </div>
+    <p>Nicolas Berthelin appartient à la bourgeoisie marchande de Troyes au XVIIe siècle : le commerce de la draperie et les charges d'échevinage (l'équivalent de conseiller municipal sous l'Ancien Régime) plaçaient ces familles parmi les notables de la ville, alors un centre textile important de Champagne.</p>
+  </div>
+
+  <h2 class="section-title"><span class="num">3</span> Génération 2 — François Berthelin</h2>
+  <div class="identity-card">
+    <h3>François Berthelin</h3>
+    <p class="surnom">Fils de Nicolas Berthelin et Barthélemie Collinet</p>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>1642</div>
+      <div><span class="label">Décès</span><br>1704</div>
+      <div><span class="label">Paroisse / ville</span><br>Troyes, Aube</div>
+      <div><span class="label">Occupation</span><br>Échevin de Troyes, négociant</div>
+      <div><span class="label">Mariage</span><br>1675, avec Bonaventure Gaulard (1656-1725)</div>
+    </div>
+    <div class="highlight-box">
+      <strong>Un frère notable :</strong> François avait un frère, Nicolas Berthelin (1641-1717), également marchand drapier et devenu juge consul à Troyes (magistrat du tribunal de commerce), marié en 1675 à Claire Corps (1648-1733) — même année de mariage que son frère, une coïncidence relevée dans plusieurs arbres Geneanet.
+    </div>
+  </div>
+
+  <h2 class="section-title"><span class="num">4</span> Génération 3 — Édmé Berthelin</h2>
+  <div class="identity-card">
+    <h3>Édmé Berthelin</h3>
+    <p class="surnom">Fils de François Berthelin et Bonaventure Gaulard</p>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>1682</div>
+      <div><span class="label">Décès</span><br>1721</div>
+      <div><span class="label">Paroisse / ville</span><br>Troyes, Aube</div>
+    </div>
+  </div>
+
+  <h2 class="section-title"><span class="num">5</span> Génération 5 — Edmée-Bonaventure Berthelin</h2>
+  <div class="identity-card">
+    <h3>Edmée-Bonaventure Berthelin</h3>
+    <p class="surnom">Fille de (Jean-)Edmé Berthelin et Marie-Claude Fromageot</p>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>1747, Troyes (Saint-Jean), Aube</div>
+      <div><span class="label">Décès</span><br>1829, Reims, Marne</div>
+      <div><span class="label">Mariage</span><br>1767, avec Étienne-François Cadot, Seigneur de Beauvoisy</div>
+    </div>
+    <p>Edmée-Bonaventure Berthelin épouse en 1767 Étienne-François Cadot, bourgeois de Reims, négociant, changeur du Roy, anobli en 1785 sous le nom de « Cadot de Beauvoisy ». Le couple fait bâtir en 1773 une maison de campagne à Pargny-lès-Reims, devenue plus tard le « Château Werlé ». Pour le détail de cette branche, voir la page dédiée à la famille Cadot.</p>
+    <div class="links-external">
+      <a class="tree-link" href="genealogie_cadot.html">
+        Voir la page Famille Cadot (Étienne-François Cadot de Beauvoisy)
+      </a>
+    </div>
+  </div>
+
+  <h2 class="section-title"><span class="num">6</span> Frères et sœurs d'Edmée-Bonaventure</h2>
+  <div class="descent-tree">
+    <ul>
+      <li>Jeanne-Élisabeth Berthelin (1748 – ) — <span class="role">épouse (1767) Louis-Marie Favart Desjardins</span></li>
+      <li>Marie-Françoise Berthelin (1748 – ) — <span class="role">épouse (1768) Jean-Amand Bonnemain</span></li>
+      <li>Françoise Berthelin (1749 – )</li>
+      <li>Pierre-Jean Berthelin (1750 – 1803) — <span class="role">épouse (1777) Antoinette Sutaine (1759 – )</span> — voir la descendance ci-dessous</li>
+    </ul>
+  </div>
+
+  <h2 class="section-title"><span class="num">7</span> Descendance par Pierre-Jean Berthelin : une dynastie de négociants et d'ingénieurs à Troyes</h2>
+  <p>La lignée issue de Pierre-Jean Berthelin (1750-1803) et Antoinette Sutaine (1759- ) reste établie à Troyes sur plusieurs générations, entre commerce textile, ingénierie des ponts et chaussées et notariat.</p>
+  <div class="descent-tree">
+    <ul>
+      <li>Pierre-Jean Berthelin (1750-1803) ✕ (1777) Antoinette Sutaine (1759- )
+        <ul>
+          <li>Anne-Élisabeth Berthelin (1779 – ) — <span class="role">épouse (1802) Régis-Laurent-Louis de Gonzague Michel du Crémat, officier de hussards, entreposeur des tabacs à Marseille</span></li>
+          <li>Marie-Thérèse Berthelin (1781 – ) — <span class="role">épouse (1807) Auguste-François Bourboulon, négociant associé à Berthelin-Sutaine, filateur de coton à Troyes</span></li>
+          <li>Jean-Baptiste Berthelin (1778 – 1843), négociant à Troyes, membre de la Société académique de l'Aube — <span class="role">épouse (1806) Henriette-Doris Heise (1783 – 1872)</span>
+            <ul>
+              <li>Egmont Berthelin (1807 – 1860) ✕ (1839) Marie-Octavie Gilliet (1820 – )
+                <ul><li>Jean-Georges Berthelin (1841 – )</li></ul>
+              </li>
+              <li>Louis-Charles Berthelin (1809 – 1883), ingénieur des ponts et chaussées ✕ (1845) Marie-Louise Gilbert de Savigny (1821 – 1902)
+                <ul>
+                  <li>Louis-Henri-Marie Berthelin (1846 – 1902), ingénieur, receveur de l'enregistrement ✕ (1883) Pauline-Sophie-Marie Lecointre (1857 – 1927)
+                    <ul>
+                      <li>Marie-Louise Berthelin (1884 – 1953) — <span class="role">épouse (v. 1902) Henri-Octave Vigoureux</span></li>
+                      <li>Charles-Édouard-Henri-Marie Berthelin (1886 – 1954), notaire ✕ (1920) Jeanne-Hélène-Marie Buguel (1896 – 1967)
+                        <ul><li>Egmont-Jacques-Marie Berthelin ✕ Nicole-Marie-Danielle Ricordeau</li></ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div class="highlight-box">
+    <strong>La maison Berthelin-Sutaine :</strong> le mariage de Pierre-Jean Berthelin avec Antoinette Sutaine en 1777 est à l'origine d'une association commerciale, « Berthelin-Sutaine », active dans la filature de coton à Troyes au tournant du XIXe siècle — une industrie alors en plein essor dans cette ville, qui deviendra plus tard un grand centre français de la bonneterie. Auguste-François Bourboulon, négociant associé à cette maison, épousera en 1807 Marie-Thérèse Berthelin.
+  </div>
+
+  <h2 class="section-title"><span class="num">8</span> Une branche noble homonyme : les Berthelin d'Allemant et de Monbrun</h2>
+  <div class="caution-box">
+    <strong>Lien non établi :</strong> les sources consultées font aussi apparaître une branche Berthelin bien plus titrée — écuyers, seigneurs d'Allemant, trésoriers de France à Châlons, ou « Berthelin de Monbrun » — alliée à des familles nobles (de Belleville, de Brach, Brochard de La Rochebrochard, de Sainte-Hermine, de Feraudy). Rien dans les sources consultées ne permet de rattacher cette branche à la lignée marchande de Troyes ci-dessus ; il pourrait s'agir d'homonymes sans lien de parenté proche, ou d'une branche cousine très éloignée. Parmi ses membres : Louis-Nicolas Berthelin, écuyer, seigneur d'Allemant, trésorier de France à Châlons, marié à Françoise Martin ; et Joseph Berthelin de Monbrun (1690 – avant 1776), marié en 1723 à Charlotte de Belleville (1699-1772), dame de Coulon.
+  </div>
+
+  <h2 class="section-title"><span class="num">9</span> Arbre généalogique de référence</h2>
+  <p>La source principale pour cette branche de la famille de Philippe Sébastien reste son arbre Geneanet :</p>
+  <div class="links-external">
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=en&amp;n=berthelin&amp;oc=0&amp;p=nicolas&amp;type=tree" target="_blank" rel="noopener">
+      Arbre Geneanet — Nicolas Berthelin
+      <span class="small">gw.geneanet.org/philsebastien_w — n=berthelin, p=nicolas</span>
+    </a>
+  </div>
+
+  <h2 class="section-title"><span class="num">10</span> Sources et références</h2>
+  <div class="sources">
+    <ul>
+      <li><a href="https://gw.geneanet.org/philsebastien_w?lang=en&n=berthelin&oc=0&p=nicolas&type=tree" target="_blank" rel="noopener">Geneanet — arbre de Philippe Sébastien, fiche Nicolas Berthelin</a></li>
+      <li><a href="https://en.geneanet.org/fonds/individus/?nom=BERTHELIN&place__0__=Troyes,+10387" target="_blank" rel="noopener">Geneanet — recherche d'individus « Berthelin », Troyes</a></li>
+      <li><a href="https://man8rove.com/fr/famille/Berthelin" target="_blank" rel="noopener">Man8rove — généalogie de la famille Berthelin</a></li>
+      <li><a href="https://gw.geneanet.org/connault?lang=fr&m=N&v=berthelin" target="_blank" rel="noopener">Geneanet — arbre de Joël Connault, index des Berthelin</a></li>
+      <li><a href="https://gw.geneanet.org/hwatier" target="_blank" rel="noopener">Geneanet — arbre de Hervé Watier (fiche Edmée-Bonaventure Berthelin)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Généalogie de la famille Berthelin — page compilée à partir de l'arbre Geneanet de Philippe Sébastien et de recherches croisées sur plusieurs arbres Geneanet et bases généalogiques complémentaires.
+</footer>
+
+</body>
+</html>

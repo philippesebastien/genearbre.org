@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Généalogie de la Famille Berthelin — Notice de Champagne</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --color-parchment-light: #f1e8d6;
+            --color-parchment-dark: #e5d7b7;
+            --color-ink: #241d13;
+            --color-ink-soft: #4a4030;
+            --color-navy: #1c2740;
+            --color-navy-deep: #131b2d;
+            --color-burgundy: #7c2331;
+            --color-gold: #a4802f;
+            --color-gold-bright: #c79b3f;
+            --color-rule: rgba(36,29,19,0.18);
+            --font-serif: 'EB Garamond', serif;
+            --font-title: 'Cormorant Garamond', serif;
+            --font-smallcaps: 'Cormorant SC', serif;
+            --font-eyebrow: 'Cinzel', serif;
+            --max-width: 960px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--color-parchment-light); color: var(--color-ink); font-family: var(--font-serif); font-size: 18px; line-height: 1.65; }
+        .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+        .eyebrow { font-family: var(--font-eyebrow); font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; }
+        h1, h2, h3 { font-family: var(--font-title); font-weight: 600; color: var(--color-navy); margin: 0; }
+        h1 { color: var(--color-parchment-light); }
+        h2 { font-size: clamp(26px, 3.4vw, 34px); margin-top: 8px; }
+        h3 { font-size: 19px; color: var(--color-burgundy); font-style: italic; margin: 26px 0 12px; }
+        p { margin: 0 0 18px; color: var(--color-ink-soft); }
+        .hero { position: relative; background: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%), linear-gradient(180deg, var(--color-navy-deep), var(--color-navy) 60%, #223154 100%); color: var(--color-parchment-light); padding: 96px 32px 80px; text-align: center; border-bottom: 1px solid rgba(199,155,63,0.35); }
+        .seal { width: 120px; height: 130px; margin: 0 auto 25px; }
+        .hero h1 { font-family: var(--font-smallcaps); font-size: clamp(36px, 5.5vw, 58px); margin: 14px 0 6px; }
+        .sub { font-family: var(--font-title); font-style: italic; font-size: clamp(18px, 2.6vw, 22px); color: #d9c9a3; }
+        .hero .rule { width: 64px; height: 1px; background: var(--color-gold); margin: 26px auto; opacity: .7; }
+        .hero .lede { max-width: 640px; margin: 0 auto; color: #cdbfa0; font-size: 17px; }
+        section { padding: 64px 0; border-bottom: 1px solid var(--color-rule); }
+        .identity-card { background: var(--color-parchment-dark); border: 1px solid var(--color-rule); padding: 22px 24px; margin-bottom: 20px; }
+        .identity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px; font-size: 16px; }
+        ul { list-style: none; padding-left: 0; margin: 0 0 18px; font-size: 16px; }
+        ul li { position: relative; padding-left: 18px; margin-bottom: 8px; }
+        ul li::before { content: "•"; position: absolute; left: 2px; top: 0; color: var(--color-gold); }
+        .highlight-box { background: var(--color-parchment-dark); border: 1px solid var(--color-rule); border-left: 3px solid var(--color-gold); padding: 18px 22px; margin: 18px 0; font-size: 16px; }
+        .tree-diagram { background: var(--color-navy-deep); color: #cdbfa0; border: 1px solid var(--color-gold); padding: 22px 24px; font-family: 'Courier New', monospace; font-size: 13px; white-space: pre; overflow-x: auto; }
+        footer { background: var(--color-navy-deep); color: #a99a72; text-align: center; padding: 56px 32px 40px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="seal">
+            <!-- Blason stylisé de la Ville de Reims -->
+            <svg viewBox="0 0 100 115" xmlns="http://w3.org">
+                <path d="M10,10 L90,10 L90,60 C90,85 50,105 50,105 C50,105 10,85 10,60 Z" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+                <rect x="10" y="10" width="80" height="25" fill="#1c2740"/>
+                <!-- Fleurs de lys -->
+                <path d="M25,18 C25,24 22,27 25,30 C28,27 25,24 25,18 Z M50,18 C50,24 47,27 50,30 C53,27 50,24 50,18 Z M75,18 C75,24 72,27 75,30 C78,27 75,24 75,18 Z" fill="#c79b3f"/>
+                <!-- Rinceaux / Couronne de laurier d'or -->
+                <path d="M30,70 Q50,45 70,70 Q50,90 30,70" fill="none" stroke="#c79b3f" stroke-width="3"/>
+            </svg>
+        </div>
+        <p class="eyebrow">Chronique des Échevins</p>
+        <h1>Les Berthelin de Champagne</h1>
+        <p class="sub">Seigneurs, Bourgeois et Magistrats de la Cité des Sacres</p>
+        <div class="rule"></div>
+        <p class="lede">Filiation d'Ancien Régime documentant les charges publiques, l'arpentage des vignobles et les alliances de la maison Berthelin au cœur de la province de Champagne.</p>
+    </header>
+
+    <main class="wrap">
+        <section>
+            <h2>Origines Historiques & Notabilité</h2>
+            <p>Dès le début du XVIIe siècle, la famille Berthelin s'illustre dans les registres des paroisses rémoises. Les alliances successives contractées avec les familles Cadot, Watier et surtout Duchastel en font une lignée incontournable de la haute bourgeoisie de la Marne.</p>
+            
+            
+                
+                    <div><strong>Souche :</strong> Nicolas Berthelin (~1602-1670)</div>
+                    <div><strong>Alliance clé :</strong> Berthélémie Collinet</div>
+                    <div><strong>Fiefs & Biens :</strong> Rilly, Chigny, Ludes</div>
+                    <div><strong>Statut :</strong> Échevins et Bourgeois de Reims</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Lignée Chronologique Champenoise</h2>
+            
+            <h3>Génération I : La Souche Supérieure</h3>
+            <p><strong>Nicolas Berthelin</strong> (~1602-1670) épouse vers 1640 <strong>Berthélémie Collinet</strong>. Installés à Reims, ils posent les fondations de la famille. Leur fils François poursuit la filiation.</p>
+
+            <h3>Génération II : L'Ancrage Paroissial</h3>
+            <p><strong>François Berthelin</strong> (~1642-1704) s'allie par contrat en 1675 avec <strong>Bonaventure Gaulard</strong>. C'est de leur union que naissent les rameaux qui se diviseront pour s'allier aux notables champenois.</p>
+
+            <h3>Génération III : Le Déploiement</h3>
+            <p><strong>Jean Berthelin</strong> (1694-1760) s'unit en 1721 à <strong>Gabrielle Taffignon</strong>. Cette époque marque une ascension financière nette et l'acquisition de parcelles viticoles de premier ordre.</p>
+
+            <h3>Génération IV : L'Apogée Échevinale</h3>
+            <p><strong>Jean Edme Berthelin</strong> (1724-1811) épouse en 1741 <strong>Marie Claude Fromageot</strong>. Leurs enfants scellent le prestige de la lignée :</p>
+            <ul>
+                <li><strong>Gabrielle Edmée Berthelin (1743-) :</strong> Épouse en 1763 Jean Jacques Cadot, échevin de Reims. Leurs biens font l'objet de célèbres procès-verbaux d'arpentage à Rilly-la-Montagne.</li>
+                <li><strong>Edmée Bonaventure Berthelin (1747-1829) :</strong> Épouse en 1767 Étienne François Cadot de Beauvoisy.</li>
+                <li><strong>Pierre-Jean Berthelin (1750-1803) :</strong> Épouse en 1777 Antoinette Madeleine Henriette Sutaine.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <strong>Le Rameau Duchastel-Berthelin :</strong>
+                <em>Élisabeth Berthelin (1760-1806) épouse en 1778 Jacques-Jean-Baptiste Duchastel-Berthelin, unissant les patrimoines et les blasons des deux plus illustres familles échevinales de la paroisse Saint-Étienne.</em>
+            </div>
+        </section>
+
+        <section>
+            <h2>L'Arbre de Champagne</h2>
+            <div class="tree-diagram">Nicolas Berthelin (~1602-1670) & Berthélémie Collinet
+│
+└── François Berthelin (~1642-1704) & Bonaventure Gaulard
+    │
+    └── Jean Berthelin (1694-1760) & Gabrielle Taffignon
+        │
+        └── Jean Edme Berthelin (1724-1811) & Marie Claude Fromageot
+            ├── Elisabeth Claude & Nicolas Watier du Croiset
+            ├── Gabrielle Edmée (1743-) & Jean Jacques Cadot
+            │   └── Jean Baptiste Cadot & Florimonde Duchastel
+            ├── Edmée Bonaventure (1747-1829) & E.F. Cadot de Beauvoisy
+            └── Pierre-Jean (1750-1803) & Antoinette Sutaine</div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="eyebrow">Notice de la Branche Rémoise</p>
+        <p>Extraits d'arpentages royaux et registres des paroisses de Champagne.</p>
+    </footer>
+</body>
+</html>

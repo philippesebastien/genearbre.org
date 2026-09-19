@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Généalogie de la famille Vincenot</title>
+<style>
+  :root {
+    --bordeaux: #6b1f2a;
+    --bordeaux-dark: #4a1620;
+    --cream: #f7f3ec;
+    --gold: #b08d57;
+    --ink: #2c2620;
+    --line: #ddd3c2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff;
+    padding: 60px 20px 50px;
+    text-align: center;
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 2.3em; letter-spacing: 1px; }
+  .hero p.subtitle { margin: 0; font-style: italic; color: var(--cream); opacity: 0.9; font-size: 1.1em; }
+  .container { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+  h2.section-title {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--bordeaux); font-size: 1.5em;
+    border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 55px;
+  }
+  h2.section-title .num {
+    background: var(--bordeaux); color: #fff; width: 34px; height: 34px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.55em; flex-shrink: 0;
+  }
+  p { text-align: justify; }
+  .lignee { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin: 20px 0; }
+  .lignee ol { margin: 0; padding-left: 22px; }
+  .lignee li { padding: 4px 0; }
+  .lignee li.souligne { font-weight: bold; color: var(--bordeaux); }
+  .identity-card {
+    background: #fff; border-left: 5px solid var(--bordeaux); border-radius: 4px;
+    padding: 20px 26px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .identity-card h3 { margin-top: 0; color: var(--bordeaux-dark); font-size: 1.3em; }
+  .identity-card .surnom { font-style: italic; color: #7a6f5e; font-size: 0.95em; margin-top: -8px; }
+  .identity-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 24px;
+    margin: 14px 0; font-size: 0.97em;
+  }
+  .identity-grid .label { color: var(--gold); font-weight: bold; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+  .highlight-box {
+    background: #fdf6e8; border: 1px solid var(--gold); border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .highlight-box strong { color: var(--bordeaux); }
+  .caution-box {
+    background: #fbeceb; border: 1px solid #c98d87; border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .caution-box strong { color: var(--bordeaux-dark); }
+  .children-list { margin-top: 16px; }
+  .children-list h4 { color: var(--bordeaux); margin-bottom: 8px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.5px; }
+  table.children {
+    width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.95em; background: #fff;
+  }
+  table.children th, table.children td { border: 1px solid var(--line); padding: 8px 12px; text-align: left; }
+  table.children th { background: var(--bordeaux); color: #fff; font-weight: normal; }
+  table.children tr:nth-child(even) { background: #faf7f0; }
+  table.children td.note { color: #6b5f4d; font-style: italic; }
+  .sources { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin-top: 20px; }
+  .sources ul { padding-left: 20px; }
+  .sources a, .highlight-box a, .caution-box a, p a { color: var(--bordeaux); }
+  .links-external { display: grid; gap: 14px; margin: 18px 0; }
+  .links-external a.tree-link {
+    display: block; background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff; text-decoration: none; padding: 16px 22px; border-radius: 6px;
+    font-weight: bold; transition: opacity 0.2s;
+  }
+  .links-external a.tree-link:hover { opacity: 0.88; }
+  .links-external a.tree-link span.small {
+    display: block; font-weight: normal; font-style: italic; font-size: 0.85em; margin-top: 4px; opacity: 0.9;
+  }
+  footer { text-align: center; padding: 30px; color: #8a7d68; font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Famille Vincenot</h1>
+  <p class="subtitle">Pierre Vincenot et Marie Thierion, une famille du XVIIe siècle</p>
+</div>
+
+<div class="container">
+
+  <h2 class="section-title"><span class="num">1</span> Position dans la lignée</h2>
+  <div class="lignee">
+    <ol>
+      <li>Pierre Vincenot [1608 – 1684] &amp; Marie Thierion</li>
+      <li class="souligne">Nicolle Vincenot [1644 – 1701] — épouse en 1665 Pierre Plantin (1639)</li>
+      <li>Neuf enfants Plantin, nés entre 1668 et 1686 (voir la page Famille Plantin)</li>
+    </ol>
+  </div>
+  <p>La famille Vincenot rejoint la famille Plantin par le mariage de Nicolle Vincenot, deuxième enfant connue de Pierre Vincenot et Marie Thierion, avec Pierre Plantin en 1665. Elle avait alors 21 ans ; son père était encore vivant (il mourra en 1684) et a vraisemblablement assisté à l'union.</p>
+  <div class="links-external">
+    <a class="tree-link" href="genealogie_plantin.html">
+      Voir la page Famille Plantin (descendance de Nicolle Vincenot)
+    </a>
+  </div>
+
+  <h2 class="section-title"><span class="num">2</span> Pierre Vincenot et Marie Thierion</h2>
+  <div class="identity-card">
+    <h3>Pierre Vincenot</h3>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>1608</div>
+      <div><span class="label">Décès</span><br>1684, à l'âge d'environ 76 ans</div>
+      <div><span class="label">Épouse</span><br>Marie Thierion</div>
+      <div><span class="label">Enfants connus</span><br>Cinq</div>
+    </div>
+    <p>Pierre Vincenot atteint l'âge de 76 ans, une longévité remarquable pour le XVIIe siècle, où l'espérance de vie à la naissance dépassait rarement la trentaine — même si, une fois l'enfance passée, il n'était pas si rare d'atteindre soixante ou soixante-dix ans. Il aura vu naître ses petits-enfants Plantin, dont au moins les six premiers (de 1668 à 1683), avant sa mort en 1684.</p>
+    <div class="children-list">
+      <h4>Enfants de Pierre Vincenot et Marie Thierion</h4>
+      <table class="children">
+        <tr><th>Prénom</th><th>Naissance</th><th>Décès</th><th>Note</th></tr>
+        <tr><td>Marie Vincenot</td><td>1639</td><td>—</td><td class="note">—</td></tr>
+        <tr><td>Nicolle Vincenot</td><td>1644</td><td>1701 (57 ans)</td><td class="note">épouse Pierre Plantin en 1665</td></tr>
+        <tr><td>Pierre Vincenot</td><td>1647</td><td>—</td><td class="note">—</td></tr>
+        <tr><td>Pierre Vincenot</td><td>1650</td><td>—</td><td class="note">—</td></tr>
+        <tr><td>Nicolas Vincenot</td><td>—</td><td>—</td><td class="note">date de naissance inconnue</td></tr>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p><strong>Deux fils prénommés Pierre :</strong> comme chez les Plantin à la génération suivante, deux fils portent ici le prénom du père — l'un né en 1647, l'autre en 1650. Faute de date de décès pour l'aîné, on ne peut trancher entre les deux explications possibles : soit le premier Pierre est mort en bas âge et son prénom a été « repris » par le suivant, usage extrêmement courant sous l'Ancien Régime, soit les deux frères ont vécu simultanément avec le même prénom. Les registres paroissiaux, s'ils sont conservés, permettraient de trancher.</p>
+      <p style="margin-bottom:0;">On notera aussi la récurrence des prénoms <em>Pierre</em>, <em>Nicolle</em> et <em>Nicolas</em> d'une génération à l'autre : Nicolle Vincenot transmettra ces deux derniers prénoms à ses propres enfants Plantin (Nicolas, né en 1679, et Nicolle, née en 1681), selon la logique traditionnelle de transmission des prénoms des grands-parents et parrains-marraines.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title"><span class="num">3</span> Origine et signification des patronymes</h2>
+  <p><strong>Vincenot</strong> est une forme familière du prénom Vincent, formée par l'ajout du suffixe diminutif <em>-ot</em>. Le prénom lui-même vient du latin <em>Vincentius</em>, un ancien surnom signifiant « vainqueur », popularisé par un martyr espagnol du III<sup>e</sup> siècle puis par un moine de l'abbaye de Lérins au V<sup>e</sup> siècle. Le nom reste peu répandu : un peu plus de 1 000 naissances recensées en France entre 1890 et 1990, réparties sur 65 départements. Ce type de diminutif en <em>-ot</em> est caractéristique de la Bourgogne, de la Franche-Comté et de la Champagne.</p>
+  <p><strong>Thierion</strong> est, de la même façon, un dérivé du prénom Thierry — un prénom très répandu au Moyen Âge. Les familles portant ce nom sont principalement recensées dans les Vosges, la Marne, la Meuse et la Meurthe-et-Moselle.</p>
+  <div class="highlight-box">
+    <strong>Une piste géographique :</strong> la convergence des aires de diffusion des deux patronymes — Vincenot (Bourgogne, Franche-Comté, Champagne) et Thierion (Champagne et Lorraine : Marne, Meuse, Vosges, Meurthe-et-Moselle) — pointe vers un foyer commun probable dans l'<strong>est de la France, aux confins de la Champagne et de la Lorraine</strong>. C'est une piste de recherche, non une conclusion : pour la confirmer, il faudrait dépouiller les registres paroissiaux de cette région pour les années 1600-1650, en particulier ceux de la Marne et de la Haute-Marne.
+  </div>
+  <div class="caution-box">
+    <strong>Un homonyme célèbre sans lien connu :</strong> le nom Vincenot est surtout connu aujourd'hui grâce à <strong>Henri Vincenot</strong> (1912-1985), écrivain bourguignon auteur du <em>Pape des escargots</em>, originaire de la Côte-d'Or. Son aire géographique correspond bien à celle du patronyme, mais rien ne permet d'établir un lien de parenté avec la famille présentée ici, qui remonte à trois siècles plus tôt.
+  </div>
+
+  <h2 class="section-title"><span class="num">4</span> Arbres généalogiques de référence</h2>
+  <div class="links-external">
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=vincenot&amp;oc=0&amp;p=pierre&amp;type=tree" target="_blank" rel="noopener">
+      Arbre Geneanet — Pierre Vincenot (1608-1684)
+      <span class="small">gw.geneanet.org/philsebastien_w — n=vincenot, p=pierre</span>
+    </a>
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=thierion&amp;p=marie" target="_blank" rel="noopener">
+      Fiche Geneanet — Marie Thierion
+      <span class="small">gw.geneanet.org/philsebastien_w — n=thierion, p=marie</span>
+    </a>
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=vincenot&amp;p=nicolle" target="_blank" rel="noopener">
+      Fiche Geneanet — Nicolle Vincenot (1644-1701)
+      <span class="small">gw.geneanet.org/philsebastien_w — n=vincenot, p=nicolle</span>
+    </a>
+  </div>
+
+  <h2 class="section-title"><span class="num">5</span> Sources et références</h2>
+  <div class="sources">
+    <ul>
+      <li><a href="https://gw.geneanet.org/philsebastien_w?lang=fr&n=vincenot&oc=0&p=pierre&type=tree" target="_blank" rel="noopener">Geneanet — arbre de Philippe Sébastien, fiche Pierre Vincenot</a></li>
+      <li><a href="https://www.filae.com/nom-de-famille/VINCENOT.html" target="_blank" rel="noopener">Filae — étymologie et répartition du nom Vincenot</a></li>
+      <li><a href="https://davel.vd.ch/deskriptordetail.aspx?ID=15355" target="_blank" rel="noopener">Archives cantonales vaudoises — notice sur les familles Thierion (d'après Piccard)</a></li>
+      <li><a href="https://www.geneanet.org/nom-de-famille/PLANTIN" target="_blank" rel="noopener">Geneanet — nom de famille Plantin (famille alliée)</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Généalogie de la famille Vincenot — page compilée à partir de l'arbre Geneanet de Philippe Sébastien et de recherches complémentaires sur l'origine des patronymes Vincenot et Thierion.
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Généalogie de la Famille Berthelin — Notice de Nouvelle-France</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --color-parchment-light: #f4edd2;
+            --color-parchment-dark: #e8ddbe;
+            --color-ink: #1f1b14;
+            --color-ink-soft: #4c4233;
+            --color-navy: #1a3a5f;
+            --color-navy-deep: #0f243e;
+            --color-burgundy: #8c2d19;
+            --color-gold: #b38f3b;
+            --color-gold-bright: #dbae4e;
+            --color-rule: rgba(26,58,95,0.15);
+            --font-serif: 'EB Garamond', serif;
+            --font-title: 'Cormorant Garamond', serif;
+            --font-smallcaps: 'Cormorant SC', serif;
+            --font-eyebrow: 'Cinzel', serif;
+            --max-width: 960px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--color-parchment-light); color: var(--color-ink); font-family: var(--font-serif); font-size: 18px; line-height: 1.65; }
+        .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
+        .eyebrow { font-family: var(--font-eyebrow); font-size: 11.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; }
+        h1, h2, h3 { font-family: var(--font-title); font-weight: 600; color: var(--color-navy-deep); margin: 0; }
+        h1 { color: var(--color-parchment-light); }
+        h2 { font-size: clamp(26px, 3.4vw, 34px); margin-top: 8px; }
+        h3 { font-size: 19px; color: var(--color-burgundy); font-style: italic; margin: 26px 0 12px; }
+        p { margin: 0 0 18px; color: var(--color-ink-soft); }
+        .hero { position: relative; background: radial-gradient(ellipse 900px 500px at 50% -10%, rgba(26,58,95,0.3), transparent 60%), linear-gradient(180deg, var(--color-navy-deep), var(--color-navy) 60%, #2a527c 100%); color: var(--color-parchment-light); padding: 96px 32px 80px; text-align: center; border-bottom: 1px solid var(--color-gold); }
+        .seal { width: 120px; height: 130px; margin: 0 auto 25px; }
+        .hero h1 { font-family: var(--font-smallcaps); font-size: clamp(36px, 5.5vw, 58px); margin: 14px 0 6px; }
+        .sub { font-family: var(--font-title); font-style: italic; font-size: clamp(18px, 2.6vw, 22px); color: #e5d4a7; }
+        .hero .rule { width: 64px; height: 1px; background: var(--color-gold-bright); margin: 26px auto; opacity: .7; }
+        .hero .lede { max-width: 640px; margin: 0 auto; color: #d0c29f; font-size: 17px; }
+        section { padding: 64px 0; border-bottom: 1px solid var(--color-rule); }
+        .identity-card { background: var(--color-parchment-dark); border: 1px solid var(--color-rule); padding: 22px 24px; margin-bottom: 20px; }
+        .identity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px; font-size: 16px; }
+        ul { list-style: none; padding-left: 0; margin: 0 0 18px; font-size: 16px; }
+        ul li { position: relative; padding-left: 18px; margin-bottom: 8px; }
+        ul li::before { content: "⚓"; position: absolute; left: 2px; top: 2px; color: var(--color-navy); font-size: 12px; }
+        .highlight-box { background: var(--color-parchment-dark); border: 1px solid var(--color-rule); border-left: 3px solid var(--color-navy); padding: 18px 22px; margin: 18px 0; font-size: 16px; }
+        .tree-diagram { background: var(--color-navy-deep); color: #e0d4b8; border: 1px solid var(--color-gold); padding: 22px 24px; font-family: 'Courier New', monospace; font-size: 13px; white-space: pre; overflow-x: auto; }
+        footer { background: var(--color-navy-deep); color: #9bb0c7; text-align: center; padding: 56px 32px 40px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="seal">
+            <!-- Blason d'inspiration marine pour les pionniers -->
+            <svg viewBox="0 0 100 115" xmlns="http://w3.org">
+                <path d="M10,10 L90,10 L90,60 C90,85 50,105 50,105 C50,105 10,85 10,60 Z" fill="#1a3a5f" stroke="#dbae4e" stroke-width="2"/>
+                <!-- Navire de la traversée -->
+                <path d="M25,65 L30,75 L70,75 L75,65 Z" fill="#b38f3b"/>
+                <path d="M50,30 L50,65 M35,40 L35,65 M65,42 L65,65" stroke="#dbae4e" stroke-width="2"/>
+                <!-- Voiles blanches -->
+                <path d="M37,42 Q45,45 50,42 Q45,60 37,42 M52,32 Q60,35 65,32 Q60,55 52,32" fill="#f4edd2"/>
+                <!-- Ondes de l'océan -->
+                <path d="M15,85 Q30,80 50,85 Q70,90 85,85" fill="none" stroke="#f4edd2" stroke-width="2"/>
+            </svg>
+        </div>
+        <p class="eyebrow">Filiation Transatlantique</p>
+        <h1>L'Épopée Canadienne des Berthelin</h1>
+        <p class="sub">De la Champagne aux Rives de la Vallée du Saint-Laurent</p>
+        <div class="rule"></div>
+        <p class="lede">Généalogie retraçant le destin d'une lignée de pionniers, partis des anciennes paroisses rémoises pour s'établir et prospérer sur les terres fertiles de la Nouvelle-France.</p>
+    </header>
+
+    <main class="wrap">
+        <section>
+            <h2>La Grande Traversée vers l'Amérique</h2>
+            <p>Si la souche Berthelin demeure profondément ancrée dans l'Ancien Monde, l'appel du large et le développement des comptoirs coloniaux au cours des XVIIe et XVIIIe siècles ont poussé certains fils de Champagne à s'engager vers le fleuve Saint-Laurent. Alliant l'esprit d'entreprise rémois aux dures exigences de la vie de pionnier, ils ont donné naissance à une lignée canadienne durable.</p>
+            
+            
+                
+                    <div><strong>Ancêtre Souche :</strong> Pierre Berthelin</div>
+                    <div><strong>Berceau d'Origine :</strong> Paroisse St-Jacques, Reims</div>
+                    <div><strong>Destination :</strong> Vallée du Saint-Laurent, Québec</div>
+                    <div><strong>Réseau d'Alliances :</strong> Maison Duchastel et Cadot</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Chronologie des Générations Transatlantiques</h2>
+            
+            <h3>Génération I : Les Racines Rémoises</h3>
+            <p><strong>Pierre Berthelin</strong> et son épouse <strong>Barbe Pussot</strong> (1644-1707) vivent sous les voûtes de la paroisse Saint-Jacques à Reims. À cette époque, la France de Colbert encourage le départ de colons, de gens de métiers et de soldats vers le Canada.</p>
+
+            <h3>Génération II : Le Pivot de l'Histoire</h3>
+            <p><strong>Jean Berthelin</strong> (1672-1737) et <strong>Jeanne Huart</strong> se marient en 1695. C’est au cœur de cette grande fratrie que se dessinent les ambitions commerciales et de déplacement qui mèneront à l'essaimage de la famille au-delà des frontières de la Champagne.</p>
+
+            <h3>Génération III : Les Alliances Rémoises d'Ancien Régime</h3>
+            <p>Pendant qu'une partie de la famille consolide ses positions à Reims grâce aux alliances majeures avec les <strong>Duchastel</strong> (mariages de Barbe en 1718, d'Antoinette en 1720 et de Marie Jeanne en 1722), les branches collatérales préparent l'avenir au Nouveau Monde.</p>
+
+            <h3>Génération IV : L'Établissement au Nouveau Monde</h3>
+            <p>Le destin canadien s'accomplit à travers le déploiement de la <strong>8e génération canadienne</strong>, issue de la lignée de Provence et passée par les comptoirs français avant d'obtenir des terres de censives le long du fleuve.</p>
+
+            <div class="highlight-box">
+                <strong>Le Rôle des Alliances avec les Cadot :</strong>
+                <em>À l'image des grands pionniers de la vallée du Saint-Laurent comme les Arcand dit Bourdelais, les Berthelin canadiens s'unissent étroitement aux familles d'officiers et d'échevins, assurant leur pérennité institutionnelle et foncière sur leurs nouvelles terres.</em>
+            </div>
+        </section>
+
+        <section>
+            <h2>L'Arbre des Huit Générations Canadiennes</h2>
+            <div class="tree-diagram">Pierre Berthelin & Barbe Pussot (Reims, France)
+│
+└── Jean Berthelin (1672-1737) & Jeanne Huart
+    │
+    └── Rameau de l'Émigration (Filiation de Provence à la Nouvelle-France)
+        │
+        └── Jean Edme Berthelin & Marie Claude Fromageot
+            │
+            ├── Gabrielle Edmée Berthelin & Jean Jacques Cadot (1763)
+            │   └── Jean Baptiste Cadot & Florimonde Duchastel
+            │
+            └── [Déploiement de la 8e Génération Canadienne]
+                └── Filiations établies dans la Vallée du Saint-Laurent</div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="eyebrow">Notice Transatlantique & Archives Coloniales</p>
+        <p>Mise en relation des registres paroissiaux rémois et des archives de Nouvelle-France.</p>
+    </footer>
+</body>
+</html>

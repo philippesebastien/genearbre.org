@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Généalogie de la famille Durand de Courmont</title>
+<style>
+  :root {
+    --bordeaux: #6b1f2a;
+    --bordeaux-dark: #4a1620;
+    --cream: #f7f3ec;
+    --gold: #b08d57;
+    --ink: #2c2620;
+    --line: #ddd3c2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff;
+    padding: 60px 20px 50px;
+    text-align: center;
+  }
+  .hero h1 { margin: 0 0 8px; font-size: 2.2em; letter-spacing: 1px; }
+  .hero p.subtitle { margin: 0; font-style: italic; color: var(--cream); opacity: 0.9; font-size: 1.1em; }
+  .container { max-width: 880px; margin: 0 auto; padding: 40px 24px 80px; }
+  h2.section-title {
+    display: flex; align-items: center; gap: 14px;
+    color: var(--bordeaux); font-size: 1.5em;
+    border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 55px;
+  }
+  h2.section-title .num {
+    background: var(--bordeaux); color: #fff; width: 34px; height: 34px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 0.55em; flex-shrink: 0;
+  }
+  p { text-align: justify; }
+  .lignee { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin: 20px 0; }
+  .lignee ol { margin: 0; padding-left: 22px; }
+  .lignee li { padding: 5px 0; }
+  .lignee li.souligne { font-weight: bold; color: var(--bordeaux); }
+  .lignee li.inconnu { color: #8a7d68; font-style: italic; }
+  .lignee .sosa { color: var(--gold); font-size: 0.85em; font-style: normal; }
+  .identity-card {
+    background: #fff; border-left: 5px solid var(--bordeaux); border-radius: 4px;
+    padding: 20px 26px; margin: 24px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .identity-card h3 { margin-top: 0; color: var(--bordeaux-dark); font-size: 1.3em; }
+  .identity-card .surnom { font-style: italic; color: #7a6f5e; font-size: 0.95em; margin-top: -8px; }
+  .identity-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 24px;
+    margin: 14px 0; font-size: 0.97em;
+  }
+  .identity-grid .label { color: var(--gold); font-weight: bold; text-transform: uppercase; font-size: 0.8em; letter-spacing: 0.5px; }
+  .highlight-box {
+    background: #fdf6e8; border: 1px solid var(--gold); border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .highlight-box strong { color: var(--bordeaux); }
+  .caution-box {
+    background: #fbeceb; border: 1px solid #c98d87; border-radius: 6px;
+    padding: 16px 22px; margin: 18px 0; font-size: 0.96em;
+  }
+  .caution-box strong { color: var(--bordeaux-dark); }
+  .children-list { margin-top: 16px; }
+  .children-list h4 { color: var(--bordeaux); margin-bottom: 8px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.5px; }
+  .children-list ol { padding-left: 20px; }
+  .children-list li { padding: 4px 0; }
+  .children-list .conjoint { color: #6b5f4d; font-style: italic; }
+  table.sosa-table {
+    width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.93em; background: #fff;
+  }
+  table.sosa-table th, table.sosa-table td { border: 1px solid var(--line); padding: 7px 11px; text-align: left; }
+  table.sosa-table th { background: var(--bordeaux); color: #fff; font-weight: normal; }
+  table.sosa-table tr:nth-child(even) { background: #faf7f0; }
+  table.sosa-table td.inconnu { color: #8a7d68; font-style: italic; }
+  .sources { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 24px 30px; margin-top: 20px; }
+  .sources ul { padding-left: 20px; }
+  .sources a, .highlight-box a, .caution-box a, p a { color: var(--bordeaux); }
+  .links-external { display: grid; gap: 14px; margin: 18px 0; }
+  .links-external a.tree-link {
+    display: block; background: linear-gradient(135deg, var(--bordeaux) 0%, var(--bordeaux-dark) 100%);
+    color: #fff; text-decoration: none; padding: 16px 22px; border-radius: 6px;
+    font-weight: bold; transition: opacity 0.2s;
+  }
+  .links-external a.tree-link:hover { opacity: 0.88; }
+  .links-external a.tree-link span.small {
+    display: block; font-weight: normal; font-style: italic; font-size: 0.85em; margin-top: 4px; opacity: 0.9;
+  }
+  footer { text-align: center; padding: 30px; color: #8a7d68; font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>Famille Durand de Courmont</h1>
+  <p class="subtitle">De Quentin Durand aux Duchastel de Montrouge, une alliance rethéloise</p>
+</div>
+
+<div class="container">
+
+  <h2 class="section-title"><span class="num">1</span> Lignée ancestrale</h2>
+  <div class="lignee">
+    <ol>
+      <li>Quentin Durand <span class="sosa">(Sosa 1800)</span> &amp; Marie-Thérèse Doucet <span class="sosa">(Sosa 1801)</span></li>
+      <li class="inconnu">Un fils Durand <span class="sosa">(Sosa 900)</span> — prénom non identifié dans les sources consultées</li>
+      <li>Jean-Baptiste Quentin Durand de Courmont <span class="sosa">(Sosa 450)</span> &amp; Élisabeth Bourgogne <span class="sosa">(Sosa 451)</span></li>
+      <li class="souligne">Élisabeth-Philippine Durand de Courmont [1763 – 1842] <span class="sosa">(Sosa 225)</span> — épouse en 1781 Jacques-Gabriel Duchastel de Montrouge</li>
+    </ol>
+  </div>
+  <div class="highlight-box">
+    <strong>Comment cette lignée a été reconstituée.</strong> Le contenu détaillé de l'arbre Geneanet n'a pas pu être extrait automatiquement (la page est générée en JavaScript), mais la fiche de Quentin Durand y porte le <strong>numéro Sosa 1800</strong>. Cette numérotation permet de retrouver sa position exacte : dans le système Sosa-Stradonitz, le père d'un individu numéroté N porte le numéro 2N et sa mère 2N+1. En remontant depuis Élisabeth-Philippine Durand de Courmont (Sosa 225, épouse de Jacques-Gabriel Duchastel de Montrouge, Sosa 224), on obtient la chaîne 225 → 450 → 900 → 1800. Quentin Durand est donc l'<strong>arrière-grand-père</strong> d'Élisabeth-Philippine, et une génération intermédiaire (Sosa 900) reste à nommer.
+    <p style="margin-bottom:0;">Ce raisonnement est corroboré par une vérification croisée : Louise-Nicole Cadot, belle-mère d'Élisabeth-Philippine, porte le Sosa 449, et Jacques Cadot — figure de la <a href="genealogie_cadot.html">page consacrée aux Cadot</a> — porte le Sosa 3592, soit exactement 449 × 8, c'est-à-dire trois générations plus haut. La cohérence de ces numéros confirme la structure proposée ici.</p>
+  </div>
+  <div class="caution-box">
+    <strong>À vérifier :</strong> la reconstitution ci-dessus repose sur l'arithmétique des numéros Sosa, non sur la lecture directe des fiches. Le prénom du maillon Sosa 900 et les dates de Quentin Durand, de Marie-Thérèse Doucet et de Jean-Baptiste Quentin Durand de Courmont restent à confirmer en consultant directement l'arbre Geneanet ou les registres de Rethel et des Ardennes.
+  </div>
+
+  <h2 class="section-title"><span class="num">2</span> Quentin Durand et Marie-Thérèse Doucet</h2>
+  <div class="identity-card">
+    <h3>Quentin Durand</h3>
+    <p class="surnom">Le plus ancien Durand identifié dans cette lignée</p>
+    <div class="identity-grid">
+      <div><span class="label">Numéro Sosa</span><br>1 800</div>
+      <div><span class="label">Épouse</span><br>Marie-Thérèse Doucet (Sosa 1801)</div>
+      <div><span class="label">Génération estimée</span><br>vers la fin du XVII<sup>e</sup> siècle</div>
+      <div><span class="label">Dates</span><br>non renseignées dans les sources consultées</div>
+    </div>
+    <p>Quentin Durand porte le patronyme seul, sans le complément « de Courmont » que ses descendants ajouteront. Ce type d'extension — l'accolement d'un nom de terre au patronyme — est exactement le mécanisme observé, à la même époque et dans la même région, chez les Duchastel, devenus « Duchastel de Montflambert » après l'achat du domaine de Montflambert en 1753, puis « Duchastel de Montrouge ». Il est donc plausible que les Durand aient de la même façon attaché à leur nom celui d'une terre appelée Courmont — un toponyme que l'on rencontre notamment dans l'Aisne, aux confins de la Champagne et du Rethélois. Cette hypothèse demande à être confirmée par des actes notariés.</p>
+    <p>En situant Quentin Durand trois générations avant Élisabeth-Philippine, née en 1763, on obtient une naissance probable dans le dernier tiers du XVII<sup>e</sup> siècle, soit sous le règne de Louis XIV.</p>
+  </div>
+
+  <h2 class="section-title"><span class="num">3</span> Élisabeth-Philippine Durand de Courmont</h2>
+  <div class="identity-card">
+    <h3>Élisabeth-Philippine Durand de Courmont</h3>
+    <p class="surnom">Aussi mentionnée sous la forme Philippine-Élisabeth ; fille de Jean-Baptiste Quentin Durand de Courmont et d'Élisabeth Bourgogne</p>
+    <div class="identity-grid">
+      <div><span class="label">Naissance</span><br>2 septembre 1763</div>
+      <div><span class="label">Décès</span><br>13 août 1842, à l'âge de 78 ans</div>
+      <div><span class="label">Mariage</span><br>9 janvier 1781, à Rethel (Ardennes)</div>
+      <div><span class="label">Époux</span><br>Jacques-Gabriel Duchastel de Montrouge (1758-1792), officier, lieutenant de dragons</div>
+    </div>
+    <p>Mariée à 17 ans, Élisabeth-Philippine devient veuve à 28 ans, en mars 1792, à la mort de son mari à Reims — un décès dû à la maladie et non aux combats, alors que la Révolution bat son plein. Elle survivra cinquante ans à cet époux et mourra en 1842, après avoir traversé la Révolution, l'Empire, la Restauration et la monarchie de Juillet.</p>
+    <div class="children-list">
+      <h4>Enfants de Jacques-Gabriel Duchastel de Montrouge et Élisabeth-Philippine Durand de Courmont</h4>
+      <ol>
+        <li>DUCHASTEL DE MONTROUGE, Jeanne-Élisabeth (1781 – 1838) — <span class="conjoint">épouse le 2 juin 1800, à Reims, Jean-Baptiste « Henri » Lucas (1772-1832)</span></li>
+        <li>DUCHASTEL DE MONTROUGE, Alexandre-Louis-François (1<sup>er</sup> juillet 1784, Rethel – 23 juillet 1863, Macogny-Montron, Aisne), négociant et propriétaire, 1<sup>er</sup> baron de Montrouge — <span class="conjoint">épouse le 19 mai 1813, à Reims, Sophie LeGoix (1790-1860)</span></li>
+        <li>DUCHASTEL DE MONTROUGE, Jacques (30 décembre 1786 – 1809, à 23 ans), 3<sup>e</sup> baron de Montflambert, mort au combat sans descendance</li>
+      </ol>
+    </div>
+    <div class="highlight-box">
+      <strong>Le point de jonction entre deux familles :</strong> c'est par ce mariage de 1781 que la lignée Durand de Courmont rejoint celle des Duchastel de Montrouge. Leur fils Alexandre-Louis-François héritera en 1830 du titre de baron de Montrouge, transmis par majorat depuis son grand-oncle Jacques-Jean-Baptiste Duchastel-Berthelin. La descendance de ce couple se prolonge ensuite jusqu'au Québec, via Jules-Alexandre Duchastel de Montrouge (1878-1938).
+    </div>
+  </div>
+
+  <h2 class="section-title"><span class="num">4</span> Repères Sosa de cette branche</h2>
+  <p>Ce tableau récapitule les numéros Sosa des individus mentionnés, tels qu'ils apparaissent ou se déduisent de l'arbre de Philippe Sébastien (Sosa n° 1) :</p>
+  <table class="sosa-table">
+    <tr><th>Sosa</th><th>Individu</th><th>Statut</th></tr>
+    <tr><td>224</td><td>Jacques-Gabriel Duchastel de Montrouge (1758-1792)</td><td>confirmé</td></tr>
+    <tr><td>225</td><td>Élisabeth-Philippine Durand de Courmont (1763-1842)</td><td>confirmé</td></tr>
+    <tr><td>448</td><td>Jean-Baptiste Duchastel de Montflambert</td><td>confirmé</td></tr>
+    <tr><td>449</td><td>Louise-Nicole Cadot (1736-1776)</td><td>confirmé</td></tr>
+    <tr><td>450</td><td>Jean-Baptiste Quentin Durand de Courmont</td><td>déduit</td></tr>
+    <tr><td>451</td><td>Élisabeth Bourgogne</td><td>déduit</td></tr>
+    <tr><td>900</td><td class="inconnu">Durand, prénom inconnu</td><td>déduit</td></tr>
+    <tr><td>1800</td><td>Quentin Durand</td><td>confirmé (fiche Geneanet)</td></tr>
+    <tr><td>1801</td><td>Marie-Thérèse Doucet</td><td>confirmé (fiche Geneanet)</td></tr>
+    <tr><td>3592</td><td>Jacques Cadot</td><td>confirmé (fiche Geneanet)</td></tr>
+  </table>
+
+  <h2 class="section-title"><span class="num">5</span> Le patronyme Durand</h2>
+  <p>Durand est l'un des patronymes les plus répandus de France. Il vient du nom de baptême médiéval <em>Durandus</em>, formé sur le latin <em>durare</em> (« durer, endurer ») et porteur d'un sens favorable : celui qui tient bon, qui persévère. Sa très grande fréquence signifie qu'il est apparu indépendamment dans toutes les régions de France, et qu'il n'existe évidemment aucun lien de parenté entre la plupart des familles qui le portent. C'est précisément pour cette raison que l'ajout d'un nom de terre — ici « de Courmont » — avait une utilité pratique : distinguer une famille précise parmi les innombrables Durand.</p>
+
+  <h2 class="section-title"><span class="num">6</span> Arbres généalogiques de référence</h2>
+  <div class="links-external">
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=durand&amp;oc=0&amp;p=quentin&amp;type=tree" target="_blank" rel="noopener">
+      Arbre Geneanet — Quentin Durand (Sosa 1800)
+      <span class="small">gw.geneanet.org/philsebastien_w — n=durand, p=quentin</span>
+    </a>
+    <a class="tree-link" href="https://gw.geneanet.org/philsebastien?lang=fr&amp;n=duchastel+de+montrouge&amp;oc=0&amp;p=jacques+gabriel" target="_blank" rel="noopener">
+      Fiche Geneanet — Jacques-Gabriel Duchastel de Montrouge (1758-1792)
+      <span class="small">l'époux d'Élisabeth-Philippine Durand de Courmont</span>
+    </a>
+    <a class="tree-link" href="genealogie_cadot.html">
+      Voir la page Famille Cadot (branche alliée, Sosa 449 et 3592)
+    </a>
+  </div>
+
+  <h2 class="section-title"><span class="num">7</span> Sources et références</h2>
+  <div class="sources">
+    <ul>
+      <li><a href="https://gw.geneanet.org/philsebastien_w?lang=fr&n=durand&oc=0&p=quentin&type=tree" target="_blank" rel="noopener">Geneanet — arbre de Philippe Sébastien, fiche Quentin Durand (Sosa 1800, conjointe Marie-Thérèse Doucet)</a></li>
+      <li><a href="https://gw.geneanet.org/philsebastien?lang=fr&n=duchastel+de+montrouge&oc=0&p=alexandre+louis+francois" target="_blank" rel="noopener">Geneanet — arbre de Philippe Sébastien, fiche Alexandre-Louis-François Duchastel de Montrouge (1784-1863)</a></li>
+      <li><a href="https://gw.geneanet.org/pchevillotte?lang=fr&n=duchastel+de+montrouge&oc=0&p=jacques" target="_blank" rel="noopener">Geneanet — arbre de Patrick Chevillotte, fiche Jacques Duchastel de Montrouge (mariage de 1781 à Rethel, dates d'Élisabeth-Philippine Durand de Courmont)</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Rethel" target="_blank" rel="noopener">Wikipedia (en) — Rethel, Ardennes</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  Généalogie de la famille Durand de Courmont — page compilée à partir de l'arbre Geneanet de Philippe Sébastien, d'arbres Geneanet complémentaires et d'une reconstitution fondée sur la numérotation Sosa.
+</footer>
+
+</body>
+</html>
