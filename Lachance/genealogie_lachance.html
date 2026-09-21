@@ -1,1 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Famille Pépin dit Lachance — D'Antoine Pépin à Blanche Blais</title>
 
+<!-- Polices -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+<!-- CSS externe -->
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="seal" aria-hidden="true">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#1c2740" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="15" fill="#e5d7b7">PÉPIN</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="15" fill="#e5d7b7">LACHANCE</text>
+    </svg>
+  </div>
+  <span class="eyebrow">Normandie · Île d'Orléans · Beauce · Maine (États-Unis)</span>
+  <h1>Pépin dit Lachance</h1>
+  <p class="sub">D'Antoine Pépin, pionnier normand de l'Île d'Orléans, à Blanche Blais</p>
+  <div class="rule"></div>
+  <p class="lede">Une archive généalogique bâtie à partir d'un document familial, de l'arbre Geneanet de Philippe Sébastien et de recherches historiques sur la famille Pépin dit Lachance, l'une des familles souches de l'Île d'Orléans.</p>
+</header>
+
+<main>
+
+  <!-- ===================== NARRATIVE ===================== -->
+  <section id="histoire">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Chapitre premier</span>
+        <h2>Du Havre à l'Île d'Orléans</h2>
+      </div>
+
+      <div class="crest-row">
+        <img src="data:image/jpeg;base64,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" alt="Armoiries de la famille Pépin dit Lachance, devise Fidélité Gardera">
+        <div class="blazon">D'azur au trèfle de sinople, à la barre d'argent chargée de trois croissants d'azur brochant sur le tout. Devise : <em>Fidélité Gardera</em>.</div>
+      </div>
+
+      <div class="lede-block">
+        <p>Le nom Pépin dit Lachance illustre à merveille la pratique du « nom-dit », courante en Nouvelle-France : un patronyme secondaire, accolé au nom de famille d'origine par « dit » (« appelé »), qui sert à distinguer entre elles les branches d'une même famille, ou une famille de ses nombreux homonymes. Ainsi, un fils de Pépin appelé Lachance devient lui-même un Pépin dit Lachance, transmettant les deux noms à sa descendance — certains descendants garderont le nom double, d'autres ne conserveront à terme que « Lachance ».</p>
+        <p>Le fondateur de cette lignée, <strong>Antoine Pépin</strong>, est baptisé le 10 avril 1636 à la paroisse Notre-Dame du Havre-de-Grâce, en Normandie, fils d'André Pépin, marchand, et de Jeanne Chevalier. Il traverse l'Atlantique vers 1652, alors qu'il n'a qu'une quinzaine d'années, comme engagé pour trente-six mois. Domestique du gouverneur Louis d'Ailleboust de Coulonge, il reçoit avec un compagnon, François Gaulin, une concession de quinze arpents le 6 janvier 1655, puis une terre de deux cents arpents dans la seigneurie de Lauzon.</p>
+        <p>Le 24 novembre 1659, à l'église Notre-Dame de Québec, Antoine épouse <strong>Marie Teste</strong>, une « fille à marier » de vingt ans venue de La Rochelle, fille du marchand Jean Teste et de Louise Talonneau. Le couple s'établit à Sainte-Famille, sur l'Île d'Orléans, où il aura douze enfants — trois filles et neuf garçons — assurant à la famille Pépin dit Lachance une descendance considérable. Antoine meurt le 23 janvier 1703 à 67 ans, deux ans après Marie ; tous deux reposent dans le cimetière de Sainte-Famille.</p>
+      </div>
+
+      <div class="figure-note">
+        <span class="mark">§</span>
+        <div>L'historien André Lachance, professeur à l'Université de Sherbrooke, a consacré à cet ancêtre une biographie complète : <em>Antoine Pépin dit Lachance, 1636-1703 : un pionnier de l'Île d'Orléans</em> (Sherbrooke, Les Éditions GGC, 1998, 114 p.), publiée à l'initiative de l'Association des familles Pépin inc., fondée en 1982. Celle-ci regroupe les descendants de quatre ancêtres Pépin distincts arrivés en Nouvelle-France : Antoine Pépin dit Lachance, Étienne Pépin dit Lafond, Guillaume Pépin et Robert Pépin — Antoine étant, de loin, le plus prolifique par le nombre de ses descendants.</div>
+      </div>
+
+      <div class="lede-block">
+        <p>Sur l'Île d'Orléans, le nom Pépin dit Lachance se transmet de père en fils pendant plus d'un siècle, presque toujours prénommé <strong>Gervais</strong> sur trois générations consécutives, avant que la famille ne migre vers la Beauce puis vers Sainte-Claire de Dorchester. C'est avec <strong>Alexis Pépin dit Lachance</strong>, au milieu du XIX<sup>e</sup> siècle, que la famille s'installe à Saint-Évariste-de-Forsyth, dans le comté de Frontenac — et que le nom, chez plusieurs de ses enfants, se simplifie définitivement en <strong>Lachance</strong>, sans plus mentionner « Pépin ». Une partie de la famille émigre ensuite vers le Maine, aux États-Unis, notamment à Biddeford, alors que d'autres branches demeurent en Beauce, où la lignée rejoint la famille Blais puis la famille Sébastien.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== LADDER: GENERATIONS ===================== -->
+  <section id="generations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">La lignée</span>
+        <h2>Neuf générations, du Havre à Montréal</h2>
+      </div>
+      <p class="ladder-intro" style="color:var(--ink-soft)">De l'arrivée d'Antoine Pépin en Nouvelle-France jusqu'à Blanche Blais, épouse d'Henri Sébastien.</p>
+
+      <div class="ladder">
+
+        <div class="rung">
+          <div class="numeral">I</div>
+          <div>
+            <h3>Antoine Pépin dit Lachance</h3>
+            <div class="role">1636 – 1703 · l'ancêtre fondateur</div>
+            <div class="meta">Né au Havre (Normandie), fils d'André Pépin et Jeanne Chevalier. Marié en 1659 à <b>Marie Teste</b>, de La Rochelle. Douze enfants, à Sainte-Famille, Île d'Orléans.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">II</div>
+          <div>
+            <h3>Jean Pépin dit Lachance</h3>
+            <div class="role">1664 – 1743</div>
+            <div class="meta">Né à Château-Richer, décédé à Saint-Jean, Île d'Orléans. Marié à <b>Marie-Madeleine Fontaine</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">III</div>
+          <div>
+            <h3>Gervais Pépin dit Lachance</h3>
+            <div class="role">1714 – 1789</div>
+            <div class="meta">Né à Saint-Jean, Île d'Orléans, décédé à Sainte-Claire de Dorchester. Marié en 1743 à <b>Marie-Angélique Blouin dit Laviolette</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">IV</div>
+          <div>
+            <h3>Gervais Pépin dit Lachance</h3>
+            <div class="role">1749 – 1824</div>
+            <div class="meta">Né à Saint-Jean, Île d'Orléans, décédé à Sainte-Claire de Dorchester. Marié en 1774 à <b>Marie-Anne Hébert dit Lecompte</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">V</div>
+          <div>
+            <h3>Gervais Pépin dit Lachance</h3>
+            <div class="role">1780 – 1844</div>
+            <div class="meta">Né à Saint-Jean, Île d'Orléans, décédé à Sainte-Claire de Dorchester. Marié en 1804 à <b>Marie-Angèle Thibierge</b>.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">VI</div>
+          <div>
+            <h3>Alexis Pépin dit Lachance</h3>
+            <div class="role">1806 – 1872</div>
+            <div class="meta">Né à Saint-Michel de Bellechasse, décédé à Saint-Évariste-de-Forsyth (Frontenac). Marié en 1863, à Beauceville, à <b>Marie-Marguerite Talbot</b>. Dix enfants — c'est dans cette génération que le nom se scinde entre « Pépin dit Lachance » et simplement « Lachance ».</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">VII</div>
+          <div>
+            <h3>Ferdinand (Étienne Ferdinand) Lachance</h3>
+            <div class="role">1836 – après 1916</div>
+            <div class="meta">Né à Saint-Gervais de Bellechasse, décédé à Biddeford (Maine). Marié à <b>Marie-Marguerite Grenier</b>. Six enfants, dont Célina.</div>
+          </div>
+        </div>
+
+        <div class="rung">
+          <div class="numeral">VIII</div>
+          <div>
+            <h3>Célina Lachance</h3>
+            <div class="role">née 1869</div>
+            <div class="meta">Née à Saint-Évariste-de-Forsyth. Mariée en 1892 à <b>Louis-Napoléon Blais</b>. Huit enfants, dont Blanche.</div>
+          </div>
+        </div>
+
+        <div class="rung current">
+          <div class="numeral">IX</div>
+          <div>
+            <h3>Blanche Blais</h3>
+            <div class="role">1901 – 1976</div>
+            <div class="meta">Née à Saint-Évariste-de-Forsyth, décédée à Montréal. Mariée en 1927 à <b>Henri Sébastien</b> (1904-1991). Quatre enfants : Suzanne, Gilles, Guy et Pierre Sébastien.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FULL RECORDS ===================== -->
+  <section id="registre">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Le registre complet</span>
+        <h2>Génération par génération</h2>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. I</span><span class="name">Antoine Pépin dit Lachance &amp; Marie Teste</span></div>
+        <div class="gen-body">
+          <p>Naissance : 10 avril 1636, paroisse Notre-Dame-du-Havre-de-Grâce, Normandie, France. Décès : 23 janvier 1703, Sainte-Famille, Île d'Orléans (Montmorency), Québec. Fils d'André Pépin et Jeanne Chevalier. Marié le 24 novembre 1659, église Notre-Dame de Québec, à Marie Teste (v. 1639 – v. 1701), fille de Jean Teste et Louise Talonneau, de Salles-de-Villefagnan (Angoumois).</p>
+          <p>Douze enfants : Ignace, Élisabeth, Jean, Antoine, Jacques, Marie (n. 25 mars 1670, mariée à Jean Guyon dit Dion en 1688 — deuxième ancêtre matriarcale de la lignée), Gabriel, Antoine-Charles, Gervais, Joseph, Paul et Geneviève.</p>
+          <div class="children">
+            <div class="child">Parmi eux, <b>Jean Pépin dit Lachance</b> (n. 29 mars 1664), qui poursuit la lignée directe (génération II).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. II</span><span class="name">Jean Pépin dit Lachance &amp; Marie-Madeleine Fontaine</span></div>
+        <div class="gen-body">
+          <p>Naissance : 29 mars 1664, Château-Richer (Montmorency), Québec. Fils d'Antoine Pépin dit Lachance et Marie Teste. Marié à Marie-Madeleine Fontaine.</p>
+          <div class="children">
+            <div class="child"><b>Pépin dit Lachance, Gervais</b> (n. 8 mars 1749 — note : la date figurant dans le document source pour cet enfant correspond en réalité à celle de son petit-fils de même prénom ; à vérifier dans les registres).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. III</span><span class="name">Gervais Pépin dit Lachance &amp; Marie-Angélique Blouin dit Laviolette</span></div>
+        <div class="gen-body">
+          <p>Naissance : 30 octobre 1714, Saint-Jean, Île d'Orléans (Montmorency), Québec. Décès : 21 juin 1789, Sainte-Claire (Dorchester), Québec. Marié le 23 octobre 1743 (Saint-Jean-Baptiste), Saint-Jean, Île d'Orléans.</p>
+          <div class="children">
+            <div class="child"><b>Pépin dit Lachance, Gervais</b> (n. 8 mars 1749) — <span style="color:var(--ink-soft); font-style:italic;">conjointe : Marie-Anne Hébert dit Lecompte.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. IV</span><span class="name">Gervais Pépin dit Lachance &amp; Marie-Anne Hébert dit Lecompte</span></div>
+        <div class="gen-body">
+          <p>Naissance : 8 mars 1749, Saint-Jean, Île d'Orléans. Décès : 4 juillet 1824, Sainte-Claire (Dorchester). Marié le 13 juillet 1774 (Saint-Jean-Baptiste), Saint-Jean, Île d'Orléans.</p>
+          <div class="children">
+            <div class="child"><b>Pépin dit Lachance, Gervais</b> (n. 11 avril 1780) — <span style="color:var(--ink-soft); font-style:italic;">conjointe : Marie-Marguerite Talbot (selon le document ; ses propres registres le disent marié à Marie-Angèle Thibierge, mère d'Alexis — divergence à vérifier).</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. V</span><span class="name">Gervais Pépin dit Lachance &amp; Marie-Angèle Thibierge</span></div>
+        <div class="gen-body">
+          <p>Naissance : 11 avril 1780, Saint-Jean, Île d'Orléans. Décès : 28 février 1844, Sainte-Claire (Dorchester). Marié le 23 avril 1804 (Saint-Jean-Baptiste), Saint-Jean, Île d'Orléans.</p>
+          <div class="children">
+            <div class="child"><b>Alexis Pépin dit Lachance</b> (n. 23 octobre 1806).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. VI</span><span class="name">Alexis Pépin dit Lachance &amp; Marie-Marguerite Talbot</span></div>
+        <div class="gen-body">
+          <p>Naissance : 23 octobre 1806, Saint-Michel (Bellechasse). Décès : 12 juin 1872, Saint-Évariste-de-Forsyth (Frontenac). Marié le 3 janvier 1863 (Saint-François-de-Beauce), Beauceville (Beauce).</p>
+          <p>Dix enfants, dont plusieurs abandonnent le double patronyme :</p>
+          <div class="children">
+            <div class="child">1. Alexis Pépin dit Lachance (1833-1856).</div>
+            <div class="child">2. <b>Joseph Lachance</b> (1834-1907) — conjointe Hermine Beaudoin.</div>
+            <div class="child">3. Germain Lachance (1835-1910).</div>
+            <div class="child">4. <b>Étienne Ferdinand Lachance</b> (1836 – janvier 1916, Biddeford, Maine) — conjointe Marie-Marguerite Grenier — poursuit la lignée directe.</div>
+            <div class="child">5. Jean-Baptiste Lachance (1838-1906).</div>
+            <div class="child">6. Théophile Pépin dit Lachance (n. 1839).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. VII</span><span class="name">Ferdinand (Étienne Ferdinand) Lachance &amp; Marie-Marguerite Grenier</span></div>
+        <div class="gen-body">
+          <p>Naissance : 31 décembre 1836, Saint-Gervais (Bellechasse). Décès : après 1916, Biddeford (York), Maine, États-Unis. Marié le 13 janvier 1863 (Saint-François-de-Beauce), Beauceville.</p>
+          <div class="children">
+            <div class="child">1. Anonyme (né et décédé le 20 janvier 1865).</div>
+            <div class="child">2. Alexis Lachance (n. 1866).</div>
+            <div class="child">3. Joseph Lachance (1867-1951, Biddeford).</div>
+            <div class="child">4. <b>Célina Lachance</b> (n. 9 novembre 1869) — conjoint Louis Blais — poursuit la lignée directe.</div>
+            <div class="child">5. Marie-Amanda Lachance (n. 1872) — mariée en 1893 à Alderic Martin.</div>
+            <div class="child">6. Joseph-Norbert Lachance (1875-1932, Biddeford) — conjointe Maria Lasante.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. VIII</span><span class="name">Célina Lachance &amp; Louis-Napoléon Blais</span></div>
+        <div class="gen-body">
+          <p>Naissance : 9 novembre 1869. Mariée le 20 septembre 1892, Saint-Évariste-de-Forsyth. Fille de Ferdinand Lachance et Marie-Marguerite Grenier (nommée par erreur « Marie-Marguerite Bernier » à un endroit du document source).</p>
+          <p>Huit enfants :</p>
+          <div class="children">
+            <div class="child">1. Joseph-Louis-Honoré Blais (n. 1893).</div>
+            <div class="child">2. Marie-Ange Blais (n. 1895).</div>
+            <div class="child">3. Florence (Marie-Laura-Florentine) Blais (jan.–mars 1900).</div>
+            <div class="child">4. Marie-Blanche-Louise Blais (jan.–mars 1900) — jumelle de Florence, décédée au même âge.</div>
+            <div class="child">5. <b>Blanche (Marie-Blanche-Victoria) Blais</b> (n. 9 mars 1901) — conjoint Henri Sébastien — poursuit la lignée directe.</div>
+            <div class="child">6. Marie-Yvonne-Annette Blais (n. 1905).</div>
+            <div class="child">7. Joseph-Pierre-Gérard Blais (n. 1908).</div>
+            <div class="child">8. Joseph-Anaclet-Roland Blais (n. 1910).</div>
+            <div class="child" style="color:var(--ink-soft); font-style:italic;">9. Lucien Blais (dates inconnues).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gen">
+        <div class="gen-summary"><span class="tag">Gén. IX</span><span class="name">Blanche Blais &amp; Henri Sébastien</span></div>
+        <div class="gen-body">
+          <p>Naissance : 9 mars 1901, Saint-Évariste-de-Forsyth (Frontenac). Décès : 1976, Montréal. Mariée le 2 juin 1927, Saint-Évariste-de-Forsyth, à <b>Henri Sébastien</b> (1904-1991).</p>
+          <p>Quatre enfants :</p>
+          <div class="children">
+            <div class="child">1. <b>Suzanne Sébastien</b> (baptisée Marie-Thérèse-Céline-Suzanne, 1928) — mariée en 1955 à Charles Arcand ; enfants Marie, Charles et Geneviève Arcand.</div>
+            <div class="child">2. <b>Gilles Sébastien</b> (baptisé Joseph-Philippe-Henri-Gilles, 1930), ingénieur — marié en 1959 à Jacqueline Arsenault, fille de Jean Arsenault et Marcelline Bourdage ; enfants Louise, Annie et François Sébastien. <em>Voir la notice consacrée à la famille Arsenault.</em></div>
+            <div class="child">3. <b>Guy Sébastien</b> (baptisé Joseph-Guy-André, 1931-1972), médecin — marié en 1959 à Marguerite (Margot) Lalonde ; enfants Dominique, Nathalie et Luc Sébastien.</div>
+            <div class="child">4. <b>Pierre Sébastien</b> (baptisé Joseph-Pierre-Jean-Conrad, 1936), avocat — marié en 1962 à Renée Charest, fille de Clément Charest et Paule Duchastel de Montrouge. <em>Voir la notice consacrée à la famille Duchastel de Montrouge.</em></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-wrap" style="margin-top:44px;">
+        <div class="chart-title">Lignée ancestrale</div>
+        <div class="chart-sub">d'Antoine Pépin dit Lachance à Blanche Blais</div>
+
+        <div class="chart-row"><div class="rn">1</div><div class="rd"><span class="names">Antoine Pépin dit Lachance</span><span class="date">1636 – 1703</span></div></div>
+        <div class="chart-row"><div class="rn">2</div><div class="rd"><span class="names">Jean Pépin dit Lachance</span><span class="date">1664 – 1743</span></div></div>
+        <div class="chart-row"><div class="rn">3</div><div class="rd"><span class="names">Gervais Pépin dit Lachance</span><span class="date">1714 – 1789</span></div></div>
+        <div class="chart-row"><div class="rn">4</div><div class="rd"><span class="names">Gervais Pépin dit Lachance</span><span class="date">1749 – 1824</span></div></div>
+        <div class="chart-row"><div class="rn">5</div><div class="rd"><span class="names">Gervais Pépin dit Lachance</span><span class="date">1780 – 1844</span></div></div>
+        <div class="chart-row"><div class="rn">6</div><div class="rd"><span class="names">Alexis Pépin dit Lachance</span><span class="date">1806 – 1872</span></div></div>
+        <div class="chart-row"><div class="rn">7</div><div class="rd"><span class="names">Ferdinand Lachance</span><span class="date">1836 – apr. 1916</span></div></div>
+        <div class="chart-row"><div class="rn">8</div><div class="rd"><span class="names">Célina Lachance</span><span class="date">née 1869</span></div></div>
+        <div class="chart-row"><div class="rn">9</div><div class="rd"><span class="names">Blanche Blais &amp; Henri Sébastien</span><span class="date">1901 – 1976</span></div></div>
+      </div>
+
+      <div class="callout-next">
+        <b>Deux incohérences du document source signalées ici plutôt que résolues arbitrairement :</b> la date de naissance attribuée à un Gervais de génération II (8 mars 1749) correspond en fait à celle de son petit-fils de même prénom ; et l'épouse du Gervais né en 1780 est nommée tantôt Marie-Marguerite Talbot, tantôt Marie-Angèle Thibierge (mère confirmée d'Alexis). Les registres paroissiaux de Saint-Jean, Île d'Orléans, permettraient de trancher.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOURCES ===================== -->
+  <section class="sources" id="sources">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Provenance</span>
+        <h2>Sources</h2>
+      </div>
+      <ul>
+        <li>Document familial transmis par l'utilisateur (Famille Lachance.docx), incluant les armoiries Pépin-Lachance.</li>
+        <li><a href="https://gw.geneanet.org/philsebastien_w?lang=en&n=pepin&oc=0&p=andre&type=tree" target="_blank" rel="noopener">Geneanet — arbre de Philippe Sébastien, fiche André Pépin (père d'Antoine, Sosa 2816)</a>.</li>
+        <li><a href="http://www.lachance.org/genealogy/getperson.php?personID=I256&tree=lachance01" target="_blank" rel="noopener">Lachance.org — arbre généalogique de la famille Lachance</a>.</li>
+        <li><a href="http://www.pepinlachancelaforce.com/ancetres.htm" target="_blank" rel="noopener">Pépin-Lachance-Laforce — les ancêtres</a>.</li>
+        <li><a href="http://www.blaisdata.com/wc01/wc01_440.htm" target="_blank" rel="noopener">BlaisData — généalogie de la famille Blais</a>.</li>
+        <li>André Lachance, <em>Antoine Pépin dit Lachance, 1636-1703 : un pionnier de l'Île d'Orléans</em>, Sherbrooke, Les Éditions GGC, 1998, 114 p.</li>
+        <li><a href="https://assets.erudit.tech/en/journals/cd/2000-n62-cd1043519/8511ac.pdf" target="_blank" rel="noopener">Sylvie Tremblay, compte rendu, <em>Cap-aux-Diamants</em>, n<sup>o</sup> 62, été 2000, p. 53</a> — sur l'Association des familles Pépin et ses quatre ancêtres fondateurs.</li>
+        <li><a href="http://www.genealogie.org/armoiries/pepin.html" target="_blank" rel="noopener">Genealogie.org — armoiries de la famille Pépin</a>.</li>
+        <li>Registres paroissiaux de Sainte-Famille (Île d'Orléans), Saint-Jean (Île d'Orléans) et Saint-Évariste-de-Forsyth (Frontenac).</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Normandie — Île d'Orléans — Beauce — Maine</span>
+  Archives Pépin dit Lachance — compilé à partir d'un document familial, de l'arbre Geneanet de Philippe Sébastien et de recherches complémentaires
+</footer>
+
+</body>
+</html>
