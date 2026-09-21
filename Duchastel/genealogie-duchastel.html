@@ -6,584 +6,989 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Généalogie de la Famille du Chastel / Duchastel de Reims</title>
     <style>
-  :root{
-    --parchment: #f1e8d6;
-    --parchment-deep: #e5d7b7;
-    --ink: #241d13;
-    --ink-soft: #4a4030;
-    --navy: #1c2740;
-    --navy-deep: #131b2d;
-    --burgundy: #7c2331;
-    --gold: #a4802f;
-    --gold-bright: #c79b3f;
-    --rule: rgba(36,29,19,0.18);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--parchment);
-    color:var(--ink);
-    font-family:'EB Garamond', serif;
-    font-size:18px;
-    line-height:1.65;
-  }
-  ::selection{background:var(--gold); color:var(--navy-deep);}
+        :root {
+            --parchment: #f1e8d6;
+            --parchment-deep: #e5d7b7;
+            --ink: #241d13;
+            --ink-soft: #4a4030;
+            --navy: #1c2740;
+            --navy-deep: #131b2d;
+            --burgundy: #7c2331;
+            --gold: #a4802f;
+            --gold-bright: #c79b3f;
+            --rule: rgba(36, 29, 19, 0.18);
+        }
 
-  .eyebrow{
-    font-family:'Cinzel', serif;
-    font-size:11.5px;
-    letter-spacing:.22em;
-    text-transform:uppercase;
-    color:var(--gold);
-    font-weight:600;
-  }
+        * {
+            box-sizing: border-box;
+        }
 
-  h1,h2,h3{ font-family:'Cormorant Garamond', serif; font-weight:600; margin:0; color:var(--navy);}
+        html {
+            scroll-behavior: smooth;
+        }
 
-  a{ color:inherit; }
+        body {
+            margin: 0;
+            background: var(--parchment);
+            color: var(--ink);
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            line-height: 1.65;
+        }
 
-  .wrap{ max-width:920px; margin:0 auto; padding:0 32px; }
+        ::selection {
+            background: var(--gold);
+            color: var(--navy-deep);
+        }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    position:relative;
-    background:
-      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199,155,63,0.16), transparent 60%),
-      linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
-    color:var(--parchment);
-    padding:96px 32px 120px;
-    text-align:center;
-    overflow:hidden;
-    border-bottom:1px solid rgba(199,155,63,0.35);
-  }
-  .hero::before{
-    content:"";
-    position:absolute; inset:0;
-    background-image:
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 64px);
-    pointer-events:none;
-  }
-  .seal{
-    width:118px; height:118px; margin:0 auto 30px;
-    position:relative;
-    animation: sealDrop 1.1s cubic-bezier(.2,.8,.2,1) both;
-  }
-  @keyframes sealDrop{
-    0%{ transform:translateY(-14px) scale(.85) rotate(-8deg); opacity:0; }
-    100%{ transform:translateY(0) scale(1) rotate(0deg); opacity:1; }
-  }
-  .seal svg{ width:100%; height:100%; }
-  .hero .eyebrow{ color:var(--gold-bright); }
-  .hero h1{
-    font-family:'Cormorant SC', serif;
-    font-size:clamp(52px, 9vw, 96px);
-    color:var(--parchment);
-    letter-spacing:.02em;
-    margin:14px 0 6px;
-    text-shadow:0 2px 24px rgba(0,0,0,.35);
-  }
-  .hero .sub{
-    font-family:'Cormorant Garamond', serif;
-    font-style:italic;
-    font-size:clamp(18px,2.6vw,24px);
-    color:#d9c9a3;
-    letter-spacing:.03em;
-  }
-  .hero .rule{
-    width:64px; height:1px; background:var(--gold); margin:26px auto;
-    opacity:.7;
-  }
-  .hero p.lede{
-    max-width:560px; margin:0 auto; color:#cdbfa0; font-size:17px;
-  }
+        .eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11.5px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
 
-  /* ---------- SECTION SHELL ---------- */
-  section{ padding:84px 0; border-bottom:1px solid var(--rule); }
-  section:last-of-type{ border-bottom:none; }
-  .section-head{ margin-bottom:44px; }
-  .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:8px; }
-  .section-head .eyebrow{ display:block; }
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin: 0;
+            color: var(--navy);
+        }
 
-  /* ---------- NARRATIVE ---------- */
-  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
-  .lede-block p:first-child::first-letter{
-    font-family:'Cormorant SC', serif;
-    font-size:64px;
-    float:left;
-    line-height:.8;
-    padding:6px 10px 0 0;
-    color:var(--burgundy);
-  }
-  blockquote{
-    margin:36px 0; padding:22px 28px;
-    border-left:3px solid var(--gold);
-    background:var(--parchment-deep);
-    font-style:italic; color:var(--ink);
-  }
-  blockquote cite{ display:block; margin-top:10px; font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:var(--ink-soft); }
+        a {
+            color: inherit;
+        }
 
-  .figure-note{
-    display:flex; gap:18px; align-items:flex-start;
-    background:var(--parchment-deep); border:1px solid var(--rule);
-    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
-  }
-  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
 
-  /* ---------- LINEAGE LADDER (signature element) ---------- */
-  .ladder-intro{ margin-bottom:56px; max-width:640px; }
-  .ladder{ position:relative; }
-  .ladder::before{
-    content:""; position:absolute; left:29px; top:8px; bottom:8px; width:1px;
-    background:linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
-  }
-  .rung{
-    position:relative; display:grid; grid-template-columns:60px 1fr; gap:22px;
-    padding:26px 0; border-bottom:1px dashed var(--rule);
-  }
-  .rung:last-child{ border-bottom:none; }
-  .rung .numeral{
-    font-family:'Cormorant SC', serif; font-size:26px; color:var(--navy);
-    width:60px; height:60px; border-radius:50%;
-    background:var(--parchment); border:1.5px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    position:relative; z-index:1;
-  }
-  .rung.current .numeral{ background:var(--burgundy); color:var(--parchment); border-color:var(--burgundy); }
-  .rung h3{ font-size:23px; color:var(--navy); }
-  .rung .role{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--burgundy); margin:4px 0 8px; }
-  .rung .meta{ font-size:15.5px; color:var(--ink-soft); }
-  .rung .meta b{ color:var(--ink); font-weight:600; }
+        /* ---------- HERO ---------- */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199, 155, 63, 0.16), transparent 60%),
+                linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+            color: var(--parchment);
+            padding: 96px 32px 120px;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(199, 155, 63, 0.35);
+        }
 
-  /* ---------- GENERATION RECORDS ---------- */
-  details.gen{
-    background:var(--parchment-deep); border:1px solid var(--rule);
-    margin-bottom:14px; padding:0;
-  }
-  details.gen > summary{
-    list-style:none; cursor:pointer;
-    padding:20px 26px; display:flex; justify-content:space-between; align-items:baseline; gap:16px;
-    font-family:'Cormorant Garamond', serif;
-  }
-  details.gen > summary::-webkit-details-marker{ display:none; }
-  details.gen > summary .tag{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; color:var(--gold); flex-shrink:0; }
-  details.gen > summary .name{ font-size:22px; color:var(--navy); flex:1; }
-  details.gen > summary .chevron{ font-size:14px; color:var(--burgundy); transition:transform .25s ease; flex-shrink:0; }
-  details.gen[open] > summary .chevron{ transform:rotate(90deg); }
-  .gen-body{ padding:0 26px 26px; font-size:16px; color:var(--ink-soft); }
-  .gen-body p{ margin:0 0 14px; }
-  .gen-body .children{ margin-top:12px; padding-left:20px; border-left:2px solid var(--rule); }
-  .gen-body .children .child{ margin-bottom:10px; }
-  .gen-body .children .grand{ margin:6px 0 6px 22px; font-size:14.5px; color:var(--ink-soft); opacity:.9; }
-  .gen-body .grand ul{ margin:4px 0 4px 22px; padding:0; }
-  .gen-body sup.note{ font-size:11px; color:var(--gold); }
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 64px);
+            pointer-events: none;
+        }
 
-  /* ---------- PATRILINEAL CHART ---------- */
-  .chart-wrap{
-    background:var(--navy-deep); color:var(--parchment);
-    padding:48px 40px; position:relative;
-    border:1px solid var(--gold);
-  }
-  .chart-wrap::before, .chart-wrap::after{
-    content:"◆"; color:var(--gold); font-size:12px; position:absolute;
-  }
-  .chart-wrap::before{ top:16px; left:16px; }
-  .chart-wrap::after{ bottom:16px; right:16px; }
-  .chart-title{ text-align:center; font-family:'Cormorant SC',serif; font-size:26px; margin-bottom:6px; }
-  .chart-sub{ text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; color:#c9b98a; margin-bottom:32px; }
-  .chart-row{ display:grid; grid-template-columns:40px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid rgba(199,155,63,0.2); }
-  .chart-row:last-child{ border-bottom:none; }
-  .chart-row .rn{ font-family:'Cormorant SC',serif; color:var(--gold-bright); font-size:18px; }
-  .chart-row .rd{ font-size:15px; }
-  .chart-row .rd .names{ color:var(--parchment); }
-  .chart-row .rd .date{ display:block; font-size:13px; color:#a99a72; margin-top:2px; }
+        .seal {
+            width: 118px;
+            height: 118px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: sealDrop 1.1s cubic-bezier(.2, .8, .2, 1) both;
+        }
 
-  /* ---------- IMAGES ---------- */
-  .figure{ margin:36px 0; }
-  .figure img{ display:block; width:100%; height:auto; border:1px solid var(--rule); background:var(--parchment-deep); }
-  .figure figcaption{ margin-top:10px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.08em; color:var(--ink-soft); text-align:center; }
-  .figure-pair{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
-  .figure-pair .figure{ margin:0; }
-  .crest-row{ display:flex; align-items:center; gap:28px; margin:0 0 32px; }
-  .crest-row img{ width:96px; height:auto; border:1px solid var(--rule); flex-shrink:0; }
-  .crest-row .blazon{ font-style:italic; color:var(--ink-soft); font-size:15px; }
-  .rung .portrait{ margin-top:14px; display:flex; gap:10px; }
-  .rung .portrait img{ width:74px; height:auto; border:1px solid var(--gold); }
-  .doc-image{ margin:16px 0 6px; }
-  .doc-image img{ width:100%; max-width:340px; height:auto; border:1px solid var(--rule); display:block; }
-  .doc-image figcaption{ font-size:13px; color:var(--ink-soft); font-style:italic; margin-top:6px; }
+        @keyframes sealDrop {
+            0% {
+                transform: translateY(-14px) scale(.85) rotate(-8deg);
+                opacity: 0;
+            }
 
-  /* ---------- SOURCES ---------- */
-  .sources ul{ padding-left:20px; color:var(--ink-soft); font-size:15px; }
-  .sources li{ margin-bottom:10px; }
+            100% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
 
-  footer{
-    background:var(--navy-deep); color:#a99a72; text-align:center;
-    padding:56px 32px 40px; font-size:14px;
-  }
-  footer .eyebrow{ display:block; margin-bottom:10px; }
-  footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
+        .seal svg {
+            width: 100%;
+            height: 100%;
+        }
 
-  .callout-next{
-    margin-top:60px; padding:24px 28px; border:1px dashed var(--gold);
-    background:var(--parchment-deep); font-size:15.5px; color:var(--ink-soft);
-  }
-  .callout-next b{ color:var(--navy); }
+        .hero .eyebrow {
+            color: var(--gold-bright);
+        }
 
-  @media (max-width:640px){
-    .wrap{ padding:0 20px; }
-    .rung{ grid-template-columns:44px 1fr; gap:14px; }
-    .rung .numeral{ width:44px; height:44px; font-size:19px; }
-    .chart-wrap{ padding:32px 20px; }
-    .figure-pair{ grid-template-columns:1fr; }
-    .crest-row{ flex-direction:column; align-items:flex-start; gap:14px; }
-  }
-</style>
+        .hero h1 {
+            font-family: 'Cormorant SC', serif;
+            font-size: clamp(52px, 9vw, 96px);
+            color: var(--parchment);
+            letter-spacing: .02em;
+            margin: 14px 0 6px;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+        }
+
+        .hero .sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(18px, 2.6vw, 24px);
+            color: #d9c9a3;
+            letter-spacing: .03em;
+        }
+
+        .hero .rule {
+            width: 64px;
+            height: 1px;
+            background: var(--gold);
+            margin: 26px auto;
+            opacity: .7;
+        }
+
+        .hero p.lede {
+            max-width: 560px;
+            margin: 0 auto;
+            color: #cdbfa0;
+            font-size: 17px;
+        }
+
+        /* ---------- SECTION SHELL ---------- */
+        section {
+            padding: 84px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-head {
+            margin-bottom: 44px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(30px, 4vw, 42px);
+            margin-top: 8px;
+        }
+
+        .section-head .eyebrow {
+            display: block;
+        }
+
+        /* ---------- NARRATIVE ---------- */
+        .lede-block p {
+            margin: 0 0 20px;
+            color: var(--ink-soft);
+        }
+
+        .lede-block p:first-child::first-letter {
+            font-family: 'Cormorant SC', serif;
+            font-size: 64px;
+            float: left;
+            line-height: .8;
+            padding: 6px 10px 0 0;
+            color: var(--burgundy);
+        }
+
+        blockquote {
+            margin: 36px 0;
+            padding: 22px 28px;
+            border-left: 3px solid var(--gold);
+            background: var(--parchment-deep);
+            font-style: italic;
+            color: var(--ink);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: .15em;
+            color: var(--ink-soft);
+        }
+
+        .figure-note {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            padding: 20px 24px;
+            margin: 32px 0;
+            font-size: 15.5px;
+            color: var(--ink-soft);
+        }
+
+        .figure-note .mark {
+            font-family: 'Cormorant SC', serif;
+            font-size: 28px;
+            color: var(--burgundy);
+            line-height: 1;
+        }
+
+        /* ---------- LINEAGE LADDER (signature element) ---------- */
+        .ladder-intro {
+            margin-bottom: 56px;
+            max-width: 640px;
+        }
+
+        .ladder {
+            position: relative;
+        }
+
+        .ladder::before {
+            content: "";
+            position: absolute;
+            left: 29px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
+        }
+
+        .rung {
+            position: relative;
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 22px;
+            padding: 26px 0;
+            border-bottom: 1px dashed var(--rule);
+        }
+
+        .rung:last-child {
+            border-bottom: none;
+        }
+
+        .rung .numeral {
+            font-family: 'Cormorant SC', serif;
+            font-size: 26px;
+            color: var(--navy);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--parchment);
+            border: 1.5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rung.current .numeral {
+            background: var(--burgundy);
+            color: var(--parchment);
+            border-color: var(--burgundy);
+        }
+
+        .rung h3 {
+            font-size: 23px;
+            color: var(--navy);
+        }
+
+        .rung .role {
+            font-family: 'Cinzel', serif;
+            font-size: 10.5px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin: 4px 0 8px;
+        }
+
+        .rung .meta {
+            font-size: 15.5px;
+            color: var(--ink-soft);
+        }
+
+        .rung .meta b {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ---------- GENERATION RECORDS ---------- */
+        details.gen {
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            margin-bottom: 14px;
+            padding: 0;
+        }
+
+        details.gen>summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        details.gen>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.gen>summary .tag {
+            font-family: 'Cinzel', serif;
+            font-size: 10.5px;
+            letter-spacing: .15em;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        details.gen>summary .name {
+            font-size: 22px;
+            color: var(--navy);
+            flex: 1;
+        }
+
+        details.gen>summary .chevron {
+            font-size: 14px;
+            color: var(--burgundy);
+            transition: transform .25s ease;
+            flex-shrink: 0;
+        }
+
+        details.gen[open]>summary .chevron {
+            transform: rotate(90deg);
+        }
+
+        .gen-body {
+            padding: 0 26px 26px;
+            font-size: 16px;
+            color: var(--ink-soft);
+        }
+
+        .gen-body p {
+            margin: 0 0 14px;
+        }
+
+        .gen-body .children {
+            margin-top: 12px;
+            padding-left: 20px;
+            border-left: 2px solid var(--rule);
+        }
+
+        .gen-body .children .child {
+            margin-bottom: 10px;
+        }
+
+        .gen-body .children .grand {
+            margin: 6px 0 6px 22px;
+            font-size: 14.5px;
+            color: var(--ink-soft);
+            opacity: .9;
+        }
+
+        .gen-body .grand ul {
+            margin: 4px 0 4px 22px;
+            padding: 0;
+        }
+
+        .gen-body sup.note {
+            font-size: 11px;
+            color: var(--gold);
+        }
+
+        /* ---------- PATRILINEAL CHART ---------- */
+        .chart-wrap {
+            background: var(--navy-deep);
+            color: var(--parchment);
+            padding: 48px 40px;
+            position: relative;
+            border: 1px solid var(--gold);
+        }
+
+        .chart-wrap::before,
+        .chart-wrap::after {
+            content: "◆";
+            color: var(--gold);
+            font-size: 12px;
+            position: absolute;
+        }
+
+        .chart-wrap::before {
+            top: 16px;
+            left: 16px;
+        }
+
+        .chart-wrap::after {
+            bottom: 16px;
+            right: 16px;
+        }
+
+        .chart-title {
+            text-align: center;
+            font-family: 'Cormorant SC', serif;
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+
+        .chart-sub {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #c9b98a;
+            margin-bottom: 32px;
+        }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(199, 155, 63, 0.2);
+        }
+
+        .chart-row:last-child {
+            border-bottom: none;
+        }
+
+        .chart-row .rn {
+            font-family: 'Cormorant SC', serif;
+            color: var(--gold-bright);
+            font-size: 18px;
+        }
+
+        .chart-row .rd {
+            font-size: 15px;
+        }
+
+        .chart-row .rd .names {
+            color: var(--parchment);
+        }
+
+        .chart-row .rd .date {
+            display: block;
+            font-size: 13px;
+            color: #a99a72;
+            margin-top: 2px;
+        }
+
+        /* ---------- IMAGES ---------- */
+        .figure {
+            margin: 36px 0;
+        }
+
+        .figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--rule);
+            background: var(--parchment-deep);
+        }
+
+        .figure figcaption {
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: .08em;
+            color: var(--ink-soft);
+            text-align: center;
+        }
+
+        .figure-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 36px 0;
+        }
+
+        .figure-pair .figure {
+            margin: 0;
+        }
+
+        .crest-row {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            margin: 0 0 32px;
+        }
+
+        .crest-row img {
+            width: 96px;
+            height: auto;
+            border: 1px solid var(--rule);
+            flex-shrink: 0;
+        }
+
+        .crest-row .blazon {
+            font-style: italic;
+            color: var(--ink-soft);
+            font-size: 15px;
+        }
+
+        .rung .portrait {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .rung .portrait img {
+            width: 74px;
+            height: auto;
+            border: 1px solid var(--gold);
+        }
+
+        .doc-image {
+            margin: 16px 0 6px;
+        }
+
+        .doc-image img {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            border: 1px solid var(--rule);
+            display: block;
+        }
+
+        .doc-image figcaption {
+            font-size: 13px;
+            color: var(--ink-soft);
+            font-style: italic;
+            margin-top: 6px;
+        }
+
+        /* ---------- SOURCES ---------- */
+        .sources ul {
+            padding-left: 20px;
+            color: var(--ink-soft);
+            font-size: 15px;
+        }
+
+        .sources li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: var(--navy-deep);
+            color: #a99a72;
+            text-align: center;
+            padding: 56px 32px 40px;
+            font-size: 14px;
+        }
+
+        footer .eyebrow {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer .contrib {
+            color: #d9c9a3;
+            margin-top: 18px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        .callout-next {
+            margin-top: 60px;
+            padding: 24px 28px;
+            border: 1px dashed var(--gold);
+            background: var(--parchment-deep);
+            font-size: 15.5px;
+            color: var(--ink-soft);
+        }
+
+        .callout-next b {
+            color: var(--navy);
+        }
+
+        @media (max-width:640px) {
+            .wrap {
+                padding: 0 20px;
+            }
+
+            .rung {
+                grid-template-columns: 44px 1fr;
+                gap: 14px;
+            }
+
+            .rung .numeral {
+                width: 44px;
+                height: 44px;
+                font-size: 19px;
+            }
+
+            .chart-wrap {
+                padding: 32px 20px;
+            }
+
+            .figure-pair {
+                grid-template-columns: 1fr;
+            }
+
+            .crest-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <header>
-            <h1>Généalogie de la Famille du Chastel / Duchastel</h1>
-            <div class="subtitle">Des maîtres sergers et bourgeois de Reims à la noblesse de robe</div>
-        </header>
 
-        <div class="intro-box">
-            Cette notice retrace la filiation et les principales alliances de la famille <strong>du Chastel
-                (Duchastel)</strong>, solidement enracinée à Reims dès la fin du XVI<sup>e</sup> siècle dans la
-            bourgeoisie marchande (laine et draperie), avant son ascension dans les offices de justice, la magistrature
-            et les seigneuries de Montflambert et de Montrouge.
+    <section id="introduction">
+        <div class="wrap">
+        <div class="container">
+            <header>
+                <h1>Généalogie de la Famille du Chastel / Duchastel</h1>
+                <div class="subtitle">Des maîtres sergers et bourgeois de Reims à la noblesse de robe</div>
+            </header>
+            <!-- ===================== INTRODUCTION ===================== -->
+
+            
+                <div class="intro-box">
+                    Cette notice retrace la filiation et les principales alliances de la famille <strong>du Chastel
+                        (Duchastel)</strong>, solidement enracinée à Reims dès la fin du XVI<sup>e</sup> siècle dans la
+                    bourgeoisie marchande (laine et draperie), avant son ascension dans les offices de justice, la
+                    magistrature
+                    et les seigneuries de Montflambert et de Montrouge.
+                </div>
+
+                <main>
+                    <!-- Génération 1 -->
+                    <h2>Génération 1 — Les Origines Rémoises</h2>
+                    <div class="generation-block">
+                        <span class="gen-badge">Génération I</span>
+                        <div class="person-card">
+                            <div class="person-name">
+                                <a href="Jean-du-Chastel-1590-1660.html">Jean du Chastel (~1590 – av. 1660)</a>
+                            </div>
+                            <div class="person-meta">
+                                <strong>Statut :</strong> Bourgeois de Reims, commerçant textile (drap et laine).<br>
+                                <strong>Mariage :</strong> Épouse vers 1618–1620 <strong>Nicole Cochart</strong>
+                                (Cauchart /
+                                Couchart), issue d'une lignée de marchands et notables rémois.
+                            </div>
+                            <div class="person-details">
+                                Père fondateur de la lignée suivie. Couple pivot ayant permis l'ancrage économique de la
+                                famille
+                                à Reims.
+                                <br><strong>Enfants identifiés :</strong>
+                                <ul class="branches-list">
+                                    <li><strong>Jacques du Chastel</strong> (1624–1714), qui suit en Génération II.</li>
+                                    <li><strong>Marie du Chastel</strong> (née ~1635).</li>
+                                    <li><strong>Jean du Chastel</strong> (1637–1687), marié à Jeanne Dugny.</li>
+                                    <li><strong>Marguerite du Chastel</strong> (1645–1702), mariée à Jean Renot.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Génération 2 -->
+                    <h2>Génération 2 — L'Enracinement et la Maîtrise</h2>
+                    <div class="generation-block">
+                        <span class="gen-badge">Génération II</span>
+                        <div class="person-card">
+                            <div class="person-name">
+                                <a href="jacques-du-chastel.html">Jacques du Chastel (1624 – 10 janvier 1714)</a>
+                            </div>
+                            <div class="person-meta">
+                                <strong>Statut :</strong> Maître serger, Bourgeois de Reims, Connétable de la ville.<br>
+                                <strong>Décès :</strong> Paroisse Saint-Étienne de Reims à l'âge de 90 ans.
+                            </div>
+                            <div class="person-details">
+                                <strong>Union 1 :</strong> Marié avant 1656 avec <strong>Jeanne Desombres</strong> (1627
+                                –
+                                1702).<br>
+                                <strong>Union 2 :</strong> Marié en 1702 avec <strong>Marie de La Motte</strong> († 1717
+                                à
+                                l'Hôtel-Dieu de Reims).<br>
+                                Pilier de la lignée, il assure à sa descendance l'accès aux charges notariales et
+                                juridiques.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Génération 3 et suivantes -->
+                    <h2>Générations Suivantes — L'Ascension Juridique et Seigneuriale</h2>
+
+                    <div class="generation-block">
+                        <span class="gen-badge">Génération III & IV</span>
+
+                        <div class="person-card">
+                            <div class="person-name">Nicolas Duchastel et sa descendance</div>
+                            <div class="person-meta">
+                                <strong>Offices :</strong> Avocats en Parlement, Lieutenants de police, Lieutenants des
+                                Eaux et
+                                Forêts, Notaires royaux.
+                            </div>
+                            <div class="person-details">
+                                Cette génération marque le passage définitif vers la haute bourgeoisie de robe rémoise
+                                et
+                                l'acquisition de charges royales héréditaires.
+                            </div>
+                        </div>
+
+                        <div class="person-card" style="margin-top: 1rem;">
+                            <div class="person-name">Les Rameaux Seigneuriaux</div>
+                            <div class="person-details">
+                                <ul class="branches-list">
+                                    <li>
+                                        <strong>Branche Duchastel de Montflambert :</strong> Titulaires de seigneuries
+                                        champenoises, officiers et magistrats.
+                                    </li>
+                                    <li>
+                                        <strong>Branche Duchastel de Montrouge :</strong> Alliances avec la noblesse
+                                        régionale
+                                        et intégration aux cours souveraines.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Répertoire des fiches biographiques -->
+                    <h2>Pages et Fiches Détaillées Disponibles</h2>
+                    <ul class="branches-list">
+                        <li>
+                            <a href="Jean-du-Chastel-1590-1660.html"><strong>Jean du Chastel (~1590–~1660)</strong> —
+                                Notice
+                                biographique complète, alliance Cochart et analyses d'archives</a>
+                        </li>
+                        <li>
+                            <a href="jacques-du-chastel.html"><strong>Jacques du Chastel (1624–1714)</strong> — Serger
+                                et
+                                connétable de Reims, actes paroissiaux et descendance</a>
+                        </li>
+                    </ul>
+            </div>
+    </section>
+    <!-- ===================== NARRATIVE ===================== -->
+    <section id="histoire">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">Chapitre premier</span>
+                <h2>Du Moyen Âge à Louis&nbsp;XVI</h2>
+            </div>
+
+            <div class="crest-row">
+                <img src="images/blason-duchastel-montrouge.png" alt="Blason de la famille Duchastel de Montrouge">
+                <div class="blazon">D'azur, au chevron d'or accompagné en chef de deux gerbes de blé du même, et
+                    en pointe d'un cœur de gueules.</div>
+            </div>
+
+            <div class="lede-block">
+                <p>Le patronyme Du Chastel se retrace jusqu'au Moyen Âge. En Bretagne, la branche des Du Chastel
+                    de Trémazan, seigneurs de leur superbe château de Trémazan, occupe une place considérable
+                    dans la chevalerie, notamment à la bataille d'Azincourt, au moment de la guerre de Cent Ans.
+                    D'autres branches, tels les Du Chastel de La Martinière, se répandent dans le nord et l'est
+                    de la France, particulièrement en Champagne — c'est le cas de la descendance de Jacques
+                    Duchastel étudiée ici.</p>
+                <p>Aucun lien généalogique établi ne rattache, dans l'état actuel des sources disponibles, cette
+                    branche de Reims à la maison bretonne des Du Chastel de Trémazan. La seule trace trouvée à
+                    ce jour est le passage à Reims d'un Du Chastel breton, vraisemblablement à l'occasion d'un
+                    sacre royal. Il n'est pas exclu qu'il y ait séjourné quelque temps, mais, seigneur de
+                    Trémazan et maître de son château breton, ce n'est pas lui qui s'est établi à Reims. Le
+                    blason ci-dessus, propre à la famille Duchastel de Montrouge, ne doit donc pas être confondu
+                    avec celui, distinct, de la branche bretonne.</p>
+                <p>C'est avec un arrière-petit-fils de ce Jacques Duchastel, Jean-Baptiste Duchastel de
+                    Montflambert (1723–1809), résidant à Reims, que s'ouvre la lignée baronniale. Écuyer et
+                    conseiller du roi à la Maison de France, sa charge de secrétaire du roi lui vaut d'être
+                    anobli sous Louis XVI, par lettres patentes émises en 1775 lors du sacre du roi.</p>
+                <p>La famille survit à la Révolution et acquiert, sous l'Empire, un nouveau titre baronnial
+                    héréditaire. Dans la France du XIX<sup>e</sup> siècle, alors que royalistes,
+                    révolutionnaires et bonapartistes se détestent mutuellement, les Duchastel de Montrouge
+                    prospèrent et tirent habilement leur épingle du jeu au fil des changements de régime.</p>
+            </div>
+
+            <div class="figure-note">
+                <span class="mark">§</span>
+                <div>Trois documents jaunis, pourvus d'un sceau rouge, portent la signature de <em>Louis</em> —
+                    Louis&nbsp;XVI lui-même. L'un d'eux, daté du 15&nbsp;avril 1788 et fait à Versailles, nomme
+                    Gabriel Duchastel de Montrouge premier lieutenant de la compagnie de fusiliers de Micault,
+                    au régiment du colonel général des Dragons en garnison en Bourgogne.</div>
+            </div>
+
+            <div class="figure-pair">
+                <figure class="figure">
+                    <img src="images/monthoury-parc-ancien.jpg"
+                        alt="Château de Monthoury, vu du parc, photographie ancienne">
+                    <figcaption>Dammard, château de Monthoury, vu du parc</figcaption>
+                </figure>
+                <figure class="figure">
+                    <img src="images/monthoury-2013.png" alt="Château de Monthoury, photographie 2013">
+                    <figcaption>Château de Monthoury, tel qu'il se présente aujourd'hui</figcaption>
+                </figure>
+            </div>
+
+            <div class="lede-block">
+                <p>À l'époque du premier Empire (1804–1814), l'accession à la noblesse est réservée à certains
+                    fonctionnaires impériaux : Napoléon I<sup>er</sup> accorde le droit aux titres viagers de
+                    comte ou de baron selon l'importance des fonctions exercées — l'« anoblissement par charge
+                    ». On évalue à 1&nbsp;519 le nombre de personnes anoblies ainsi en six ans. Les titres et
+                    majorats se transmettent de mâle en mâle, par droit d'aînesse.</p>
+            </div>
+
+            <blockquote>
+                Riche négociant de Troyes, propriétaire de la forêt d'Aumont (5&nbsp;500 arpents), député de
+                l'Aube au Conseil des Cinq-Cents puis au corps législatif — Jacques-Jean-Baptiste
+                Duchastel-Berthelin sera fait baron d'Empire à titre héréditaire par décret impérial promulgué
+                au Palais des Tuileries le 2&nbsp;janvier 1814.
+                <cite>Mémoires SGCF, vol. 56, n° 4, cahier 246 — p. 293</cite>
+            </blockquote>
+
+            <div class="figure-note">
+                <span class="mark">✦</span>
+                <div><strong>Visite impériale.</strong> Au lendemain de la bataille de La Rothière
+                    (1<sup>er</sup> février 1814), Napoléon, retiré au château de Brienne, gagne Troyes où il se
+                    repose du 3 au 5 février chez son hôte — nul autre que Jacques-Jean-Baptiste
+                    Duchastel-Berthelin, qu'il venait tout juste de créer baron d'Empire. Un an plus tard, en
+                    1815, Duchastel-Berthelin fait construire le château de Monthoury à Dammard, au coût de
+                    127&nbsp;777&nbsp;francs.</div>
+            </div>
         </div>
+    </section>
 
-        <main>
-            <!-- Génération 1 -->
-            <h2>Génération 1 — Les Origines Rémoises</h2>
-            <div class="generation-block">
-                <span class="gen-badge">Génération I</span>
-                <div class="person-card">
-                    <div class="person-name">
-                        <a href="Jean-du-Chastel-1590-1660.html">Jean du Chastel (~1590 – av. 1660)</a>
-                    </div>
-                    <div class="person-meta">
-                        <strong>Statut :</strong> Bourgeois de Reims, commerçant textile (drap et laine).<br>
-                        <strong>Mariage :</strong> Épouse vers 1618–1620 <strong>Nicole Cochart</strong> (Cauchart /
-                        Couchart), issue d'une lignée de marchands et notables rémois.
-                    </div>
-                    <div class="person-details">
-                        Père fondateur de la lignée suivie. Couple pivot ayant permis l'ancrage économique de la famille
-                        à Reims.
-                        <br><strong>Enfants identifiés :</strong>
-                        <ul class="branches-list">
-                            <li><strong>Jacques du Chastel</strong> (1624–1714), qui suit en Génération II.</li>
-                            <li><strong>Marie du Chastel</strong> (née ~1635).</li>
-                            <li><strong>Jean du Chastel</strong> (1637–1687), marié à Jeanne Dugny.</li>
-                            <li><strong>Marguerite du Chastel</strong> (1645–1702), mariée à Jean Renot.</li>
-                        </ul>
+    <!-- ===================== LADDER: BARONS SUCCESSION ===================== -->
+    <section id="barons">
+        <div class="wrap">
+            <div class="section-head">
+                <span class="eyebrow">La succession baronniale</span>
+                <h2>De baron en baron, jusqu'à Montréal</h2>
+            </div>
+            <p class="ladder-intro" style="color:var(--ink-soft)">Le titre passe de main en main au gré des
+                naissances, des morts prématurées et d'un exil vers le Nouveau Monde. Voici les onze porteurs
+                successifs du nom, de Reims à Outremont.</p>
+
+            <div class="ladder">
+
+                <div class="rung">
+                    <div class="numeral">I</div>
+                    <a>
+                        <h3>Jacques du Chastel</h3>
+                        <div class="role">Souche familiale</div>
+                        <div class="meta">Épouse <b>Jeanne Desombres</b> (1627 – 15 janvier 1702, Reims). Union
+                            vers le milieu du XVII<sup>e</sup> siècle, probablement à Reims.</div>
+                </div>
+            </div>
+
+            <div class="rung">
+                <div class="numeral">II</div>
+                <div>
+                    <h3>Jean-Baptiste Du Chastel</h3>
+                    <div class="role">1670 – 1702</div>
+                    <div class="meta">Marié à <b>Marguerite Plantin</b>, décédée le 8 juillet 1754 à Reims. Cinq
+                        enfants, tous nés à Reims.</div>
+                </div>
+            </div>
+
+            <div class="rung">
+                <div class="numeral">III</div>
+                <div>
+                    <h3>Jacques Du Chastel</h3>
+                    <div class="role">17 octobre 1700 – 29 octobre 1740</div>
+                    <div class="meta">Marié le 10 février 1722 à <b>Marie-Jeanne Miteau</b> (1703–1751).</div>
+                </div>
+            </div>
+
+            <div class="rung">
+                <div class="numeral">IV</div>
+                <div>
+                    <h3>Jean-Baptiste Duchastel</h3>
+                    <div class="role">Premier baron de Montflambert · anobli par Louis XVI</div>
+                    <div class="meta">18 mars 1723 – 2 février 1809, Reims. Marié à <b>Louise-Nicolle Cadot</b>
+                        (1736–1776).</div>
+                </div>
+            </div>
+
+            <div class="rung">
+                <div class="numeral">V</div>
+                <div>
+                    <h3>Jacques-Gabriel Duchastel de Montrouge</h3>
+                    <div class="role">14 avril 1758 – 25 mars 1792, Reims</div>
+                    <div class="meta">Militaire, lieutenant au régiment colonel de Dragons (1778). Marié à
+                        Rethel, le 9 janvier 1781, à <b>Philippine-Élisabeth Durand de Courmont</b>.</div>
+                </div>
+            </div>
+
+            <div class="rung">
+                <div class="numeral">VI</div>
+                <div>
+                    <h3>Alexandre-Louis-François Duchastel</h3>
+                    <div class="role">Baron de Montrouge</div>
+                    <div class="meta">Né à Rethel le 30 juin 1784. Hérite du titre en 1830 au décès sans
+                        descendance de son oncle Jacques-Jean-Baptiste Duchastel-Berthelin. Marié en 1813 à
+                        <b>Sophie Le Goix</b>.
                     </div>
                 </div>
             </div>
 
-            <!-- Génération 2 -->
-            <h2>Génération 2 — L'Enracinement et la Maîtrise</h2>
-            <div class="generation-block">
-                <span class="gen-badge">Génération II</span>
-                <div class="person-card">
-                    <div class="person-name">
-                        <a href="jacques-du-chastel.html">Jacques du Chastel (1624 – 10 janvier 1714)</a>
+            <div class="rung">
+                <div class="numeral">VII</div>
+                <div>
+                    <h3>Jules-Jean-Baptiste Duchastel</h3>
+                    <div class="role">Baron de Montrouge · diplomate</div>
+                    <div class="meta">19 juillet 1823 – 4 janvier 1889, Paris. Partage sa vie entre Paris et le
+                        château de Monthoury. Deux mariages : <b>Julie-Sylvia-Félicie Pèlerin</b> (New York,
+                        1845), puis <b>Berthe Follias</b>.</div>
+                </div>
+            </div>
+
+            <div class="rung">
+                <div class="numeral">VIII</div>
+                <div>
+                    <h3>Léon-Hilaire-Alexandre Duchastel</h3>
+                    <div class="role">Baron de Montrouge · consul de France</div>
+                    <div class="meta">17 avril 1848 Paris – 27 avril 1929 Paris. Chancelier puis consul en poste
+                        à New York, Charleston, Chicago, <b>Québec</b> (1881), Amsterdam, puis <b>Montréal</b>
+                        (1894) et Vancouver. Chevalier de la Légion d'honneur (1902). Marié à New York en 1877 à
+                        <b>Anita Snyder</b>.
                     </div>
-                    <div class="person-meta">
-                        <strong>Statut :</strong> Maître serger, Bourgeois de Reims, Connétable de la ville.<br>
-                        <strong>Décès :</strong> Paroisse Saint-Étienne de Reims à l'âge de 90 ans.
-                    </div>
-                    <div class="person-details">
-                        <strong>Union 1 :</strong> Marié avant 1656 avec <strong>Jeanne Desombres</strong> (1627 –
-                        1702).<br>
-                        <strong>Union 2 :</strong> Marié en 1702 avec <strong>Marie de La Motte</strong> († 1717 à
-                        l'Hôtel-Dieu de Reims).<br>
-                        Pilier de la lignée, il assure à sa descendance l'accès aux charges notariales et juridiques.
+                    <div class="portrait">
+                        <img src="images/leon-hilaire-portrait.jpg" alt="Portrait de Léon-Hilaire-Alexandre Duchastel">
+                        <img src="images/leon-hilaire-consul.jpg"
+                            alt="Léon-Hilaire-Alexandre Duchastel en habit de consul">
                     </div>
                 </div>
             </div>
 
-            <!-- Génération 3 et suivantes -->
-            <h2>Générations Suivantes — L'Ascension Juridique et Seigneuriale</h2>
-
-            <div class="generation-block">
-                <span class="gen-badge">Génération III & IV</span>
-
-                <div class="person-card">
-                    <div class="person-name">Nicolas Duchastel et sa descendance</div>
-                    <div class="person-meta">
-                        <strong>Offices :</strong> Avocats en Parlement, Lieutenants de police, Lieutenants des Eaux et
-                        Forêts, Notaires royaux.
-                    </div>
-                    <div class="person-details">
-                        Cette génération marque le passage définitif vers la haute bourgeoisie de robe rémoise et
-                        l'acquisition de charges royales héréditaires.
-                    </div>
-                </div>
-
-                <div class="person-card" style="margin-top: 1rem;">
-                    <div class="person-name">Les Rameaux Seigneuriaux</div>
-                    <div class="person-details">
-                        <ul class="branches-list">
-                            <li>
-                                <strong>Branche Duchastel de Montflambert :</strong> Titulaires de seigneuries
-                                champenoises, officiers et magistrats.
-                            </li>
-                            <li>
-                                <strong>Branche Duchastel de Montrouge :</strong> Alliances avec la noblesse régionale
-                                et intégration aux cours souveraines.
-                            </li>
-                        </ul>
+            <div class="rung">
+                <div class="numeral">IX</div>
+                <div>
+                    <h3>Jules-Alexandre Duchastel</h3>
+                    <div class="role">Baron de Montrouge · ingénieur</div>
+                    <div class="meta">1<sup>er</sup> septembre 1878 New York – 20 février 1938 Montréal. Diplômé
+                        de l'École Polytechnique de Montréal (1901); ingénieur administrateur à la Ville
+                        d'Outremont (1906–1924); major dans l'armée canadienne. Marié en 1904 à <b>Jeanne
+                            Lacoste</b>.</div>
+                    <div class="portrait">
+                        <img src="images/jules-alexandre.jpg" alt="Jules-Alexandre Duchastel de Montrouge">
+                        <img src="images/famille-1920.jpg"
+                            alt="La famille de Jules-Alexandre Duchastel de Montrouge, vers 1920">
                     </div>
                 </div>
             </div>
 
-            <!-- Répertoire des fiches biographiques -->
-            <h2>Pages et Fiches Détaillées Disponibles</h2>
-            <ul class="branches-list">
-                <li>
-                    <a href="Jean-du-Chastel-1590-1660.html"><strong>Jean du Chastel (~1590–~1660)</strong> — Notice
-                        biographique complète, alliance Cochart et analyses d'archives</a>
-                </li>
-                <li>
-                    <a href="jacques-du-chastel.html"><strong>Jacques du Chastel (1624–1714)</strong> — Serger et
-                        connétable de Reims, actes paroissiaux et descendance</a>
-                </li>
-            </ul>
-
-            <!-- ===================== NARRATIVE ===================== -->
-            <section id="histoire">
-                <div class="wrap">
-                    <div class="section-head">
-                        <span class="eyebrow">Chapitre premier</span>
-                        <h2>Du Moyen Âge à Louis&nbsp;XVI</h2>
-                    </div>
-
-                    <div class="crest-row">
-                        <img src="images/blason-duchastel-montrouge.png"
-                            alt="Blason de la famille Duchastel de Montrouge">
-                        <div class="blazon">D'azur, au chevron d'or accompagné en chef de deux gerbes de blé du même, et
-                            en pointe d'un cœur de gueules.</div>
-                    </div>
-
-                    <div class="lede-block">
-                        <p>Le patronyme Du Chastel se retrace jusqu'au Moyen Âge. En Bretagne, la branche des Du Chastel
-                            de Trémazan, seigneurs de leur superbe château de Trémazan, occupe une place considérable
-                            dans la chevalerie, notamment à la bataille d'Azincourt, au moment de la guerre de Cent Ans.
-                            D'autres branches, tels les Du Chastel de La Martinière, se répandent dans le nord et l'est
-                            de la France, particulièrement en Champagne — c'est le cas de la descendance de Jacques
-                            Duchastel étudiée ici.</p>
-                        <p>Aucun lien généalogique établi ne rattache, dans l'état actuel des sources disponibles, cette
-                            branche de Reims à la maison bretonne des Du Chastel de Trémazan. La seule trace trouvée à
-                            ce jour est le passage à Reims d'un Du Chastel breton, vraisemblablement à l'occasion d'un
-                            sacre royal. Il n'est pas exclu qu'il y ait séjourné quelque temps, mais, seigneur de
-                            Trémazan et maître de son château breton, ce n'est pas lui qui s'est établi à Reims. Le
-                            blason ci-dessus, propre à la famille Duchastel de Montrouge, ne doit donc pas être confondu
-                            avec celui, distinct, de la branche bretonne.</p>
-                        <p>C'est avec un arrière-petit-fils de ce Jacques Duchastel, Jean-Baptiste Duchastel de
-                            Montflambert (1723–1809), résidant à Reims, que s'ouvre la lignée baronniale. Écuyer et
-                            conseiller du roi à la Maison de France, sa charge de secrétaire du roi lui vaut d'être
-                            anobli sous Louis XVI, par lettres patentes émises en 1775 lors du sacre du roi.</p>
-                        <p>La famille survit à la Révolution et acquiert, sous l'Empire, un nouveau titre baronnial
-                            héréditaire. Dans la France du XIX<sup>e</sup> siècle, alors que royalistes,
-                            révolutionnaires et bonapartistes se détestent mutuellement, les Duchastel de Montrouge
-                            prospèrent et tirent habilement leur épingle du jeu au fil des changements de régime.</p>
-                    </div>
-
-                    <div class="figure-note">
-                        <span class="mark">§</span>
-                        <div>Trois documents jaunis, pourvus d'un sceau rouge, portent la signature de <em>Louis</em> —
-                            Louis&nbsp;XVI lui-même. L'un d'eux, daté du 15&nbsp;avril 1788 et fait à Versailles, nomme
-                            Gabriel Duchastel de Montrouge premier lieutenant de la compagnie de fusiliers de Micault,
-                            au régiment du colonel général des Dragons en garnison en Bourgogne.</div>
-                    </div>
-
-                    <div class="figure-pair">
-                        <figure class="figure">
-                            <img src="images/monthoury-parc-ancien.jpg"
-                                alt="Château de Monthoury, vu du parc, photographie ancienne">
-                            <figcaption>Dammard, château de Monthoury, vu du parc</figcaption>
-                        </figure>
-                        <figure class="figure">
-                            <img src="images/monthoury-2013.png" alt="Château de Monthoury, photographie 2013">
-                            <figcaption>Château de Monthoury, tel qu'il se présente aujourd'hui</figcaption>
-                        </figure>
-                    </div>
-
-                    <div class="lede-block">
-                        <p>À l'époque du premier Empire (1804–1814), l'accession à la noblesse est réservée à certains
-                            fonctionnaires impériaux : Napoléon I<sup>er</sup> accorde le droit aux titres viagers de
-                            comte ou de baron selon l'importance des fonctions exercées — l'« anoblissement par charge
-                            ». On évalue à 1&nbsp;519 le nombre de personnes anoblies ainsi en six ans. Les titres et
-                            majorats se transmettent de mâle en mâle, par droit d'aînesse.</p>
-                    </div>
-
-                    <blockquote>
-                        Riche négociant de Troyes, propriétaire de la forêt d'Aumont (5&nbsp;500 arpents), député de
-                        l'Aube au Conseil des Cinq-Cents puis au corps législatif — Jacques-Jean-Baptiste
-                        Duchastel-Berthelin sera fait baron d'Empire à titre héréditaire par décret impérial promulgué
-                        au Palais des Tuileries le 2&nbsp;janvier 1814.
-                        <cite>Mémoires SGCF, vol. 56, n° 4, cahier 246 — p. 293</cite>
-                    </blockquote>
-
-                    <div class="figure-note">
-                        <span class="mark">✦</span>
-                        <div><strong>Visite impériale.</strong> Au lendemain de la bataille de La Rothière
-                            (1<sup>er</sup> février 1814), Napoléon, retiré au château de Brienne, gagne Troyes où il se
-                            repose du 3 au 5 février chez son hôte — nul autre que Jacques-Jean-Baptiste
-                            Duchastel-Berthelin, qu'il venait tout juste de créer baron d'Empire. Un an plus tard, en
-                            1815, Duchastel-Berthelin fait construire le château de Monthoury à Dammard, au coût de
-                            127&nbsp;777&nbsp;francs.</div>
-                    </div>
+            <div class="rung">
+                <div class="numeral">X</div>
+                <div>
+                    <h3>Léon-Alexandre Duchastel</h3>
+                    <div class="role">Baron de Montrouge · ingénieur civil</div>
+                    <div class="meta">22 juillet 1905 Outremont – 21 mars 1962. Diplômé de Polytechnique (1927);
+                        major, régiment de Maisonneuve. Marié en 1933 à <b>Yvette Beauchamp</b>.</div>
                 </div>
-            </section>
+            </div>
 
-            <!-- ===================== LADDER: BARONS SUCCESSION ===================== -->
-            <section id="barons">
-                <div class="wrap">
-                    <div class="section-head">
-                        <span class="eyebrow">La succession baronniale</span>
-                        <h2>De baron en baron, jusqu'à Montréal</h2>
-                    </div>
-                    <p class="ladder-intro" style="color:var(--ink-soft)">Le titre passe de main en main au gré des
-                        naissances, des morts prématurées et d'un exil vers le Nouveau Monde. Voici les onze porteurs
-                        successifs du nom, de Reims à Outremont.</p>
-
-                    <div class="ladder">
-
-                        <div class="rung">
-                            <div class="numeral">I</div>
-                            <a>
-                                <h3>Jacques du Chastel</h3>
-                                <div class="role">Souche familiale</div>
-                                <div class="meta">Épouse <b>Jeanne Desombres</b> (1627 – 15 janvier 1702, Reims). Union
-                                    vers le milieu du XVII<sup>e</sup> siècle, probablement à Reims.</div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">II</div>
-                        <div>
-                            <h3>Jean-Baptiste Du Chastel</h3>
-                            <div class="role">1670 – 1702</div>
-                            <div class="meta">Marié à <b>Marguerite Plantin</b>, décédée le 8 juillet 1754 à Reims. Cinq
-                                enfants, tous nés à Reims.</div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">III</div>
-                        <div>
-                            <h3>Jacques Du Chastel</h3>
-                            <div class="role">17 octobre 1700 – 29 octobre 1740</div>
-                            <div class="meta">Marié le 10 février 1722 à <b>Marie-Jeanne Miteau</b> (1703–1751).</div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">IV</div>
-                        <div>
-                            <h3>Jean-Baptiste Duchastel</h3>
-                            <div class="role">Premier baron de Montflambert · anobli par Louis XVI</div>
-                            <div class="meta">18 mars 1723 – 2 février 1809, Reims. Marié à <b>Louise-Nicolle Cadot</b>
-                                (1736–1776).</div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">V</div>
-                        <div>
-                            <h3>Jacques-Gabriel Duchastel de Montrouge</h3>
-                            <div class="role">14 avril 1758 – 25 mars 1792, Reims</div>
-                            <div class="meta">Militaire, lieutenant au régiment colonel de Dragons (1778). Marié à
-                                Rethel, le 9 janvier 1781, à <b>Philippine-Élisabeth Durand de Courmont</b>.</div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">VI</div>
-                        <div>
-                            <h3>Alexandre-Louis-François Duchastel</h3>
-                            <div class="role">Baron de Montrouge</div>
-                            <div class="meta">Né à Rethel le 30 juin 1784. Hérite du titre en 1830 au décès sans
-                                descendance de son oncle Jacques-Jean-Baptiste Duchastel-Berthelin. Marié en 1813 à
-                                <b>Sophie Le Goix</b>.</div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">VII</div>
-                        <div>
-                            <h3>Jules-Jean-Baptiste Duchastel</h3>
-                            <div class="role">Baron de Montrouge · diplomate</div>
-                            <div class="meta">19 juillet 1823 – 4 janvier 1889, Paris. Partage sa vie entre Paris et le
-                                château de Monthoury. Deux mariages : <b>Julie-Sylvia-Félicie Pèlerin</b> (New York,
-                                1845), puis <b>Berthe Follias</b>.</div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">VIII</div>
-                        <div>
-                            <h3>Léon-Hilaire-Alexandre Duchastel</h3>
-                            <div class="role">Baron de Montrouge · consul de France</div>
-                            <div class="meta">17 avril 1848 Paris – 27 avril 1929 Paris. Chancelier puis consul en poste
-                                à New York, Charleston, Chicago, <b>Québec</b> (1881), Amsterdam, puis <b>Montréal</b>
-                                (1894) et Vancouver. Chevalier de la Légion d'honneur (1902). Marié à New York en 1877 à
-                                <b>Anita Snyder</b>.</div>
-                            <div class="portrait">
-                                <img src="images/leon-hilaire-portrait.jpg"
-                                    alt="Portrait de Léon-Hilaire-Alexandre Duchastel">
-                                <img src="images/leon-hilaire-consul.jpg"
-                                    alt="Léon-Hilaire-Alexandre Duchastel en habit de consul">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">IX</div>
-                        <div>
-                            <h3>Jules-Alexandre Duchastel</h3>
-                            <div class="role">Baron de Montrouge · ingénieur</div>
-                            <div class="meta">1<sup>er</sup> septembre 1878 New York – 20 février 1938 Montréal. Diplômé
-                                de l'École Polytechnique de Montréal (1901); ingénieur administrateur à la Ville
-                                d'Outremont (1906–1924); major dans l'armée canadienne. Marié en 1904 à <b>Jeanne
-                                    Lacoste</b>.</div>
-                            <div class="portrait">
-                                <img src="images/jules-alexandre.jpg" alt="Jules-Alexandre Duchastel de Montrouge">
-                                <img src="images/famille-1920.jpg"
-                                    alt="La famille de Jules-Alexandre Duchastel de Montrouge, vers 1920">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="rung">
-                        <div class="numeral">X</div>
-                        <div>
-                            <h3>Léon-Alexandre Duchastel</h3>
-                            <div class="role">Baron de Montrouge · ingénieur civil</div>
-                            <div class="meta">22 juillet 1905 Outremont – 21 mars 1962. Diplômé de Polytechnique (1927);
-                                major, régiment de Maisonneuve. Marié en 1933 à <b>Yvette Beauchamp</b>.</div>
-                        </div>
-                    </div>
-
-                    <div class="rung current">
-                        <div class="numeral">XI</div>
-                        <div>
-                            <h3>Yves-Jules Duchastel</h3>
-                            <div class="role">Présent baron de Montrouge</div>
-                            <div class="meta">Né le 7 avril 1934 à Montréal. Neurologue; fondateur en 1964 et chef du
-                                Service de neurologie de l'Hôpital du Sacré-Cœur de Montréal jusqu'en 1980; président de
-                                l'Association des neurologues du Québec (1975–1976). Héritier présomptif du titre : son
-                                fils <b>Laurent</b> (né 1966).</div>
-                        </div>
-                    </div>
-
+            <div class="rung current">
+                <div class="numeral">XI</div>
+                <div>
+                    <h3>Yves-Jules Duchastel</h3>
+                    <div class="role">Présent baron de Montrouge</div>
+                    <div class="meta">Né le 7 avril 1934 à Montréal. Neurologue; fondateur en 1964 et chef du
+                        Service de neurologie de l'Hôpital du Sacré-Cœur de Montréal jusqu'en 1980; président de
+                        l'Association des neurologues du Québec (1975–1976). Héritier présomptif du titre : son
+                        fils <b>Laurent</b> (né 1966).</div>
                 </div>
-    </div>
+            </div>
+
+        </div>
+        </div>
     </section>
 
     <!-- ===================== FULL RECORDS ===================== -->
@@ -849,7 +1254,8 @@
                         Charest</span><span class="chevron">›</span></summary>
                 <div class="gen-body">
                     <p>Née le 6 juillet 1914 à Outremont; décédée le 15 décembre 1989 à Ville-Mont-Royal. Épouse
-                        <b>Clément Charest</b> (né le 19 octobre 1912) le 22 avril 1936.</p>
+                        <b>Clément Charest</b> (né le 19 octobre 1912) le 22 avril 1936.
+                    </p>
                     <div class="children">
                         <div class="child">9.6.1 <b>Michel Charest</b> (né le 22 mai 1937), marié le 20 avril 1963 à
                             Louise McDonald.</div>
@@ -868,7 +1274,8 @@
                         Sébastien</span><span class="chevron">›</span></summary>
                 <div class="gen-body">
                     <p>Née le 31 octobre 1941, fille de Clément Charest et Paule Duchastel de Montrouge. Épouse
-                        <b>Pierre Sébastien</b> (né le 5 septembre 1936) le 26 mai 1962.</p>
+                        <b>Pierre Sébastien</b> (né le 5 septembre 1936) le 26 mai 1962.
+                    </p>
                     <div class="children">
                         <div class="child">10.1 <b>Jean Sébastien</b></div>
                         <div class="child">10.2 <b>Philippe Sébastien</b> (né en 1965) — voir génération 11.</div>
