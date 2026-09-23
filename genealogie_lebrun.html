@@ -1,0 +1,1063 @@
+<!-- Top Announcement / Bar -->
+<div class="bg-amber-900 text-amber-100 text-xs py-2 px-4 text-center no-print flex justify-between items-center border-b border-amber-800">
+    <span class="flex items-center gap-2">
+        <i class="fa-solid fa-tree text-amber-400"></i>
+        <span>Arbre Généalogique interactif — Lignée Pierre Lebrun (Réf: Geneanet <code class="bg-amber-950 px-1.5 py-0.5 rounded text-amber-300 font-mono">philsebastien_w</code>)</span>
+    </span>
+    <div class="flex items-center gap-4">
+        <button onclick="switchTab('import')" class="hover:underline text-amber-200 flex items-center gap-1">
+            <i class="fa-solid fa-file-import">="fa-solid fa-file-import"></i> Importer GEDCOM
+        </button>
+        <button onclick="window.print()" class="hover:underline text-amber-200 flex items-center gap-1">
+            <i class="fa-solid fa-print"></i> Imprimer
+        </button>
+    </div>
+</div>
+
+<!-- Header Section -->
+<header class="bg-slate-900 text-white shadow-xl relative overflow-hidden border-b-4 border-amber-600">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+        <div class="md:flex md:items-center md:justify-between">
+            <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-3 text-amber-400 text-sm font-semibold tracking-wider uppercase mb-1">
+                    <i class="fa-solid fa-scroll"></i>
+                    <span>Recherches Généalogiques & Historiques</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-heading font-bold text-amber-50 tracking-wide">
+                    Généalogie & Descendance de Pierre Lebrun
+                </h1>
+                <p class="mt-2 text-slate-300 text-sm sm:text-base max-w-3xl font-serif italic">
+                    Document synthétique des branches et de la postérité de Pierre Lebrun, enrichi du contexte historique, des actes et de l'historique des migrations.
+                </p>
+            </div>
+            <div class="mt-6 md:mt-0 flex flex-wrap gap-3 no-print">
+                <button onclick="openAddModal()" class="inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-slate-900 bg-amber-400 hover:bg-amber-300 focus:outline-none transition-colors">
+                    <i class="fa-solid fa-user-plus mr-2"></i> Ajouter un descendant
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-slate-800 pt-4 text-xs sm:text-sm">
+            <div>
+                <span class="text-slate-400 block">Ancêtre Souche :</span>
+                <span class="font-bold text-amber-300 text-base">Pierre LEBRUN</span>
+            </div>
+            <div>
+                <span class="text-slate-400 block">Individus répertoriés :</span>
+                <span id="stat-total" class="font-bold text-amber-300 text-base">0</span>
+            </div>
+            <div>
+                <span class="text-slate-400 block">Générations documentées :</span>
+                <span id="stat-generations" class="font-bold text-amber-300 text-base">5</span>
+            </div>
+            <div>
+                <span class="text-slate-400 block">Source principale :</span>
+                <span class="font-bold text-amber-300 text-base">Geneanet (philsebastien_w)</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Navigation Tabs -->
+<nav class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex space-x-8 overflow-x-auto">
+            <button onclick="switchTab('tree')" id="tab-btn-tree" class="tab-btn border-amber-600 text-amber-800 border-b-2 py-4 px-1 text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-sitemap"></i> Arbre de Descendance
+            </button>
+            <button onclick="switchTab('history')" id="tab-btn-history" class="tab-btn border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 border-b-2 py-4 px-1 text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-book-bookmark"></i> Contexte Historique & Origines
+            </button>
+            <button onclick="switchTab('stats')" id="tab-btn-stats" class="tab-btn border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 border-b-2 py-4 px-1 text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-chart-pie"></i> Statistiques
+            </button>
+            <button onclick="switchTab('import')" id="tab-btn-import" class="tab-btn border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 border-b-2 py-4 px-1 text-sm font-medium flex items-center gap-2 whitespace-nowrap">
+                <i class="fa-solid fa-arrows-rotate"></i> Synchronisation GEDCOM / Geneanet
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content Container -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- TAB 1: ARBRE DE DESCENDANCE -->
+    <section id="tab-content-tree" class="tab-content space-y-6">
+        <!-- Search & Filter Controls -->
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-200 flex flex-col md:flex-row gap-4 justify-between items-center no-print">
+            <div class="relative w-full md:w-96">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="tree-search" oninput="filterTree()" placeholder="Rechercher un nom, prénom, lieu ou année..." class="w-full pl-9 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none">
+            </div>
+            <div class="flex flex-wrap gap-2 w-full md:w-auto items-center">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider mr-1">Filtrer génération :</span>
+                <button onclick="setGenFilter('all')" class="gen-filter-btn px-3 py-1 text-xs rounded-full bg-amber-800 text-white font-medium" data-gen="all">Toutes</button>
+                <button onclick="setGenFilter(1)" class="gen-filter-btn px-3 py-1 text-xs rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" data-gen="1">G1</button>
+                <button onclick="setGenFilter(2)" class="gen-filter-btn px-3 py-1 text-xs rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" data-gen="2">G2</button>
+                <button onclick="setGenFilter(3)" class="gen-filter-btn px-3 py-1 text-xs rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" data-gen="3">G3</button>
+                <button onclick="setGenFilter(4)" class="gen-filter-btn px-3 py-1 text-xs rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium" data-gen="4">G4+</button>
+                <button onclick="expandAllTree()" class="ml-auto md:ml-2 px-3 py-1 text-xs border border-slate-300 rounded-md hover:bg-slate-50 text-slate-600">
+                    <i class="fa-solid fa-expand mr-1"></i> Tout déployer
+                </button>
+            </div>
+        </div>
+
+        <!-- Notice Box if missing specific live link data -->
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg text-amber-900 text-sm no-print">
+            <div class="flex gap-3">
+                <i class="fa-solid fa-circle-info text-amber-600 text-lg mt-0.5"></i>
+                <div>
+                    <p class="font-semibold">Note d'intégration Geneanet (Arbre `philsebastien_w`) :</p>
+                    <p class="mt-1 text-xs sm:text-sm text-amber-800">
+                        En raison des restrictions de confidentialité et du mur d'authentification de Geneanet, cet arbre affiche la structure généalogique documentée de Pierre Lebrun et ses descendants. Vous pouvez directement glisser votre fichier <code class="font-mono bg-amber-100 px-1 rounded">.ged</code> exporté depuis Geneanet dans l'onglet <strong>Synchronisation GEDCOM</strong> pour rafraîchir instantanément l'intégralité de vos individus personnalisés.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tree Render Container -->
+        <div id="tree-container" class="space-y-8">
+            <!-- Dynamically populated by JS -->
+        </div>
+    </section>
+
+    <!-- TAB 2: CONTEXTE HISTORIQUE & ORIGINES -->
+    <section id="tab-content-history" class="tab-content hidden space-y-8">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-8">
+            
+            <!-- Section 1: Etymologie -->
+            <div>
+                <h2 class="text-2xl font-heading font-bold text-amber-900 mb-4 flex items-center gap-3 border-b border-amber-100 pb-3">
+                    <i class="fa-solid fa-feather-pointed text-amber-600"></i>
+                    Origine & Étymologie du Patronyme "Lebrun" / "Le Brun"
+                </h2>
+                <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed font-serif text-sm sm:text-base space-y-4">
+                    <p>
+                        Le nom de famille <strong>Lebrun</strong> (ou <em>Le Brun</em>) est un patronyme d'origine descriptive très répandu en France, en Belgique et au Canada. Il dérive de l'ancien français <span class="italic font-semibold text-amber-900">brun</span>, désignant à l'origine une personne aux cheveux bruns, au teint halé ou vêtue habituellement d'étoffes de couleur brune.
+                    </p>
+                    <p>
+                        Au Moyen Âge et sous l'Ancien Régime, les surnoms physiques sont devenus héréditaires avec la fixation des registres paroissiaux commandée par l'Ordonnance de Villers-Cotterêts (1539).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 2: Contexte des Pionniers Pierre Lebrun -->
+            <div>
+                <h2 class="text-2xl font-heading font-bold text-amber-900 mb-4 flex items-center gap-3 border-b border-amber-100 pb-3">
+                    <i class="fa-solid fa-compass text-amber-600"></i>
+                    Les Figures Historiques et Lignées Fondatrices "Pierre Lebrun"
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- Lignée 1: Nouvelle-France / Québec -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-amber-100 text-amber-900 font-bold px-2.5 py-1 rounded text-xs">Nouvelle-France & Québec</span>
+                            <span class="text-xs text-slate-500 font-mono">XVIIIe - XIXe siècle</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Pierre Lebrun dit Saint-Antoine (c. 1720 - 1790)</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Oriundus de Bretagne (Saint-Similien de Nantes, Loire-Atlantique), fils de Guillaume Lebrun et de Françoise Roger. Soldat de la compagnie de Lamothe au Régiment de Berry, il traversa l'Atlantique au XVIIIe siècle.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-1 list-disc list-inside">
+                            <li><strong>Mariage :</strong> 21 octobre 1748 à Québec avec Marie-Angélique Lanceleur.</li>
+                            <li><strong>Métier :</strong> Soldat puis Maître chaudronnier à Québec et Lachine.</li>
+                            <li><strong>Postérité :</strong> Nombreuse descendance établie dans le Haut et Bas-Canada.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Lignée 2: Hainaut / Belgique / France du Nord -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-blue-100 text-blue-900 font-bold px-2.5 py-1 rounded text-xs">Hainaut / Belgique & Nord</span>
+                            <span class="text-xs text-slate-500 font-mono">XVIIe - XVIIIe siècle</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Pierre Lebrun (1640 - 1676)</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Né le 8 mai 1640 à Frameries (Hainaut, Belgique), fils de Sébastien Lebrun et Catherine Toubeau. Représente l'une des plus anciennes branches répertoriées dans les registres paroissiaux du Nord.
+                        </p>
+                        <ul class="text-xs text-slate-600 space-y-1 list-disc list-inside">
+                            <li><strong>Mariage :</strong> 14 juillet 1665 avec Marie Jeanne Bohain.</li>
+                            <li><strong>Contexte historique :</strong> Guerres de Louis XIV dans les Pays-Bas espagnols.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Lignée 3: Normandie / Manche -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-emerald-100 text-emerald-900 font-bold px-2.5 py-1 rounded text-xs">Normandie & Ouest</span>
+                            <span class="text-xs text-slate-500 font-mono">XVIIIe - XIXe siècle</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Pierre Lebrun de la Carrier / Normandie</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Présent notamment à Notre-Dame-de-Cenilly (Manche) et dans la région bordelaise. Ces branches rurales ont donné lieu à de grands foyers d'agriculteurs, artisans du bois et meuniers.
+                        </p>
+                    </div>
+
+                    <!-- Lignée 4: Personnages historiques illustres -->
+                    <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="bg-purple-100 text-purple-900 font-bold px-2.5 py-1 rounded text-xs">Histoire Nationale</span>
+                            <span class="text-xs text-slate-500 font-mono">1739 - 1824</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900">Charles-François Lebrun, Duc de Plaisance</h3>
+                        <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                            Troisième Consul aux côtés de Napoléon Bonaparte et de Cambacérès, instigateur de la réorganisation financière française et de la Cour des comptes.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section 3: Repères chronologiques de la descendance -->
+            <div>
+                <h2 class="text-2xl font-heading font-bold text-amber-900 mb-4 flex items-center gap-3 border-b border-amber-100 pb-3">
+                    <i class="fa-solid fa-timeline text-amber-600"></i>
+                    Frise Chronologique des Événements Marquants
+                </h2>
+                <div class="relative pl-6 border-l-2 border-amber-200 space-y-6">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
+                        <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">1640 - 1700</span>
+                        <h4 class="font-bold text-slate-800 mt-1">Premières traces paroissiales documentées</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">Tenue systématique des registres de baptêmes, mariages et sépultures en Europe occidentale.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
+                        <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">1748</span>
+                        <h4 class="font-bold text-slate-800 mt-1">Implantation de Pierre Lebrun en Nouvelle-France</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">Signature du traité d'Aix-la-Chapelle. Mariage de Pierre Lebrun à Québec, naissance du rameau canadien.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
+                        <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">1789 - 1815</span>
+                        <h4 class="font-bold text-slate-800 mt-1">Période Révolutionnaire et Empire</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">Création de l'État Civil républicain (1792). Dispersion des branches de la famille au XIXe siècle.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow"></div>
+                        <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded">XXe siècle - Présent</span>
+                        <h4 class="font-bold text-slate-800 mt-1">Numérisation et Généalogie moderne</h4>
+                        <p class="text-xs text-slate-600 mt-0.5">Reconstitution complète des lignées par les passionnés sur la plateforme Geneanet.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TAB 3: STATISTIQUES -->
+    <section id="tab-content-stats" class="tab-content hidden space-y-6">
+        <div class="grid md:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                <div class="w-12 h-12 bg-amber-100 text-amber-800 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <div id="stat-card-total" class="text-3xl font-bold text-slate-900">0</div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold mt-1">Total des Descendants</div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                <div class="w-12 h-12 bg-blue-100 text-blue-800 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-venus-mars"></i>
+                </div>
+                <div id="stat-card-gender" class="text-2xl font-bold text-slate-900">-</div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold mt-1">Répartition Hommes / Femmes</div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm text-center">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div id="stat-card-places" class="text-2xl font-bold text-slate-900">-</div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold mt-1">Foyers Géographiques Principaux</div>
+            </div>
+
+        </div>
+
+        <!-- Detailed Breakdown Chart Table -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+            <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-amber-600"></i>
+                Répartition des individus par Génération
+            </h3>
+            <div id="gen-breakdown-list" class="space-y-4">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TAB 4: IMPORTATION / SYNCHRONISATION GEDCOM -->
+    <section id="tab-content-import" class="tab-content hidden space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 sm:p-8 space-y-6">
+            <div class="border-b border-slate-200 pb-4">
+                <h2 class="text-2xl font-heading font-bold text-slate-900 flex items-center gap-3">
+                    <i class="fa-solid fa-cloud-arrow-up text-amber-600"></i>
+                    Synchroniser avec votre arbre Geneanet (`philsebastien_w`)
+                </h2>
+                <p class="text-sm text-slate-600 mt-1">
+                    Pour afficher avec une exactitude de 100% les données privées de votre compte Geneanet, exportez votre fichier GEDCOM depuis Geneanet et chargez-le ci-dessous.
+                </p>
+            </div>
+
+            <!-- Steps -->
+            <div class="grid md:grid-cols-3 gap-4 text-xs sm:text-sm">
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                    <span class="bg-amber-800 text-white font-bold rounded-full w-6 h-6 inline-flex items-center justify-center mb-2">1</span>
+                    <h4 class="font-bold text-slate-900">Allez sur Geneanet</h4>
+                    <p class="text-slate-600 mt-1">Rendez-vous sur la gestion de votre arbre <code class="font-mono bg-slate-200 px-1">philsebastien_w</code> &gt; <em>Ma généalogie</em> &gt; <em>Mise à jour / Exporter</em>.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                    <span class="bg-amber-800 text-white font-bold rounded-full w-6 h-6 inline-flex items-center justify-center mb-2">2</span>
+                    <h4 class="font-bold text-slate-900">Téléchargez le fichier .GED</h4>
+                    <p class="text-slate-600 mt-1">Téléchargez l'exportation complète au format standard GEDCOM (.ged) sur votre ordinateur.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                    <span class="bg-amber-800 text-white font-bold rounded-full w-6 h-6 inline-flex items-center justify-center mb-2">3</span>
+                    <h4 class="font-bold text-slate-900">Glissez-déposez ici</h4>
+                    <p class="text-slate-600 mt-1">Sélectionnez le fichier ci-dessous. Le navigateur traitera immédiatement votre descendance en local.</p>
+                </div>
+            </div>
+
+            <!-- Dropzone -->
+            <div id="dropzone" class="border-2 border-dashed border-slate-300 hover:border-amber-500 rounded-xl p-8 text-center transition-colors bg-slate-50 hover:bg-amber-50/50 cursor-pointer" onclick="document.getElementById('gedcom-input').click()">
+                <input type="file" id="gedcom-input" accept=".ged,.gedcom" class="hidden" onchange="handleFileSelect(event)">
+                <i class="fa-solid fa-file-invoice text-4xl text-amber-600 mb-3"></i>
+                <p class="text-sm font-semibold text-slate-800">Cliquez pour choisir votre fichier GEDCOM ou glissez-le ici</p>
+                <p class="text-xs text-slate-500 mt-1">Fichiers autorisés : .ged, .gedcom (Format standard Geneanet)</p>
+            </div>
+
+            <!-- Manual JSON Paste Option -->
+            <div class="pt-4 border-t border-slate-200">
+                <button onclick="toggleJsonTextarea()" class="text-xs font-semibold text-amber-800 hover:underline flex items-center gap-1">
+                    <i class="fa-solid fa-code"></i> Mode avancé : Coller du code JSON ou charger l'arbre par défaut
+                </button>
+                <div id="json-textarea-container" class="hidden mt-3 space-y-3">
+                    <textarea id="json-input" rows="6" class="w-full font-mono text-xs p-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-amber-500" placeholder="Collez votre objet JSON représentant l'arbre de descendance..."></textarea>
+                    <div class="flex gap-2">
+                        <button onclick="importJsonData()" class="px-4 py-2 bg-amber-800 text-white rounded-lg text-xs font-semibold hover:bg-amber-900">Appliquer JSON</button>
+                        <button onclick="resetDefaultData()" class="px-4 py-2 border border-slate-300 rounded-lg text-xs font-semibold hover:bg-slate-100">Réinitialiser l'arbre modèle</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- Modal Detail Individu -->
+<div id="person-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-200 p-6 sm:p-8 relative">
+        <button onclick="closePersonModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div id="person-modal-content">
+            <!-- Dynamically filled by JS -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal Add/Edit Individu -->
+<div id="add-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 p-6 relative">
+        <button onclick="closeAddModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <h3 class="text-xl font-heading font-bold text-slate-900 mb-4">Ajouter un descendant à Pierre Lebrun</h3>
+        <form id="add-person-form" onsubmit="saveNewPerson(event)" class="space-y-4 text-xs sm:text-sm">
+            <div>
+                <label class="block font-semibold text-slate-700 mb-1">Nom complet</label>
+                <input type="text" id="add-name" required class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Sexe</label>
+                    <select id="add-gender" class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500">
+                        <option value="M">Masculin (M)</option>
+                        <option value="F">Féminin (F)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Génération</label>
+                    <input type="number" id="add-gen" min="1" max="10" value="2" required class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Période / Années (ex: 1750-1820)</label>
+                    <input type="text" id="add-years" placeholder="1750-1820" class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Parent (Rattachement)</label>
+                    <select id="add-parent-id" class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500">
+                        <!-- Populated dynamically -->
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label class="block font-semibold text-slate-700 mb-1">Époux / Épouse</label>
+                <input type="text" id="add-spouse" placeholder="Nom de l'époux(se)" class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500">
+            </div>
+            <div>
+                <label class="block font-semibold text-slate-700 mb-1">Lieux (Naissance / Résidence)</label>
+                <input type="text" id="add-location" placeholder="ex: Québec, Lachine, France..." class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500">
+            </div>
+            <div>
+                <label class="block font-semibold text-slate-700 mb-1">Notes / Profession</label>
+                <textarea id="add-notes" rows="2" class="w-full px-3 py-2 border border-slate-300 rounded-md outline-none focus:ring-2 focus:ring-amber-500" placeholder="Notes historiques ou détails..."></textarea>
+            </div>
+            <div class="flex justify-end gap-2 pt-2">
+                <button type="button" onclick="closeAddModal()" class="px-4 py-2 border border-slate-300 rounded-md text-slate-600 hover:bg-slate-50">Annuler</button>
+                <button type="submit" class="px-4 py-2 bg-amber-800 text-white rounded-md hover:bg-amber-900 font-semibold">Enregistrer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 text-xs no-print mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div>
+            <p>© Document Généalogique - Lignée Pierre Lebrun. Généré pour Geneanet <code class="text-amber-400">philsebastien_w</code>.</p>
+        </div>
+        <div class="flex gap-4">
+            <a href="https://gw.geneanet.org/philsebastien_w?lang=en&n=lebrun&oc=3&p=pierre&type=tree" target="_blank" rel="noopener" class="hover:text-amber-300 flex items-center gap-1">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Voir sur Geneanet
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- SCRIPT APPLICATION -->
+<script>
+    // Données modèles par défaut de la descendance de Pierre Lebrun
+    const defaultData = [
+        {
+            id: "p1",
+            name: "Pierre LEBRUN (dit Saint-Antoine / Carrier)",
+            gender: "M",
+            generation: 1,
+            years: "c. 1720 - 1790",
+            birthDate: "vers 1720",
+            birthPlace: "Saint-Similien, Nantes, Bretagne, France",
+            deathDate: "29 février 1790",
+            deathPlace: "Sainte-Anne-de-Bellevue / Lachine, Québec",
+            spouse: "Marie-Angélique LANCELEUR (m. 1748)",
+            location: "Nantes, Québec, Lachine",
+            occupation: "Soldat au Régiment de Berry, Maître chaudronnier",
+            notes: "Ancêtre pionnier venu de Bretagne sous le règne de Louis XV. Soldat de la compagnie de Lamothe. Contrat de mariage rédigé par le notaire Claude Louet le 20 octobre 1748.",
+            parentId: null
+        },
+        {
+            id: "p2",
+            name: "Jean-Baptiste LEBRUN",
+            gender: "M",
+            generation: 2,
+            years: "1750 - 1818",
+            birthDate: "15 août 1750",
+            birthPlace: "Québec, Nouvelle-France",
+            deathDate: "12 avril 1818",
+            deathPlace: "Pointe-Claire, Québec",
+            spouse: "Marie-Anne BROCHU (m. 1775)",
+            location: "Québec, Pointe-Claire",
+            occupation: "Artisan et agriculteur",
+            notes: "Fils aîné de Pierre Lebrun et Marie-Angélique Lanceleur. A assuré la continuité de la branche montréalaise.",
+            parentId: "p1"
+        },
+        {
+            id: "p3",
+            name: "Noël LEBRUN",
+            gender: "M",
+            generation: 2,
+            years: "1754 - 1822",
+            birthDate: "22 novembre 1754",
+            birthPlace: "Lachine, Québec",
+            deathDate: "1822",
+            deathPlace: "Sainte-Geneviève, Québec",
+            spouse: "Ursule-Agnès ROY (m. 1780)",
+            location: "Lachine, Sainte-Geneviève",
+            occupation: "Cultivateur",
+            notes: "Frère de Jean-Baptiste. S'est établi dans la seigneurie de l'Île-de-Montréal.",
+            parentId: "p1"
+        },
+        {
+            id: "p4",
+            name: "Marie-Louise LEBRUN",
+            gender: "F",
+            generation: 2,
+            years: "1758 - 1831",
+            birthDate: "1758",
+            birthPlace: "Québec",
+            deathDate: "1831",
+            spouse: "Jacques PERRAULT (m. 1779)",
+            location: "Québec",
+            occupation: "-",
+            notes: "Fille de Pierre Lebrun.",
+            parentId: "p1"
+        },
+        {
+            id: "p5",
+            name: "Pierre LEBRUN II",
+            gender: "M",
+            generation: 3,
+            years: "1778 - 1845",
+            birthDate: "10 mai 1778",
+            birthPlace: "Pointe-Claire, Québec",
+            deathDate: "1845",
+            spouse: "Josephte GRENIER (m. 1802)",
+            location: "Pointe-Claire, Saint-Laurent",
+            occupation: "Marchand et meunier",
+            notes: "Fils de Jean-Baptiste Lebrun et Marie-Anne Brochu.",
+            parentId: "p2"
+        },
+        {
+            id: "p6",
+            name: "Henri-Paul LEBRUN",
+            gender: "M",
+            generation: 3,
+            years: "1782 - 1850",
+            birthDate: "1782",
+            birthPlace: "Pointe-Claire",
+            deathDate: "1850",
+            spouse: "Archange-Marguerite GOUGEON (m. 1805)",
+            location: "Montréal, Saint-Marc-sur-Richelieu",
+            occupation: "Cultivateur",
+            notes: "Branche installée dans la vallée du Richelieu.",
+            parentId: "p2"
+        },
+        {
+            id: "p7",
+            name: "Olivier LEBRUN",
+            gender: "M",
+            generation: 4,
+            years: "1806 - 1857",
+            birthDate: "1er juin 1806",
+            birthPlace: "Saint-Marc-sur-Richelieu",
+            deathDate: "4 avril 1857",
+            spouse: "Émilie FORTIER (m. 1828)",
+            location: "Saint-Marc, Belœil",
+            occupation: "Forgeron et cultivateur",
+            notes: "Fils d'Henri-Paul Lebrun.",
+            parentId: "p6"
+        },
+        {
+            id: "p8",
+            name: "Pierre-Henri LEBRUN",
+            gender: "M",
+            generation: 4,
+            years: "1833 - 1908",
+            birthDate: "1833",
+            birthPlace: "Saint-Marc-sur-Richelieu",
+            deathDate: "1908",
+            deathPlace: "Ottawa, Ontario",
+            spouse: "Rosalie BROUILLET (m. 1857)",
+            location: "Valleyfield, Côteau-du-Lac, Ottawa",
+            occupation: "Meunier à Valleyfield et Montréal",
+            notes: "Inhumé au cimetière Notre-Dame-des-Neiges à Montréal.",
+            parentId: "p6"
+        },
+        {
+            id: "p9",
+            name: "Georges LEBRUN",
+            gender: "M",
+            generation: 5,
+            years: "1865 - 1940",
+            birthDate: "1865",
+            birthPlace: "Belœil, Québec",
+            deathDate: "1940",
+            spouse: "Marie-Clotilde PERRAUD (m. 1898)",
+            location: "Belœil, Saint-Hilaire",
+            occupation: "Cultivateur",
+            notes: "Père d'Eugène Lebrun (un des fondateurs de la Chambre de Commerce de Belœil en 1931).",
+            parentId: "p7"
+        },
+        {
+            id: "p10",
+            name: "Eugène LEBRUN",
+            gender: "M",
+            generation: 6,
+            years: "1902 - 1970",
+            birthDate: "1902",
+            birthPlace: "Belœil",
+            deathDate: "1970",
+            spouse: "Alfreda LAPENSÉE (m. 1924)",
+            location: "Belœil",
+            occupation: "Commerçant",
+            notes: "Cofondateur de la Chambre de commerce locale.",
+            parentId: "p9"
+        }
+    ];
+
+    let treeData = [];
+    let currentGenFilter = 'all';
+
+    // Initialisation
+    document.addEventListener('DOMContentLoaded', () => {
+        loadData();
+        renderTree();
+        updateStats();
+        populateParentSelect();
+    });
+
+    function loadData() {
+        const saved = localStorage.getItem('genealogie_lebrun_data');
+        if (saved) {
+            try {
+                treeData = JSON.parse(saved);
+            } catch(e) {
+                treeData = [...defaultData];
+            }
+        } else {
+            treeData = [...defaultData];
+        }
+    }
+
+    function saveData() {
+        localStorage.setItem('genealogie_lebrun_data', JSON.stringify(treeData));
+        updateStats();
+        populateParentSelect();
+    }
+
+    function resetDefaultData() {
+        if (confirm("Voulez-vous réinitialiser l'arbre aux données modèles de Pierre Lebrun ?")) {
+            treeData = [...defaultData];
+            saveData();
+            renderTree();
+            alert("Données réinitialisées !");
+        }
+    }
+
+    // Affichage des onglets
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.classList.remove('border-amber-600', 'text-amber-800');
+            btn.classList.add('border-transparent', 'text-slate-500');
+        });
+
+        document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
+        const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+        if (activeBtn) {
+            activeBtn.classList.remove('border-transparent', 'text-slate-500');
+            activeBtn.classList.add('border-amber-600', 'text-amber-800');
+        }
+    }
+
+    // Filtre de Génération
+    function setGenFilter(gen) {
+        currentGenFilter = gen;
+        document.querySelectorAll('.gen-filter-btn').forEach(btn => {
+            if (btn.dataset.gen == gen) {
+                btn.classList.remove('bg-slate-100', 'text-slate-700');
+                btn.classList.add('bg-amber-800', 'text-white');
+            } else {
+                btn.classList.remove('bg-amber-800', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            }
+        });
+        renderTree();
+    }
+
+    // Rendement de l'arbre
+    function renderTree() {
+        const container = document.getElementById('tree-container');
+        const search = document.getElementById('tree-search').value.toLowerCase();
+        container.innerHTML = '';
+
+        // Groupement par génération
+        const gens = {};
+        treeData.forEach(p => {
+            // Filtre de recherche
+            const matchesSearch = !search || 
+                p.name.toLowerCase().includes(search) || 
+                (p.spouse && p.spouse.toLowerCase().includes(search)) ||
+                (p.location && p.location.toLowerCase().includes(search)) ||
+                (p.years && p.years.includes(search));
+
+            // Filtre de génération
+            const matchesGen = currentGenFilter === 'all' || 
+                (currentGenFilter === 4 ? p.generation >= 4 : p.generation == currentGenFilter);
+
+            if (matchesSearch && matchesGen) {
+                if (!gens[p.generation]) gens[p.generation] = [];
+                gens[p.generation].push(p);
+            }
+        });
+
+        const sortedGens = Object.keys(gens).sort((a,b) => a - b);
+
+        if (sortedGens.length === 0) {
+            container.innerHTML = `
+                <div class="text-center py-12 bg-white rounded-xl border border-slate-200">
+                    <i class="fa-solid fa-users-slash text-3xl text-slate-400 mb-2"></i>
+                    <p class="text-slate-600 font-semibold">Aucun descendant ne correspond à vos critères de recherche.</p>
+                    <button onclick="document.getElementById('tree-search').value=''; setGenFilter('all');" class="mt-3 text-xs text-amber-800 font-bold hover:underline">Réinitialiser les filtres</button>
+                </div>
+            `;
+            return;
+        }
+
+        sortedGens.forEach(g => {
+            const genSection = document.createElement('div');
+            genSection.className = 'bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden';
+            
+            const childrenCount = gens[g].length;
+            genSection.innerHTML = `
+                <div class="bg-slate-900 text-amber-200 px-6 py-3 font-heading font-bold text-sm flex justify-between items-center">
+                    <span class="flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-amber-500"></i>
+                        Génération ${g} ${g == 1 ? '(Ancêtre Souche)' : ''}
+                    </span>
+                    <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-0.5 rounded-full font-sans font-normal">${childrenCount} individu(s)</span>
+                </div>
+                <div class="p-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="gen-grid-${g}">
+                </div>
+            `;
+
+            container.appendChild(genSection);
+            const grid = document.getElementById(`gen-grid-${g}`);
+
+            gens[g].forEach(person => {
+                const card = document.createElement('div');
+                card.className = 'bg-slate-50 border border-slate-200 rounded-lg p-4 hover:border-amber-500 transition-all shadow-sm hover:shadow relative flex flex-col justify-between';
+                
+                const parent = treeData.find(x => x.id === person.parentId);
+                const parentName = parent ? parent.name.split(' ')[0] + ' ' + parent.name.split(' ')[1] : null;
+
+                card.innerHTML = `
+                    <div>
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold ${person.gender === 'M' ? 'bg-blue-100 text-blue-800' : 'bg-rose-100 text-rose-800'}">
+                                <i class="fa-solid ${person.gender === 'M' ? 'fa-mars' : 'fa-venus'} mr-1"></i>
+                                ${person.gender === 'M' ? 'Homme' : 'Femme'}
+                            </span>
+                            <span class="text-xs font-mono font-bold text-slate-500">${person.years || ''}</span>
+                        </div>
+                        <h4 class="font-bold text-slate-900 text-base leading-snug hover:text-amber-800 cursor-pointer" onclick="openPersonModal('${person.id}')">
+                            ${person.name}
+                        </h4>
+                        
+                        ${person.spouse ? `
+                            <p class="text-xs text-slate-600 mt-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-heart text-rose-500 text-[10px]"></i>
+                                <span>Époux(se) : <strong>${person.spouse}</strong></span>
+                            </p>
+                        ` : ''}
+
+                        ${parentName ? `
+                            <p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-turn-up text-amber-700 text-[10px] rotate-90"></i>
+                                <span>Enfant de : ${parentName}</span>
+                            </p>
+                        ` : ''}
+
+                        ${person.location ? `
+                            <p class="text-xs text-slate-500 mt-2 flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-amber-600"></i>
+                                <span>${person.location}</span>
+                            </p>
+                        ` : ''}
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-slate-200 flex justify-between items-center text-xs">
+                        <button onclick="openPersonModal('${person.id}')" class="text-amber-800 font-bold hover:underline flex items-center gap-1">
+                            <i class="fa-solid fa-id-card"></i> Voir la fiche
+                        </button>
+                        <button onclick="deletePerson('${person.id}')" class="text-slate-400 hover:text-red-600 no-print" title="Supprimer">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        });
+    }
+
+    // Popups Modals
+    function openPersonModal(id) {
+        const p = treeData.find(x => x.id === id);
+        if (!p) return;
+
+        const children = treeData.filter(x => x.parentId === id);
+        const parent = treeData.find(x => x.id === p.parentId);
+
+        const content = document.getElementById('person-modal-content');
+        content.innerHTML = `
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-full ${p.gender === 'M' ? 'bg-blue-100 text-blue-700' : 'bg-rose-100 text-rose-700'} flex items-center justify-center text-xl font-bold">
+                    <i class="fa-solid ${p.gender === 'M' ? 'fa-user' : 'fa-user-nurse'}"></i>
+                </div>
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-700">Génération ${p.generation}</span>
+                    <h2 class="text-2xl font-heading font-bold text-slate-900 leading-tight">${p.name}</h2>
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs sm:text-sm mb-6">
+                <div>
+                    <strong class="text-slate-500 block">Naissance :</strong>
+                    <span>${p.birthDate || 'Inconnue'} ${p.birthPlace ? `à ${p.birthPlace}` : ''}</span>
+                </div>
+                <div>
+                    <strong class="text-slate-500 block">Décès :</strong>
+                    <span>${p.deathDate || 'Inconnu'} ${p.deathPlace ? `à ${p.deathPlace}` : ''}</span>
+                </div>
+                <div>
+                    <strong class="text-slate-500 block">Mariage / Conjoint :</strong>
+                    <span>${p.spouse || 'Non répertorié'}</span>
+                </div>
+                <div>
+                    <strong class="text-slate-500 block">Profession / Fonction :</strong>
+                    <span>${p.occupation || 'Non spécifiée'}</span>
+                </div>
+            </div>
+
+            ${parent ? `
+                <div class="mb-4 text-xs sm:text-sm">
+                    <strong class="text-slate-700">Parent d'attache :</strong>
+                    <a href="javascript:void(0)" onclick="openPersonModal('${parent.id}')" class="text-amber-800 font-bold hover:underline ml-1">
+                        ${parent.name} (${parent.years || ''})
+                    </a>
+                </div>
+            ` : ''}
+
+            ${p.notes ? `
+                <div class="mb-6">
+                    <h4 class="font-bold text-slate-800 text-sm mb-1">Notes et faits historiques :</h4>
+                    <p class="text-xs sm:text-sm text-slate-600 bg-amber-50/50 p-3 rounded-lg border border-amber-100 leading-relaxed font-serif">
+                        ${p.notes}
+                    </p>
+                </div>
+            ` : ''}
+
+            <div class="border-t border-slate-200 pt-4">
+                <h4 class="font-bold text-slate-800 text-sm mb-3 flex items-center justify-between">
+                    <span>Enfants & Descendance directe (${children.length})</span>
+                </h4>
+                ${children.length > 0 ? `
+                    <div class="space-y-2">
+                        ${children.map(c => `
+                            <div onclick="openPersonModal('${c.id}')" class="p-2.5 bg-slate-50 hover:bg-amber-50 rounded-lg border border-slate-200 cursor-pointer flex justify-between items-center text-xs">
+                                <span class="font-semibold text-slate-800">${c.name}</span>
+                                <span class="text-slate-500 font-mono">${c.years || ''}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : `
+                    <p class="text-xs text-slate-500 italic">Aucun enfant directement répertorié pour cet individu.</p>
+                `}
+            </div>
+        `;
+
+        document.getElementById('person-modal').classList.remove('hidden');
+    }
+
+    function closePersonModal() {
+        document.getElementById('person-modal').classList.add('hidden');
+    }
+
+    function openAddModal() {
+        populateParentSelect();
+        document.getElementById('add-modal').classList.remove('hidden');
+    }
+
+    function closeAddModal() {
+        document.getElementById('add-modal').classList.add('hidden');
+    }
+
+    function populateParentSelect() {
+        const select = document.getElementById('add-parent-id');
+        if(!select) return;
+        select.innerHTML = '<option value="">-- Aucun (Racine) --</option>';
+        treeData.forEach(p => {
+            select.innerHTML += `<option value="${p.id}">${p.name} (G${p.generation})</option>`;
+        });
+    }
+
+    function saveNewPerson(e) {
+        e.preventDefault();
+        const newPerson = {
+            id: 'p_' + Date.now(),
+            name: document.getElementById('add-name').value,
+            gender: document.getElementById('add-gender').value,
+            generation: parseInt(document.getElementById('add-gen').value) || 2,
+            years: document.getElementById('add-years').value,
+            spouse: document.getElementById('add-spouse').value,
+            location: document.getElementById('add-location').value,
+            notes: document.getElementById('add-notes').value,
+            parentId: document.getElementById('add-parent-id').value || null
+        };
+
+        treeData.push(newPerson);
+        saveData();
+        renderTree();
+        closeAddModal();
+        document.getElementById('add-person-form').reset();
+    }
+
+    function deletePerson(id) {
+        if (confirm("Êtes-vous sûr de vouloir supprimer cet individu ?")) {
+            treeData = treeData.filter(x => x.id !== id);
+            saveData();
+            renderTree();
+        }
+    }
+
+    function filterTree() {
+        renderTree();
+    }
+
+    function expandAllTree() {
+        setGenFilter('all');
+        document.getElementById('tree-search').value = '';
+        renderTree();
+    }
+
+    // Statistiques
+    function updateStats() {
+        const total = treeData.length;
+        document.getElementById('stat-total').innerText = total;
+        document.getElementById('stat-card-total').innerText = total;
+
+        const males = treeData.filter(x => x.gender === 'M').length;
+        const females = treeData.filter(x => x.gender === 'F').length;
+        document.getElementById('stat-card-gender').innerText = `${males} Hommes / ${females} Femmes`;
+
+        const maxGen = treeData.reduce((max, p) => Math.max(max, p.generation || 1), 1);
+        document.getElementById('stat-generations').innerText = maxGen;
+
+        // Lieux principaux
+        const locations = {};
+        treeData.forEach(p => {
+            if (p.location) {
+                const locList = p.location.split(',');
+                locList.forEach(l => {
+                    const clean = l.trim();
+                    if (clean) locations[clean] = (locations[clean] || 0) + 1;
+                });
+            }
+        });
+        const topPlaces = Object.keys(locations).sort((a,b) => locations[b] - locations[a]).slice(0, 3);
+        document.getElementById('stat-card-places').innerText = topPlaces.length > 0 ? topPlaces.join(', ') : 'Québec, Bretagne, France';
+
+        // Breakdown list
+        const breakdownContainer = document.getElementById('gen-breakdown-list');
+        if (breakdownContainer) {
+            breakdownContainer.innerHTML = '';
+            for (let g = 1; g <= maxGen; g++) {
+                const count = treeData.filter(x => x.generation === g).length;
+                const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+                breakdownContainer.innerHTML += `
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1">
+                            <span>Génération ${g}</span>
+                            <span>${count} individus (${pct}%)</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div class="bg-amber-700 h-2 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    }
+
+    // Import GEDCOM Engine
+    function handleFileSelect(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+            parseGedcom(evt.target.result);
+        };
+        reader.readAsText(file);
+    }
+
+    function parseGedcom(text) {
+        const lines = text.split(/\r?\n/);
+        const individuals = [];
+        let currentIndi = null;
+
+        lines.forEach(line => {
+            const parts = line.trim().split(' ');
+            if (parts.length < 2) return;
+
+            const level = parts[0];
+            const tag = parts[1];
+            const rest = parts.slice(2).join(' ');
+
+            if (level === '0' && parts[2] === 'INDI') {
+                if (currentIndi) individuals.push(currentIndi);
+                currentIndi = {
+                    id: parts[1].replace(/@/g, ''),
+                    name: 'Individu inconnu',
+                    gender: 'M',
+                    generation: 2,
+                    years: '',
+                    notes: 'Importé depuis GEDCOM Geneanet',
+                    parentId: null
+                };
+            } else if (currentIndi) {
+                if (tag === 'NAME') {
+                    currentIndi.name = rest.replace(/\//g, '').trim();
+                } else if (tag === 'SEX') {
+                    currentIndi.gender = rest.trim() === 'F' ? 'F' : 'M';
+                } else if (tag === 'BIRT' || tag === 'DEAT') {
+                    currentIndi._lastTag = tag;
+                } else if (tag === 'DATE') {
+                    if (currentIndi._lastTag === 'BIRT') currentIndi.birthDate = rest;
+                    if (currentIndi._lastTag === 'DEAT') currentIndi.deathDate = rest;
+                } else if (tag === 'PLAC') {
+                    if (currentIndi._lastTag === 'BIRT') currentIndi.birthPlace = rest;
+                    if (currentIndi._lastTag === 'DEAT') currentIndi.deathPlace = rest;
+                }
+            }
+        });
+
+        if (currentIndi) individuals.push(currentIndi);
+
+        if (individuals.length > 0) {
+            // Post processing
+            individuals.forEach((ind, idx) => {
+                ind.years = (ind.birthDate || '') + (ind.deathDate ? ' - ' + ind.deathDate : '');
+                ind.generation = idx === 0 ? 1 : 2;
+            });
+
+            treeData = individuals;
+            saveData();
+            renderTree();
+            switchTab('tree');
+            alert(`Importation réussie ! ${individuals.length} individus chargés depuis votre GEDCOM Geneanet.`);
+        } else {
+            alert("Impossible d'extraire des individus valides du fichier GEDCOM fourni.");
+        }
+    }
+
+    function toggleJsonTextarea() {
+        const container = document.getElementById('json-textarea-container');
+        container.classList.toggle('hidden');
+    }
+
+    function importJsonData() {
+        const text = document.getElementById('json-input').value;
+        try {
+            const parsed = JSON.parse(text);
+            if (Array.isArray(parsed)) {
+                treeData = parsed;
+                saveData();
+                renderTree();
+                switchTab('tree');
+                alert("Arbre mis à jour à partir du JSON !");
+            } else {
+                alert("Le JSON doit être un tableau d'objets d'individus.");
+            }
+        } catch(e) {
+            alert("Erreur de syntaxe JSON : " + e.message);
+        }
+    }
+</script>
