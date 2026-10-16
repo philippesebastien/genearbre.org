@@ -1,1 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juchereau — De Tourouvre et du Perche à la Nouvelle-France</title>
+<meta name="description" content="Notice généalogique de la famille Juchereau : de Christophe et Louis Juchereau dans le Perche aux sieurs de More, des Châtelets, de La Ferté et de Saint-Denis en Nouvelle-France.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--parchment:#f1e8d6;--parchment-deep:#e5d7b7;--ink:#241d13;--ink-soft:#4a4030;--navy:#1c2740;--navy-deep:#131b2d;--burgundy:#7c2331;--gold:#a4802f;--gold-bright:#c79b3f;--rule:rgba(36,29,19,.18);--color-ink-soft:#4a4030;--color-navy:#1c2740}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--parchment);color:var(--ink);font-family:'EB Garamond',serif;font-size:18px;line-height:1.65}
+.eyebrow{font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:600;margin:0;color:var(--navy)}a{color:inherit}.wrap{max-width:920px;margin:auto;padding:0 32px}
+.hero{position:relative;background:radial-gradient(ellipse 900px 500px at 50% -10%,rgba(199,155,63,.16),transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--navy) 60%,#223154 100%);color:var(--parchment);padding:96px 32px 120px;text-align:center;border-bottom:1px solid rgba(199,155,63,.35)}
+.seal{width:118px;height:118px;margin:0 auto 30px}.seal svg{width:100%;height:100%}.hero .eyebrow{color:var(--gold-bright)}.hero h1{font-family:'Cormorant SC',serif;font-size:clamp(52px,9vw,96px);color:var(--parchment);margin:14px 0 6px}.hero h1 .subtitle-years{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2.4vw,22px);letter-spacing:.06em;color:#d9c9a3;margin-top:4px}.hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(18px,2.6vw,24px);color:#d9c9a3;margin:0}.hero .rule{width:64px;height:1px;background:var(--gold);margin:26px auto}.hero p.lede{max-width:620px;margin:auto;color:#cdbfa0;font-size:17px}
+.site-nav{background:var(--parchment-deep);border-bottom:1px solid var(--rule);text-align:center;padding:14px 20px;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}.site-nav a{display:inline-block;margin:4px 12px;text-decoration:none;font-weight:600;color:var(--ink-soft);padding-bottom:2px;border-bottom:1px solid transparent}.site-nav a:hover{color:var(--burgundy);border-bottom-color:var(--gold)}.site-nav a[aria-current="page"]{color:var(--burgundy);border-bottom-color:var(--burgundy)}
+section{padding:84px 0;border-bottom:1px solid var(--rule)}.section-head{margin-bottom:44px}.section-head h2{font-size:clamp(30px,4vw,42px);margin-top:8px}.lede-block p{margin:0 0 20px;color:var(--ink-soft)}.lede-block p:first-child::first-letter{font-family:'Cormorant SC';font-size:64px;float:left;line-height:.8;padding:6px 10px 0 0;color:var(--burgundy)}
+blockquote{margin:36px 0;padding:22px 28px;border-left:3px solid var(--gold);background:var(--parchment-deep);font-style:italic}blockquote cite{display:block;margin-top:10px;font-style:normal;font-family:'Cinzel';font-size:11px;letter-spacing:.15em;color:var(--ink-soft)}
+.figure-note{display:flex;gap:18px;background:var(--parchment-deep);border:1px solid var(--rule);padding:20px 24px;margin:32px 0;font-size:15.5px;color:var(--ink-soft)}.figure-note .mark{font-size:28px;color:var(--burgundy)}.figure-note p{margin:0 0 10px}.figure-note p:last-child{margin-bottom:0}
+.ladder{position:relative}.ladder:before{content:'';position:absolute;left:29px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,transparent,var(--gold) 6%,var(--gold) 94%,transparent)}.rung{display:grid;grid-template-columns:60px 1fr;gap:22px;padding:26px 0;border-bottom:1px dashed var(--rule)}.rung .numeral{font-family:'Cormorant SC';font-size:26px;width:60px;height:60px;border-radius:50%;background:var(--parchment);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:1}.rung.current .numeral{background:var(--burgundy);color:var(--parchment);border-color:var(--burgundy)}.rung h3{font-size:23px}.role{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);margin:4px 0 8px}.meta{font-size:15.5px;color:var(--ink-soft)}
+details.gen{background:var(--parchment-deep);border:1px solid var(--rule);margin-bottom:14px}details.gen summary{list-style:none;cursor:pointer;padding:20px 26px;display:flex;justify-content:space-between;gap:16px;font-family:'Cormorant Garamond';font-size:22px;color:var(--navy)}details.gen summary::-webkit-details-marker{display:none}.tag{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;color:var(--gold);white-space:nowrap;padding-top:8px}.chevron{color:var(--burgundy);transition:transform .2s}details.gen[open] .chevron{transform:rotate(90deg)}.gen-body{padding:0 26px 26px;font-size:16px;color:var(--ink-soft)}.gen-body p{margin:0 0 14px}.gen-body h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);margin:24px 0 8px}.children{padding-left:20px;border-left:2px solid var(--rule)}.child{margin-bottom:10px;list-style:none}
+.table-wrap{overflow-x:auto;border:1px solid var(--rule)}table.timeline{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--parchment-deep);color:var(--ink-soft)}table.timeline th{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;text-align:left;color:var(--gold);background:var(--navy-deep);padding:12px 16px}table.timeline td{padding:12px 16px;border-bottom:1px dashed var(--rule);vertical-align:top}table.timeline td:first-child{font-family:'Cormorant SC',serif;font-size:19px;color:var(--burgundy);white-space:nowrap}table.timeline tr:last-child td{border-bottom:0}
+.chart-wrap{background:var(--navy-deep);color:var(--parchment);padding:48px 40px;border:1px solid var(--gold)}.chart-title{text-align:center;font-family:'Cormorant SC';font-size:26px}.chart-sub{text-align:center;font-style:italic;color:#c9b98a;margin-bottom:32px}.chart-row{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid rgba(199,155,63,.2)}.rn{font-family:'Cormorant SC';color:var(--gold-bright)}.names{color:var(--parchment)}.names .migrant{color:#f2a7a7;font-weight:600}.date{display:block;font-size:13px;color:#a99a72}
+.sources ul{padding-left:20px;color:var(--ink-soft);font-size:15px}.sources li{margin-bottom:10px}.sources a{color:var(--burgundy)}.callout-next{margin-top:40px;padding:24px 28px;border:1px dashed var(--gold);background:var(--parchment-deep);font-size:15.5px;color:var(--ink-soft)}.callout-next p{margin:0 0 12px}.callout-next p:last-child{margin-bottom:0}
+footer{background:var(--navy-deep);color:#a99a72;text-align:center;padding:56px 32px 40px;font-size:14px}footer .contrib{color:#d9c9a3;margin-top:18px;font-style:italic;font-size:16px}
+@media(max-width:640px){.wrap{padding:0 20px}.rung{grid-template-columns:44px 1fr;gap:14px}.rung .numeral{width:44px;height:44px;font-size:19px}.chart-wrap{padding:32px 20px}.chart-row{grid-template-columns:40px 1fr}details.gen summary{flex-wrap:wrap}}
+</style>
+</head>
+<body>
 
+<header class="hero">
+  <div class="seal">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC'" font-size="16" fill="#e5d7b7">Famille</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC'" font-size="15" fill="#e5d7b7">Juchereau</text>
+    </svg>
+  </div>
+  <span class="eyebrow">Du Perche · Tourouvre · Québec · Beauport</span>
+  <h1>Juchereau <span class="subtitle-years">(XVI<sup>e</sup> — XVII<sup>e</sup> siècle)</span></h1>
+  <p class="sub">De More, des Châtelets, de La Ferté et de Saint-Denis</p>
+  <div class="rule"></div>
+  <p class="lede">Notice généalogique et historique retraçant les origines percheronnes de la famille Juchereau, son rôle pivot dans le recrutement d'engagés à Tourouvre et l'établissement de ses membres sur les rives du Saint-Laurent.</p>
+</header>
+
+<nav class="site-nav" aria-label="Notices de famille">
+  <a href="../Charest/genealogie_charest.html">Charest</a>
+  <a href="../Duchastel/genealogie-duchastel.html">Duchastel</a>
+  <a href="../Sirois/genealogie_sirois.html">Sirois</a>
+  <a href="../Juchereau/genealogie_juchereau.html" aria-current="page">Juchereau</a>
+  <a href="../Duchesnay/genealogie_duchesnay.html">Duchesnay</a>
+  <a href="../Quevillon/genealogie_quevillon.html">Quevillon</a>
+  <a href="../MacDonald/genealogie_macdonald.html">MacDonald</a>
+</nav>
+
+<main>
+
+<!-- CHAPITRE I -->
+<section id="histoire">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Chapitre premier</span>
+      <h2>Des campagnes du Perche aux rives du Saint-Laurent</h2>
+    </div>
+    <div class="lede-block">
+      <p>À l'origine de cette grande famille percheronne se trouvent deux frères établis à Mortagne-au-Perche au milieu du XVI<sup>e</sup> siècle : <strong>Christophe Juchereau</strong> (1540–1605) et <strong>Louis Juchereau</strong>, sieur de Monhinet (1550–1590). De Christophe et de son épouse Marie Cochon naît très probablement <strong>Jean Juchereau</strong>, sieur de More, qui deviendra le père et le grand-père des pionniers de la Nouvelle-France.</p>
+      <p>Marchand drapier, marchand de bois, marchand de vin et greffier au bailliage du Perche, Jean Juchereau, sieur de More, est un homme entreprenant dont les multiples résidences dessinent une géographie intime du Perche : Coulimer, Tourouvre, Marchainville, Saint-Denis-sur-Huisne (seigneurie de Blavou), Feings (seigneurie des Moulineaux), La Lande-sur-Eure, Échaumesnil, La Ventrouze et La Ferté-Vidame.</p>
+      <p>Trois trois mariages successifs (avec Jeanne Creste vers 1589, Marquise de Loysel en 1607, puis Jeanne Pineau en 1615), Jean Juchereau donne naissance à une lignée de bâtisseurs. Dès 1634, ses fils Noël et Jean, rejoints plus tard par leurs enfants et proches, s'imposent comme des figures centrales du peuplement, de la traite, de l'administration et de la justice en Nouvelle-France, formant le véritable nœud d'alliance des réseaux percherons d'émigration avec les familles Pinguet, Giffard, Bermen et Legardeur.</p>
+    </div>
+    <div class="figure-note">
+      <span class="mark">§</span>
+      <div>
+        <p><strong>L'auberge du Cheval Blanc à Tourouvre.</strong> Entre 1646 et 1651, la famille Juchereau fait de l'auberge du Cheval Blanc à Tourouvre, tenue par Macé Pichon, le quartier général du recrutement pour le Canada. 38 contrats d'engagement y sont passés devant le notaire Choiseau par Pierre Juchereau, sieur des Moulineaux, et son neveu Nicolas, sieur de Saint-Denis, pour le compte de Jean et Noël Juchereau.</p>
+      </div>
+    </div>
+    <blockquote>« Le 5 janvier 1672, Jean Juchereau, sieur de More, cède tous ses biens à ses trois enfants... Il meurt le 7 février suivant et est inhumé dans le cimetière de Beauport. Il allait avoir 80 ans. »<cite>Archives du Séminaire &amp; Prévôté de Québec</cite></blockquote>
+  </div>
+</section>
+
+<!-- LIGNÉE DIRECTE & EMBRANCHEMENTS -->
+<section id="lignee">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Lignée &amp; Rameaux principaux</span>
+      <h2>Des origines au Perche à l'établissement au Canada</h2>
+    </div>
+    <p style="color:var(--ink-soft);max-width:680px;margin-bottom:50px">Chaque maillon présente une étape de l'implantation percheronne puis canadienne de la famille.</p>
+    
+    <div class="ladder">
+      <div class="rung">
+        <div class="numeral">I</div>
+        <div>
+          <h3>Christophe Juchereau &amp; Marie Cochon</h3>
+          <div class="role">Mortagne-au-Perche · XVIe siècle</div>
+          <div class="meta">Christophe (1540–1605) épouse vers 1565 Marie Cochon. Ils ont au moins deux enfants, Marie et Jean. Son frère Louis (1550–1590), sieur de Monhinet, épouse Jeanne Cochon.</div>
+        </div>
+      </div>
+      <div class="rung">
+        <div class="numeral">II</div>
+        <div>
+          <h3>Jean Juchereau, sieur de More &amp; ses épouses</h3>
+          <div class="role">Marchand &amp; Greffier au Bailliage du Perche · † v. 1628</div>
+          <div class="meta">Marié 1° v. 1589 à <b>Jeanne Creste</b> (m. 1601); 2° en 1607 à <b>Marquise de Loysel</b> (sans postérité); 3° en 1615 à <b>Jeanne Pineau</b> des Moulineaux.</div>
+        </div>
+      </div>
+      <div class="rung">
+        <div class="numeral">III</div>
+        <div>
+          <h3>Les frères pionniers : Jean, sieur de More &amp; Noël, sieur des Châtelets</h3>
+          <div class="role">Tourouvre · La Ventrouze · Québec</div>
+          <div class="meta"><b>Jean</b> (1592–1672), marié en 1621 à Marie Langlois, et <b>Noël</b> (1593–1648), bachelier ès droit, maître de forges et commis général de la Compagnie des Cent-Associés.</div>
+        </div>
+      </div>
+      <div class="rung current">
+        <div class="numeral">IV</div>
+        <div>
+          <h3>Sieurs de La Ferté &amp; de Saint-Denis</h3>
+          <div class="role">Beauport · Québec · XVIIe siècle</div>
+          <div class="meta"><b>Jean Juchereau</b> (1621–1685), sieur de La Ferté, conseiller au Conseil souverain, et <b>Nicolas Juchereau</b> (1625–1672/1692), sieur de Saint-Denis, anobli en 1692.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRE DÉTAILLÉ -->
+<section id="registre">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Le registre complet</span>
+      <h2>Les générations et leurs actes fondamentaux</h2>
+    </div>
+
+    <!-- GEN I -->
+    <details class="gen" open>
+      <summary>
+        <span class="tag">Gén. I</span>
+        <span>Christophe Juchereau &amp; Louis Juchereau (Mortagne-au-Perche)</span>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="gen-body">
+        <p>Les origines de la famille reposent sur deux frères résidant à Mortagne-au-Perche au XVI<sup>e</sup> siècle :</p>
+        <ul>
+          <li><strong>Christophe Juchereau</strong> (1540–1605), qui épouse vers 1565 <strong>Marie Cochon</strong>. Le couple a au moins deux enfants : Marie et Jean. Ce dernier est identifié comme <strong>Jean Juchereau, sieur de More</strong>, l'ancêtre des émigrants en Nouvelle-France (bien qu'aucun acte formel de filiation absolue n'ait conservé la preuve matérielle définitive).</li>
+          <li><strong>Louis Juchereau</strong> (1550–1590), sieur de Monhinet, qui épouse vers 1575 <strong>Jeanne Cochon</strong>. De leur union naissent au moins six enfants : Louis (marié à Marguerite Gobillon), Thomas, Alexandre, Richard, Jacques et Christophe.</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- GEN II -->
+    <details class="gen" open>
+      <summary>
+        <span class="tag">Gén. II</span>
+        <span>Jean Juchereau, sieur de More († v. 1628) &amp; ses alliances</span>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="gen-body">
+        <p><strong>Jean Juchereau</strong> est une personnalité centrale du Perche : il cumule les activités de marchand drapier, marchand de bois, marchand de vin et greffier au bailliage du Perche. Son nom de sieur provient de la terre de <strong>More</strong>, située dans la paroisse de Coulimer, au sud-ouest de Mortagne.</p>
+
+        <h4>Premier mariage : Jeanne Creste (v. 1589)</h4>
+        <p>Vers 1589, Jean Juchereau épouse <strong>Jeanne Creste</strong>, fille de Jean Creste (marchand d'Autheuil, sieur de Ulmo) et de Roberte Aubin. Jeanne est la nièce de Louise Creste, elle-même grand-mère d'Henri Pinguet (parti en Nouvelle-France avec Louise Lousche). Le ménage s'installe à Tourouvre : le 2 décembre 1591, Jean y achète la moitié indivise d'une chambre avec cave sur la Grande Rue, puis acquiert l'autre moitié le 28 décembre auprès des frères Bourdoys. Jeanne décède au tout début du XVII<sup>e</sup> siècle.</p>
+        <p>Enfants issus de Jeanne Creste :</p>
+        <ul class="children">
+          <li class="child"><strong>Jean Juchereau</strong> (sieur de More), baptisé le 31 mars 1592 à Tourouvre — <em>Migrant en Nouvelle-France</em>.</li>
+          <li class="child"><strong>Noël Juchereau</strong> (sieur des Châtelets), baptisé le 30 août 1593 à Tourouvre — <em>Migrant en Nouvelle-France</em>.</li>
+          <li class="child"><strong>Antoinette Juchereau</strong>, mariée à M. Duchastel.</li>
+        </ul>
+
+        <h4>Second mariage : Marquise de Loysel (1607)</h4>
+        <p>Le 7 mai 1607, Jean Juchereau réside au lieu seigneurial de Blavou, paroisse de Saint-Denis-sur-Huisne, ayant épousé <strong>Marquise de Loysel</strong>, fille du seigneur de Blavou. Le couple n'a aucun enfant survivant; dès 1615, les actes notariés désignent Jean comme garde unique des enfants nés de sa première union avec Jeanne Creste.</p>
+
+        <h4>Troisième mariage : Jeanne Pineau (1615)</h4>
+        <p>De nouveau veuf, Jean Juchereau épouse en 1615 <strong>Jeanne Pineau</strong>, fille de Jean Pineau, sieur des Moulineaux (paroisse de Feings), et de Louise Closier. De cette union naissent au moins cinq enfants :</p>
+        <ul class="children">
+          <li class="child"><strong>Françoise Juchereau</strong>, mariée à La Ventrouze à M<sup>e</sup> Louis Bermen. Leur fils <strong>Claude Bermen de La Martinière</strong> (né à La Ferté-Vidame en 1636, † 1719), sera juge-prévôt de Beauport, conseiller au Conseil souverain et lieutenant général de la prévôté de Québec. Françoise se remarie à Tourouvre en 1657 à Antoine Pichon, sieur de la Charmoise.</li>
+          <li class="child"><strong>Pierre Juchereau</strong>, sieur des Moulineaux, marié en 1634 à Marie Ailleboust (fille de l'avocat Jean Ailleboust). Il jouera un rôle capital à Tourouvre en recrutant les engagés pour ses demi-frères Jean et Noël.</li>
+          <li class="child"><strong>Marguerite Juchereau</strong>, baptisée le 9 juillet 1617 à La Lande-sur-Eure. Mariée 1° à Jean Martheau, avocat au parlement; 2° à Christophe de Moucheron, seigneur de Chathierry.</li>
+          <li class="child"><strong>Henri Juchereau</strong>, baptisé le 1<sup>er</sup> juin 1621 à La Lande-sur-Eure (jumeau de Jean).</li>
+          <li class="child"><strong>Jean Juchereau</strong>, baptisé le 1<sup>er</sup> juin 1621 à La Lande-sur-Eure (jumeau d'Henri).</li>
+        </ul>
+      </div>
+    </details>
+
+    <!-- GEN III - LES DEUX FRÈRES -->
+    <details class="gen" open>
+      <summary>
+        <span class="tag">Gén. III</span>
+        <span>Jean Juchereau (de More) &amp; Noël Juchereau (des Châtelets)</span>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="gen-body">
+        <h4>1. Jean Juchereau, sieur de More (1592–1672)</h4>
+        <p>Baptisé le mardi 31 mars 1592 à l'église Saint-Aubin de Tourouvre (parrains : Henri Thory, Robert Creste; marraine : Marguerite de La Vove). Il épouse vers 1621 <strong>Marie Langlois</strong>. Le couple habite successivement La Lande (1623), puis La Ferté-Vidame (dès 1629) et La Ventrouze (1643).</p>
+        <p>Le 15 janvier 1635, Jean et son frère Noël reçoivent une concession en Nouvelle-France. Il organise les départs et règle depuis le Perche les gages des serviteurs partis pour le Canada (comme Charles Pierre et Jean Manoury en 1643). Il s'établit définitivement au Canada avec les siens. Le 5 janvier 1672, il cède ses biens à ses trois enfants (Jean, Nicolas, Geneviève) et s'éteint le 7 février 1672 à Beauport, à près de 80 ans.</p>
+        <p>Enfants de Jean Juchereau et Marie Langlois :</p>
+        <ul class="children">
+          <li class="child"><strong>Jean Juchereau</strong>, sieur de La Ferté (1621–1685) — <em>Migrant</em>.</li>
+          <li class="child"><strong>Nicolas Juchereau</strong>, sieur de Saint-Denis (1625–1692) — <em>Migrant</em>.</li>
+          <li class="child"><strong>Louis Juchereau</strong>, baptisé le 17 février 1629 à La Ferté-Vidame.</li>
+          <li class="child"><strong>Geneviève Juchereau</strong> (1632–1687), baptisée le 25 juillet 1632 à La Ferté-Vidame. Arrivée à Québec en 1643, mariée en 1648 à <strong>Charles Legardeur, sieur de Tilly</strong> (fils de René Legardeur et Catherine de Corday). Mère de 15 enfants.</li>
+          <li class="child"><strong>François Juchereau</strong>, baptisé le 28 mars 1634 à La Ferté-Vidame.</li>
+        </ul>
+
+        <h4>2. Noël Juchereau, sieur des Châtelets (1593–1648)</h4>
+        <p>Baptisé le 30 août 1593 à Tourouvre. Licencié ès droit (1621), maître des grosses forges à Échaumesnil (1622) puis à La Ventrouze (1628), trésorier de la fabrique Sainte-Madeleine de La Ventrouze (1632). Il passe en Nouvelle-France dès 1634 (témoin au mariage de Noël Langlois à Québec le 25 juillet 1634).</p>
+        <p>Nommé <strong>commis général de la Compagnie des Cent-Associés</strong> (1635), puis directeur des embarquements à La Rochelle (1641) et procureur général de la Communauté des habitants (1645). Il armera plusieurs navires (<em>La Marguerite</em> en 1647, <em>Le Saint-Georges</em>, <em>Le Grand Cardinal</em> en 1648). Il meurt tragiquement noyé dans la Loire à Orléans fin juillet 1648 et est inhumé chez les Jésuites d'Orléans.</p>
+      </div>
+    </details>
+
+    <!-- GEN IV - NOUVELLE-FRANCE -->
+    <details class="gen" open>
+      <summary>
+        <span class="tag">Gén. IV</span>
+        <span>Les Sieurs de La Ferté et de Saint-Denis en Nouvelle-France</span>
+        <span class="chevron">›</span>
+      </summary>
+      <div class="gen-body">
+        <h4>Jean Juchereau, sieur de La Ferté (1621–1685)</h4>
+        <p>Aperçu à Québec dès le 20 septembre 1643. Le 21 novembre 1645, il épouse à Québec <strong>Marie-Françoise Giffard</strong>, fille du docteur Robert Giffard et de Marie Renouard. Le couple s'établit à Beauport et a sept enfants. Membre de la Société de traite de Tadoussac (1659), nommé au **Conseil souverain** en 1663, il devint premier échevin de la ville de Québec (1677) et receveur général des droits de pelleteries du Domaine du Roi. Il décède à l'Hôtel-Dieu de Québec le 16 novembre 1685.</p>
+
+        <h4>Nicolas Juchereau, sieur de Saint-Denis (1625–1692)</h4>
+        <p>Présent à Québec dès 1641, il fait la navette avec le Perche pour recruter des travailleurs avec son oncle Pierre. Le 22 septembre 1649, il épouse à Québec <strong>Marie-Thérèse Giffard</strong> (sœur de la femme de son frère Jean). Le couple a 12 enfants (leur fils Ignace prendra le titre du fief <em>Duchesnay</em>, concession de 1673, qui deviendra un patronyme).</p>
+        <p>Capitaine de milice, membre de la traite de Tadoussac, il s'illustre en 1690 en commandant 80 miliciens face au débarquement de l'amiral anglais Phips devant Québec : il a le bras brisé par un coup de feu et capture un canon ennemi. Ces faits d'armes lui valent d'être **anobli par le Roi en février 1692**. Il meurt le 4 octobre 1692 et est inhumé à Beauport.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- REPÈRES HISTORIQUES -->
+<section id="reperes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Repères chronologiques</span>
+      <h2>Chronologie de la maison Juchereau</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="timeline">
+        <thead>
+          <tr>
+            <th>Année</th>
+            <th>Événement familial</th>
+            <th>Contexte &amp; Actes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1591</td>
+            <td>Jean Juchereau achète sa maison à Tourouvre</td>
+            <td>Acquisition de la moitié indivise avec cave le 2 déc., puis de l'autre moitié le 28 déc. sur la Grande Rue.</td>
+          </tr>
+          <tr>
+            <td>1592</td>
+            <td>Baptême de Jean Juchereau (fils)</td>
+            <td>Le 31 mars à l'église Saint-Aubin de Tourouvre.</td>
+          </tr>
+          <tr>
+            <td>1593</td>
+            <td>Baptême de Noël Juchereau</td>
+            <td>Le 30 août à Tourouvre. Parrains : Jean Thory, Noël Lange; marraine : Françoise Creste.</td>
+          </tr>
+          <tr>
+            <td>1607</td>
+            <td>Jean Juchereau au lieu seigneurial de Blavou</td>
+            <td>Mariage avec Marquise de Loysel, fille du seigneur de Blavou.</td>
+          </tr>
+          <tr>
+            <td>1615</td>
+            <td>Troisième mariage de Jean Juchereau avec Jeanne Pineau</td>
+            <td>Originaire des Moulineaux (Feings). Naissance de Françoise, Pierre, Marguerite, Henri et Jean.</td>
+          </tr>
+          <tr>
+            <td>1634</td>
+            <td>Noël Juchereau repéré à Québec</td>
+            <td>Témoin au mariage de Noël Langlois et Françoise Grenier le 25 juillet.</td>
+          </tr>
+          <tr>
+            <td>1635</td>
+            <td>Obtentions de concessions au Canada</td>
+            <td>Le 15 janvier, concession accordée conjointement à Jean et Noël Juchereau.</td>
+          </tr>
+          <tr>
+            <td>1645</td>
+            <td>Mariage de Jean Juchereau de La Ferté &amp; Marie Giffard</td>
+            <td>Le 21 novembre à Québec (contrat signé le 4 novembre devant M. le Gouverneur).</td>
+          </tr>
+          <tr>
+            <td>1646–1651</td>
+            <td>Grandes campagnes de recrutement à Tourouvre</td>
+            <td>38 engagés recrutés à l'auberge du Cheval Blanc par Pierre et Nicolas Juchereau.</td>
+          </tr>
+          <tr>
+            <td>1648</td>
+            <td>Noyade tragique de Noël Juchereau à Orléans</td>
+            <td>Fin juillet, alors qu'il armait des navires pour le Canada. Inhumé chez les Jésuites d'Orléans.</td>
+          </tr>
+          <tr>
+            <td>1649</td>
+            <td>Mariage de Nicolas Juchereau &amp; Marie-Thérèse Giffard</td>
+            <td>Le 22 septembre à Québec.</td>
+          </tr>
+          <tr>
+            <td>1672</td>
+            <td>Décès du pionnier Jean Juchereau, sieur de More</td>
+            <td>Inhumé le 9 février au cimetière de Beauport à l'âge de 80 ans.</td>
+          </tr>
+          <tr>
+            <td>1690</td>
+            <td>Siège de Québec par Phips</td>
+            <td>Nicolas Juchereau repousse les Anglais, est blessé au bras et capturé un canon.</td>
+          </tr>
+          <tr>
+            <td>1692</td>
+            <td>Lettres de noblesse pour Nicolas Juchereau</td>
+            <td>Anoblissement accordé par Louis XIV en février; décès de Nicolas le 4 octobre.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ARBRE SYNTHÉTIQUE -->
+<section id="arbre">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Tableau généalogique</span>
+      <h2>Arborescence des Juchereau et familles alliées</h2>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Généalogie Juchereau · Perche &amp; Nouvelle-France</div>
+      <div class="chart-sub">Alliances Pinguet · Giffard · Bermen · Legardeur</div>
+      
+      <div class="chart-row">
+        <div class="rn">I</div>
+        <div>
+          <span class="names">Nicolas CRESTE &amp; Jean PINGUET</span>
+          <span class="date">Auteurs des lignes percheronnes de Ulmo et de Mortagne</span>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="rn">II</div>
+        <div>
+          <span class="names">Jean CRESTE × Roberte AUBIN · Jean PINGUET (1529) × Louise CRESTE</span>
+          <span class="date">Tourouvre &amp; Autheuil</span>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="rn">III</div>
+        <div>
+          <span class="names">Jean JUCHEREAU, sieur de More († 1628) × 1° Jeanne CRESTE / 2° Marquise de LOYSEL / 3° Jeanne PINEAU</span>
+          <span class="date">Coulimer · Tourouvre · Blavou · La Lande</span>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="rn">IV</div>
+        <div>
+          <span class="names">
+            <span class="migrant">Jean JUCHEREAU (de More, 1592–1672)</span> × M. Langlois | 
+            <span class="migrant">Noël JUCHEREAU (des Châtelets, 1593–1648)</span> | 
+            Françoise × L. Bermen | 
+            Pierre × M. Ailleboust
+          </span>
+          <span class="date">Première génération canadienne &amp; recruteurs du Perche</span>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="rn">V</div>
+        <div>
+          <span class="names">
+            <span class="migrant">Jean JUCHEREAU (de La Ferté, 1621–1685)</span> × M.-F. Giffard | 
+            <span class="migrant">Nicolas JUCHEREAU (de Saint-Denis, 1625–1692)</span> × M.-T. Giffard | 
+            <span class="migrant">Geneviève JUCHEREAU (1632–1687)</span> × C. Legardeur | 
+            <span class="migrant">Claude BERMEN (1636–1719)</span>
+          </span>
+          <span class="date">Conseil souverain, milice, amirauté et seigneuries au Canada (Les noms en rose sont les émigrants)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES & DOCUMENTS -->
+<section class="sources" id="sources">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Archives &amp; Bibliographie</span>
+      <h2>Documents de référence</h2>
+    </div>
+    <ul>
+      <li><strong>Archives départementales de l'Orne</strong> — Registres paroissiaux de Tourouvre (paroisse Saint-Aubin), La Lande-sur-Eure, La Ferté-Vidame et Feings.</li>
+      <li><strong>Greffes notariaux du Perche</strong> — Minute de M<sup>e</sup> Choiseau (notaire à Tourouvre), contrats passés à l'Auberge du Cheval Blanc (1646–1651).</li>
+      <li><strong>Prévôté de Québec &amp; Registres du Conseil Souverain</strong> — Transcriptions des registres civils par Guy Perron (Éditions Pepin).</li>
+      <li><strong>Dictionnaire biographique des ancêtres québécois (1608–1700)</strong> — Michel Langlois, Tome 3.</li>
+      <li><strong>Journal des Jésuites</strong> — Mentions des voyages, envois et charges de Noël, Jean et Nicolas Juchereau.</li>
+      <li><strong>Carte de Cassini (1799)</strong> — Cartographie des fiefs du Perche (More, Blavou, Les Moulineaux, Tourouvre, Feings, La Ventrouze).</li>
+    </ul>
+
+    <div class="callout-next">
+      <p><b>Points saillants du réseau percheron.</b> La famille Juchereau est au centre géométrique de l'émigration percheronne : par Jeanne Creste, elle touche à la famille Pinguet; par les mariages des fils de Jean de More à Québec, elle s'allie intimement au premier médecin de la colonie, Robert Giffard, seigneur de Beauport, fondant une véritable dynastie seigneuriale sur les rives du Saint-Laurent.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Archives généalogiques</span>
+  <div>Famille Juchereau · Du Perche à la Nouvelle-France</div>
+  <div class="contrib">Notice établie d'après les documents d'archives de l'Orne et de la Prévôté de Québec</div>
+</footer>
+
+</body>
+</html>
