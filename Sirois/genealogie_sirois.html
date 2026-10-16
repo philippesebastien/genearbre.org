@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sirois — Descendants de François Sirois dit Duplessis et Blanche Lavery</title>
+<meta name="description" content="Notice généalogique de la famille Sirois : de François Sirois dit Duplessis à Joseph Sirois et Blanche Lavery, avec la lignée notariale et le contexte historique.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--parchment:#f1e8d6;--parchment-deep:#e5d7b7;--ink:#241d13;--ink-soft:#4a4030;--navy:#1c2740;--navy-deep:#131b2d;--burgundy:#7c2331;--gold:#a4802f;--gold-bright:#c79b3f;--rule:rgba(36,29,19,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--parchment);color:var(--ink);font-family:'EB Garamond',serif;font-size:18px;line-height:1.65}
+.eyebrow{font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:600}h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;margin:0;color:var(--navy)}a{color:inherit}.wrap{max-width:920px;margin:auto;padding:0 32px}
+.hero{position:relative;background:radial-gradient(ellipse 900px 500px at 50% -10%,rgba(199,155,63,.16),transparent 60%),linear-gradient(180deg,var(--navy-deep),var(--navy) 60%,#223154 100%);color:var(--parchment);padding:96px 32px 120px;text-align:center;border-bottom:1px solid rgba(199,155,63,.35)}
+.seal{width:118px;height:118px;margin:0 auto 30px}.seal svg{width:100%;height:100%}.hero .eyebrow{color:var(--gold-bright)}.hero h1{font-family:'Cormorant SC',serif;font-size:clamp(52px,9vw,96px);color:var(--parchment);margin:14px 0 6px}.hero h1 .subtitle-years{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;font-size:clamp(16px,2.4vw,22px);letter-spacing:.06em;color:#d9c9a3;margin-top:4px}.hero .sub{font-family:'Cormorant Garamond';font-style:italic;font-size:clamp(18px,2.6vw,24px);color:#d9c9a3;margin:0}.hero .rule{width:64px;height:1px;background:var(--gold);margin:26px auto}.hero p.lede{max-width:620px;margin:auto;color:#cdbfa0;font-size:17px}
+.site-nav{background:var(--parchment-deep);border-bottom:1px solid var(--rule);text-align:center;padding:14px 20px;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}.site-nav a{display:inline-block;margin:4px 12px;text-decoration:none;font-weight:600;color:var(--ink-soft);padding-bottom:2px;border-bottom:1px solid transparent}.site-nav a:hover{color:var(--burgundy);border-bottom-color:var(--gold)}.site-nav a[aria-current="page"]{color:var(--burgundy);border-bottom-color:var(--burgundy)}
+section{padding:84px 0;border-bottom:1px solid var(--rule)}.section-head{margin-bottom:44px}.section-head h2{font-size:clamp(30px,4vw,42px);margin-top:8px}.lede-block p{margin:0 0 20px;color:var(--ink-soft)}.lede-block p:first-child::first-letter{font-family:'Cormorant SC';font-size:64px;float:left;line-height:.8;padding:6px 10px 0 0;color:var(--burgundy)}
+blockquote{margin:36px 0;padding:22px 28px;border-left:3px solid var(--gold);background:var(--parchment-deep);font-style:italic}blockquote cite{display:block;margin-top:10px;font-style:normal;font-family:'Cinzel';font-size:11px;letter-spacing:.15em;color:var(--ink-soft)}
+.figure-note{display:flex;gap:18px;background:var(--parchment-deep);border:1px solid var(--rule);padding:20px 24px;margin:32px 0;font-size:15.5px;color:var(--ink-soft)}.figure-note .mark{font-size:28px;color:var(--burgundy)}.figure-note p{margin:0 0 10px}.figure-note p:last-child{margin-bottom:0}
+.ladder{position:relative}.ladder:before{content:'';position:absolute;left:29px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,transparent,var(--gold) 6%,var(--gold) 94%,transparent)}.rung{display:grid;grid-template-columns:60px 1fr;gap:22px;padding:26px 0;border-bottom:1px dashed var(--rule)}.rung .numeral{font-family:'Cormorant SC';font-size:26px;width:60px;height:60px;border-radius:50%;background:var(--parchment);border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:1}.rung.current .numeral{background:var(--burgundy);color:var(--parchment);border-color:var(--burgundy)}.rung h3{font-size:23px}.role{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--burgundy);margin:4px 0 8px}.meta{font-size:15.5px;color:var(--ink-soft)}
+details.gen{background:var(--parchment-deep);border:1px solid var(--rule);margin-bottom:14px}details.gen summary{list-style:none;cursor:pointer;padding:20px 26px;display:flex;justify-content:space-between;gap:16px;font-family:'Cormorant Garamond';font-size:22px;color:var(--navy)}details.gen summary::-webkit-details-marker{display:none}.tag{font-family:'Cinzel';font-size:10.5px;letter-spacing:.15em;color:var(--gold);white-space:nowrap;padding-top:8px}.chevron{color:var(--burgundy);transition:transform .2s}details.gen[open] .chevron{transform:rotate(90deg)}.gen-body{padding:0 26px 26px;font-size:16px;color:var(--ink-soft)}.gen-body p{margin:0 0 14px}.gen-body h4{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--burgundy);margin:24px 0 8px}.children{padding-left:20px;border-left:2px solid var(--rule)}.child{margin-bottom:10px;list-style:none}
+.table-wrap{overflow-x:auto;border:1px solid var(--rule)}table.timeline{width:100%;border-collapse:collapse;font-size:15.5px;background:var(--parchment-deep);color:var(--ink-soft)}table.timeline th{font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;text-align:left;color:var(--gold);background:var(--navy-deep);padding:12px 16px}table.timeline td{padding:12px 16px;border-bottom:1px dashed var(--rule);vertical-align:top}table.timeline td:first-child{font-family:'Cormorant SC',serif;font-size:19px;color:var(--burgundy);white-space:nowrap}table.timeline tr:last-child td{border-bottom:0}
+.chart-wrap{background:var(--navy-deep);color:var(--parchment);padding:48px 40px;border:1px solid var(--gold)}.chart-title{text-align:center;font-family:'Cormorant SC';font-size:26px}.chart-sub{text-align:center;font-style:italic;color:#c9b98a;margin-bottom:32px}.chart-row{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid rgba(199,155,63,.2)}.rn{font-family:'Cormorant SC';color:var(--gold-bright)}.names{color:var(--parchment)}.names a{text-decoration:underline;text-decoration-color:rgba(199,155,63,.55);text-underline-offset:3px}.names a:hover{color:var(--gold-bright)}.date{display:block;font-size:13px;color:#a99a72}
+.sources ul{padding-left:20px;color:var(--ink-soft);font-size:15px}.sources li{margin-bottom:10px}.sources a{color:var(--burgundy)}.callout-next{margin-top:40px;padding:24px 28px;border:1px dashed var(--gold);background:var(--parchment-deep);font-size:15.5px;color:var(--ink-soft)}.callout-next p{margin:0 0 12px}.callout-next p:last-child{margin-bottom:0}
+footer{background:var(--navy-deep);color:#a99a72;text-align:center;padding:56px 32px 40px;font-size:14px}footer .contrib{color:#d9c9a3;margin-top:18px;font-style:italic;font-size:16px}
+@media(max-width:640px){.wrap{padding:0 20px}.rung{grid-template-columns:44px 1fr;gap:14px}.rung .numeral{width:44px;height:44px;font-size:19px}.chart-wrap{padding:32px 20px}.chart-row{grid-template-columns:40px 1fr}details.gen summary{flex-wrap:wrap}}
+</style>
+</head>
+<body>
 
+<header class="hero">
+  <div class="seal">
+    <svg viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
+      <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
+      <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC'" font-size="17" fill="#e5d7b7">Famille</text>
+      <text x="60" y="76" text-anchor="middle" font-family="'Cormorant SC'" font-size="16" fill="#e5d7b7">Sirois</text>
+    </svg>
+  </div>
+  <span class="eyebrow">De la Touraine à Rivière-Ouelle, Kamouraska et Québec</span>
+  <h1>Sirois <span class="subtitle-years">(1680 — XXe siècle)</span></h1>
+  <p class="sub">Des Sirois dits Duplessis aux grands juristes de Québec</p>
+  <div class="rule"></div>
+  <p class="lede">Une notice généalogique retraçant huit générations, de l'ancêtre François Sirois dit Duplessis au début du XVIII<sup>e</sup> siècle jusqu'au Dr Joseph Sirois et son épouse Blanche Lavery, alliés aux MacDonald et aux Charest au XX<sup>e</sup> siècle.</p>
+</header>
+
+<nav class="site-nav" aria-label="Notices de famille">
+  <a href="../Charest/genealogie_charest.html">Charest</a>
+  <a href="../Duchastel/genealogie-duchastel.html">Duchastel</a>
+  <a href="../Sirois/genealogie_sirois.html" aria-current="page">Sirois</a>
+  <a href="../Juchereau/genealogie_juchereau.html">Juchereau-Duchesnay</a>
+  <a href="../Quevillon/genealogie_quevillon.html">Quevillon</a>
+  <a href="../MacDonald/genealogie_macdonald.html">MacDonald</a>
+</nav>
+
+<main>
+
+<!-- CHAPITRE I -->
+<section id="histoire">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Chapitre premier</span>
+      <h2>Origines touraines et enracinement dans le Bas-Saint-Laurent</h2>
+    </div>
+    <div class="lede-block">
+      <p>La famille <strong>Sirois</strong> au Québec descend de <strong>François Sirois dit Duplessis</strong>, originaire de la paroisse de Saint-Germain de Saint-Calais (ou des environs de Ligueil/Chinon en Touraine). Arrivé en Nouvelle-France au tout début du XVIII<sup>e</sup> siècle, il s'établit dans la région de Rivière-Ouelle et de Kamouraska, véritable berceau des grandes familles du Bas-Saint-Laurent.</p>
+      <p>Pendant plusieurs générations, les Sirois dit Duplessis défrichent et cultivent les terres de Rivière-Ouelle, Saint-Roch-des-Aulnaies et Kamouraska. Au XIX<sup>e</sup> siècle, une branche de la famille s'oriente vers les professions libérales et le droit, donnant naissance à une éminente lignée de notaires et d'universitaires à Québec, illustrée de façon remarquable par <strong>Louis-Philippe-Marie-Joseph Sirois</strong> et son fils, le <strong>Dr Joseph Sirois</strong>, président de la célèbre commission Rowell-Sirois.</p>
+      <p>Par le mariage de Josephte Sirois avec Saint-Denys MacDonald en 1934, cette lignée s'allie aux MacDonald, reliant ainsi le monde juridique de Québec aux familles fondatrices de la Nouvelle-France (Juchereau Duchesnay, Giffard, Taschereau).</p>
+    </div>
+    <div class="figure-note">
+      <span class="mark">§</span>
+      <div>
+        <p><strong>Le surnom « Duplessis ».</strong> Comme pour beaucoup d'immigrants du Régime français, le dit-nom « Duplessis » servait de nom de guerre ou de distinction régionale. Au fil des générations du XIX<sup>e</sup> siècle, le surnom a été progressivement abandonné au profit du patronyme unique <strong>Sirois</strong>.</p>
+      </div>
+    </div>
+    <blockquote>« François Sirois dit Duplessis — Maurice Sirois — Joseph Sirois — Jean-Baptiste Sirois — Louis-Philippe Sirois — Joseph Sirois &amp; Blanche Lavery — Josephte Sirois… »<cite>Archives généalogiques du Québec &amp; NosOrigines</cite></blockquote>
+  </div>
+</section>
+
+<!-- LIGNÉE DIRECTE -->
+<section id="lignee">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">La lignée directe</span>
+      <h2>Huit générations, de la Touraine à la Commission Rowell-Sirois</h2>
+    </div>
+    <p style="color:var(--ink-soft);max-width:680px;margin-bottom:50px">La succession ci-dessous présente la lignée principale des Sirois, de l'ancêtre pionnier jusqu'aux alliances du XX<sup>e</sup> siècle.</p>
+    
+    <div class="ladder">
+      <div class="rung">
+        <div class="numeral">I</div>
+        <div>
+          <h3>Jean Sirois &amp; Marie Dumont</h3>
+          <div class="role">Paroisse de Saint-Germain, Touraine, France</div>
+          <div class="meta">Demeurant en France. Parents de l'ancêtre immigrant François Sirois.</div>
+        </div>
+      </div>
+      
+      <div class="rung">
+        <div class="numeral">II</div>
+        <div>
+          <h3>François Sirois dit Duplessis</h3>
+          <div class="role">v. 1680 – 1737 · Rivière-Ouelle</div>
+          <div class="meta">Pionnier de la lignée au Canada. Épouse en secondes noces <b>Françoise Roy</b> le 5 juin 1713 à Rivière-Ouelle.</div>
+        </div>
+      </div>
+      
+      <div class="rung">
+        <div class="numeral">III</div>
+        <div>
+          <h3>Maurice Sirois dit Duplessis</h3>
+          <div class="role">1723 – 1794 · Kamouraska</div>
+          <div class="meta">Né à Rivière-Ouelle. Épouse <b>Marie-Anne Landry</b> le 9 octobre 1752 à Kamouraska.</div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="numeral">IV</div>
+        <div>
+          <h3>Joseph Sirois dit Duplessis</h3>
+          <div class="role">1758 – 1837 · Kamouraska · Saint-Pascal</div>
+          <div class="meta">Épouse <b>Marie-Thérèse d'Anjou</b> le 10 février 1783 à Kamouraska.</div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="numeral">V</div>
+        <div>
+          <h3>Jean-Baptiste Sirois</h3>
+          <div class="role">v. 1790 – 1862 · Kamouraska</div>
+          <div class="meta">Épouse <b>Marie-Françoise Lemieux</b> le 23 janvier 1815 à Saint-Roch-des-Aulnaies.</div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="numeral">VI</div>
+        <div>
+          <h3>Louis-Philippe-Marie-Joseph Sirois</h3>
+          <div class="role">1847 – 1928 · Notaire &amp; Professeur à l'Université Laval</div>
+          <div class="meta">Épouse <b>Atala Blais</b> le 8 août 1876 à Saint-Germain de Rimouski.</div>
+        </div>
+      </div>
+
+      <div class="rung">
+        <div class="numeral">VII</div>
+        <div>
+          <h3>Dr Joseph Sirois &amp; Blanche-Éléonore Lavery</h3>
+          <div class="role">1881 – 1941 · Président de la Commission Rowell-Sirois</div>
+          <div class="meta">Notaire, professeur et constitutionnaliste. Mariés le 1<sup>er</sup> juin 1910 à Québec.</div>
+        </div>
+      </div>
+
+      <div class="rung current">
+        <div class="numeral">VIII</div>
+        <div>
+          <h3>Josephte Sirois</h3>
+          <div class="role">1911 – 1988 · Jonction avec la famille MacDonald</div>
+          <div class="meta">Fille de Joseph Sirois et Blanche Lavery. Mariée en 1934 à <b>Saint-Denys MacDonald</b> (1904–1994).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRE -->
+<section id="registre">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Le registre complet</span>
+      <h2>Les familles, génération par génération</h2>
+    </div>
+
+    <details class="gen" open>
+      <summary><span class="tag">Gén. I &amp; II</span><span>François Sirois dit Duplessis &amp; Françoise Roy</span><span class="chevron">›</span></summary>
+      <div class="gen-body">
+        <p>Originaire de France (fils de Jean Sirois et Marie Dumont), <strong>François Sirois dit Duplessis</strong> (v. 1680–1737) passe en Nouvelle-France au début du XVIII<sup>e</sup> siècle. Après un premier mariage avec Marie-Anne Thiboutot en 1708, il épouse le 5 juin 1713 à Rivière-Ouelle <strong>Françoise Roy</strong> (1695–1763), fille de Pierre Roy et de Marie-Anne Martin.</p>
+        <p>Le couple s'installe à Rivière-Ouelle et participe au développement agricole de la côte du Sud. François meurt le 14 novembre 1737 à Saint-Denis-de-la-Bouteillerie.</p>
+        <h4>Enfant marquant</h4>
+        <ul class="children">
+          <li class="child"><strong>Maurice Sirois dit Duplessis</strong> (1723–1794) — voir génération III.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="gen" open>
+      <summary><span class="tag">Gén. III &amp; IV</span><span>Les Sirois dans le Kamouraska</span><span class="chevron">›</span></summary>
+      <div class="gen-body">
+        <p><strong>Maurice Sirois</strong> (1723–1794) épouse le 9 octobre 1752 à Kamouraska <strong>Marie-Anne Landry</strong> (1733–1811), issue d'une famille acadienne implantée dans le Bas-Saint-Laurent. Leur fils, <strong>Joseph Sirois</strong> (1758–1837), épouse le 10 février 1783 <strong>Marie-Thérèse d'Anjou</strong> (1763–1831).</p>
+        <p>Ces générations consolident l'enracinement de la famille dans les paroisses de Kamouraska, Saint-Pascal et Saint-Roch-des-Aulnaies, constituant l'un des foyers démographiques les plus stables de la région.</p>
+        <h4>Enfant</h4>
+        <ul class="children">
+          <li class="child"><strong>Jean-Baptiste Sirois</strong> — voir génération V.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="gen" open>
+      <summary><span class="tag">Gén. V &amp; VI</span><span>Louis-Philippe-Marie-Joseph Sirois &amp; Atala Blais</span><span class="chevron">›</span></summary>
+      <div class="gen-body">
+        <p><strong>Jean-Baptiste Sirois</strong> et <strong>Marie-Françoise Lemieux</strong> (mariés à Saint-Roch-des-Aulnaies en 1815) sont les parents de <strong>Louis-Philippe-Marie-Joseph Sirois</strong>, né le 13 mai 1847 à Kamouraska.</p>
+        <p>Admis à la profession notariale, L.-P.-M.-J. Sirois s'établit à Québec. Il devient l'un des notaires les plus influents de la capitale, juriste renommé et professeur de droit notarial à l'Université Laval. Le 8 août 1876, il épouse à Rimouski <strong>Atala Blais</strong>, fille de la bourgeoisie locale. Il décède à Québec le 24 septembre 1928 à l'âge de 81 ans.</p>
+        <h4>Enfant</h4>
+        <ul class="children">
+          <li class="child"><strong>Dr Joseph Sirois</strong> (1881–1941) — voir génération VII.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="gen" open>
+      <summary><span class="tag">Gén. VII</span><span>Le Dr Joseph Sirois &amp; Blanche Lavery</span><span class="chevron">›</span></summary>
+      <div class="gen-body">
+        <p><strong>Joseph Sirois</strong> naît à Québec le 25 janvier 1881. Suivant les traces paternelles, il fait de brillantes études en droit à l'Université Laval (docteur en droit en 1907) et devient notaire en 1903. Il prend la relève de la chaire de droit notarial à l'Université Laval et accède à la présidence de la Chambre des notaires de la province de Québec de 1927 à 1930.</p>
+        <p>Le 1<sup>er</sup> juin 1910, il épouse à Notre-Dame de Québec <strong>Blanche-Éléonore Lavery</strong> (1883–1972), fille de <strong>Joseph-Isaac Lavery</strong>, avocat et conseiller du Roi, et de <strong>Paméla Mailloux</strong>.</p>
+
+        <h4>La Commission Rowell-Sirois (1937-1940)</h4>
+        <p>En 1937, le gouvernement fédéral de W.L. Mackenzie King nomme la <em>Commission royale d'enquête sur les relations entre le Dominion et les provinces</em>. À la suite de la démission pour maladie de Newton Rowell en 1938, Joseph Sirois est appelé à présider la commission. Le rapport <strong>Rowell-Sirois</strong>, déposé en 1940, est l'un des documents constitutionnels et économiques les plus fondamentaux de l'histoire du Canada moderne : il jette les bases du système de péréquation fiscale et de l'État-providence canadien.</p>
+        <p>Épuisé par cette tâche monumentale, le Dr Joseph Sirois s'éteint à Québec le 17 janvier 1941 à l'âge de 59 ans.</p>
+
+        <h4>Enfant</h4>
+        <ul class="children">
+          <li class="child"><strong>Josephte Sirois</strong> (1911–1988), mariée le 30 janvier 1934 à <strong>Saint-Denys MacDonald</strong>.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- REPÈRES -->
+<section id="reperes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Repères historiques</span>
+      <h2>La famille Sirois dans l'histoire du Québec</h2>
+    </div>
+    <div class="table-wrap">
+      <table class="timeline">
+        <thead>
+          <tr><th>Année</th><th>Dans la famille</th><th>Dans l'histoire</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1713</td><td>Mariage de François Sirois et Françoise Roy à Rivière-Ouelle</td><td>Signature du Traité d'Utrecht cédant l'Acadie à la Grande-Bretagne.</td></tr>
+          <tr><td>1752</td><td>Mariage de Maurice Sirois et Marie-Anne Landry à Kamouraska</td><td>Période de pré-Déportation des Acadiens.</td></tr>
+          <tr><td>1847</td><td>Naissance de Louis-Philippe Sirois à Kamouraska</td><td>Fondation du barreau et restructuration des cours de justice au Bas-Canada.</td></tr>
+          <tr><td>1876</td><td>Mariage de L.-P. Sirois et Atala Blais à Rimouski</td><td>Essor des facultés de droit professionnelles au Québec.</td></tr>
+          <tr><td>1881</td><td>Naissance du Dr Joseph Sirois à Québec</td><td>—</td></tr>
+          <tr><td>1910</td><td>Mariage de Joseph Sirois et Blanche Lavery à Québec</td><td>—</td></tr>
+          <tr><td>1934</td><td>Mariage de Josephte Sirois et Saint-Denys MacDonald</td><td>Grande Dépression économique.</td></tr>
+          <tr><td>1937–1940</td><td>Joseph Sirois préside la Commission Rowell-Sirois</td><td>Refonte du fédéralisme canadien et émergence de la péréquation.</td></tr>
+          <tr><td>1941</td><td>Décès du Dr Joseph Sirois à Québec</td><td>Seconde Guerre mondiale.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ARBRE -->
+<section id="arbre">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">L'arbre abrégé</span>
+      <h2>La lignée notariale des Sirois</h2>
+    </div>
+    <div class="chart-wrap">
+      <div class="chart-title">Filiation Sirois · XVIII<sup>e</sup>–XX<sup>e</sup> siècles</div>
+      <div class="chart-sub">Rivière-Ouelle · Kamouraska · Québec</div>
+      
+      <div class="chart-row">
+        <div class="rn">I</div>
+        <div>
+          <span class="names">François Sirois dit Duplessis × Françoise Roy</span>
+          <span class="date">Mariés en 1713 · Rivière-Ouelle</span>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="rn">II</div>
+        <div>
+          <span class="names">Maurice Sirois dit Duplessis × Marie-Anne Landry</span>
+          <span class="date">Mariés en 1752 · Kamouraska</span>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="rn">III</div>
+        <div>
+          <span class="names">Joseph Sirois dit Duplessis × Marie-Thérèse d'Anjou</span>
+          <span class="date">Mariés en 1783 · Kamouraska</span>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="rn">IV</div>
+        <div>
+          <span class="names">Jean-Baptiste Sirois × Marie-Françoise Lemieux</span>
+          <span class="date">Mariés en 1815 · Saint-Roch-des-Aulnaies</span>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="rn">V</div>
+        <div>
+          <span class="names">Louis-Philippe-Marie-Joseph Sirois × Atala Blais</span>
+          <span class="date">1847–1928 · Mariés en 1876 à Rimouski</span>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="rn">VI</div>
+        <div>
+          <span class="names">Dr Joseph Sirois × Blanche-Éléonore Lavery</span>
+          <span class="date">1881–1941 · Mariés en 1910 à Québec</span>
+        </div>
+      </div>
+      <div class="chart-row">
+        <div class="rn">VII</div>
+        <div>
+          <span class="names">Josephte Sirois × Saint-Denys MacDonald</span>
+          <span class="date">1911–1988 · Mariés en 1934 à Québec</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="sources" id="sources">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Archives &amp; sources</span>
+      <h2>Références généalogiques</h2>
+    </div>
+    <ul>
+      <li><a href="https://www.nosorigines.qc.ca/GenealogieQuebec.aspx?pid=1670825">Généalogie du Québec — Fiche de Ls.-Philippe-Marie-Joseph Sirois (NosOrigines)</a></li>
+      <li><a href="https://www.biographi.ca/fr/bio/sirois_joseph_17C.xhtml">Dictionnaire biographique du Canada — Notice de Joseph Sirois (1881-1941)</a></li>
+      <li>Programme de recherche en démographie historique (PRDH) — Registres de Rivière-Ouelle et Kamouraska.</li>
+      <li>Dictionnaire généalogique des familles du Québec (René Jetté).</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Archives généalogiques</span>
+  <div>Famille Sirois · De Rivière-Ouelle à la Commission Rowell-Sirois</div>
+  <div class="contrib">Documents historiques et registres de l'état civil du Québec</div>
+</footer>
+
+</body>
+</html>
