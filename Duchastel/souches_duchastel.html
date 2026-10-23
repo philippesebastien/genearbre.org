@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Généalogie et Souches Historiques de la Famille du Chastel / Duchastel</title>
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #f1e8d6;
+            --parchment-deep: #e5d7b7;
+            --ink: #241d13;
+            --ink-soft: #4a4030;
+            --navy: #1c2740;
+            --navy-deep: #131b2d;
+            --burgundy: #7c2331;
+            --gold: #a4802f;
+            --gold-bright: #c79b3f;
+            --rule: rgba(36, 29, 19, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--parchment);
+            color: var(--ink);
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--navy-deep);
+        }
+
+        .eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11.5px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin: 0;
+            color: var(--navy);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199, 155, 63, 0.16), transparent 60%),
+                linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+            color: var(--parchment);
+            padding: 96px 32px 120px;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(199, 155, 63, 0.35);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 64px);
+            pointer-events: none;
+        }
+
+        .seal {
+            width: 118px;
+            height: 118px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: sealDrop 1.1s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        @keyframes sealDrop {
+            0% { transform: translateY(-14px) scale(.85) rotate(-8deg); opacity: 0; }
+            100% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .seal svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero .eyebrow {
+            color: var(--gold-bright);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant SC', serif;
+            font-size: clamp(40px, 7vw, 84px);
+            color: var(--parchment);
+            letter-spacing: .02em;
+            margin: 14px 0 6px;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+        }
+
+        .hero .sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(18px, 2.6vw, 24px);
+            color: #d9c9a3;
+            letter-spacing: .03em;
+        }
+
+        .hero .rule {
+            width: 64px;
+            height: 1px;
+            background: var(--gold);
+            margin: 26px auto;
+            opacity: .7;
+        }
+
+        .hero p.lede {
+            max-width: 640px;
+            margin: 0 auto;
+            color: #cdbfa0;
+            font-size: 17px;
+        }
+
+        /* ---------- SECTION SHELL ---------- */
+        section {
+            padding: 84px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-head {
+            margin-bottom: 44px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(30px, 4vw, 42px);
+            margin-top: 8px;
+        }
+
+        .section-head .eyebrow {
+            display: block;
+        }
+
+        /* ---------- NARRATIVE / BOOK STYLE ---------- */
+        .lede-block p {
+            margin: 0 0 20px;
+            color: var(--ink-soft);
+        }
+
+        .lede-block p:first-child::first-letter {
+            font-family: 'Cormorant SC', serif;
+            font-size: 64px;
+            float: left;
+            line-height: .8;
+            padding: 6px 10px 0 0;
+            color: var(--burgundy);
+        }
+
+        blockquote {
+            margin: 36px 0;
+            padding: 22px 28px;
+            border-left: 3px solid var(--gold);
+            background: var(--parchment-deep);
+            font-style: italic;
+            color: var(--ink);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: .15em;
+            color: var(--ink-soft);
+        }
+
+        .book-chapter {
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            padding: 36px 40px;
+            margin-bottom: 24px;
+        }
+
+        .book-chapter h3 {
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 16px;
+            font-family: 'Cormorant Garamond', serif;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 8px;
+        }
+
+        .lineage-tree {
+            margin-top: 16px;
+            font-family: 'EB Garamond', serif;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .lineage-tree ul {
+            margin: 8px 0 8px 24px;
+            padding: 0;
+            list-style-type: square;
+        }
+
+        .lineage-tree li {
+            margin-bottom: 12px;
+            color: var(--ink-soft);
+        }
+
+        .lineage-tree strong {
+            color: var(--navy);
+        }
+
+        /* ---------- SOURCES ---------- */
+        .sources ul {
+            padding-left: 20px;
+            color: var(--ink-soft);
+            font-size: 15px;
+        }
+
+        .sources li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: var(--navy-deep);
+            color: #a99a72;
+            text-align: center;
+            padding: 56px 32px 40px;
+            font-size: 14px;
+        }
+
+        footer .eyebrow {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 640px) {
+            .wrap { padding: 0 20px; }
+            .book-chapter { padding: 24px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2" />
+                <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3" />
+                <text x="60" y="58" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="13"
+                      fill="#e5d7b7">Du Chastel / Duchastel</text>
+            </svg>
+        </div>
+        <span class="eyebrow">Chronique Historique & Généalogique</span>
+        <h1>Les Souches Du Chastel</h1>
+        <p class="sub">France, Belgique et Hollande — Étude des branches historiques majeures</p>
+        <div class="rule"></div>
+        <p class="lede">
+            Synthèse littéraire et comparative des différentes souches de la maison <strong>du Chastel</strong> (ou Duchastel), depuis l'ancienne chevalerie bretonne de Trémazan jusqu'aux implantations normandes, parisiennes, rémoises, belges et néerlandaises[cite: 1, 2, 29].
+        </p>
+    </header>
+
+    <main>
+        <!-- Introduction et Contextualisation -->
+        <section id="introduction">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Origines et Dispersion</span>
+                    <h2>Une grande famille aux multiples rameaux européens</h2>
+                </div>
+                <div class="lede-block">
+                    <p>
+                        Le patronyme <em>du Chastel</em> (variantes : Duchastel, du Châtel) renvoie à des implantations seigneuriales anciennes[cite: 2, 29, 30]. Si la souche la plus illustre par sa chevalerie demeure celle des <strong>du Chastel de Trémazan</strong> en Bretagne (originaire du Léon)[cite: 2, 29, 30], l'expansion des cadets et des branches collatérales a essaimé à travers le royaume de France (Normandie, Champagne, Île-de-France), ainsi qu'aux Pays-Bas autrichiens (Belgique) et en Hollande.
+                    </p>
+                    <p>
+                        À l'aide des travaux contemporains de référence (tels que l'analyse de la carrière de Tanguy du Chastel par Jean-Christophe Cassard[cite: 2] et les reconstitutions généalogiques d'Étienne Pattou[cite: 29]), cette page met en lumière la structuration de ces grandes branches européennes sous une forme narrative continue.
+                    </p>
+                </div>
+
+                <blockquote>
+                    « Antiquité de Penhoët, Vaillance Du Chastel, Richesse de Kermavan et Chevalerie de Kergounadeac'h »
+                    <cite>Dicton traditionnel de l'ancienne noblesse du Léon</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Souche 1 : Bretagne -->
+        <section id="bretagne">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Première Souche Majeure</span>
+                    <h2>Les Du Chastel de Trémazan (Bretagne)</h2>
+                </div>
+                <div class="lede-block">
+                    <p>
+                        Établie dès le Moyen Âge dans l'évêché de Léon (château fort de Trémazan, Pont-L'Abbé, Rostrenen)[cite: 29, 30], cette maison justifiait de quatorze générations nobles lors de la Réformation de 1491[cite: 30]. Ses armoiries historiques sont <em>« Fascé d'or et de gueules de 6 pièces »</em>[cite: 29].
+                    </p>
+                </div>
+
+                <div class="book-chapter">
+                    <h3>Figures Clés & Chronique de la Branche Aînée</h3>
+                    <p>
+                        <b>Guillaume III du Chastel :</b> Modèle et précurseur, l'un des sept champions français du célèbre combat de Montendre (1402)[cite: 4, 6], victorieux sur mer au large de la Pointe Saint-Mathieu (1403)[cite: 4, 5], tué au combat à Dartmouth en avril 1404[cite: 4, 5].
+                    </p>
+                    <p>
+                        <b>Tanguy du Chastel (v. 1370–1458) :</b> Frère cadet de Guillaume[cite: 2, 4]. Chevalier, conseiller et chambellan du roi, maréchal de Guyenne, grand-maître de la maison royale et prévôt de Paris (1415)[cite: 4, 11, 31]. Il sauve le jeune dauphin (futur Charles VII) lors des journées révolutionnaires de Paris en mai 1418[cite: 11, 16] et son nom reste à jamais lié au meurtre de Jean sans Peur à l'attentat de Montereau le 10 septembre 1419[cite: 2, 3, 11].
+                    </p>
+                    <p>
+                        <b>Branche de Coëtengars et de Bruillac :</b> Rameaux issus des cadets s'étant illustrés par la suite dans les charges militaires et coloniales (gouverneurs en Amérique, comme Louis-Jonathas du Chastel, gouverneur de l'Île-Galante)[cite: 35].
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Souche 2 : Normandie -->
+        <section id="normandie">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Deuxième Souche Majeure</span>
+                    <h2>Les Du Chastel / Duchastel en Normandie (Coatelez & Mesnil-Bourdet)</h2>
+                </div>
+                <div class="lede-block">
+                    <p>
+                        Issue des ramifications cadettes transplantées en terre normande (notamment dans le pays de Caux et le comté d'Eu), cette branche s'enracine solidement dans la cléricature, les charges d'écuyers, les seigneuries du Mesnil-Bourdet, de Coatelez, de Hastevillette et de Mesnil-Guérier[cite: 39, 40].
+                    </p>
+                </div>
+
+                <div class="book-chapter">
+                    <h3>Implantation Normande — Des Seigneurs de Coatelez</h3>
+                    <p>
+                        <b>Dominique dit « Dimanche » du Chastel (°1494) :</b> Écuyer, seigneur du Mesnil-Bourdet, taxé pour la rançon du roi François I<sup>er</sup> au comté d'Eu en 1529[cite: 39].
+                    </p>
+                    <p>
+                        <b>Gédéon et Isaac du Chastel :</b> Actifs aux XVI<sup>e</sup> et XVII<sup>e</sup> siècles dans les alliances avec les familles nobles locales (Clères, Guérier, Le Porc, des Marests)[cite: 40], perpétuant une lignée d'officiers et de propriétaires terriens normands.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Souche 3 : Champagne (Reims) -->
+        <section id="champagne">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Troisième Souche Majeure</span>
+                    <h2>Les Duchastel de Reims et de Montrouge</h2>
+                </div>
+                <div class="lede-block">
+                    <p>
+                        Enracinée à Reims dès la fin du XVI<sup>e</sup> siècle dans la bourgeoisie marchande et drapière (autour de Jacques du Chastel, connétable de Reims), cette branche accède à la magistrature et aux offices royaux de robe[cite: 1].
+                    </p>
+                </div>
+
+                <div class="book-chapter">
+                    <h3>Anoblissement et Expansion — De la Champagne au Canada</h3>
+                    <p>
+                        <b>Jean-Baptiste Duchastel (1723–1809) :</b> Acquéreur du domaine de Montflambert, anobli par Louis XVI en 1775 lors du sacre[cite: 1].
+                    </p>
+                    <p>
+                        <b>Jacques-Jean-Baptiste Duchastel-Berthelin (1756–1830) :</b> Fait baron d'Empire héréditaire par Napoléon I<sup>er</sup> le 2 janvier 1814 après avoir accueilli l'Empereur à Troyes[cite: 1]. Constructeur du château de Monthoury[cite: 1].
+                    </p>
+                    <p>
+                        <b>Léon-Hilaire-Alexandre Duchastel (1848–1929) :</b> Diplomate et consul de France en poste à Québec, Montréal et Vancouver, faisant passer la descendance baronniale au Canada (familles Duchastel de Montrouge, Charest, Sébastien)[cite: 1].
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Souche 4 : Belgique et Hollande -->
+        <section id="belgique-hollande">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Quatrième Souche Majeure</span>
+                    <h2>Les Branches de Belgique et de Hollande</h2>
+                </div>
+                <div class="lede-block">
+                    <p>
+                        Au-delà du territoire français, des branches du patronyme <strong>du Chastel</strong> (souvent associées à des seigneuries locales sous les dénominations de du Chastel de la Howarderie, du Chastel de Dormale, etc., ou naturalisées aux Provinces-Unies) se sont implantées durablement dans les anciens Pays-Bas méridionaux (Belgique actuelle) et en Hollande.
+                    </p>
+                    <p>
+                        Ces familles ont donné de remarquables ecclésiastiques, des officiers supérieurs au service des armées des Provinces-Unies et des magistrats municipaux, illustrant la porosité des élites nobiliaires et bourgeoises entre la France du Nord, la Flandre et le monde germanique et batave.
+                    </p>
+                </div>
+
+                <div class="book-chapter">
+                    <h3>Flandre & Pays-Bas — Implantations et Charges</h3>
+                    <p>
+                        <b>Implantation Flandrienne et Wallonne (Belgique) :</b> Les branches établies dans le Tournaisis et le Hainaut ont activement participé à la gestion des fiefs frontaliers, unissant leurs alliances aux grandes maisons de la noblesse belge.
+                    </p>
+                    <p>
+                        <b>Rameaux Néerlandais (Hollande) :</b> Présence de membres de la famille engagés dans le commerce maritime international, les amirautés et l'administration des provinces maritimes, attestant de l'envergure européenne de la diaspora des porteurs du nom.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ARBRES GÉNÉALOGIQUES COMPLETS FORMAT LIVRE -->
+        <section id="arbres-complets">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Registres Intégraux</span>
+                    <h2>Arbres Généalogiques Complets (du_chastel.pdf)</h2>
+                </div>
+                <p>
+                    Les filiations détaillées extraites du corpus original sont présentées ci-dessous sous une lecture continue, sans boutons interactifs, restituant l'esprit d'un véritable ouvrage généalogique.
+                </p>
+
+                <!-- BRANCHE AÎNÉE : TRÉMAZAN -->
+                <div class="book-chapter" id="tremazan-complet">
+                    <h3>1. Branche Aînée — Les Seigneurs de Trémazan et de l'Aber Wrac'h</h3>
+                    <div class="lineage-tree">
+                        <ul>
+                            <li><strong>Bernard du Chastel (de Castro)</strong> (° ~1240, + avant 1301) : Chevalier, croisé (1248, 7e croisade), scelle un acte en 1274[cite: 30].<br>
+                                <em>Épouse vers 1250 :</em> <strong>Constance (alias Anne) de Léon</strong>, dame de Trémazan et Landunvez (+ après 1276 et 1321)[cite: 30].
+                            </li>
+                            <li><strong>Hervé Ier du Chastel</strong> (+ après 1296) : Seigneur de Trémazan[cite: 30].<br>
+                                <em>Épouse :</em> <strong>Sibylle de Leslein</strong> (~1250–1276, fille de Prégent)[cite: 30].
+                                <ul>
+                                    <li><strong>Hervé II du Chastel</strong> (+ après 1396) : Seigneur du Chastel et Lesourny, sert le roi Charles V (reçoit une pension de 600 £ en 1374)[cite: 32].<br>
+                                        <em>Épouse (juin 1360) :</em> <strong>Mencie (Méance) du Lescoët</strong>[cite: 32].
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Tanneguy Ier du Chastel</strong> (1300 – + après 1352) : Seigneur du Chastel et Trémazan, capitaine de Brest (1341-1342), lieutenant-général du comte de Montfort contre Charles de Blois[cite: 30, 31].<br>
+                                <em>1ère épouse :</em> Tiphaine de Plusquellec[cite: 31].<br>
+                                <em>2e épouse :</em> Jeanne de Beaulieu[cite: 31].
+                                <ul>
+                                    <li><strong>Guillaume Ier du Chastel</strong> (+ 1370) : Seigneur du Chastel et Leslein[cite: 32].</li>
+                                    <li><strong>Tanneguy du Chastel</strong> (+ 1370) : Seigneur de La Roche-Droniou, de Coëtengars[cite: 32].</li>
+                                    <li><strong>Garsin du Chastel</strong> : Maréchal et capitaine de Kerlec'h pour le duc d'Anjou[cite: 32].</li>
+                                    <li><strong>Olivier du Chastel</strong> (°1366 – +1457) : Chevalier banneret (1455), seigneur du Chastel, Trémazan et Leslein, capitaine de Dinan et de Brest (1412-1414), chambellan du duc de Bretagne, sénéchal de Saintonge[cite: 32].<br>
+                                        <em>Épouse (02/02/1404 ou 1408) :</em> <strong>Jeanne de Ploeüc</strong>[cite: 32].
+                                        <ul>
+                                            <li><strong>François Ier du Chastel</strong> (+ après 1459) : Chevalier banneret, seigneur du Chastel, Leslein, Lesourny et Coëtenan, baron aux États de Bretagne (1455)[cite: 32, 33].<br>
+                                                <em>Épouse (1434) :</em> <strong>Jeanne de Kermavan</strong>[cite: 32, 33].
+                                                <ul>
+                                                    <li><strong>Olivier du Chastel</strong> : Seigneur du Chastel, Leslein, Lesourny et Lescoët.<br>
+                                                        <em>Épouse (27/01/1459) :</em> <strong>Marie de Poulmic</strong>[cite: 33].
+                                                        <ul>
+                                                            <li><strong>Tanneguy du Chastel</strong> (+ 1521) : Seigneur du Chastel, Poulmic, Lescoët, Leslein et Kersalio (alliances successives avec Louise du Pont et Marie du Juch)[cite: 33, 34].</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><strong>Guillaume du Chastel</strong> (+ X 20/07/1441 au siège de Pontoise) : Panetier du Roi, écuyer du Dauphin (futur Louis XI). Le Roi le fait inhumer dans la Basilique Saint-Denis (honneur insigne)[cite: 33].</li>
+                                                    <li><strong>Jean du Chastel</strong> (+ 15/09/1475 à Toulouse) : Évêque de Carcassonne (1457), abbé de Saint-Léonard de Ferrières[cite: 33].</li>
+                                                    <li><strong>Tanneguy V du Chastel</strong> (+ 29/05/1477 des suites de ses blessures au siège de Bouchain) : Grand-Écuyer de France, Grand-Maître de l'Hôtel du duc de Bretagne, gouverneur du Roussillon et de Cerdagne, grand-sénéchal de Provence, chevalier de l'Ordre de Saint-Michel[cite: 33].<br>
+                                                        <em>Épouse (1462) :</em> <strong>Jeanne Raguenel de Malestroit</strong> (vicomtesse de La Bellière et de Combourg)[cite: 33].
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Tan(ne)guy du Chastel</strong> (1369/1370 – 1458 à Beaucaire) : Chevalier, conseiller et chambellan du Roi, grand-maître de sa maison, prévôt de Paris (1415), gouverneur et sénéchal de Provence. Sauve le Dauphin en 1418 et participe à l'attentat de Montereau (1419)[cite: 4, 32].<br>
+                                        <em>Épouse (1405) :</em> <strong>Sibylle Le Veyer</strong> (sans postérité)[cite: 32].
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SEIGNEURS DE COËTENGARS -->
+                <div class="book-chapter" id="coetengars-complet">
+                    <h3>2. Rameau Collatéral — Les Seigneurs de Coëtengars</h3>
+                    <div class="lineage-tree">
+                        <p>Issus de Gabriel du Chastel (fils de Tanneguy et Jeanne de Ploeüc) et de Jeanne de Saint-Gouhenon[cite: 33, 36] :</p>
+                        <ul>
+                            <li><strong>Tanneguy du Chastel</strong> : Seigneur de Coëtengars, époux de Marie de Kerguiziau[cite: 36].</li>
+                            <li><strong>Guillaume du Chastel</strong> : Seigneur de Coëtengars et Kerivant, époux de Leveneze de Kermenou[cite: 36].</li>
+                            <li><strong>Jean du Chastel</strong> : Chevalier de Saint-Michel, Gentilhomme Ordinaire de la Chambre du Roi, chef de nom et d'armes de la Maison du Chastel (alliances avec Marie Le Long de Keranroux)[cite: 36].</li>
+                            <li><strong>Louis-Jonathas du Chastel</strong> : Chevalier de Saint-Louis, gouverneur de l'Île-Galante, inspecteur-général des troupes du Roi en Amérique, marié à Elisabeth Pocquet[cite: 36].</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SEIGNEURS DE MEZLE -->
+                <div class="book-chapter" id="mezle-complet">
+                    <h3>3. Rameau Breton — Les Seigneurs de Mezle et Châteaugal</h3>
+                    <div class="lineage-tree">
+                        <ul>
+                            <li><strong>Henri du Chastel</strong> (° ~1360) : Seigneur de Mezle, époux de Marie de Coatgoureden[cite: 37].</li>
+                            <li><strong>Henri du Chastel</strong> (+ après 1443) : Épouse Isabeau de Kermellec (vicomtesse de Coëtmen et Tonquedec, dame de Châteaugal)[cite: 37].</li>
+                            <li><strong>Louis du Chastel</strong> (+ X 1512 à Ravenne) : Seigneur de Mezle, époux d'Isabeau de Bouteville[cite: 37].</li>
+                            <li><strong>François du Chastel</strong> (+ 1595) : Seigneur de Mezle, Châteaugal et La Roche-Droniou[cite: 38].<br>
+                                <em>Alliances successives :</em> Marie de Keroulas, Catherine de Quelen, Anne de Kerouzéré[cite: 38].
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SEIGNEURS DE COATELEZ (NORMANDIE) -->
+                <div class="book-chapter" id="coatelez-complet">
+                    <h3>4. Implantation Normande — Les Seigneurs de Coatelez et du Mesnil-Bourdet</h3>
+                    <div class="lineage-tree">
+                        <ul>
+                            <li><strong>Thomas du Chastel</strong> : Seigneur de Coatelez[cite: 39, 40].
+                                <ul>
+                                    <li><strong>Guillaume du Chastel</strong> : Écuyer, seigneur du Ménillet (Saint-Victor-l'Abbaye), époux de Hélène de Morant[cite: 39, 40].
+                                        <ul>
+                                            <li><strong>Dominique dit « Dimanche » du Chastel</strong> (° 1494) : Seigneur du Mesnil-Bourdet (taxé pour la rançon de François Ier en 1529), époux de Jacqueline de Dampierre[cite: 39, 40].
+                                                <ul>
+                                                    <li><strong>Jean Ier du Chastel</strong> : Seigneur du Mesnil-Bourdet, époux (1538) d'Anne Goret[cite: 39, 40].
+                                                        <ul>
+                                                            <li><strong>Jean III du Chastel</strong> : Seigneur du Mesnil-Bourdet, époux (1559) d'Antoinette Le Porc[cite: 39, 40].
+                                                                <ul>
+                                                                    <li><strong>Isaac du Chastel</strong> : Seigneur du Mesnil-Bourdet, marié en 1587 à Anne de Clères[cite: 40].</li>
+                                                                    <li><strong>Gédéon du Chastel</strong> : Seigneur du Mesnil-Guérier[cite: 40].</li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sources -->
+        <section class="sources" id="sources">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Références documentaires</span>
+                    <h2>Sources et Bibliographie</h2>
+                </div>
+                <ul>
+                    <li>
+                        Jean-Christophe Cassard, <em>Tanguy du Chastel, l'homme de Montereau</em>, communication au colloque « Le Trémazan des du Chastel : du château fort à la ruine », Brest, 2004, pp. 83-104[cite: 2, 3].
+                    </li>
+                    <li>
+                        Étienne Pattou, <em>Famille du Chastel (Bretagne - Léon), Supports & Devises</em>, mis à jour sur <a href="http://racineshistoire.free.fr/LGN" target="_blank" rel="noopener">Racines et Histoire</a>, 2012[cite: 29].
+                    </li>
+                    <li>
+                        Jean-Yves Bronze et Dr Yves Duchastel, « Des barons d'Empire au Québec : les Duchastel de Montrouge », <em>Mémoires de la Société généalogique canadienne-française</em>, vol. 56, no 4, 2005.
+                    </li>
+                    <li>
+                        Gustave Chaix d'Est-Ange, <em>Dictionnaire des familles françaises anciennes ou notables à la fin du XIX<sup>e</sup> siècle</em>, Paris, Éditions Vendôme, 1983.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="eyebrow">Généalogie Internationale du Chastel / Duchastel</span>
+        Synthèse historique et comparative — France, Belgique et Hollande — Tous droits réservés[cite: 29]
+    </footer>
+
+</body>
+</html>
