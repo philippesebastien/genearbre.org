@@ -107,118 +107,6 @@
   .section-head h2{ font-size:clamp(30px,4vw,42px); margin-top:8px; }
   .section-head .eyebrow{ display:block; }
 
-  /* ---------- NARRATIVE ---------- */
-  .lede-block p{ margin:0 0 20px; color:var(--ink-soft); }
-  .lede-block p:first-child::first-letter{
-    font-family:'Cormorant SC', serif;
-    font-size:64px;
-    float:left;
-    line-height:.8;
-    padding:6px 10px 0 0;
-    color:var(--burgundy);
-  }
-  blockquote{
-    margin:36px 0; padding:22px 28px;
-    border-left:3px solid var(--gold);
-    background:var(--parchment-deep);
-    font-style:italic; color:var(--ink);
-  }
-  blockquote cite{ display:block; margin-top:10px; font-style:normal; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.15em; color:var(--ink-soft); }
-
-  .figure-note{
-    display:flex; gap:18px; align-items:flex-start;
-    background:var(--parchment-deep); border:1px solid var(--rule);
-    padding:20px 24px; margin:32px 0; font-size:15.5px; color:var(--ink-soft);
-  }
-  .figure-note .mark{ font-family:'Cormorant SC',serif; font-size:28px; color:var(--burgundy); line-height:1; }
-
-  /* ---------- LINEAGE LADDER (signature element) ---------- */
-  .ladder-intro{ margin-bottom:56px; max-width:640px; }
-  .ladder{ position:relative; }
-  .ladder::before{
-    content:""; position:absolute; left:29px; top:8px; bottom:8px; width:1px;
-    background:linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
-  }
-  .rung{
-    position:relative; display:grid; grid-template-columns:60px 1fr; gap:22px;
-    padding:26px 0; border-bottom:1px dashed var(--rule);
-  }
-  .rung:last-child{ border-bottom:none; }
-  .rung .numeral{
-    font-family:'Cormorant SC', serif; font-size:26px; color:var(--navy);
-    width:60px; height:60px; border-radius:50%;
-    background:var(--parchment); border:1.5px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    position:relative; z-index:1;
-  }
-  .rung.current .numeral{ background:var(--burgundy); color:var(--parchment); border-color:var(--burgundy); }
-  .rung h3{ font-size:23px; color:var(--navy); }
-  .rung .role{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; text-transform:uppercase; color:var(--burgundy); margin:4px 0 8px; }
-  .rung .meta{ font-size:15.5px; color:var(--ink-soft); }
-  .rung .meta b{ color:var(--ink); font-weight:600; }
-
-  /* ---------- GENERATION RECORDS ---------- */
-  details.gen{
-    background:var(--parchment-deep); border:1px solid var(--rule);
-    margin-bottom:14px; padding:0;
-  }
-  details.gen > summary{
-    list-style:none; cursor:pointer;
-    padding:20px 26px; display:flex; justify-content:space-between; align-items:baseline; gap:16px;
-    font-family:'Cormorant Garamond', serif;
-  }
-  details.gen > summary::-webkit-details-marker{ display:none; }
-  details.gen > summary .tag{ font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.15em; color:var(--gold); flex-shrink:0; }
-  details.gen > summary .name{ font-size:22px; color:var(--navy); flex:1; }
-  details.gen > summary .chevron{ font-size:14px; color:var(--burgundy); transition:transform .25s ease; flex-shrink:0; }
-  details.gen[open] > summary .chevron{ transform:rotate(90deg); }
-  .gen-body{ padding:0 26px 26px; font-size:16px; color:var(--ink-soft); }
-  .gen-body p{ margin:0 0 14px; }
-  .gen-body .children{ margin-top:12px; padding-left:20px; border-left:2px solid var(--rule); }
-  .gen-body .children .child{ margin-bottom:10px; }
-  .gen-body .children .grand{ margin:6px 0 6px 22px; font-size:14.5px; color:var(--ink-soft); opacity:.9; }
-  .gen-body .grand ul{ margin:4px 0 4px 22px; padding:0; }
-  .gen-body sup.note{ font-size:11px; color:var(--gold); }
-
-  /* ---------- PATRILINEAL CHART ---------- */
-  .chart-wrap{
-    background:var(--navy-deep); color:var(--parchment);
-    padding:48px 40px; position:relative;
-    border:1px solid var(--gold);
-  }
-  .chart-wrap::before, .chart-wrap::after{
-    content:"◆"; color:var(--gold); font-size:12px; position:absolute;
-  }
-  .chart-wrap::before{ top:16px; left:16px; }
-  .chart-wrap::after{ bottom:16px; right:16px; }
-  .chart-title{ text-align:center; font-family:'Cormorant SC',serif; font-size:26px; margin-bottom:6px; }
-  .chart-sub{ text-align:center; font-family:'Cormorant Garamond',serif; font-style:italic; color:#c9b98a; margin-bottom:32px; }
-  .chart-row{ display:grid; grid-template-columns:40px 1fr; gap:16px; padding:12px 0; border-bottom:1px solid rgba(199,155,63,0.2); }
-  .chart-row:last-child{ border-bottom:none; }
-  .chart-row .rn{ font-family:'Cormorant SC',serif; color:var(--gold-bright); font-size:18px; }
-  .chart-row .rd{ font-size:15px; }
-  .chart-row .rd .names{ color:var(--parchment); }
-  .chart-row .rd .date{ display:block; font-size:13px; color:#a99a72; margin-top:2px; }
-
-  /* ---------- IMAGES ---------- */
-  .figure{ margin:36px 0; }
-  .figure img{ display:block; width:100%; height:auto; border:1px solid var(--rule); background:var(--parchment-deep); }
-  .figure figcaption{ margin-top:10px; font-family:'Cinzel',serif; font-size:11px; letter-spacing:.08em; color:var(--ink-soft); text-align:center; }
-  .figure-pair{ display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:36px 0; }
-  .figure-pair .figure{ margin:0; }
-  .crest-row{ display:flex; align-items:center; gap:28px; margin:0 0 32px; }
-  .crest-row img{ width:96px; height:auto; border:1px solid var(--rule); flex-shrink:0; }
-  .crest-row .blazon{ font-style:italic; color:var(--ink-soft); font-size:15px; }
-  .rung .portrait{ margin-top:14px; display:flex; gap:10px; }
-  .rung .portrait img{ width:74px; height:auto; border:1px solid var(--gold); }
-  .doc-image{ margin:16px 0 6px; }
-  .doc-image img{ width:100%; max-width:340px; height:auto; border:1px solid var(--rule); display:block; }
-  .doc-image figcaption{ font-size:13px; color:var(--ink-soft); font-style:italic; margin-top:6px; }
-
-  /* ---------- SOURCES ---------- */
-  .sources ul{ padding-left:20px; color:var(--ink-soft); font-size:15px; }
-  .sources li{ margin-bottom:10px; }
-
   footer{
     background:var(--navy-deep); color:#a99a72; text-align:center;
     padding:56px 32px 40px; font-size:14px;
@@ -226,64 +114,9 @@
   footer .eyebrow{ display:block; margin-bottom:10px; }
   footer .contrib{ color:#d9c9a3; margin-top:18px; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; }
 
-  .callout-next{
-    margin-top:60px; padding:24px 28px; border:1px dashed var(--gold);
-    background:var(--parchment-deep); font-size:15.5px; color:var(--ink-soft);
-  }
-  .callout-next b{ color:var(--navy); }
-
-  @media (max-width:640px){
-    .wrap{ padding:0 20px; }
-    .rung{ grid-template-columns:44px 1fr; gap:14px; }
-    .rung .numeral{ width:44px; height:44px; font-size:19px; }
-    .chart-wrap{ padding:32px 20px; }
-    .figure-pair{ grid-template-columns:1fr; }
-    .crest-row{ flex-direction:column; align-items:flex-start; gap:14px; }
-  }
-
-
   /* ---------- HOME PAGE ---------- */
-  .home-grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:20px;
-    margin-top:40px;
-  }
-  .home-card{
-    display:block;
-    text-decoration:none;
-    background:var(--parchment-deep);
-    border:1px solid var(--rule);
-    padding:30px 28px;
-    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
-  }
-  .home-card:hover{
-    transform:translateY(-3px);
-    border-color:var(--gold);
-    box-shadow:0 8px 24px rgba(36,29,19,.08);
-  }
-  .home-card .card-mark{
-    font-family:'Cormorant SC',serif;
-    font-size:28px;
-    color:var(--burgundy);
-    margin-bottom:10px;
-  }
-  .home-card h3{
-    font-size:25px;
-    margin-bottom:8px;
-  }
-  .home-card p{
-    margin:0;
-    color:var(--ink-soft);
-    font-size:16px;
-  }
-  .welcome{
-    max-width:700px;
-  }
-  .welcome p{
-    color:var(--ink-soft);
-    margin:0 0 20px;
-  }
+  .welcome{ max-width:700px; }
+  .welcome p{ color:var(--ink-soft); margin:0 0 20px; }
   .welcome p:first-child::first-letter{
     font-family:'Cormorant SC',serif;
     font-size:64px;
@@ -292,6 +125,36 @@
     padding:6px 10px 0 0;
     color:var(--burgundy);
   }
+
+  .home-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:20px;
+  }
+  .home-card{
+    display:block;
+    text-decoration:none;
+    background:var(--parchment-deep);
+    border:1px solid var(--rule);
+    padding:26px 28px;
+    transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  .home-card:hover, .home-card:focus-visible{
+    transform:translateY(-3px);
+    border-color:var(--gold);
+    box-shadow:0 8px 24px rgba(36,29,19,.08);
+    outline:none;
+  }
+  .home-card .card-mark{
+    font-family:'Cormorant SC',serif;
+    font-size:28px;
+    color:var(--burgundy);
+    margin-bottom:6px;
+  }
+  .home-card h3{ font-size:25px; margin-bottom:8px; }
+  .home-card p{ margin:0; color:var(--ink-soft); font-size:16px; }
+  .home-card mark{ background:rgba(199,155,63,.45); color:inherit; padding:0 1px; }
+
   .home-note{
     margin-top:48px;
     padding:24px 28px;
@@ -302,8 +165,104 @@
   }
   .home-note b{ color:var(--navy); }
 
+  /* ---------- SEARCH + A–Z TOOLBAR ---------- */
+  .finder{
+    position:sticky; top:0; z-index:20;
+    background:rgba(241,232,214,.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+    padding:14px 0 12px;
+    margin:44px -32px 0;
+    padding-left:32px; padding-right:32px;
+  }
+  .search-row{ display:flex; align-items:center; gap:14px; }
+  .search-box{ position:relative; flex:1; }
+  .search-box svg{
+    position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    width:18px; height:18px; stroke:var(--gold); fill:none; stroke-width:2; pointer-events:none;
+  }
+  .search-box input{
+    width:100%;
+    font-family:'EB Garamond', serif; font-size:18px; color:var(--ink);
+    background:#f8f1e1;
+    border:1px solid var(--gold);
+    padding:11px 44px 11px 42px;
+    border-radius:0;
+    -webkit-appearance:none; appearance:none;
+  }
+  .search-box input::placeholder{ color:#8a7d62; font-style:italic; }
+  .search-box input:focus{ outline:2px solid var(--gold-bright); outline-offset:1px; }
+  .search-box input::-webkit-search-cancel-button{ display:none; }
+  .search-clear{
+    position:absolute; right:6px; top:50%; transform:translateY(-50%);
+    border:0; background:none; cursor:pointer;
+    font-size:22px; line-height:1; color:var(--burgundy); padding:6px 10px;
+    display:none;
+  }
+  .search-clear.show{ display:block; }
+  .result-count{
+    font-family:'Cinzel',serif; font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-soft); white-space:nowrap;
+  }
+
+  .az{
+    display:flex; flex-wrap:wrap; gap:4px; margin-top:12px;
+  }
+  .az a{
+    font-family:'Cormorant SC',serif; font-size:18px; font-weight:600;
+    min-width:32px; height:32px; padding:0 6px;
+    display:inline-flex; align-items:center; justify-content:center;
+    text-decoration:none; color:var(--navy);
+    border:1px solid var(--rule);
+    background:var(--parchment-deep);
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .az a:hover, .az a:focus-visible{ background:var(--burgundy); color:var(--parchment); border-color:var(--burgundy); outline:none; }
+  .az a.off{ opacity:.28; pointer-events:none; background:transparent; }
+  .az a.active{ background:var(--navy); color:var(--parchment); border-color:var(--navy); }
+
+  /* ---------- LETTER GROUPS ---------- */
+  .letter-group{ margin-top:40px; scroll-margin-top:150px; }
+  .letter-heading{
+    display:flex; align-items:center; gap:16px; margin-bottom:18px;
+  }
+  .letter-heading span{
+    font-family:'Cormorant SC',serif; font-size:46px; line-height:1; color:var(--burgundy);
+  }
+  .letter-heading::after{ content:""; flex:1; height:1px; background:linear-gradient(90deg, var(--gold), transparent); }
+  .letter-heading small{
+    order:3; font-family:'Cinzel',serif; font-size:10.5px; letter-spacing:.14em; color:var(--ink-soft);
+  }
+  .letter-group.hidden, .home-card.hidden{ display:none; }
+
+  .no-results{
+    display:none; text-align:center; padding:56px 20px;
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:var(--ink-soft);
+  }
+  .no-results.show{ display:block; }
+
+  .to-top{
+    position:fixed; right:20px; bottom:20px; z-index:30;
+    width:44px; height:44px; border:1px solid var(--gold);
+    background:var(--navy); color:var(--gold-bright);
+    font-size:20px; cursor:pointer;
+    opacity:0; pointer-events:none; transition:opacity .2s;
+  }
+  .to-top.show{ opacity:1; pointer-events:auto; }
+
+  .about-wrap{ margin-top:56px; }
+
   @media (max-width:640px){
+    .wrap{ padding:0 20px; }
     .home-grid{ grid-template-columns:1fr; }
+    .finder{ margin-left:-20px; margin-right:-20px; padding-left:20px; padding-right:20px; }
+    .result-count{ display:none; }
+    .az a{ min-width:28px; height:30px; font-size:16px; }
+    .letter-group{ scroll-margin-top:170px; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{ scroll-behavior:auto; }
+    .seal{ animation:none; }
   }
 </style>
 </head>
@@ -339,7 +298,25 @@
         <p>Cette nouvelle page d'accueil reprend l'identité visuelle des <em>Archives généalogiques Duchastel de Montrouge</em>, avec la même esthétique de parchemin, les typographies historiques, les accents bleu marine, bordeaux et or, ainsi qu'une présentation plus claire sur ordinateur et téléphone.</p>
       </div>
 
-      <div class="home-grid">
+      <!-- Barre de recherche + index alphabétique (remplie par le script) -->
+      <div class="finder" id="finder" hidden>
+        <div class="search-row">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input type="search" id="search" placeholder="Rechercher une famille…  ( / )" aria-label="Rechercher une famille" autocomplete="off">
+            <button type="button" class="search-clear" id="clear" aria-label="Effacer la recherche">×</button>
+          </div>
+          <div class="result-count" id="count" aria-live="polite"></div>
+        </div>
+        <nav class="az" id="az" aria-label="Index alphabétique"></nav>
+      </div>
+
+      <!--
+        Pour ajouter une famille : copiez simplement un bloc <a class="home-card"> ci-dessous.
+        L'ordre n'a pas d'importance : le tri alphabétique et le regroupement par lettre sont automatiques.
+      -->
+      <div id="families" class="home-grid" style="margin-top:40px">
+
           <a class="home-card" href="Sebastien/genealogie-sebastien.html">
               <div class="card-mark">✦</div>
               <h3>Sébastien / Bastien</h3>
@@ -347,219 +324,251 @@
           </a>
 
           <a class="home-card" href="Charest/genealogie-charest.html">
-              <div class="card-mark">II</div>
+              <div class="card-mark">✦</div>
               <h3>Charest</h3>
               <p>Explorer les informations et recherches généalogiques relatives à la famille Charest.</p>
           </a>
+
           <a class="home-card" href="Duchastel/genealogie-duchastel.html">
-              <div class="card-mark">III</div>
+              <div class="card-mark">✦</div>
               <h3>Duchastel de Montrouge</h3>
               <p>Archives généalogiques, succession baronniale, documents historiques et dix générations de la famille Duchastel de Montrouge.</p>
           </a>
 
           <a class="home-card" href="Blais/genealogie-blais.html">
-              <div class="card-mark">IV</div>
+              <div class="card-mark">✦</div>
               <h3>Blais</h3>
               <p>Explorer les informations et recherches généalogiques relatives à la famille Blais.</p>
           </a>
 
           <a class="home-card" href="Heynemand/genealogie-heynemand.html">
-              <div class="card-mark">V</div>
+              <div class="card-mark">✦</div>
               <h3>Heynemand</h3>
               <p>Explorer les informations et recherches généalogiques relatives à la famille Heynemand.</p>
           </a>
 
           <a class="home-card" href="Gaudet/genealogie-gaudet.html">
-             <div class="card-mark">VI</div>
+             <div class="card-mark">✦</div>
              <h3>Gaudet</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Gaudet.</p>
           </a>
 
           <a class="home-card" href="Vallerand/genealogie_vallerand.html">
-             <div class="card-mark">VII</div>
+             <div class="card-mark">✦</div>
              <h3>Vallerand</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Gaudet.</p>
+             <p>Explorer les informations et recherches généalogiques relatives à la famille Vallerand.</p>
           </a>
 
           <a class="home-card" href="Sangster/genealogie_sangster.html">
-             <div class="card-mark">VIII</div>
+             <div class="card-mark">✦</div>
              <h3>Singcaster/Sangster</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Singcaster/Sangster.</p>
           </a>
 
           <a class="home-card" href="Lacoste/genealogie_lacoste.html">
-             <div class="card-mark">IX</div>
+             <div class="card-mark">✦</div>
              <h3>Lacoste</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Lacoste.</p>
           </a>
 
           <a class="home-card" href="Globensky/genealogie_globensky.html">
-             <div class="card-mark">X</div>
+             <div class="card-mark">✦</div>
              <h3>Globensky</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Globensky.</p>
           </a>
-          
+
           <a class="home-card" href="Legoix/genealogie_legoix.html">
-             <div class="card-mark">XI</div>
+             <div class="card-mark">✦</div>
              <h3>Legoix</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Legoix.</p>
           </a>
-          
+
           <a class="home-card" href="Snyder/genealogie_snyder.html">
-             <div class="card-mark">XII</div>
+             <div class="card-mark">✦</div>
              <h3>Snyder</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Snyder.</p>
           </a>
 
           <a class="home-card" href="Pelerin/genealogie_pelerin.html">
-             <div class="card-mark">XIII</div>
+             <div class="card-mark">✦</div>
              <h3>Pelerin</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Pelerin.</p>
           </a>
 
           <a class="home-card" href="Wood/genealogie_wood.html">
-             <div class="card-mark">XIV</div>
+             <div class="card-mark">✦</div>
              <h3>Wood</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Wood.</p>
           </a>
 
           <a class="home-card" href="Cashman/genealogie_kirk_cashman.html">
-             <div class="card-mark">XV</div>
+             <div class="card-mark">✦</div>
              <h3>Kirk-Cashman</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Kirk-Cashman.</p>
           </a>
 
           <a class="home-card" href="Cadot/genealogie_cadot.html">
-             <div class="card-mark">XVI</div>
+             <div class="card-mark">✦</div>
              <h3>Cadot</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Cadot.</p>
           </a>
 
           <a class="home-card" href="Joubert/genealogie_joubert.html">
-             <div class="card-mark">XVII</div>
+             <div class="card-mark">✦</div>
              <h3>Joubert</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Joubert.</p>
           </a>
 
           <a class="home-card" href="Arsenault/genealogie_arsenault.html">
-             <div class="card-mark">XVIII</div>
+             <div class="card-mark">✦</div>
              <h3>Arsenault</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Arsenault.</p>
           </a>
 
           <a class="home-card" href="Arcand/genealogie_arcand.html">
-             <div class="card-mark">XIX</div>
+             <div class="card-mark">✦</div>
              <h3>Arcand</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Arcand.</p>
           </a>
 
           <a class="home-card" href="Rinfret/genealogie_rinfret.html">
-             <div class="card-mark">XX</div>
+             <div class="card-mark">✦</div>
              <h3>Rinfret</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Rinfret.</p>
           </a>
 
           <a class="home-card" href="St-Ours/genealogie_stours.html">
-             <div class="card-mark">XXI</div>
+             <div class="card-mark">✦</div>
              <h3>St-Ours</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille St-Ours.</p>
           </a>
 
           <a class="home-card" href="Miteau/genealogie_miteau.html">
-             <div class="card-mark">XXII</div>
+             <div class="card-mark">✦</div>
              <h3>Miteau</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Miteau.</p>
           </a>
 
           <a class="home-card" href="Berthelin/genealogie_berthelin.html">
-             <div class="card-mark">XXIII</div>
+             <div class="card-mark">✦</div>
              <h3>Berthelin</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Berthelin.</p>
           </a>
 
           <a class="home-card" href="Plantin/genealogie_plantin.html">
-             <div class="card-mark">XXIV</div>
+             <div class="card-mark">✦</div>
              <h3>Plantin</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Plantin.</p>
           </a>
 
           <a class="home-card" href="Vincenot/genealogie_vincenot.html">
-             <div class="card-mark">XXIV</div>
+             <div class="card-mark">✦</div>
              <h3>Vincenot</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Vincenot.</p>
           </a>
 
           <a class="home-card" href="Durand/genealogie_durand.html">
-             <div class="card-mark">XXIV</div>
+             <div class="card-mark">✦</div>
              <h3>Durand</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Durand.</p>
           </a>
 
-        <a class="home-card" href="Lagendyk/genealogie_lagendyk.html">
-             <div class="card-mark">XXV</div>
+          <a class="home-card" href="Lagendyk/genealogie_lagendyk.html">
+             <div class="card-mark">✦</div>
              <h3>Lagendyk</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Lagendyk.</p>
           </a>
 
           <a class="home-card" href="Lachance/genealogie_lachance.html">
-             <div class="card-mark">XXVI</div>
+             <div class="card-mark">✦</div>
              <h3>Lachance</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Lachance.</p>
           </a>
 
           <a class="home-card" href="Lebrun/genealogie_lebrun.html">
-             <div class="card-mark">XXVII</div>
+             <div class="card-mark">✦</div>
              <h3>Lebrun</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Lebrun.</p>
           </a>
-          
+
           <a class="home-card" href="MacDonald/genealogie_macdonald.html">
-             <div class="card-mark">XXVIII</div>
+             <div class="card-mark">✦</div>
              <h3>MacDonald</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille MacDonald.</p>
           </a>
 
           <a class="home-card" href="Gelinas/genealogie_gelinas.html">
-             <div class="card-mark">XXVIV</div>
+             <div class="card-mark">✦</div>
              <h3>Gélinas</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Gélinas.</p>
           </a>
 
           <a class="home-card" href="Grenier/genealogie_grenier.html">
-             <div class="card-mark">XXXX</div>
+             <div class="card-mark">✦</div>
              <h3>Grenier</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Grenier.</p>
           </a>
-                  
+
           <a class="home-card" href="St-Ours/genealogie__stours.html">
-             <div class="card-mark">XV</div>
+             <div class="card-mark">✦</div>
              <h3>St-Ours</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille St-Ours.</p>
           </a>
 
           <a class="home-card" href="Demers/genealogie_demers.html">
-             <div class="card-mark">XVI</div>
+             <div class="card-mark">✦</div>
              <h3>Demers</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Demers.</p>
           </a>
-          
+
           <a class="home-card" href="Panneton/genealogie_panneton.html">
-             <div class="card-mark">XVII</div>
+             <div class="card-mark">✦</div>
              <h3>Panneton</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Panneton.</p>
           </a>
 
+          <a class="home-card" href="Sirois/genealogie_sirois.html">
+             <div class="card-mark">✦</div>
+             <h3>Sirois</h3>
+             <p>Explorer les informations et recherches généalogiques relatives à la famille Sirois.</p>
+          </a>
+
+          <a class="home-card" href="Sirois/genealogie_sirois.html">
+             <div class="card-mark">✦</div>
+             <h3>Sirois</h3>
+             <p>Explorer les informations et recherches généalogiques relatives à la famille Sirois.</p>
+          </a>
+
+          <a class="home-card" href="Juchereau/genealogie_juchereau.html">
+             <div class="card-mark">✦</div>
+             <h3>Juchereau</h3>
+             <p>Explorer les informations et recherches généalogiques relatives à la famille Juchereau.</p>
+          </a>
+
+          <a class="home-card" href="Quevillon/genealogie_quevillon.html">
+             <div class="card-mark">✦</div>
+             <h3>Quévillon</h3>
+             <p>Explorer les informations et recherches généalogiques relatives à la famille Quévillon.</p>
+          </a>
+
           <a class="home-card" href="Lavallée/genealogie-lavallee.html">
-             <div class="card-mark">XVIII</div>
+             <div class="card-mark">✦</div>
              <h3>Lavallée</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille Lavallée.</p>
           </a>
 
+      </div>
+
+      <div class="no-results" id="none">Aucune famille ne correspond à cette recherche.</div>
+
+      <div class="about-wrap">
+        <div class="home-grid">
           <a class="home-card" href="about-us/">
              <div class="card-mark">✦</div>
              <h3>À propos</h3>
              <p>Découvrir l'origine du site, son contenu et la démarche derrière les recherches généalogiques.</p>
           </a>
+        </div>
       </div>
 
       <div class="home-note">
@@ -577,6 +586,150 @@
   <div class="contrib">Powered by <a href="https://philippesebastien.github.io/tecetcetera.ca" target="_blank" rel="noopener">tecetcetera.ca</a></div>
   <div class="contrib">Copyright © 2026 - Tous droits réservés.</div>
 </footer>
+
+<button type="button" class="to-top" id="top" aria-label="Retour en haut">↑</button>
+
+<script>
+(function(){
+  var host   = document.getElementById('families');
+  var finder = document.getElementById('finder');
+  var input  = document.getElementById('search');
+  var clear  = document.getElementById('clear');
+  var count  = document.getElementById('count');
+  var azNav  = document.getElementById('az');
+  var none   = document.getElementById('none');
+  var topBtn = document.getElementById('top');
+
+  // Normalise : minuscules, sans accents
+  function norm(s){
+    return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  }
+
+  var cards = Array.prototype.slice.call(host.querySelectorAll('.home-card')).map(function(el){
+    var title = el.querySelector('h3').textContent.trim();
+    var desc  = el.querySelector('p') ? el.querySelector('p').textContent : '';
+    var first = norm(title).charAt(0).toUpperCase();
+    if(!/[A-Z]/.test(first)) first = '#';
+    return { el:el, title:title, titleHTML:title, key:norm(title), hay:norm(title+' '+desc), letter:first };
+  });
+
+  // Tri alphabétique (ignore accents)
+  cards.sort(function(a,b){ return a.key.localeCompare(b.key,'fr'); });
+
+  // Construit les groupes par lettre
+  var groups = {};
+  var order  = [];
+  var frag   = document.createDocumentFragment();
+  cards.forEach(function(c){
+    if(!groups[c.letter]){
+      var g = document.createElement('div');
+      g.className = 'letter-group';
+      g.id = 'lettre-' + (c.letter === '#' ? 'autre' : c.letter);
+      var h = document.createElement('div');
+      h.className = 'letter-heading';
+      h.innerHTML = '<span>'+c.letter+'</span><small></small>';
+      var grid = document.createElement('div');
+      grid.className = 'home-grid';
+      g.appendChild(h); g.appendChild(grid);
+      frag.appendChild(g);
+      groups[c.letter] = { el:g, grid:grid, small:h.querySelector('small'), cards:[] };
+      order.push(c.letter);
+    }
+    groups[c.letter].grid.appendChild(c.el);
+    groups[c.letter].cards.push(c);
+  });
+  host.innerHTML = '';
+  host.className = '';
+  host.style.marginTop = '0';
+  host.appendChild(frag);
+
+  // Index A–Z
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  if(order.indexOf('#') > -1) alphabet.push('#');
+  var azLinks = {};
+  alphabet.forEach(function(L){
+    var a = document.createElement('a');
+    a.textContent = L;
+    a.href = '#lettre-' + (L === '#' ? 'autre' : L);
+    a.setAttribute('aria-label', 'Familles commençant par ' + L);
+    a.addEventListener('click', function(e){
+      var g = groups[L];
+      if(!g || g.el.classList.contains('hidden')){ e.preventDefault(); return; }
+      e.preventDefault();
+      g.el.scrollIntoView({behavior:'smooth', block:'start'});
+      history.replaceState(null,'', a.getAttribute('href'));
+    });
+    azNav.appendChild(a);
+    azLinks[L] = a;
+  });
+  finder.hidden = false;
+
+  function escapeRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+  function apply(){
+    var q = norm(input.value);
+    var terms = q ? q.split(/\s+/) : [];
+    var shown = 0;
+
+    order.forEach(function(L){
+      var g = groups[L], n = 0;
+      g.cards.forEach(function(c){
+        var ok = terms.every(function(t){ return c.hay.indexOf(t) > -1; });
+        c.el.classList.toggle('hidden', !ok);
+        if(ok){ n++; shown++; }
+      });
+      g.el.classList.toggle('hidden', n === 0);
+      g.small.textContent = n + (n > 1 ? ' familles' : ' famille');
+      if(azLinks[L]) azLinks[L].classList.toggle('off', n === 0);
+    });
+    alphabet.forEach(function(L){ if(!groups[L]) azLinks[L].classList.add('off'); });
+
+    var total = cards.length;
+    count.textContent = q ? (shown + ' / ' + total + ' familles') : (total + ' familles');
+    none.classList.toggle('show', shown === 0);
+    clear.classList.toggle('show', input.value.length > 0);
+  }
+
+  input.addEventListener('input', apply);
+  clear.addEventListener('click', function(){ input.value=''; apply(); input.focus(); });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ input.value=''; apply(); }
+    if(e.key === 'Enter'){
+      var first = document.querySelector('.home-card:not(.hidden)[href]');
+      var visible = cards.filter(function(c){ return !c.el.classList.contains('hidden'); });
+      if(visible.length === 1) window.location.href = visible[0].el.getAttribute('href');
+    }
+  });
+  // Raccourci "/" pour atteindre la recherche
+  document.addEventListener('keydown', function(e){
+    if(e.key === '/' && document.activeElement !== input && !e.ctrlKey && !e.metaKey){
+      e.preventDefault(); input.focus(); input.select();
+    }
+  });
+
+  // Surligne la lettre en cours de lecture
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var L = en.target.id.replace('lettre-','');
+          if(L === 'autre') L = '#';
+          Object.keys(azLinks).forEach(function(k){ azLinks[k].classList.toggle('active', k === L); });
+        }
+      });
+    }, { rootMargin:'-160px 0px -70% 0px' });
+    order.forEach(function(L){ io.observe(groups[L].el); });
+  }
+
+  // Bouton retour en haut
+  window.addEventListener('scroll', function(){
+    topBtn.classList.toggle('show', window.scrollY > 700);
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  apply();
+})();
+</script>
 
 </body>
 </html>
