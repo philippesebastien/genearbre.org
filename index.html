@@ -533,6 +533,12 @@
              <p>Explorer les informations et recherches généalogiques relatives à la famille Sirois.</p>
           </a>
 
+          <a class="home-card" href="Sirois/genealogie_sirois.html">
+             <div class="card-mark">✦</div>
+             <h3>Sirois</h3>
+             <p>Explorer les informations et recherches généalogiques relatives à la famille Sirois.</p>
+          </a>
+
           <a class="home-card" href="Juchereau/genealogie_juchereau.html">
              <div class="card-mark">✦</div>
              <h3>Juchereau</h3>
@@ -568,54 +574,6 @@
              <h3>McDonald</h3>
              <p>Explorer les informations et recherches généalogiques relatives à la famille McDonald.</p>
           </a>
-
-          <a class="home-card" href="Hotte/genealogie_hotte.html">
-             <div class="card-mark">✦</div>
-             <h3>Hotte</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Hotte.</p>
-          </a>
-
-          <a class="home-card" href="Savard/genealogie_savard.html">
-             <div class="card-mark">✦</div>
-             <h3>Savard</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Savard.</p>
-          </a>
-
-          <a class="home-card" href="Zacharie-Thomas/genealogie_zacharie_thomas.html">
-             <div class="card-mark">✦</div>
-             <h3>Zacharie-Thomas</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Zacharie-Thomas.</p>
-          </a>
-
-          <a class="home-card" href="Vincent/genealogie_vincent.html">
-             <div class="card-mark">✦</div>
-             <h3>Vincent</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Vincent.</p>
-          </a>
-
-          <a class="home-card" href="Picard/genealogie_picard.html">
-             <div class="card-mark">✦</div>
-             <h3>Picard</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Picard.</p>
-          </a>
-
-          <a class="home-card" href="Sioui/genealogie_sioui.html">
-             <div class="card-mark">✦</div>
-             <h3>Sioui</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Sioui.</p>
-          </a>
-
-          <a class="home-card" href="Gros-Louis/genealogie_gros_louis.html">
-             <div class="card-mark">✦</div>
-             <h3>Gros-Louis</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Gros-Louis.</p>
-          </a>
-
-          <a class="home-card" href="Laveau/genealogie_laveau.html">
-             <div class="card-mark">✦</div>
-             <h3>Laveau</h3>
-             <p>Explorer les informations et recherches généalogiques relatives à la famille Laveau.</p>
-          </a>
       </div>
 
       <div class="no-results" id="none">Aucune famille ne correspond à cette recherche.</div>
@@ -627,3 +585,168 @@
              <h3>À propos</h3>
              <p>Découvrir l'origine du site, son contenu et la démarche derrière les recherches généalogiques.</p>
           </a>
+        </div>
+      </div>
+
+      <div class="home-note">
+        <b>Documents et recherches.</b> Les archives pourront progressivement être enrichies avec des actes, photographies, arbres généalogiques et autres documents de famille.
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="eyebrow">Genearbre.org</span>
+  Archives généalogiques familiales
+  <div class="contrib">Préserver les histoires de famille pour les générations futures.</div>
+  <div class="contrib">Powered by <a href="https://philippesebastien.github.io/tecetcetera.ca" target="_blank" rel="noopener">tecetcetera.ca</a></div>
+  <div class="contrib">Copyright © 2026 - Tous droits réservés.</div>
+</footer>
+
+<button type="button" class="to-top" id="top" aria-label="Retour en haut">↑</button>
+
+<script>
+(function(){
+  var host   = document.getElementById('families');
+  var finder = document.getElementById('finder');
+  var input  = document.getElementById('search');
+  var clear  = document.getElementById('clear');
+  var count  = document.getElementById('count');
+  var azNav  = document.getElementById('az');
+  var none   = document.getElementById('none');
+  var topBtn = document.getElementById('top');
+
+  // Normalise : minuscules, sans accents
+  function norm(s){
+    return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();
+  }
+
+  var cards = Array.prototype.slice.call(host.querySelectorAll('.home-card')).map(function(el){
+    var title = el.querySelector('h3').textContent.trim();
+    var desc  = el.querySelector('p') ? el.querySelector('p').textContent : '';
+    var first = norm(title).charAt(0).toUpperCase();
+    if(!/[A-Z]/.test(first)) first = '#';
+    return { el:el, title:title, titleHTML:title, key:norm(title), hay:norm(title+' '+desc), letter:first };
+  });
+
+  // Tri alphabétique (ignore accents)
+  cards.sort(function(a,b){ return a.key.localeCompare(b.key,'fr'); });
+
+  // Construit les groupes par lettre
+  var groups = {};
+  var order  = [];
+  var frag   = document.createDocumentFragment();
+  cards.forEach(function(c){
+    if(!groups[c.letter]){
+      var g = document.createElement('div');
+      g.className = 'letter-group';
+      g.id = 'lettre-' + (c.letter === '#' ? 'autre' : c.letter);
+      var h = document.createElement('div');
+      h.className = 'letter-heading';
+      h.innerHTML = '<span>'+c.letter+'</span><small></small>';
+      var grid = document.createElement('div');
+      grid.className = 'home-grid';
+      g.appendChild(h); g.appendChild(grid);
+      frag.appendChild(g);
+      groups[c.letter] = { el:g, grid:grid, small:h.querySelector('small'), cards:[] };
+      order.push(c.letter);
+    }
+    groups[c.letter].grid.appendChild(c.el);
+    groups[c.letter].cards.push(c);
+  });
+  host.innerHTML = '';
+  host.className = '';
+  host.style.marginTop = '0';
+  host.appendChild(frag);
+
+  // Index A–Z
+  var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  if(order.indexOf('#') > -1) alphabet.push('#');
+  var azLinks = {};
+  alphabet.forEach(function(L){
+    var a = document.createElement('a');
+    a.textContent = L;
+    a.href = '#lettre-' + (L === '#' ? 'autre' : L);
+    a.setAttribute('aria-label', 'Familles commençant par ' + L);
+    a.addEventListener('click', function(e){
+      var g = groups[L];
+      if(!g || g.el.classList.contains('hidden')){ e.preventDefault(); return; }
+      e.preventDefault();
+      g.el.scrollIntoView({behavior:'smooth', block:'start'});
+      history.replaceState(null,'', a.getAttribute('href'));
+    });
+    azNav.appendChild(a);
+    azLinks[L] = a;
+  });
+  finder.hidden = false;
+
+  function escapeRe(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+
+  function apply(){
+    var q = norm(input.value);
+    var terms = q ? q.split(/\s+/) : [];
+    var shown = 0;
+
+    order.forEach(function(L){
+      var g = groups[L], n = 0;
+      g.cards.forEach(function(c){
+        var ok = terms.every(function(t){ return c.hay.indexOf(t) > -1; });
+        c.el.classList.toggle('hidden', !ok);
+        if(ok){ n++; shown++; }
+      });
+      g.el.classList.toggle('hidden', n === 0);
+      g.small.textContent = n + (n > 1 ? ' familles' : ' famille');
+      if(azLinks[L]) azLinks[L].classList.toggle('off', n === 0);
+    });
+    alphabet.forEach(function(L){ if(!groups[L]) azLinks[L].classList.add('off'); });
+
+    var total = cards.length;
+    count.textContent = q ? (shown + ' / ' + total + ' familles') : (total + ' familles');
+    none.classList.toggle('show', shown === 0);
+    clear.classList.toggle('show', input.value.length > 0);
+  }
+
+  input.addEventListener('input', apply);
+  clear.addEventListener('click', function(){ input.value=''; apply(); input.focus(); });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ input.value=''; apply(); }
+    if(e.key === 'Enter'){
+      var first = document.querySelector('.home-card:not(.hidden)[href]');
+      var visible = cards.filter(function(c){ return !c.el.classList.contains('hidden'); });
+      if(visible.length === 1) window.location.href = visible[0].el.getAttribute('href');
+    }
+  });
+  // Raccourci "/" pour atteindre la recherche
+  document.addEventListener('keydown', function(e){
+    if(e.key === '/' && document.activeElement !== input && !e.ctrlKey && !e.metaKey){
+      e.preventDefault(); input.focus(); input.select();
+    }
+  });
+
+  // Surligne la lettre en cours de lecture
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var L = en.target.id.replace('lettre-','');
+          if(L === 'autre') L = '#';
+          Object.keys(azLinks).forEach(function(k){ azLinks[k].classList.toggle('active', k === L); });
+        }
+      });
+    }, { rootMargin:'-160px 0px -70% 0px' });
+    order.forEach(function(L){ io.observe(groups[L].el); });
+  }
+
+  // Bouton retour en haut
+  window.addEventListener('scroll', function(){
+    topBtn.classList.toggle('show', window.scrollY > 700);
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  apply();
+})();
+</script>
+
+</body>
+</html>
