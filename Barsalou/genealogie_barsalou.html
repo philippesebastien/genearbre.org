@@ -1,1 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Généalogie de la Famille Barsalou</title>
+    
+    <!-- CSS externe -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #f1e8d6;
+            --parchment-deep: #e5d7b7;
+            --ink: #241d13;
+            --ink-soft: #4a4030;
+            --navy: #1c2740;
+            --navy-deep: #131b2d;
+            --burgundy: #7c2331;
+            --gold: #a4802f;
+            --gold-bright: #c79b3f;
+            --rule: rgba(36, 29, 19, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--parchment);
+            color: var(--ink);
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--navy-deep);
+        }
+
+        .eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11.5px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin: 0;
+            color: var(--navy);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199, 155, 63, 0.16), transparent 60%),
+                linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+            color: var(--parchment);
+            padding: 96px 32px 120px;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(199, 155, 63, 0.35);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 64px);
+            pointer-events: none;
+        }
+
+        .seal {
+            width: 118px;
+            height: 118px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: sealDrop 1.1s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        @keyframes sealDrop {
+            0% {
+                transform: translateY(-14px) scale(.85) rotate(-8deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .seal svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero .eyebrow {
+            color: var(--gold-bright);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant SC', serif;
+            font-size: clamp(52px, 9vw, 96px);
+            color: var(--parchment);
+            letter-spacing: .02em;
+            margin: 14px 0 6px;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+        }
+
+        .hero .sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(18px, 2.6vw, 24px);
+            color: #d9c9a3;
+            letter-spacing: .03em;
+        }
+
+        .hero .rule {
+            width: 64px;
+            height: 1px;
+            background: var(--gold);
+            margin: 26px auto;
+            opacity: .7;
+        }
+
+        .hero p.lede {
+            max-width: 560px;
+            margin: 0 auto;
+            color: #cdbfa0;
+            font-size: 17px;
+        }
+
+        /* ---------- SECTION SHELL ---------- */
+        section {
+            padding: 84px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-head {
+            margin-bottom: 44px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(30px, 4vw, 42px);
+            margin-top: 8px;
+        }
+
+        .section-head .eyebrow {
+            display: block;
+        }
+
+        /* ---------- NARRATIVE ---------- */
+        .lede-block p {
+            margin: 0 0 20px;
+            color: var(--ink-soft);
+        }
+
+        .lede-block p:first-child::first-letter {
+            font-family: 'Cormorant SC', serif;
+            font-size: 64px;
+            float: left;
+            line-height: .8;
+            padding: 6px 10px 0 0;
+            color: var(--burgundy);
+        }
+
+        blockquote {
+            margin: 36px 0;
+            padding: 22px 28px;
+            border-left: 3px solid var(--gold);
+            background: var(--parchment-deep);
+            font-style: italic;
+            color: var(--ink);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: .15em;
+            color: var(--ink-soft);
+        }
+
+        .figure-note {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            padding: 20px 24px;
+            margin: 32px 0;
+            font-size: 15.5px;
+            color: var(--ink-soft);
+        }
+
+        .figure-note .mark {
+            font-family: 'Cormorant SC', serif;
+            font-size: 28px;
+            color: var(--burgundy);
+            line-height: 1;
+        }
+
+        /* ---------- LINEAGE LADDER ---------- */
+        .ladder-intro {
+            margin-bottom: 56px;
+            max-width: 640px;
+        }
+
+        .ladder {
+            position: relative;
+        }
+
+        .ladder::before {
+            content: "";
+            position: absolute;
+            left: 29px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--gold) 6%, var(--gold) 94%, transparent);
+        }
+
+        .rung {
+            position: relative;
+            display: grid;
+            grid-template-columns: 60px 1fr;
+            gap: 22px;
+            padding: 26px 0;
+            border-bottom: 1px dashed var(--rule);
+        }
+
+        .rung:last-child {
+            border-bottom: none;
+        }
+
+        .rung .numeral {
+            font-family: 'Cormorant SC', serif;
+            font-size: 26px;
+            color: var(--navy);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--parchment);
+            border: 1.5px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rung.current .numeral {
+            background: var(--burgundy);
+            color: var(--parchment);
+            border-color: var(--burgundy);
+        }
+
+        .rung h3 {
+            font-size: 23px;
+            color: var(--navy);
+        }
+
+        .rung .role {
+            font-family: 'Cinzel', serif;
+            font-size: 10.5px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin: 4px 0 8px;
+        }
+
+        .rung .meta {
+            font-size: 15.5px;
+            color: var(--ink-soft);
+        }
+
+        .rung .meta b {
+            color: var(--ink);
+            font-weight: 600;
+        }
+
+        /* ---------- GENERATION RECORDS ---------- */
+        details.gen {
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            margin-bottom: 14px;
+            padding: 0;
+        }
+
+        details.gen>summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        details.gen>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.gen>summary .tag {
+            font-family: 'Cinzel', serif;
+            font-size: 10.5px;
+            letter-spacing: .15em;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        details.gen>summary .name {
+            font-size: 22px;
+            color: var(--navy);
+            flex: 1;
+        }
+
+        details.gen>summary .chevron {
+            font-size: 14px;
+            color: var(--burgundy);
+            transition: transform .25s ease;
+            flex-shrink: 0;
+        }
+
+        details.gen[open]>summary .chevron {
+            transform: rotate(90deg);
+        }
+
+        .gen-body {
+            padding: 0 26px 26px;
+            font-size: 16px;
+            color: var(--ink-soft);
+        }
+
+        .gen-body p {
+            margin: 0 0 14px;
+        }
+
+        .gen-body .children {
+            margin-top: 12px;
+            padding-left: 20px;
+            border-left: 2px solid var(--rule);
+        }
+
+        .gen-body .children .child {
+            margin-bottom: 10px;
+        }
+
+        /* ---------- CHART ---------- */
+        .chart-wrap {
+            background: var(--navy-deep);
+            color: var(--parchment);
+            padding: 48px 40px;
+            position: relative;
+            border: 1px solid var(--gold);
+        }
+
+        .chart-wrap::before,
+        .chart-wrap::after {
+            content: "◆";
+            color: var(--gold);
+            font-size: 12px;
+            position: absolute;
+        }
+
+        .chart-wrap::before {
+            top: 16px;
+            left: 16px;
+        }
+
+        .chart-wrap::after {
+            bottom: 16px;
+            right: 16px;
+        }
+
+        .chart-title {
+            text-align: center;
+            font-family: 'Cormorant SC', serif;
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+
+        .chart-sub {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #c9b98a;
+            margin-bottom: 32px;
+        }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(199, 155, 63, 0.2);
+        }
+
+        .chart-row:last-child {
+            border-bottom: none;
+        }
+
+        .chart-row .rn {
+            font-family: 'Cormorant SC', serif;
+            color: var(--gold-bright);
+            font-size: 18px;
+        }
+
+        .chart-row .rd {
+            font-size: 15px;
+        }
+
+        .chart-row .rd .names {
+            color: var(--parchment);
+        }
+
+        .chart-row .rd .date {
+            display: block;
+            font-size: 13px;
+            color: #a99a72;
+            margin-top: 2px;
+        }
+
+        /* ---------- SOURCES ---------- */
+        .sources ul {
+            padding-left: 20px;
+            color: var(--ink-soft);
+            font-size: 15px;
+        }
+
+        .sources li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: var(--navy-deep);
+            color: #a99a72;
+            text-align: center;
+            padding: 56px 32px 40px;
+            font-size: 14px;
+        }
+
+        footer .eyebrow {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        footer .contrib {
+            color: #d9c9a3;
+            margin-top: 18px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        @media (max-width:640px) {
+            .wrap {
+                padding: 0 20px;
+            }
+
+            .rung {
+                grid-template-columns: 44px 1fr;
+                gap: 14px;
+            }
+
+            .rung .numeral {
+                width: 44px;
+                height: 44px;
+                font-size: 19px;
+            }
+
+            .chart-wrap {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2" />
+                <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3" />
+                <text x="60" y="58" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="15"
+                      fill="#e5d7b7">Barsalou</text>
+            </svg>
+        </div>
+        <span class="eyebrow">Généalogie de la Famille Barsalou</span>
+        <h1>Barsalou</h1>
+        <p class="sub">Notice généalogique de la lignée d'Hortense Barsalou</p>
+        <div class="subtitle">Des maîtres artisans de Montréal à la bourgeoisie marchande et politique du XIXe siècle</div>
+        <div class="rule"></div>
+        <p class="lede">
+            Une archive généalogique retraçant l'ascendance d'Hortense Barsalou, épouse d'Alphonse Desjardins, et sa descendance reliée aux familles Desjardins, Beauchamp et Duchastel de Montrouge.&nbsp;
+            <a href="https://www.nosorigines.qc.ca/GenealogieQuebec.aspx?genealogie=Barsalou_Hortense&pid=176072" target="_blank" rel="noopener">Voir la fiche originale sur NosOrigines.</a><br />
+            <a href="../Desjardins/genealogie_desjardins.html">Voir la généalogie Desjardins</a> | 
+            <a href="../Duchastel/genealogie_duchastel.html">Voir la généalogie Duchastel</a>
+        </p>
+    </header>
+    
+    <main>
+
+        <nav style="text-align:center; padding:15px; background:var(--color-parchment-dark); border-bottom:1px solid var(--color-rule); font-family:var(--font-eyebrow); font-size:12px; letter-spacing:0.1em;">
+            <a href="../index.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--color-ink-soft);">Accueil</a> |
+            <a href="../Duchastel/genealogie_duchastel.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--color-ink-soft);">Duchastel</a> |
+            <a href="../Beauchamp/genealogie_beauchamp.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--color-ink-soft);">Beauchamp</a> |
+            <a href="../Desjardins/genealogie_desjardins.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--color-ink-soft);">Desjardins</a> |
+            <a href="../Barsalou/genealogie_barsalou.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--color-navy);">Barsalou</a> |
+            <a href="../Charest/genealogie_charest.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--color-ink-soft);">Charest</a>
+        </nav>
+
+        <section id="introduction">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Chapitre premier</span>
+                    <h2>Les Origines de la Famille Barsalou au Québec</h2>
+                </div>
+                <div class="lede-block">
+                    <p>
+                        La famille <strong>Barsalou</strong> tire ses origines en Nouvelle-France d'ancêtres venus de France s'installer à Montréal au cours du XVIII<sup>e</sup> siècle. Artisanale à ses débuts, la famille s'est rapidement imposée dans le commerce et les affaires montréalaises au XIX<sup>e</sup> siècle.
+                    </p>
+                    <p>
+                        Le personnage marquant du milieu du XIX<sup>e</sup> siècle est <strong>Joseph Barsalou</strong> (1822–1897), important homme d'affaires, manufacturier et encanteur montréalais, marié à <strong>Julie-Adèle Gravel</strong> (1825–1898). Leur fille, <strong>Hortense Barsalou</strong> (1857–1930), épouse le 24 mai 1880 à Montréal l'avocat, homme politique et banquier <strong>Alphonse Desjardins</strong>.
+                    </p>
+                    <p>
+                        De ce mariage naîtra notamment <strong>Annette Desjardins</strong>, épouse de Léon Beauchamp et mère d'Yvette Beauchamp (épouse de Léon-Alexandre Duchastel de Montrouge).
+                    </p>
+                </div>
+                <div class="figure-note">
+                    <span class="mark">§</span>
+                    <div>
+                        <strong>Une figure de premier plan.</strong> Joseph Barsalou (1822–1897) a joué un rôle majeur dans le développement commercial du Montréal victorien, une tradition d'affaires poursuivie par son gendre Alphonse Desjardins, maire de Montréal et sénateur.
+                    </div>
+                </div>
+                <blockquote>
+                    « Fiche de référence pour Hortense Barsalou (ID #176072) et son union avec Alphonse Desjardins à la paroisse Notre-Dame de Montréal. »
+                    <cite>Données généalogiques certifiées · NosOrigines.qc.ca</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- ===================== LADDER ===================== -->
+        <section id="lignee">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">La succession directe</span>
+                    <h2>De Joseph Barsalou à Hortense Barsalou</h2>
+                </div>
+                <p class="ladder-intro" style="color:var(--ink-soft)">
+                    Aperçu des générations clés de la famille Barsalou liées à l'alliance Desjardins, Beauchamp et Duchastel.
+                </p>
+
+                <div class="ladder">
+                    <div class="rung">
+                        <div class="numeral">I</div>
+                        <div>
+                            <h3>Joseph Barsalou &amp; Marie-Sophie Beaupré</h3>
+                            <div class="role">Ancêtres montréalais du début du XIXe siècle</div>
+                            <div class="meta">
+                                <b>Joseph Barsalou</b>. Marié avec <b>Marie-Sophie Beaupré</b>. Parents du grand négociant Joseph Barsalou.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rung">
+                        <div class="numeral">II</div>
+                        <div>
+                            <h3>Joseph Barsalou &amp; Julie-Adèle Gravel</h3>
+                            <div class="role">1822 – 1897 · Homme d'affaires et manufacturier de Montréal · ID #176515</div>
+                            <div class="meta">
+                                <b>Joseph Barsalou</b> (5 décembre 1822 – 17 mai 1897). Épouse <b>Julie-Adèle Gravel</b> (1825 – 27 mars 1898, ID #176516).
+                            </div>
+                            <p>📌 Important encanteur et homme d'affaires montréalais, fondateur de la savonnerie Barsalou.</p>
+                        </div>
+                    </div>
+
+                    <div class="rung current">
+                        <div class="numeral">III</div>
+                        <div>
+                            <h3>Hortense Barsalou &amp; Alphonse Desjardins</h3>
+                            <div class="role">1857 – 1930 · Alliance Desjardins · ID #176072</div>
+                            <div class="meta">
+                                <b>Hortense Barsalou</b> (née en 1857, décédée en 1930). Épouse le 24 mai 1880 à Montréal (Notre-Dame) <b>Alphonse Desjardins</b> (6 mai 1841 – 4 juin 1912), avocat, maire de Montréal, député et sénateur.
+                            </div>
+                            <p>📌 Mère d'Annette Desjardins (née en 1885), qui s'unira à Léon Beauchamp en 1904.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CHART ===================== -->
+        <section id="filiation">
+            <div class="wrap">
+                <div class="chart-wrap">
+                    <div class="chart-title">Filiation Barsalou — Desjardins — Beauchamp</div>
+                    <div class="chart-sub">Montréal · Outremont</div>
+                    
+                    <div class="chart-row">
+                        <div class="rn">I</div>
+                        <div class="rd">
+                            <span class="names">Joseph Barsalou × Marie-Sophie Beaupré</span>
+                            <span class="date">Début du XIXe siècle, Montréal</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">II</div>
+                        <div class="rd">
+                            <span class="names">Joseph Barsalou × Julie-Adèle Gravel</span>
+                            <span class="date">1822–1897 · ID NosOrigines #176515 / #176516</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">III</div>
+                        <div class="rd">
+                            <span class="names">Hortense Barsalou × Hon. Alphonse Desjardins</span>
+                            <span class="date">1857–1930 · m. 24 mai 1880 à Montréal (ID #176072)</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">IV</div>
+                        <div class="rd">
+                            <span class="names">Annette Desjardins × Léon Beauchamp</span>
+                            <span class="date">1885–1968 · m. 1904 à Montréal (ID #2029444)</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">V</div>
+                        <div class="rd">
+                            <span class="names">Yvette Beauchamp × Léon-Alexandre Duchastel de Montrouge</span>
+                            <span class="date">1909–2010 · m. 29 avril 1933 à Outremont</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== REGISTRE ===================== -->
+        <section id="registre">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Le registre complet</span>
+                    <h2>Détail des fiches et des alliances</h2>
+                </div>
+                
+                <details class="gen">
+                    <summary>
+                        <span class="tag">Gén. 1</span>
+                        <span class="name">Joseph Barsalou &amp; Marie-Sophie Beaupré</span>
+                        <span class="chevron">›</span>
+                    </summary>
+                    <div class="gen-body">
+                        <p><b>Joseph Barsalou</b> et <b>Marie-Sophie Beaupré</b> sont établis à Montréal au début du XIX<sup>e</sup> siècle.</p>
+                        <div class="children">
+                            <div class="child"><b>Joseph Barsalou</b> (1822–1897), qui suit.</div>
+                            <div class="child"><b>Caroline-Hermine Barsalou</b>, mariée le 7 janvier 1833 à Adolphe Wilscam.</div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="gen">
+                    <summary>
+                        <span class="tag">Gén. 2</span>
+                        <span class="name">Joseph Barsalou &amp; Julie-Adèle Gravel</span>
+                        <span class="chevron">›</span>
+                    </summary>
+                    <div class="gen-body">
+                        <p><b>Joseph Barsalou</b> (né le 5 décembre 1822, décédé le 17 mai 1897) épouse <b>Julie-Adèle Gravel</b> (née en 1825, décédée le 27 mars 1898). Établis à Montréal, ils sont à la tête d'une importante famille du milieu des affaires.</p>
+                        <div class="children">
+                            <div class="child"><b>Hortense Barsalou</b> (1857–1930), qui suit.</div>
+                            <div class="child"><b>Hectorine Barsalou</b>, mariée à Ernest Varin.</div>
+                            <div class="child"><b>Joseph Barsalou</b>, industriel et homme d'affaires.</div>
+                        </div>
+                    </div>
+                </details>
+
+                <details class="gen">
+                    <summary>
+                        <span class="tag">Gén. 3</span>
+                        <span class="name">Hortense Barsalou &amp; Alphonse Desjardins</span>
+                        <span class="chevron">›</span>
+                    </summary>
+                    <div class="gen-body">
+                        <p><b>Hortense Barsalou</b> (ID #176072), née en 1857, décédée en 1930. Elle épouse le 24 mai 1880 à Montréal (Notre-Dame) <b>Alphonse Desjardins</b> (6 mai 1841 – 4 juin 1912), avocat, maire de Montréal, député, sénateur et ministre sous sir Charles Tupper.</p>
+                        <div class="children">
+                            <div class="child"><b>Charles-Henri Desjardins</b> (né le 9 février 1881).</div>
+                            <div class="child"><b>Annette Desjardins</b> (née en 1885), mariée en 1904 à Léon Beauchamp.</div>
+                            <div class="child"><b>Laurette Desjardins</b> (née le 6 mai 1889), mariée à Albert-Stewart McNichols.</div>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- ===================== SOURCES ===================== -->
+        <section class="sources" id="sources">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Provenance</span>
+                    <h2>Sources &amp; Références</h2>
+                </div>
+                <ul>
+                    <li>
+                        Base de données généalogiques <em>NosOrigines.qc.ca</em> — Fiche d'Hortense Barsalou (PID #176072), Joseph Barsalou (PID #176515), Julie-Adèle Gravel (PID #176516) et Alphonse Desjardins (PID #176070).
+                    </li>
+                    <li>
+                        Actes d'état civil et registres paroissiaux de Notre-Dame de Montréal.
+                    </li>
+                    <li>
+                        Dictionnaire biographique du Canada — Notice sur l'Honorable Alphonse Desjardins et Joseph Barsalou.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <span class="eyebrow">Généalogie Famille Barsalou</span>
+        Notice généalogique — Tous droits réservés
+        <div class="contrib">Préserver l'histoire et la mémoire des familles pour les générations futures.</div>
+    </footer>
+
+</body>
+</html>
