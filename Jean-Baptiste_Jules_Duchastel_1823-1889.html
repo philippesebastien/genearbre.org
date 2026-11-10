@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jean-Baptiste Jules Duchastel de Montrouge (1823–1889)</title>
+
+    <!-- CSS externe -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --parchment: #f1e8d6;
+            --parchment-deep: #e5d7b7;
+            --ink: #241d13;
+            --ink-soft: #4a4030;
+            --navy: #1c2740;
+            --navy-deep: #131b2d;
+            --burgundy: #7c2331;
+            --gold: #a4802f;
+            --gold-bright: #c79b3f;
+            --rule: rgba(36, 29, 19, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--parchment);
+            color: var(--ink);
+            font-family: 'EB Garamond', serif;
+            font-size: 18px;
+            line-height: 1.65;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: var(--navy-deep);
+        }
+
+        .eyebrow {
+            font-family: 'Cinzel', serif;
+            font-size: 11.5px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin: 0;
+            color: var(--navy);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            position: relative;
+            background:
+                radial-gradient(ellipse 900px 500px at 50% -10%, rgba(199, 155, 63, 0.16), transparent 60%),
+                linear-gradient(180deg, var(--navy-deep), var(--navy) 60%, #223154 100%);
+            color: var(--parchment);
+            padding: 96px 32px 120px;
+            text-align: center;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(199, 155, 63, 0.35);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 64px);
+            pointer-events: none;
+        }
+
+        .seal {
+            width: 118px;
+            height: 118px;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: sealDrop 1.1s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        @keyframes sealDrop {
+            0% {
+                transform: translateY(-14px) scale(.85) rotate(-8deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .seal svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero .eyebrow {
+            color: var(--gold-bright);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant SC', serif;
+            font-size: clamp(38px, 6.5vw, 70px);
+            color: var(--parchment);
+            letter-spacing: .02em;
+            margin: 14px 0 6px;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, .35);
+        }
+
+        .hero .sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(18px, 2.6vw, 24px);
+            color: #d9c9a3;
+            letter-spacing: .03em;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            letter-spacing: .15em;
+            color: var(--gold-bright);
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero .rule {
+            width: 64px;
+            height: 1px;
+            background: var(--gold);
+            margin: 26px auto;
+            opacity: .7;
+        }
+
+        .hero p.lede {
+            max-width: 680px;
+            margin: 0 auto;
+            color: #cdbfa0;
+            font-size: 17.5px;
+            line-height: 1.6;
+        }
+
+        /* ---------- SECTION SHELL ---------- */
+        section {
+            padding: 84px 0;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-head {
+            margin-bottom: 44px;
+        }
+
+        .section-head h2 {
+            font-size: clamp(30px, 4vw, 42px);
+            margin-top: 8px;
+        }
+
+        .section-head .eyebrow {
+            display: block;
+        }
+
+        /* ---------- NARRATIVE & PARAGRAPHS ---------- */
+        .lede-block p {
+            margin: 0 0 20px;
+            color: var(--ink-soft);
+        }
+
+        .lede-block p:first-child::first-letter {
+            font-family: 'Cormorant SC', serif;
+            font-size: 64px;
+            float: left;
+            line-height: .8;
+            padding: 6px 10px 0 0;
+            color: var(--burgundy);
+        }
+
+        .figure-note {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            padding: 20px 24px;
+            margin: 32px 0;
+            font-size: 15.5px;
+            color: var(--ink-soft);
+        }
+
+        .figure-note .mark {
+            font-family: 'Cormorant SC', serif;
+            font-size: 28px;
+            color: var(--burgundy);
+            line-height: 1;
+        }
+
+        /* ---------- IMAGES & GALLERY ---------- */
+        .figure {
+            margin: 36px 0;
+        }
+
+        .figure img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--rule);
+            background: var(--parchment-deep);
+        }
+
+        .figure figcaption {
+            margin-top: 10px;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: .08em;
+            color: var(--ink-soft);
+            text-align: center;
+        }
+
+        .figure-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 36px 0;
+        }
+
+        .figure-pair .figure {
+            margin: 0;
+        }
+
+        /* ---------- KEY DATA CHART ---------- */
+        .chart-wrap {
+            background: var(--navy-deep);
+            color: var(--parchment);
+            padding: 48px 40px;
+            position: relative;
+            border: 1px solid var(--gold);
+        }
+
+        .chart-wrap::before,
+        .chart-wrap::after {
+            content: "◆";
+            color: var(--gold);
+            font-size: 12px;
+            position: absolute;
+        }
+
+        .chart-wrap::before {
+            top: 16px;
+            left: 16px;
+        }
+
+        .chart-wrap::after {
+            bottom: 16px;
+            right: 16px;
+        }
+
+        .chart-title {
+            text-align: center;
+            font-family: 'Cormorant SC', serif;
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+
+        .chart-sub {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #c9b98a;
+            margin-bottom: 32px;
+        }
+
+        .chart-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(199, 155, 63, 0.2);
+        }
+
+        .chart-row:last-child {
+            border-bottom: none;
+        }
+
+        .chart-row .rn {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-bright);
+            font-size: 13px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .chart-row .rd {
+            font-size: 15.5px;
+        }
+
+        .chart-row .rd .names {
+            color: var(--parchment);
+            font-weight: 500;
+        }
+
+        .chart-row .rd .date {
+            display: block;
+            font-size: 13.5px;
+            color: #a99a72;
+            margin-top: 2px;
+        }
+
+        /* ---------- GENERATION DETAILS ---------- */
+        details.gen {
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            margin-bottom: 14px;
+            padding: 0;
+        }
+
+        details.gen>summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 20px 26px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        details.gen>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.gen>summary .tag {
+            font-family: 'Cinzel', serif;
+            font-size: 10.5px;
+            letter-spacing: .15em;
+            color: var(--gold);
+            flex-shrink: 0;
+        }
+
+        details.gen>summary .name {
+            font-size: 22px;
+            color: var(--navy);
+            flex: 1;
+        }
+
+        details.gen>summary .chevron {
+            font-size: 14px;
+            color: var(--burgundy);
+            transition: transform .25s ease;
+            flex-shrink: 0;
+        }
+
+        details.gen[open]>summary .chevron {
+            transform: rotate(90deg);
+        }
+
+        .gen-body {
+            padding: 0 26px 26px;
+            font-size: 16px;
+            color: var(--ink-soft);
+        }
+
+        .gen-body p {
+            margin: 0 0 14px;
+        }
+
+        .gen-body .children {
+            margin-top: 12px;
+            padding-left: 20px;
+            border-left: 2px solid var(--rule);
+        }
+
+        .gen-body .children .child {
+            margin-bottom: 12px;
+        }
+
+        /* ---------- ASCENDANCE TREE BOX ---------- */
+        .tree-box {
+            background: var(--parchment-deep);
+            border: 1px solid var(--rule);
+            padding: 24px;
+            font-family: monospace;
+            font-size: 13px;
+            white-space: pre;
+            overflow-x: auto;
+            color: var(--navy);
+            line-height: 1.4;
+        }
+
+        /* ---------- SOURCES ---------- */
+        .sources ul {
+            padding-left: 20px;
+            color: var(--ink-soft);
+            font-size: 15px;
+        }
+
+        .sources li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: var(--navy-deep);
+            color: #a99a72;
+            text-align: center;
+            padding: 56px 32px 40px;
+            font-size: 14px;
+        }
+
+        @media (max-width:640px) {
+            .wrap {
+                padding: 0 20px;
+            }
+
+            .chart-wrap {
+                padding: 32px 20px;
+            }
+
+            .chart-row {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .figure-pair {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+                <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2" />
+                <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3" />
+                <text x="60" y="58" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="13" fill="#e5d7b7">Duchastel</text>
+            </svg>
+        </div>
+        <span class="eyebrow">Dynastie Duchastel · Notice Biographique &amp; Généalogique</span>
+        <h1>Jean-Baptiste Jules<br>Duchastel de Montrouge</h1>
+        <p class="sub">19 juillet 1823 (Reims) – 4 janvier 1889 (Paris 17<sup>e</sup>)</p>
+        <div class="subtitle">Maire de Montron, Conseiller d'Arrondissement &amp; Propriétaire Foncier</div>
+        <div class="rule"></div>
+        <p class="lede">
+            Propriétaire du château de Monthoury, maire et officier d'état civil de Montron (Aisne) pendant 15 ans, conseiller d'arrondissement et juré d'assises, titulaire de la rectification légale confirmant le nom patronymique <em>de Montrouge</em> pour lui et sa lignée.
+        </p>
+    </header>
+
+    <main>
+        <nav style="text-align:center; padding:15px; background:var(--parchment-deep); border-bottom:1px solid var(--rule); font-family:'Cinzel', serif; font-size:12px; letter-spacing:0.1em;">
+            <a href="../index.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--ink-soft);">Accueil</a> |
+            <a href="genealogie_duchastel.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--navy);">Généalogie Duchastel</a> |
+            <a href="Jacques-Jean-Baptiste_Duchastel-Berthelin_1756-1830.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--ink-soft);">Duchastel-Berthelin</a> |
+            <a href="nicolas_duchastel_de_montrouge_1729_1784.html" style="margin:0 15px; text-decoration:none; font-weight:600; color:var(--ink-soft);">Nicolas Duchastel</a>
+        </nav>
+
+        <!-- ===================== NOTICE & APERÇU ===================== -->
+        <section id="apercu">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Notice Synthétique</span>
+                    <h2>Fiche d’État Civil &amp; Titres</h2>
+                </div>
+
+                <div class="chart-wrap">
+                    <div class="chart-title">Jean-Baptiste Jules Duchastel de Montrouge</div>
+                    <div class="chart-sub">Notice d'état civil, fonctions civiles et résidences</div>
+
+                    <div class="chart-row">
+                        <div class="rn">Naissance</div>
+                        <div class="rd">
+                            <span class="names">19 juillet 1823 à Reims (Marne)</span>
+                            <span class="date">Fils d'Alexandre Louis François Duchastel de Montrouge (1784–1863), négociant et propriétaire, et de Sophie LeGoix de Montoury (1790–1860).</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">Unions</div>
+                        <div class="rd">
+                            <span class="names">1. Julia Sylvia Félicie Pelerin (1830–1859) — 19 mai 1845 à New York</span>
+                            <span class="names">2. Berthe Eugénie Follias (1841–1921) — bans du 18 mars 1861 à Paris</span>
+                            <span class="date">Père de 5 enfants issus de ces deux mariages (dont Léon, chancelier du Consulat de France à Québec).</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">Décès</div>
+                        <div class="rd">
+                            <span class="names">4 janvier 1889 à l'âge de 65 ans à Paris (17<sup>e</sup> arr., 41 rue de Prony)</span>
+                            <span class="date">Obsèques célébrées le mardi 8 janvier 1889 en l'église Saint-François de Sales à Paris.</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">Mandats Publics</div>
+                        <div class="rd">
+                            <span class="names">Maire de Montron (Aisne) de juillet 1855 à décembre 1870</span>
+                            <span class="date">Conseiller d'arrondissement de Neuilly-Saint-Front / Montron (1861–1873) et juré aux Assises de l'Aisne (1873, 1881).</span>
+                        </div>
+                    </div>
+                    <div class="chart-row">
+                        <div class="rn">Patronyme</div>
+                        <div class="rd">
+                            <span class="names">Jugement du Tribunal Civil de la Seine (22 avril 1880)</span>
+                            <span class="date">Autorisation légale d'ajouter au nom patronymique la particule et terre de <em>De Montrouge</em> pour lui-même et ses cinq enfants (transcrit à Château-Thierry le 9 janvier 1881).</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== NARRATIVE & JEUNESSE ===================== -->
+        <section id="biographie">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Chapitre premier</span>
+                    <h2>Origines Familiales, Voyage aux États-Unis &amp; Rectification Patronymique</h2>
+                </div>
+
+                <div class="lede-block">
+                    <p>
+                        Jean-Baptiste Jules Duchastel naît le 19 juillet 1823 à Reims, au 9 rue de Vesle, au sein d'une maison de commerce occupée par son père, Alexandre Louis François Duchastel de Montrouge (1784–1863), alors négociant rémois. En 1825, la famille assiste à Reims au sacre de Sa Majesté le roi Charles X, au cours duquel son père figure parmi les membres de la grande députation départementale.
+                    </p>
+                    <p>
+                        À la mort de son grand-oncle le baron Jacques-Jean-Baptiste Duchastel-Berthelin en 1830, son père Alexandre se charge de la lourde gestion de l'héritage foncier et accomplit de fréquents voyages entre Reims, Troyes, Paris et le domaine familial de Monthoury, acquis vers 1835.
+                    </p>
+                    <p>
+                        Au milieu des années 1840, le jeune Jules entreprend un voyage outre-Atlantique et séjourne à New York, vraisemblablement au <em>Bowling Green Hotel</em>, un établissement très prisé des voyageurs français. C'est à New York qu'il rencontre la toute jeune Julia Sylvia Félicie Pelerin (née en 1830). Le 19 mai 1845, Jules (âgé de 21 ans) et Julia (âgée de 14 ans) se marient à New York, très probablement en l'église épiscopale française du Saint-Esprit (située à l'angle des rues Church et Franklin), sous la bénédiction du recteur Antoine Verren.
+                    </p>
+
+                    <div class="figure-note">
+                        <span class="mark">§</span>
+                        <div>
+                            <strong>La Rectification Patronymique du Titre de Montrouge (1880–1881).</strong><br>
+                            En marge de l'acte de naissance de son fils Lucien-Ernest Duchastel au registre d'état civil de Montron, une mention marginale essentielle atteste de la régularisation légale du nom patronymique de la branche :
+                            <br><em>« Par jugement rendu par le tribunal civil de 1<sup>re</sup> instance de la Seine le vingt-deux avril mil huit cent quatre-vingt, l’acte ci-contre a été ratifié en ce sens que Jean Baptiste Jules, et ses cinq enfants, sont autorisés à ajouter à leur nom patronymique celui de De Montrouge. Mention faite le 9 janvier 1881 à Château-Thierry par le greffier. »</em>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== CARRIÈRE CIVILE & MONTERON ===================== -->
+        <section id="mandats">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Chapitre deuxième</span>
+                    <h2>Vie Publique, Mandats Municipaux &amp; Engagement Politique</h2>
+                </div>
+
+                <div class="lede-block">
+                    <p>
+                        Fixé au château de Monthoury sur la commune de Montron (Aisne), Jules Duchastel s'investit très tôt dans la vie administrative et politique du département de l'Aisne.
+                    </p>
+                    <p>
+                        Dès la Révolution de 1848, le 16 mars 1848, il adresse depuis Monthoury une importante circulaire électorale intitulée <em>« À mes Concitoyens du département de l'Aisne »</em> pour présenter sa candidature d'inspiration libérale et propriétaire.
+                    </p>
+                    <p>
+                        En juillet 1855, il est nommé <strong>maire et officier de l'état civil de la commune de Montron</strong>, charge municipale qu'il exercera de manière ininterrompue durant plus de 15 ans, jusqu'en décembre 1870 :
+                    </p>
+
+                    <ul>
+                        <li><strong>1838 – 1843 :</strong> Benoît Gaillard, maire.</li>
+                        <li><strong>1843 – 1855 :</strong> Jules Léon Masson, maire.</li>
+                        <li><strong>Juillet 1855 – Décembre 1870 :</strong> <strong>Jean-Baptiste Jules Duchastel</strong>, maire.</li>
+                        <li><strong>1871 – 1872 :</strong> Jules Léon Masson, maire.</li>
+                        <li><strong>1873 – 1875+ :</strong> Alphonse Dauvergne, maire.</li>
+                    </ul>
+
+                    <div class="figure">
+                        <img src="images/proces_verbal_seance_du_3_mars_1870.png" alt="Procès-verbal de la séance du 3 mars 1870 - Société archéologique de Château-Thierry">
+                        <figcaption>Séance du 3 mars 1870 de la Société historique de Château-Thierry : intervention du maire M. Duchastel pour la préservation des vestiges de la vieille église de Montron.</figcaption>
+                    </div>
+
+                    <p>
+                        Parallèlement à ses fonctions municipales, Jules Duchastel siège au <strong>Conseil Général du département de l'Aisne</strong> comme représentant du canton de Neuilly-Saint-Front (délibérations publiques enregistrées de 1861 à 1873). Il est également appelé à siéger aux Assises de l'Aisne à Laon à titre de grands jurés en 1873 et en 1881.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== DOMAINES ET RESIDENCES ===================== -->
+        <section id="residences">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Chapitre troisième</span>
+                    <h2>Patrimoine Foncier &amp; Résidences (Monthoury &amp; Paris)</h2>
+                </div>
+
+                <div class="lede-block">
+                    <p>
+                        Au cours de son existence, Jean-Baptiste Jules Duchastel de Montrouge a partagé son séjour entre le domaine seigneurial familial de l'Aisne et plusieurs prestigieuses adresses parisiennes.
+                    </p>
+
+                    <h3>1. Le Château de Monthoury (Montron / Macogny, Aisne)</h3>
+                    <p>
+                        Le domaine de Monthoury appartenait au XVIII<sup>e</sup> siècle à Victor-André LeGoix, dont la fille Marie-Louise-Joséphine LeGoix de Montoury fut baptisée en 1789. Victor-André LeGoix de Montoury était le beau-père d'Alexandre Louis François Duchastel. Ce dernier devint propriétaire de Monthoury vers 1835 (des courriers y sont adressés dès septembre 1835 par Neuilly-Saint-Front). Jules Duchastel y résida principalement de 1835 à 1875.
+                    </p>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/chateau_monthoury_facade.jpeg" alt="Façade principale du Château de Monthoury">
+                            <figcaption>Façade principale du Château de Monthoury à Montron / Macogny (Aisne).</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/monthoury_carte_postale_edited2.png" alt="Façade principale de Monthoury carte postale">
+                            <figcaption>Carte postale ancienne de Monthoury.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/chateau_monthoury_parc.jpg" alt="Façade arrière du Château de Monthoury">
+                            <figcaption>Façade principale du Château de Monthoury à Montron / Macogny (Aisne).</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/chateau_monthoury_parc_vue_d_ensemble.jpg" alt="Vue du parc et du domaine de Monthoury">
+                            <figcaption>Vue d'ensemble du parc et des élévations du domaine de Monthoury.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/monthoury_vu_de_l_allee_carte_postale_edited2.png" alt="Monthoury vu de l'allée carte postale">
+                            <figcaption>Carte postale de Monthoury vu de l'allée</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/monthoury_vu_de_l_allee_google_maps.jpg" alt="Monthoury vu de l'allée Google Maps">
+                            <figcaption>Monthoury vu de l'allée Google Maps.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/monthoury_communs.jpg" alt="Dépendances et communs du Château de Monthoury">
+                            <figcaption>Communs et dépendances paysagères du château de Monthoury.</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/Ferme_et_communs_du_domaine_Monthoury_vu_de l_interieur_edited.png" alt="Ferme et communs_du domaine Monthoury vu de l'intérieur.">
+                            <figcaption>Ferme et communs_du domaine Monthoury vu de l'intérieur.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/monthoury_parc_piscine_interieure.jpg" alt="Monthoury vu du parc avec la piscine intérieure.">
+                            <figcaption>Monthoury vu du parc. On voit la piscine interieure à gauche qui a été ajoutée vers 2005.</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/monthoury_piscine_interieure.jpg" alt="Piscine intérieure de Monthoury">
+                            <figcaption>Piscine intérieure de Monthoury.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/chateau_monthoury_facade.jpeg" alt="Grille d'entrée et lions du Château de Monthoury">
+                            <figcaption>Grille d'entrée principale garnie des statues de lions — 1 Monthoury, Macogny (Hauts-de-France).</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/monthoury_carte_postale_edited2.png" alt="Façade principale de Monthoury carte postale">
+                            <figcaption>Carte postale ancienne de Monthoury.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="figure">
+                        <img src="images/monthoury_grille_google.jpg" alt="Grille d'entrée et lions du Château de Monthoury">
+                        <figcaption>Grille d'entrée principale garnie des statues de lions — 1 Monthoury, Macogny (Hauts-de-France).</figcaption>
+                    </div>
+
+                    
+
+                    <h3>2. L'Hôtel Particulier du 107, rue du Faubourg Saint-Honoré (Paris 8<sup>e</sup>)</h3>
+                    <p>
+                        Après la fin de ses mandats de maire à Montron vers 1875, Jules Duchastel acquiert un élégant hôtel particulier de style Louis XVI situé au <strong>107, rue du Faubourg Saint-Honoré</strong> à Paris, où il réside avec sa famille de 1875 à 1882 (plusieurs actes notariés d'obligations conservés aux Archives Nationales attestent de sa résidence à cette adresse). Le jardin de l'hôtel jouxtait l'avenue d'Antin. Cet hôtel abritera ultérieurement la célèbre maison de couture de Paul Poiret avant son remplacement par un immeuble moderne.
+                    </p>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/107_faubourg_st_honore_facade.jpg" alt="Façade sur jardin du 107 rue du Faubourg Saint-Honoré en 1918">
+                            <figcaption>Façade sur jardin du 107, rue du Faubourg Saint-Honoré (Paris 8<sup>e</sup>), photo de 1918 (Musée Carnavalet).</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/107_faubourg_st_honore_jardin.jpg" alt="Jardin du 107 rue du Faubourg Saint-Honoré">
+                            <figcaption>Les jardins et treillages du 107, rue du Faubourg Saint-Honoré.</figcaption>
+                        </figure>
+                    </div>
+
+                    <div class="figure-pair">
+                        <figure class="figure">
+                            <img src="images/poiret_porte_107.jpg" alt="Grille et porte d'entrée Paul Poiret au 107 rue du Faubourg St-Honoré">
+                            <figcaption>Porte d'entrée en fer forgé du 107, rue du Faubourg Saint-Honoré (Période Paul Poiret).</figcaption>
+                        </figure>
+                        <figure class="figure">
+                            <img src="images/poiret_chasseur_107.jpg" alt="Entrée du 107 rue du Faubourg St-Honoré avec chasseur de maison">
+                            <figcaption>Portail d'entrée du 107 rue du Faubourg St-Honoré au début du XX<sup>e</sup> siècle.</figcaption>
+                        </figure>
+                    </div>
+
+                    <h3>3. L'Hôtel Particulier du 41, rue de Prony (Paris 17<sup>e</sup>)</h3>
+                    <p>
+                        À la fin de sa vie, Jules Duchastel s'installe au <strong>41, rue de Prony</strong> dans le 17<sup>e</sup> arrondissement de Paris, vaste hôtel particulier à l'angle de la rue Geoffroy-d'Saint-Hilaire où il s'éteint le 4 janvier 1889. Son fils Fernand Duchastel de Montrouge y résidera à sa suite jusqu'à la fin du siècle.
+                    </p>
+
+                    <div class="figure">
+                        <img src="images/41_rue_de_prony_paris.jpg" alt="Hôtel particulier au 41 rue de Prony à Paris 17e">
+                        <figcaption>Immeuble et hôtel particulier du 41, rue de Prony à Paris (17<sup>e</sup> arr.), aujourd'hui siège de l'Institut du Patrimoine.</figcaption>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== UNIONS & DESCENDANCE ===================== -->
+        <section id="descendance">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Généalogie Familiale</span>
+                    <h2>Unions &amp; Descendance de Jean-Baptiste Jules</h2>
+                </div>
+
+                <!-- Union 1 -->
+                <details class="gen" open>
+                    <summary>
+                        <span class="tag">Première Union</span>
+                        <span class="name">Julia Sylvia Félicie PELERIN (1830–1859)</span>
+                        <span class="chevron">›</span>
+                    </summary>
+                    <div class="gen-body">
+                        <p>Mariés le 19 mai 1845 à New York (États-Unis). De cette alliance sont nés trois enfants :</p>
+                        <div class="children">
+                            <div class="child">
+                                1. <strong>Léon Hilaire Alexandre DUCHASTEL DE MONTROUGE</strong> (17 avril 1848, Paris – 27 mars 1929, Paris). 
+                                <br><em>Carrière diplomatique :</em> Chancelier du Consulat Général de France à Québec (Canada).
+                            </div>
+                            <div class="child">
+                                2. <strong>Léopold DUCHASTEL DE MONTROUGE</strong> (19 mars 1855, Paris 1<sup>er</sup> – 1921, Paris).
+                            </div>
+                            <div class="child">
+                                3. <strong>Lucien-Ernest DUCHASTEL DE MONTROUGE</strong> (21 août 1859, Montron, Aisne).
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Union 2 -->
+                <details class="gen" open>
+                    <summary>
+                        <span class="tag">Seconde Union</span>
+                        <span class="name">Berthe Eugénie FOLLIAS (1841–1921)</span>
+                        <span class="chevron">›</span>
+                    </summary>
+                    <div class="gen-body">
+                        <p>Bans publiés le 18 mars 1861 à Paris. De cette deuxième union sont nés deux enfants :</p>
+                        <div class="children">
+                            <div class="child">
+                                4. <strong>Fernand DUCHASTEL DE MONTROUGE</strong> (mai 1867 – 18 janvier 1911). Résida au 41 rue de Prony à Paris.
+                            </div>
+                            <div class="child">
+                                5. <strong>Marie-Thérèse DUCHASTEL DE MONTROUGE</strong> (4 juillet 1869 – 18 août 1930).
+                            </div>
+                        </div>
+                    </div>
+                </details>
+
+                <!-- Arbre d'ascendance -->
+                <div class="section-head" style="margin-top:48px; margin-bottom:20px;">
+                    <span class="eyebrow">Quartiers de Noblesse &amp; Ascendance</span>
+                    <h2>Arbre d'Ascendance Patronymique (5 Générations)</h2>
+                </div>
+
+                <div class="tree-box">
+                                                                            _____ 16. Jacques DUCHASTEL (1700–1740)
+                                                     _____ 8. Jean-Baptiste DUCHASTEL DE MONTFLAMBERT (1723–1809)
+                                                    |       └____ 17. Marie Jeanne MITEAU (1703–1751)
+                              _____ 4. Jacques Gabriel DUCHASTEL DE MONTROUGE (1758–1792)
+                             |                      |               _____ 18. Jacques François CADOT (1708–1766)
+                             |                      └____ 9. Louise Nicolle CADOT (1736–1776)
+                             |                                      └____ 19. Reine Anne GARD (1712–1764)
+       _____ 2. Alexandre Louis François DUCHASTEL DE MONTROUGE (1784–1863)
+      |                      |                                      _____ 20. Jacques Quentin DURAND DE COURMONT (c. 1687–1764)
+      |                      |                       _____ 10. Jean-Baptiste Quentin DURAND DE COURMONT (1730–1773)
+      |                      |                      |       └____ 21. Jeanne Elizabeth SOHIER (1697–1662)
+      |                      └____ 5. Élisabeth Philippine DURAND DE COURMONT (1763–1842)
+      |                                             |               _____ 22. Antoine Rigobert BOURGOGNE
+      |                                             └____ 11. Élisabeth BOURGOGNE (1735–1795)
+      |                                                     └____ 23. Claude LACAILLE
+-- 1. Jean-Baptiste Jules DUCHASTEL DE MONTROUGE (1823–1889)
+      |                                                             _____ 12. François Victor LeGOIX
+      |                                              _____ 6. Victor André LeGOIX DE MONTOURY (1754–)
+      |                                             |       └____ 13. Louise Geneviève DELESPINE
+      └____ 3. Sophie LeGOIX DE MONTOURY (1790–1860)
+                                                    |               _____ 28. Pierre DUBOIS
+                                                    |        _____ 14. Pierre Joseph DUBOIS (c. 1728–1819)
+                                                    |       |       └____ 29. Perette LESPICIER
+                                                    └____ 7. Joséphine Sophie DUBOIS (1760–1792)
+                                                            └____ 15. Marie Jacqueline LELARGE
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SOURCES ===================== -->
+        <section class="sources" id="sources">
+            <div class="wrap">
+                <div class="section-head">
+                    <span class="eyebrow">Archives &amp; Bibliographie</span>
+                    <h2>Sources Documentaires &amp; Références Légales</h2>
+                </div>
+                <ul>
+                    <li><strong>Acte de Naissance :</strong> Registres de l'état civil de Reims (Marne), 19 juillet 1823 (Ark Archives Marne ark:/86869/d0vp38hb7t25/cbe91aa5-d824-47f9-b022-f56a477724e2).</li>
+                    <li><strong>Précis Historique du Sacre de Charles X (1825) :</strong> Mention de la demeure familiale au 9, rue de Vesle à Reims.</li>
+                    <li><strong>Jugement Patronymique :</strong> Registre d'état civil de Montron (Aisne), mention marginale au 9 janvier 1881 autorisant l'adjonction légale du nom <em>de Montrouge</em> en vertu du jugement du Tribunal de la Seine du 22 avril 1880.</li>
+                    <li><strong>Mandats Municipaux &amp; Départementaux :</strong> Registres des maires de Montron (1855–1870), Délibérations du Conseil Général de l'Aisne (1868, 1871, 1873) et Séances de la Société historique de Château-Thierry (1870, 1872).</li>
+                    <li><strong>Circulaire Électorale (1848) :</strong> Perrin, <em>Recherches bibliographiques relatives au département de l'Aisne</em>, p. 41.</li>
+                    <li><strong>Nécrologie &amp; Obsèques :</strong> Journal <em>Le Gaulois</em>, n° 2324 du 8 janvier 1889 (annonce des obsèques en l'église Saint-François de Sales à Paris).</li>
+                    <li><strong>Acte de Décès :</strong> Archives de la Ville de Paris, Registres du 17<sup>e</sup> arrondissement, 4 janvier 1889 (41, rue de Prony).</li>
+                    <li><strong>Archives Notariées :</strong> Archives Nationales (FranceArchives), obligations foncières de 1875, 1877 et 1882 au 107, rue du Faubourg Saint-Honoré.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <span class="eyebrow">Dynastie Duchastel de Montrouge</span><br>
+        Notice historique et généalogique — Tous droits réservés
+    </footer>
+</body>
+
+</html>
