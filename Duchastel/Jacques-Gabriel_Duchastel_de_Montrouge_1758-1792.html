@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jacques-Gabriel Duchastel de Montrouge (1758-1792)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:230px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(360px,70%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* sales */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.r,th.r{text-align:right;white-space:nowrap}
+  tfoot td{font-weight:600;background:var(--hl);border-bottom:0}
+  .bar{height:8px;background:var(--line);border-radius:4px;margin-top:6px;min-width:90px}
+  .bar i{display:block;height:100%;background:var(--accent);border-radius:4px}
+
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:10px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+
+  .buyers h3{font-size:21px;margin-top:20px}
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    tfoot tr{background:var(--hl)}
+  }
+  /* images */
+  .fig-img{margin:16px 0;text-align:center}
+  .fig-img img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:4px;background:#fff}
+  .fig-img figcaption{font-size:14px;color:var(--muted);margin-top:6px;line-height:1.45}
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:16px 0}
+  .gallery.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .gallery .fig-img{margin:0}
+  .gallery .fig-img img{width:100%;height:220px;object-fit:contain}
+  .gallery.two .fig-img img{height:auto}
+  .identity .full{grid-column:1/-1;border-bottom:0}
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-duchastel.html">← Site Duchastel</a>
+    <a href="jacques-duchastel.html">Jacques (grand-père)</a>
+    <a href="Alexandre-Louis-Francois_Duchastel_1784-1863.html">Alexandre-Louis-François (fils)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#bapteme">Naissance</a>
+    <a href="#carriere">Carrière militaire</a>
+    <a href="#mariage">Mariage &amp; Séry</a>
+    <a href="#deces">Décès</a>
+    <a href="#descendance">Descendance</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération 5 · Dynastie Duchastel</p>
+    <h1>Jacques-Gabriel<br>Duchastel de Montrouge</h1>
+    <p class="dates">1758 – 1792</p>
+    <p class="sub">De Reims à Séry, un officier de la fin de l’Ancien Régime</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Jacques-Gabriel Duchastel naît à Reims, paroisse Saint-Étienne, en 1758, fils de Jean-Baptiste Duchastel de Montflambert et de Louise-Nicolle Cadot. Officier dans le régiment Colonel-Général des Dragons, puis au bataillon de garnison de Bourgogne, il épouse en 1781 Philippine-Élisabeth Durand de Courmont, s’installe à Séry près de Rethel et meurt à Reims à 33 ans, le 25 mars 1792, laissant trois enfants. C’est sur son brevet royal de 1788 que le nom « Duchastel de Montrouge » apparaît pour la première fois.</p>
+  <dl class="identity">
+    <div><dt>Naissance</dt><dd>14 avril 1758 (selon la fiche), Reims, Saint-Étienne (Marne)<br><span class="note">Voir « Points à vérifier »</span></dd></div>
+    <div><dt>Baptême</dt><dd>Reims, Saint-Étienne, 1758 — acte transcrit ci-dessous</dd></div>
+    <div><dt>Décès</dt><dd>25 mars 1792, à 33 ans, à Reims<br>Inhumé le 26 mars au cimetière de Saint-Denis</dd></div>
+    <div><dt>Parents</dt><dd>Jean-Baptiste Duchastel de Montflambert (1723-1809)<br>Louise-Nicolle Cadot (1736-1776)</dd></div>
+    <div><dt>Profession</dt><dd>Officier au régiment Colonel-Général des Dragons (5<sup>e</sup> régiment de dragons), puis au bataillon de garnison de Bourgogne</dd></div>
+    <div><dt>Mariage</dt><dd>9 janvier 1781, Rethel (Ardennes), avec Philippine-Élisabeth Durand de Courmont (1763-1842)</dd></div>
+    <div><dt>Résidences</dt><dd>Reims ; Rethel ; Séry (près de Rethel)</dd></div>
+    <div><dt>Enfants</dt><dd>Jeanne-Élisabeth (1781), Alexandre-Louis-François (1784), Jean-Jacques (1786)</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="bapteme">
+  <h2><span class="num">2</span>Naissance, famille et fratrie</h2>
+  <p>Son père, Jean-Baptiste Duchastel de Montflambert, est écuyer, conseiller secrétaire du Roi, maison couronne de France et de ses finances. Sa mère, Louise-Nicolle Cadot, meurt en 1776, quand il a une vingtaine d’années. Il est le dernier d’une fratrie de trois garçons :</p>
+
+  <table>
+    <thead>
+      <tr><th>Nom</th><th>Dates</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-l="Nom">Jacques-Jean-Baptiste Duchastel de Montflambert <span class="note">(Duchastel-Berthelin)</span></td>
+        <td data-l="Dates">6 juin 1756 – 21 février 1830</td>
+        <td data-l="Notes">Marié à Élisabeth Berthelin ; 2 unions. Mort sans descendance : c’est son neveu Alexandre-Louis-François qui lui succédera.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom">Jean-Baptiste-Philippe Duchastel de Montflambert</td>
+        <td data-l="Dates">13 mars 1757 – 19 mars 1757</td>
+        <td data-l="Notes">Mort une semaine après sa naissance.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Jacques-Gabriel Duchastel de Montrouge</strong></td>
+        <td data-l="Dates">1758 – 25 mars 1792</td>
+        <td data-l="Notes">Marié à Philippine-Élisabeth Durand de Courmont ; 3 enfants.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>L’acte de baptême (Reims, Saint-Étienne, 1758)</h3>
+  <p>Le registre est conservé aux Archives départementales de la Marne. En marge : « Baptême de Mr de Montflambert ».</p>
+  <figure class="fig-img">
+    <a href="Jacques-Gabriel_images/bapteme-1758.jpg"><img src="Jacques-Gabriel_images/bapteme-1758.jpg" alt="Acte de baptême de Jacques-Gabriel Duchastel, Reims Saint-Étienne, 1758" loading="lazy"></a>
+    <figcaption>Acte de baptême, registre de Reims Saint-Étienne (1758-1766). Archives départementales de la Marne.</figcaption>
+  </figure>
+  <div class="highlight">
+    <p><strong>Transcription (orthographe conservée, ponctuation ajoutée).</strong> « L’an de grace mil sept cent cinquante huit, le quatorzieme jour du mois d’aoust, je soussigné, François Motté, prestre curé de cette paroisse, ay baptisé le fils né du quatorze du dit mois de Monsieur Jean Baptiste Duchastel de Montflambert, conseiller secretaire du Roy, et de madame Louise Nicolle Cadot ses pere et mere, mariés ensemble, de cette paroisse, auquel on a imposé les noms de Jacques-Gabriel. Le parrain a esté Monsieur Jean Jacques Cadot, capitaine de milice bourgeoise de cette ville, et la marraine madame Gabriel de la Motte, espouse de Monsieur Firmin Martin de Vraine, président trésorier de France en la généralité de Soissons, résidant en la ville de Fère en Picardie, lesquels ont signé avec nous le présent acte les jour, mois et an que dessus. »</p>
+  </div>
+  <p>Le parrain, Jean-Jacques Cadot, est son oncle maternel ; la marraine, de La Motte de Vraine, résidait à La Fère en Picardie. Le curé, François Motté, a signé l’acte. Les notes de travail se demandent si ce curé a un lien avec François de La Motte (1722-1789), beau-frère d’Élisabeth Bourgogne et donc oncle de sa future épouse : la question reste ouverte.</p>
+</section>
+
+<!-- 3 -->
+<section id="carriere">
+  <h2><span class="num">3</span>Un officier du roi</h2>
+  <p>Jacques-Gabriel sert d’abord comme lieutenant au régiment <strong>Colonel-Général des Dragons</strong>, le premier des régiments de dragons de France (devenu 5<sup>e</sup> régiment de dragons le 1<sup>er</sup> janvier 1791).</p>
+
+  <div class="highlight">
+    <p><strong>15 avril 1788 — le nom « Duchastel de Montrouge » apparaît.</strong> Par lettre signée de Louis XVI à Versailles et contresignée du comte de Brienne, secrétaire d’État de la Guerre, Gabriel Duchastel de Montrouge, ci-devant lieutenant au régiment du Colonel-Général des Dragons, est nommé <strong>lieutenant en premier de la compagnie de fusiliers de Micault</strong>, vacante dans le bataillon de garnison de Bourgogne par la mort du sieur de La Coudre. Premier document connu où figure le nom de Montrouge.</p>
+  </div>
+
+  <div class="gallery two">
+    <figure class="fig-img">
+      <a href="Jacques-Gabriel_images/brevet-1788.jpg"><img src="Jacques-Gabriel_images/brevet-1788.jpg" alt="Brevet royal du 15 avril 1788" loading="lazy"></a>
+      <figcaption>Brevet royal du 15 avril 1788 (original).</figcaption>
+    </figure>
+    <figure class="fig-img">
+      <a href="Jacques-Gabriel_images/brevet-1788-colorise.jpg"><img src="Jacques-Gabriel_images/brevet-1788-colorise.jpg" alt="Brevet royal du 15 avril 1788, version colorisée" loading="lazy"></a>
+      <figcaption>Le même document, version colorisée.</figcaption>
+    </figure>
+  </div>
+
+  <div class="highlight">
+    <p><strong>Transcription de la lettre du roi.</strong> « Capitaine de Fabro, ayant donné à Gabriel Duchastel de Montrouge, ci-devant lieutenant dans le Régiment du Colonel Général des Dragons, la charge de lieutenant en premier de la compagnie de fusiliers de Micoult, vacante dans le bataillon de garnison de Bourgogne que vous commandez, par la mort du sieur de la Coudre ; je vous écris cette lettre pour vous dire que vous ayez à le recevoir et faire reconnoître en lad[ite] charge de tous ceux et ainsi qu’il appartiendra. La présente n’étant pour autre fin, je prie Dieu qu’il vous ait en Sa sainte garde. Écrit à Versailles le quinze avril 1788. <em>Louis.</em> [Contreseing :] le c. de Brienne. »</p>
+  </div>
+
+  <h3>Les étapes connues</h3>
+  <ul class="timeline">
+    <li><span class="d">Avant 1788 · Dragons</span> — lieutenant au régiment Colonel-Général des Dragons, dont la compagnie était alors en garnison en Bourgogne.</li>
+    <li><span class="d">15 avril 1788 · Bourgogne</span> — brevet de lieutenant en premier, compagnie de fusiliers de Micault, bataillon de garnison de Bourgogne.</li>
+    <li><span class="d">1790-1792 · 59<sup>e</sup> régiment d’infanterie (ci-devant Bourgogne)</span> — rattachement au régiment dont les bataillons tiennent garnison dans le Midi : 1<sup>er</sup> bataillon à Draguignan (1<sup>er</sup> juillet 1790) puis Alais et Sommières (1<sup>er</sup> janvier 1792) ; 2<sup>e</sup> bataillon à Uzès (1790) puis Carpentras, avec départ prévu en mars 1792 pour Montpellier.</li>
+    <li><span class="d">25 mars 1792 · Reims</span> — décès, un mois avant la déclaration de guerre du 20 avril 1792.</li>
+  </ul>
+
+  <h3>Le contexte : les dragons et le régiment de Bourgogne</h3>
+  <p>Les dragons sont des fantassins à cheval : ils se déplacent à cheval mais combattent surtout à pied, au fusil ou au sabre. Un régiment compte quatre escadrons de deux compagnies chacun, soit 450 à 500 hommes en temps de paix. Une compagnie est encadrée par un capitaine (propriétaire de la charge), un lieutenant (le grade de Jacques-Gabriel), un sous-lieutenant, un maréchal des logis en chef, deux maréchaux des logis, quatre brigadiers et un trompette.</p>
+  <p>De 1790 à 1792, le régiment de Bourgogne est envoyé dans le Midi, en pleine tension religieuse et politique (Constitution civile du clergé, affaire d’Avignon et du Comtat Venaissin), non pour combattre l’étranger mais pour maintenir l’ordre. En mars 1792, il entre à Avignon en chantant le « Ça ira ! » face au régiment de La Marck.</p>
+  <p class="note">Ces éléments décrivent les unités où il a servi ; ils ne disent pas ce que Jacques-Gabriel y a fait personnellement. Aucun état de service détaillé n’a encore été retrouvé.</p>
+
+  <h3>Les uniformes qu’il a pu porter</h3>
+  <p>Sous Louis XVI, les dragons du Colonel-Général portent un habit de drap vert foncé aux parements, revers et doublures roses, des boutons dorés pour les officiers, des épaulettes dorées et un casque de cuivre jaune à bandeau de peau de panthère, crin noir et plumet blanc. Dans l’infanterie de 1791, l’habit devient blanc avec un bicorne noir à cocarde tricolore.</p>
+  <div class="gallery">
+    <figure class="fig-img"><img src="Jacques-Gabriel_images/dragons-officier-1.jpg" alt="Officier du régiment Colonel-Général dragons" loading="lazy"><figcaption>Régiment « Colonel-Général dragons ».</figcaption></figure>
+    <figure class="fig-img"><img src="Jacques-Gabriel_images/dragons-officier-2.jpg" alt="Officier du régiment Colonel-Général dragons" loading="lazy"><figcaption>Régiment « Colonel-Général dragons » (autre tenue).</figcaption></figure>
+    <figure class="fig-img"><img src="Jacques-Gabriel_images/dragons-1786.jpg" alt="Colonel-Général dragons, 1786" loading="lazy"><figcaption>1786 · 1<sup>re</sup> compagnie, Colonel-Général dragons.</figcaption></figure>
+    <figure class="fig-img"><img src="Jacques-Gabriel_images/dragon-aquarelle.jpg" alt="Dragon à cheval, aquarelle" loading="lazy"><figcaption>Dragon à cheval (aquarelle).</figcaption></figure>
+    <figure class="fig-img"><img src="Jacques-Gabriel_images/bourgogne-infanterie.jpg" alt="Soldat du régiment de Bourgogne" loading="lazy"><figcaption>Régiment de Bourgogne, infanterie.</figcaption></figure>
+    <figure class="fig-img"><img src="Jacques-Gabriel_images/infanterie-1791.jpg" alt="Infanterie, 1791" loading="lazy"><figcaption>1791 · uniforme d’infanterie.</figcaption></figure>
+  </div>
+  <p class="note">Illustrations de référence trouvées en ligne (notamment sur Picryl) : ce sont des représentations des uniformes du régiment, non des portraits de Jacques-Gabriel.</p>
+</section>
+
+<!-- 4 -->
+<section id="mariage">
+  <h2><span class="num">4</span>Mariage à Rethel et vie à Séry</h2>
+  <p>Le 9 janvier 1781, à Rethel, Jacques-Gabriel, 22 ans, épouse Philippine-Élisabeth Durand de Courmont, 17 ans. Le registre de Rethel, cité dans l’<em>Essai sur Rethel</em> de J.-B. Caruel, l’inscrit ainsi :</p>
+  <div class="highlight">
+    <p>« 1781. M. Jacques-Gabriel Duchatel de Montrouge, officier du régiment colonel général de dragons, fils de Jean-Baptiste Duchatel de Montflambert, écuyer, et de défunte Louise-Nicole Cadot, avec Élisabeth-Philippine Durand de Courtmont, fille de défunt Jean-Baptiste Durand de Courtmont, ancien conseiller du roi, lieutenant particulier du bailliage et maire royal de Rethel, et de dame Élisabeth Bourgogne, célébré par M. Pillas, curé-doyen, en présence dudit Montflambert, des parents de l’épouse et de nombreux amis. »</p>
+  </div>
+
+  <div class="identity" style="margin-bottom:18px">
+    <div class="full"><dt>L’épouse</dt><dd><strong>Philippine-Élisabeth Durand de Courmont</strong> (1763-1842), fille de Jean-Baptiste-Quentin Durand de Courmont, ancien conseiller du roi, lieutenant particulier du bailliage et maire royal de Rethel, et d’Élisabeth Bourgogne.</dd></div>
+  </div>
+
+  <h3>Séry, près de Rethel</h3>
+  <p>Le couple s’installe à Séry, à environ 8 km au nord-ouest de Rethel (les monts de Séry se trouvent à deux lieues de Rethel). Leurs trois enfants naissent à Rethel. Les notes de la succession décrivent « une belle maison avec grande cour, jardin, vigne, etc. », avec 114 arpents de terre, 32 de prés et 26 arpents de bois.</p>
+
+  <div class="gallery">
+    <figure class="fig-img"><a href="Jacques-Gabriel_images/sery-chateau-carte-postale.jpg"><img src="Jacques-Gabriel_images/sery-chateau-carte-postale.jpg" alt="Séry, l’ancien château, carte postale" loading="lazy"></a><figcaption>Séry (Ardennes) — l’ancien château, carte postale.</figcaption></figure>
+    <figure class="fig-img"><a href="Jacques-Gabriel_images/sery-chateau-aujourdhui.jpg"><img src="Jacques-Gabriel_images/sery-chateau-aujourdhui.jpg" alt="Le château de Séry aujourd’hui" loading="lazy"></a><figcaption>Le même château aujourd’hui.</figcaption></figure>
+    <figure class="fig-img"><a href="Jacques-Gabriel_images/monts-de-sery.jpg"><img src="Jacques-Gabriel_images/monts-de-sery.jpg" alt="Panneau du site des monts de Séry" loading="lazy"></a><figcaption>Site des monts de Séry.</figcaption></figure>
+  </div>
+  <p class="note">Rien n’établit encore que ce château ait appartenu à Jacques-Gabriel. Les annonces du baron de Saint-Loup (1778 et 1783) mettent en vente la seigneurie de Séry : la question de savoir si le couple l’a acquise reste ouverte. Le domaine du Mont-Rouge à Rogécourt, à l’ouest de Reims, ne semble avoir aucun lien avec la famille.</p>
+
+  <h3>Une vente en 1791</h3>
+  <p>Le <strong>12 mai 1791</strong>, devant Me Daumont, notaire à Vieil-Saint-Remy, Jacques-Gabriel Duchastel de Montrouge et Philippine-Élisabeth Durand de Courmont, demeurant à Séry, vendent un corps de ferme à Bricuille-sur-Bar (Briculle-sur-Bar) pour 16 000 livres et autres charges. L’annonce paraît dans le <em>Journal de Champagne</em>.</p>
+  <figure class="fig-img">
+    <img src="Jacques-Gabriel_images/journal-champagne-1791.jpg" alt="Annonce de vente dans le Journal de Champagne, 1791" loading="lazy">
+    <figcaption>Journal de Champagne, 1791 : « Vente par M. Jacques-Gabriel Duchatel de Mont-Rouge, &amp; D<sup>e</sup> Philippine-Elizabeth Durand de Courmont, son épouse, demeurans à Seri… ».</figcaption>
+  </figure>
+</section>
+
+<!-- 5 -->
+<section id="deces">
+  <h2><span class="num">5</span>Mort à Reims (25 mars 1792)</h2>
+  <p>Jacques-Gabriel meurt à Reims à 33 ans. L’acte d’inhumation, aux Archives départementales de la Marne (Reims, église métropolitaine Notre-Dame, baptêmes, mariages, sépultures 1791-1792, 2 E 534/186, page 103), le nomme « Jacques Gabriel Duchatel, époux de Philippine Elisabeth Durand ».</p>
+  <figure class="fig-img">
+    <a href="Jacques-Gabriel_images/inhumation-1792.jpg"><img src="Jacques-Gabriel_images/inhumation-1792.jpg" alt="Acte d’inhumation, Reims, 1792" loading="lazy"></a>
+    <figcaption>Acte d’inhumation, 26 mars 1792. Archives départementales de la Marne.</figcaption>
+  </figure>
+  <div class="highlight">
+    <p><strong>Transcription.</strong> « L’an de grâce mille sept cent quatre vingt douze le vingt cinquième jour du mois de mars est décédé en cette paroisse Jacques Gabriel Duchatel, époux de Philippine Elisabeth Durand, lequel a été inhumé le lendemain vingt six au cimetière de St Denis où avons soussigné vicaire épiscopal l’avons conduit avec les cérémonies accoutumées en présence de Pierre Mopinot et Antoine Hazard, tous deux de cette paroisse soussignés avec nous les jour, mois et an susdits. »</p>
+  </div>
+  <p>Aucune source ne parle de blessure de guerre : la France n’a déclaré la guerre à l’Autriche que le 20 avril 1792, près d’un mois plus tard. Il est mort très probablement de maladie, mais la cause exacte n’est pas documentée.</p>
+
+  <h3>La vente de la succession (21 mai 1792)</h3>
+  <p>Deux mois après sa mort, la veuve met en vente les biens de la succession à Séry : « une belle maison avec grande cour, jardin, vigne, etc… 114 arpents de terre, 32 de prés, 26 arpents de bois. S’adresser à Mme de Montrouge à Seri. »</p>
+  <figure class="fig-img">
+    <img src="Jacques-Gabriel_images/vente-sery-1792.jpg" alt="Annonce de vente de la succession, 21 mai 1792" loading="lazy">
+    <figcaption>Annonce du 21 mai 1792, <em>Revue de Champagne et de Brie</em>, t. 7 (1895).</figcaption>
+  </figure>
+</section>
+
+<!-- 6 -->
+<section id="descendance">
+  <h2><span class="num">6</span>Famille et descendance</h2>
+  <p>Jacques-Gabriel et Philippine-Élisabeth ont trois enfants, tous nés à Rethel. Le père meurt alors que l’aîné a 10 ans, et le benjamin, Jean-Jacques, n’a que 5 ans.</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Jean-Baptiste Duchastel de Montflambert<small>1723-1809</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Louise-Nicolle Cadot<small>1736-1776</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Jacques-Gabriel<small>1758-1792</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Philippine-Élisabeth Durand de Courmont<small>1763-1842</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row" style="gap:24px">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:180px">Jeanne-Élisabeth<small>1781-1838</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:180px">Alexandre-Louis-François<small>1784-1863</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:180px">Jean-Jacques<small>1786-1809</small></div></div>
+    </div>
+  </div>
+
+  <div class="kids">
+    <div class="kid">
+      <h3>Jeanne-Élisabeth</h3>
+      <p><strong>Née</strong> le 4 septembre 1781 à Rethel.<br><strong>Décédée</strong> le 20 février 1838.</p>
+    </div>
+    <div class="kid">
+      <h3>Alexandre-Louis-François</h3>
+      <p><strong>Né</strong> le 1<sup>er</sup> juillet 1784 à Rethel.<br><strong>Décédé</strong> le 23 juillet 1863.</p>
+      <p>Hérite en 1830 du titre de baron et des biens de son oncle Jacques-Jean-Baptiste, puis en liquide une bonne partie. <a href="Alexandre-Louis-Francois_Duchastel_1784-1863.html">Voir sa page →</a></p>
+    </div>
+    <div class="kid">
+      <h3>Jean-Jacques</h3>
+      <p><strong>Né</strong> le 30 décembre 1786 à Rethel.<br><strong>Décédé</strong> le 15 avril 1809, mort au combat, sans descendance.</p>
+    </div>
+  </div>
+
+  <h3>Ascendance</h3>
+  <div class="identity">
+    <div><dt>Père</dt><dd>Jean-Baptiste Duchastel de Montflambert (1723-1809)</dd></div>
+    <div><dt>Mère</dt><dd>Louise-Nicolle Cadot (1736-1776)</dd></div>
+    <div><dt>Grand-père paternel</dt><dd><a href="jacques-duchastel.html">Jacques Duchastel</a> (1700-1740)</dd></div>
+    <div><dt>Grand-mère paternelle</dt><dd>Marie-Jeanne Miteau (1703-1751)</dd></div>
+    <div><dt>Grand-père maternel</dt><dd>Jacques-François Cadot (1708-1766)</dd></div>
+    <div><dt>Grand-mère maternelle</dt><dd>Reine-Anne Gard (1712-1764)</dd></div>
+    <div class="full"><dt>Arrière-grands-parents</dt><dd>Jean-Baptiste Duchastel (v. 1669-1702) et Marguerite Plantin (1674-1754) ; Jean Miteau (1672-1737) et Jeanne Huart (v. 1667-1741) ; Jacques Cadot (†avant 1733) et Antoinette Martin (†1733) ; Jean Gard (1671) et Charlotte Richard.</dd></div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="sources">
+  <h2><span class="num">7</span>Notes et sources</h2>
+  <p class="note">Page établie à partir de la notice « Jacques Gabriel Duchastel de Montrouge 1758-1792 » (dynastie Duchastel), de ses transcriptions d’actes et des images qui l’accompagnent.</p>
+
+  <div class="highlight">
+    <p><strong>Points à vérifier.</strong></p>
+    <p>• <strong>Date de naissance :</strong> la fiche indique le 14 avril 1758 (baptême le 16 avril), mais l’acte transcrit dit « le quatorzième jour du mois d’août » (« né du quatorze du dit mois »). Les notes de travail donnent même une fois le 13 avril. À confirmer sur l’original : il pourrait s’agir d’une erreur de lecture de « avril » ou « août ».<br>
+       • <strong>Vente de 1791 :</strong> le contrat est daté du 12 mai 1791, alors que le numéro du <em>Journal de Champagne</em> cité porte la date du 12 septembre 1791 (« exposé le 17 août suivant »).<br>
+       • <strong>Transfert dans l’infanterie :</strong> la date et les raisons du passage au 59<sup>e</sup> régiment d’infanterie ne sont pas établies. L’hypothèse d’un lien avec la fuite du roi à Varennes (juin 1791) vient d’une recherche en ligne, pas d’un document.<br>
+       • <strong>Début de carrière :</strong> l’année d’entrée aux dragons (1778 ?) n’est pas documentée.<br>
+       • <strong>Portrait :</strong> une huile sur toile du XVIII<sup>e</sup> siècle serait passée en vente sous son nom, sans confirmation que ce soit lui.<br>
+       • <strong>Château de Séry :</strong> aucune preuve qu’il en ait été propriétaire.</p>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Jacques-Gabriel</h3>
+    <ul class="src">
+      <li>Naissance : <a href="http://archives.marne.fr/ark:/86869/a011310543790OW0Df7/1/11">Archives de la Marne</a></li>
+      <li>Union : <a href="https://www.geneanet.org/archives/ouvrages?action=detail&amp;book_type=livre&amp;livre_id=21755&amp;page=349&amp;name=DUCHATEL+de+MONTROUGE&amp;with_variantes=0&amp;tk=b71b3024f607a00f">Geneanet — ouvrage numérisé, p. 349</a> ; J.-B. Caruel, <em>Essai sur Rethel (745 à 1890)</em> (Gallica, BnF) ; <em>Éloge funèbre de messire Pierre Pillas, curé doyen de Rethel-Mazarin</em>, R. P. Dehaye, 1783</li>
+      <li>Décès, inhumation : <a href="https://archives.marne.fr/ark:/86869/jlt95m84pgw2/3a25c5df-e77f-4cf5-961b-3f3b931d46b8">Archives de la Marne</a> — Reims, église métropolitaine Notre-Dame, 1791-1792, 2 E 534/186, p. 103</li>
+      <li>Tables décennales, Archives municipales et communautaires de Reims, 1792 à l’an X</li>
+    </ul>
+    <h3>Séry et succession</h3>
+    <ul class="src">
+      <li><em>Journal de Champagne</em>, 1791 (vente de Bricuille-sur-Bar)</li>
+      <li><a href="https://books.google.com/books/about/Revue_de_Champagne_et_de_Brie.html?hl=fr&amp;id=lJUKAAAAIAAJ"><em>Revue de Champagne et de Brie</em>, t. 7, 20<sup>e</sup> année, 2<sup>e</sup> série, Arcis-sur-Aube, Léon Frémont, 1895</a></li>
+      <li><a href="https://www.annuaire-mairie.fr/mairie-sery-08.html">Mairie de Séry (annuaire-mairie.fr)</a> ; <a href="https://www.ardennes.com/itineraire/sentier-de-decouverte-des-monts-de-sery/">Sentier de découverte des monts de Séry</a> ; <a href="http://www.domaine-mont-rouge.com/domaine/historique/">Domaine du Mont-Rouge</a> (sans lien établi)</li>
+    </ul>
+    <h3>Généalogie et contexte militaire</h3>
+    <ul class="src">
+      <li><a href="https://gw.geneanet.org/pchevillotte?lang=fr&amp;n=duchastel+de+montrouge&amp;p=jacques+gabriel">Geneanet (pchevillotte)</a> ; <a href="https://laurentduchastel.com/wp-content/uploads/2018/12/duchastel.pdf">laurentduchastel.com — duchastel.pdf</a> ; <a href="https://www.nosorigines.qc.ca/GenealogieQuebec.aspx?genealogie=Durand_Philippine-Elisabeth&amp;pid=437357">Nos Origines (Philippine-Élisabeth Durand)</a></li>
+      <li>Uniformes : <a href="https://picryl.com/topics/uniforms+of+colonel+general+dragoons">Picryl — uniforms of Colonel-Général dragoons</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <a href="genealogie-duchastel.html">← Retour au site Duchastel de Montrouge</a>
+</footer>
+
+</body>
+</html>
