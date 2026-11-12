@@ -55,18 +55,18 @@
 
   /* tree */
   .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
-  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:230px;max-width:100%}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
   .node small{display:block;color:var(--muted);font-size:13px}
   .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
   .node.main small{color:#cfc6b0}
   .node.sp{border-style:dashed;border-color:var(--accent-2)}
   .vline{width:2px;height:20px;background:var(--navy)}
-  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
-  .hbar{width:min(360px,70%);height:2px;background:var(--navy)}
+  .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(680px,85%);height:2px;background:var(--navy)}
   .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
   .couple .amp{color:var(--accent);font-size:22px}
 
-  /* sales */
+  /* sales & tables */
   .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
   .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
   .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
@@ -84,10 +84,11 @@
   .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
   .timeline .d{font-weight:600;color:var(--navy)}
 
-  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:10px}
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
   .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
   .kid h3{margin:0 0 6px;font-size:22px}
   .kid p{margin:0 0 8px;font-size:15.5px}
+  .kid p:last-child{margin-bottom:0}
 
   .buyers h3{font-size:21px;margin-top:20px}
   ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
@@ -123,10 +124,6 @@
   .gallery .fig-img{margin:0}
   .gallery .fig-img img{width:100%;height:220px;object-fit:contain}
   .gallery.two .fig-img img{height:auto}
-  .gallery.tall .fig-img img{height:340px}
-  .portraits{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;margin:18px 0}
-  .portraits .fig-img{margin:0}
-  .portraits img{width:auto;max-width:100%;max-height:420px}
   .identity .full{grid-column:1/-1;border-bottom:0}
   @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
 </style>
@@ -136,14 +133,14 @@
 <nav class="topnav">
   <div class="wrap">
     <a href="genealogie-duchastel.html">← Site Duchastel</a>
-    <a href="Alexandre-Louis-Francois_Duchastel_1784-1863.html">Alexandre-Louis-François (grand-père)</a>
-    <a href="jules-duchastel-de-montrouge.html">Jules-Alexandre (fils)</a>
+    <a href="Jean-Baptiste-Jules_Duchastel_de_Montrouge.html">Jean-Baptiste-Jules (père)</a>
+    <a href="Jules-Alexandre_Duchastel_de_Montrouge_1878-1932.html">Jules-Alexandre (fils)</a>
     <a href="#fiche">Fiche</a>
-    <a href="#origines">Origines</a>
+    <a href="#jeunesse">Origines &amp; Nom</a>
     <a href="#carriere">Carrière diplomatique</a>
-    <a href="#mariage">Mariage 1877</a>
-    <a href="#chronologie">Chronologie</a>
-    <a href="#descendance">Descendance</a>
+    <a href="#legion">Légion d'honneur</a>
+    <a href="#descendance">Mariage &amp; Descendance</a>
+    <a href="#fin">Dernières années</a>
     <a href="#sources">Sources</a>
   </div>
 </nav>
@@ -153,7 +150,7 @@
     <p class="gen">Génération 8 · Dynastie Duchastel</p>
     <h1>Léon-Hilaire-Alexandre<br>Duchastel de Montrouge</h1>
     <p class="dates">1848 – 1929</p>
-    <p class="sub">Chancelier puis consul de France, de New York à Vancouver</p>
+    <p class="sub">Diplomate, consul de France aux États-Unis, aux Pays-Bas et au Canada, chevalier de la Légion d’honneur</p>
   </div>
 </header>
 
@@ -162,265 +159,194 @@
 <!-- 1 -->
 <section id="fiche">
   <h2><span class="num">1</span>Fiche d’identité</h2>
-  <p>Léon-Hilaire-Alexandre Duchastel naît à Paris le 17 avril 1848, fils de Jules-Jean-Baptiste Duchastel, baron de Montrouge, et de Julie-Sylvia-Félicie Pelerin, mariés à New York en 1845. Formé au ministère des Affaires étrangères, il fait une carrière de trente-quatre ans dans les chancelleries et consulats de France en Amérique du Nord et aux Pays-Bas : New York, Charleston, Chicago, Québec, Amsterdam, Montréal, puis Vancouver, dont il est consul en 1906. Il épouse à New York en 1877 Anita Snyder, avec qui il a six enfants. C’est de lui que descendent les Duchastel de Montrouge du Québec, par son fils Jules-Alexandre. Il meurt à Paris le 27 avril 1929, à 81 ans.</p>
-  <dl class="identity">
-    <div><dt>Naissance</dt><dd>17 avril 1848, Paris (France)</dd></div>
-    <div><dt>Baptême</dt><dd>25 juin 1848, église Saint-Médard de Dampmart (Seine-et-Marne)</dd></div>
-    <div><dt>Décès</dt><dd>27 avril 1929, à 81 ans, Paris — 40, rue du Louvre</dd></div>
-    <div><dt>Parents</dt><dd>Jules-Jean-Baptiste Duchastel (1823-1889), baron de Montrouge<br>Julie-Sylvia-Félicie Pelerin (1830-1859)</dd></div>
-    <div><dt>Profession</dt><dd>Diplomate : commis, chancelier, vice-consul puis consul de France</dd></div>
-    <div><dt>Titre</dt><dd>Baron de Montrouge</dd></div>
-    <div><dt>Mariage</dt><dd>7 juin 1877, Manhattan, New York, avec Anita Snyder (1854 – 3 mars 1931)</dd></div>
-    <div><dt>Enfants</dt><dd>Six : Jules-Alexandre (1878), France-Anita (1880), Louise (1882), Gabrielle (1883), Jacques (1888), Marie-Renée (1893)</dd></div>
-    <div class="full"><dt>Distinctions</dt><dd>Officier d’Académie (1887) ; officier de l’Ordre royal du Cambodge (1890) ; officier de l’Ordre du Nichan Iftikhar (Tunisie) ; chevalier de la Légion d’honneur (12 juillet 1902)</dd></div>
-  </dl>
+  <p>Hilaire-Alexandre-Léon Duchastel naît à Paris le 17 avril 1848, fils aîné du baron Jean-Baptiste-Jules Duchastel de Montrouge et de Julia Périer. Après des études au Collège Stanislas et un engagement pendant la guerre de 1870, il embrasse la carrière consulaire qui le mène des États-Unis (New York, Charleston, Chicago) aux Pays-Bas (Amsterdam) et surtout au Canada (Québec, Montréal, Vancouver), où s’établit sa descendance. Il s’éteint à Paris en mars 1929 à l’âge de 80 ans.</p>
 
-  <div class="portraits">
-    <figure class="fig-img">
-      <img src="images/leon-hilaire-portrait.jpg" alt="Portrait de Léon-Hilaire Duchastel de Montrouge, photographie ovale encadrée" loading="lazy">
-      <figcaption>Léon-Hilaire, portrait dans un cadre ovale (collection familiale).</figcaption>
-    </figure>
-    <figure class="fig-img">
-      <img src="images/leon-hilaire-consul.jpg" alt="Léon-Hilaire Duchastel de Montrouge en tenue de consul, décorations sur la poitrine" loading="lazy">
-      <figcaption>En grande tenue de consul, décorations sur la poitrine (reproduction de presse).</figcaption>
-    </figure>
-  </div>
-  <p class="note">Les deux photographies proviennent du wiki familial duchastel.pbworks.com (fichiers « Leon-Hilaire.jpg » et « Consul en long.jpg »). La date et le journal de la seconde ne sont pas indiqués.</p>
+  <figure class="fig-img">
+    <a href="images/leon.0.duchastel_de_montrouge.jpg"><img src="images/leon.0.duchastel_de_montrouge.jpg" alt="Portrait de Léon-Hilaire-Alexandre Duchastel de Montrouge" style="max-height:360px" loading="lazy"></a>
+    <figcaption>Portrait de Léon-Hilaire-Alexandre Duchastel de Montrouge (1848-1929).</figcaption>
+  </figure>
+
+  <dl class="identity">
+    <div><dt>Naissance</dt><dd>17 avril 1848 (inscrit le 18 avril), Paris, 1<sup>er</sup> arrondissement (Seine)</dd></div>
+    <div><dt>Décès</dt><dd>Mars 1929 (2 ou 17 mars selon les actes), à 80 ans, 40 rue du Louvre, Paris 1<sup>er</sup><br>Inhumé au cimetière de Monnes / Cointicourt (Aisne)</dd></div>
+    <div><dt>Parents</dt><dd>Baron Jean-Baptiste-Jules Duchastel de Montrouge († 1889/1899)<br>Julia Sylvia Thécla Périer</dd></div>
+    <div><dt>Profession &amp; Titres</dt><dd>Consul de France, Chevalier de la Légion d’honneur (1902), Officier d’Académie ; héritier du titre de baron (non porté)</dd></div>
+    <div><dt>Mariage</dt><dd>7 juin 1877, New York (États-Unis), avec Anita Snyder (1851-1931)</dd></div>
+    <div><dt>Résidences</dt><dd>Paris ; Château de Monthoury (Aisne) ; New York ; Charleston ; Chicago ; Québec ; Amsterdam ; Montréal ; Vancouver</dd></div>
+    <div class="full"><dt>Enfants</dt><dd>Jules-Alexandre (1878), Anita (1880), Louise (1882), Gabrielle (1883), Jacques (1888), Marie-Renée (1893)</dd></div>
+  </dl>
 </section>
 
 <!-- 2 -->
-<section id="origines">
-  <h2><span class="num">2</span>Origines familiales</h2>
-  <p>Léon-Hilaire est le petit-fils d’<a href="Alexandre-Louis-Francois_Duchastel_1784-1863.html">Alexandre-Louis-François Duchastel</a> (1784-1863), héritier du titre de baron de Montrouge et des biens de son oncle, et l’arrière-petit-fils de <a href="Jacques-Gabriel_Duchastel_de_Montrouge_1758-1792.html">Jacques-Gabriel</a>. Son père, Jules-Jean-Baptiste (1823-1889), est diplomate et homme d’affaires : il voyage beaucoup et partage sa vie entre Paris et le château de Monthoury, dans l’Aisne.</p>
-  <p>Ses parents se sont mariés à <strong>New York le 19 mai 1845</strong>, trois ans avant sa naissance ; lui-même s’y mariera en 1877. Sa mère, Julie-Sylvia-Félicie Pelerin (née le 20 juillet 1830), meurt à Macogny – Montron (Aisne) le 10 septembre 1859, à 29 ans : Léon-Hilaire a 11 ans. Son père se remarie le 18 mars 1861, à Paris, avec Berthe Eugénie Follias (1841-1921).</p>
+<section id="jeunesse">
+  <h2><span class="num">2</span>Origines familiales, jeunesse et rectification du nom</h2>
+  <p>Ses parents résident à Paris ainsi qu’au domaine familial de <strong>Monthoury</strong> à Bonnesvalyn / Sommelans (canton de Neuilly-Saint-Front, département de l’Aisne), la famille étant originaire de Champagne (région de Reims). À la mort de son père, Léon hérite du titre de baron — titre héréditaire déposé aux Archives nationales à Paris, accordé par décret au Palais des Tuileries le 2 janvier 1814 sous Napoléon I<sup>er</sup> — mais il choisit de ne jamais le porter officiellement.</p>
 
-  <h3>Un baptême à Dampmart</h3>
-  <p>Léon-Hilaire naît à Paris le 17 avril 1848 mais n’est baptisé que le 25 juin, à l’église Saint-Médard de Dampmart. Dampmart est une commune de Seine-et-Marne, dans le canton de Lagny-sur-Marne, d’environ 5,9 km² (3 677 habitants en 2023). Le lien de la famille avec ce village n’est pas expliqué dans le document. La date correspond aux journées d’insurrection parisiennes de juin 1848 ; aucune source ne dit que le baptême en a été déplacé.</p>
+  <p>Il effectue une partie de ses études au <strong>Collège Stanislas</strong> à Paris entre 1864 et 1866. Pendant la guerre franco-allemande de 1870, il sert dans l’armée française. Après un court stage comme clerc à Étampes, il s’embarque pour l’Amérique où il entre au service consulaire de la République.</p>
+
+  <div class="highlight">
+    <p><strong>22 avril 1880 — Rectification officielle de l’état civil.</strong> Par jugement rendu par le Tribunal civil de première instance du département de la Seine le 22 avril 1880, transcrit à la mairie du 1<sup>er</sup> arrondissement de Paris, Hilaire-Alexandre-Léon Duchastel est officiellement autorisé à ajouter à son nom patronymique celui de <em>« de Montrouge »</em>.</p>
+  </div>
+
+  <div class="gallery two">
+    <figure class="fig-img">
+      <a href="images/Préfecture du Département de la Seine - Extrait des minutes des Actes de Naissance.jpg"><img src="images/Préfecture du Département de la Seine - Extrait des minutes des Actes de Naissance.jpg" alt="Extrait de l'acte de naissance reconstitué, Paris 1848" loading="lazy"></a>
+      <figcaption>Extrait des minutes des actes de naissance du 1<sup>er</sup> arrondissement de Paris (acte reconstitué après 1871).</figcaption>
+    </figure>
+    <figure class="fig-img">
+      <a href="images/Préfecture du Département de la Seine - Extrait des minutes des Actes de Naissance-2.jpg"><img src="images/Préfecture du Département de la Seine - Extrait des minutes des Actes de Naissance-2.jpg" alt="Mention marginale du jugement du 22 avril 1880" loading="lazy"></a>
+      <figcaption>Mention marginale du jugement du 22 avril 1880 autorisant l’ajout du nom « de Montrouge ».</figcaption>
+    </figure>
+  </div>
 </section>
 
 <!-- 3 -->
 <section id="carriere">
-  <h2><span class="num">3</span>Une carrière diplomatique (1871-1908)</h2>
-  <p>Léon-Hilaire entre au ministère des Affaires étrangères en 1871, à 23 ans. Sa carrière suit la hiérarchie des chancelleries consulaires : commis, chancelier de 3<sup>e</sup>, 2<sup>e</sup> puis 1<sup>re</sup> classe, vice-consul, enfin consul de 2<sup>e</sup> classe. Elle l’emmène d’abord aux États-Unis, puis au Canada, où il passe l’essentiel de sa vie professionnelle.</p>
+  <h2><span class="num">3</span>Carrière diplomatique et consulaire (1871-1908)</h2>
+  <p>Pendant près de trente-sept ans au service du ministère des Affaires étrangères, Léon Duchastel de Montrouge occupe des postes clés en Amérique du Nord et en Europe, contribuant notamment à l’ouverture du consulat de France à Vancouver en 1906 avant de prendre sa retraite en 1908 à l’âge de 60 ans.</p>
 
-  <table>
-    <thead>
-      <tr><th>Date</th><th>Poste ou grade</th><th>Lieu</th></tr>
-    </thead>
-    <tbody>
-      <tr><td data-l="Date">1871-1873</td><td data-l="Poste">Formation au ministère des Affaires étrangères</td><td data-l="Lieu">Paris</td></tr>
-      <tr><td data-l="Date">15 novembre 1874</td><td data-l="Poste">Commis à la chancellerie française</td><td data-l="Lieu">New York</td></tr>
-      <tr><td data-l="Date">4 novembre 1878</td><td data-l="Poste">Chancelier de 3<sup>e</sup> classe</td><td data-l="Lieu">Charleston (Caroline du Sud)</td></tr>
-      <tr><td data-l="Date">5 août 1880</td><td data-l="Poste">Chancelier</td><td data-l="Lieu">Chicago</td></tr>
-      <tr><td data-l="Date">1<sup>er</sup> juillet 1881</td><td data-l="Poste">Chancelier</td><td data-l="Lieu">Québec</td></tr>
-      <tr><td data-l="Date">1<sup>er</sup> avril 1883 – 23 juillet 1885</td><td data-l="Poste">Responsable du consulat général</td><td data-l="Lieu">Québec</td></tr>
-      <tr><td data-l="Date">17 septembre 1883</td><td data-l="Poste">Chancelier de 2<sup>e</sup> classe</td><td data-l="Lieu">Québec</td></tr>
-      <tr><td data-l="Date">12 novembre 1887</td><td data-l="Poste">Chancelier de 1<sup>re</sup> classe</td><td data-l="Lieu">—</td></tr>
-      <tr><td data-l="Date">30 janvier 1889</td><td data-l="Poste">Poste à Amsterdam</td><td data-l="Lieu">Amsterdam (Pays-Bas)</td></tr>
-      <tr><td data-l="Date">31 janvier 1892</td><td data-l="Poste">Vice-consul</td><td data-l="Lieu">—</td></tr>
-      <tr><td data-l="Date">8 juin 1894</td><td data-l="Poste">Chargé de la chancellerie</td><td data-l="Lieu">Montréal</td></tr>
-      <tr><td data-l="Date">1<sup>er</sup> février 1895</td><td data-l="Poste">Consul de 2<sup>e</sup> classe</td><td data-l="Lieu">Montréal</td></tr>
-      <tr><td data-l="Date">14 juin 1906</td><td data-l="Poste">Consul de France</td><td data-l="Lieu">Vancouver (Colombie-Britannique)</td></tr>
-      <tr><td data-l="Date">1908</td><td data-l="Poste">Retrait de la vie publique, après un séjour à Montréal</td><td data-l="Lieu">—</td></tr>
-    </tbody>
-  </table>
-  <p class="note">Les lieux de la case « — » ne sont pas précisés dans la notice ; les affectations à Québec de 1883 et de 1887 sont déduites des dates et de la naissance de son fils Jacques à Québec en 1888.</p>
+  <ul class="timeline">
+    <li><span class="d">17 octobre 1871 – 15 novembre 1873 · Débuts</span> — Services administratifs en France.</li>
+    <li><span class="d">15 novembre 1874 · New York</span> — Nommé commis de chancellerie au Consulat général de France à New York.</li>
+    <li><span class="d">14 novembre 1878 · Charleston</span> — Chancelier de 3<sup>e</sup> classe à Charleston (Caroline du Sud).</li>
+    <li><span class="d">5 août 1880 · Chicago</span> — Chancelier au consulat de France à Chicago (Illinois).</li>
+    <li><span class="d">1<sup>er</sup> juillet 1881 – 1888 · Québec</span> — Chancelier à Québec (la famille passe ses étés au lac Saint-Joseph). Il assure la gérance du Consulat général de France à Québec du 1<sup>er</sup> avril 1883 au 23 juillet 1885, est nommé chancelier de 2<sup>e</sup> classe le 17 septembre 1883, puis chancelier de 1<sup>re</sup> classe le 12 novembre 1887.</li>
+    <li><span class="d">30 janvier 1889 · Amsterdam</span> — Affecté aux Pays-Bas ; promu <strong>Vice-consul</strong> le 31 janvier 1892.</li>
+    <li><span class="d">8 juin 1894 · Montréal</span> — Chargé de la chancellerie du Consulat général de France à Montréal (résidant rue Sainte-Catherine Ouest, au coin de la rue Saint-Marc) ; promu <strong>Consul de 2<sup>e</sup> classe</strong> le 1<sup>er</sup> février 1895.</li>
+    <li><span class="d">14 février 1906 – 1908 · Vancouver</span> — Nommé <strong>Consul de France à Vancouver</strong>, chargé de l’ouverture officielle du poste consulaire en Colombie-Britannique, jusqu’à son admission à la retraite en 1908.</li>
+  </ul>
 
-  <h3>Le consulat de Québec (1881-1889)</h3>
-  <p>Le consulat général de France à Québec a été créé sous le Second Empire, pour des raisons surtout commerciales : 1858 ou 1859 selon les sources. Son premier titulaire, Charles-Henri-Philippe Gauldrée-Boilleau, est nommé en 1862. Léon-Hilaire y arrive en 1881, comme chancelier. Du 1<sup>er</sup> avril 1883 au 23 juillet 1885, il est « responsable » du consulat général, c’est-à-dire qu’il en assure la direction pendant plus de deux ans en l’absence d’un titulaire. Il est donc sans doute à Québec pour la plus grande partie des années 1880 : la naissance de son fils Jacques y est enregistrée le 25 septembre 1888.</p>
-  <p class="note">L’histoire détaillée de ce poste se trouve dans Pierre Savard, <em>Le Consulat général de France à Québec et à Montréal de 1859 à 1914</em> (Presses de l’Université Laval), que je n’ai pas pu consulter.</p>
-
-  <h3>Montréal, puis Vancouver</h3>
-  <p>Après Amsterdam (1889), où il devient vice-consul en 1892, Léon-Hilaire revient au Canada en 1894 pour diriger la chancellerie de Montréal. Il y est promu consul de 2<sup>e</sup> classe le 1<sup>er</sup> février 1895 et y reste plus de dix ans, ce qui contribue à expliquer l’ancrage de sa famille au Québec : son fils Jules-Alexandre y fera sa vie, et épousera Jeanne Lacoste, fille du juge en chef de la province. Le 14 juin 1906, il est nommé consul de France à Vancouver, à 58 ans. Il se retire de la vie publique en 1908, après un séjour à Montréal.</p>
-
-  <h3>Les distinctions</h3>
-  <table>
-    <thead>
-      <tr><th>Distinction</th><th>Date</th><th>Ce que c’est</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-l="Distinction">Officier d’Académie</td>
-        <td data-l="Date">29 décembre 1887</td>
-        <td data-l="Précision">Grade des Palmes académiques (créées par Napoléon en 1808), qui récompense ceux qui servent l’instruction et la culture, y compris les non-enseignants et les étrangers depuis 1866. Il n’a aucun lien avec l’Académie française, contrairement à ce que dit la notice.</td>
-      </tr>
-      <tr>
-        <td data-l="Distinction">Officier de l’Ordre royal du Cambodge</td>
-        <td data-l="Date">15 septembre 1890</td>
-        <td data-l="Précision">Ordre du protectorat français du Cambodge.</td>
-      </tr>
-      <tr>
-        <td data-l="Distinction">Officier de l’Ordre du Nichan Iftikhar (Tunisie)</td>
-        <td data-l="Date">Non précisée</td>
-        <td data-l="Précision">Ordre tunisien fondé en 1835 ; depuis l’établissement du protectorat français (1881), il est aussi décerné par le président de la République, avec le bey de Tunis.</td>
-      </tr>
-      <tr>
-        <td data-l="Distinction">Chevalier de la Légion d’honneur</td>
-        <td data-l="Date">12 juillet 1902</td>
-        <td data-l="Précision">Il a alors 54 ans. Le dossier doit figurer dans la base Léonore, que je n’ai pas pu interroger.</td>
-      </tr>
-    </tbody>
-  </table>
+  <figure class="fig-img">
+    <a href="images/Léon Hilaire Alexandre - Annuaire diplomatique et consulaire de la république.jpg"><img src="images/Léon Hilaire Alexandre - Annuaire diplomatique et consulaire de la république.jpg" alt="Notice de l'Annuaire diplomatique et consulaire de la République" loading="lazy"></a>
+    <figcaption>États de services officiels publiés dans l’<em>Annuaire diplomatique et consulaire de la République française</em>.</figcaption>
+  </figure>
 </section>
 
 <!-- 4 -->
-<section id="mariage">
-  <h2><span class="num">4</span>Le mariage de 1877 : Anita Snyder</h2>
-  <p>Le 7 juin 1877, à Manhattan, Léon-Hilaire, 29 ans, alors commis à la chancellerie française de New York, épouse <strong>Anita Snyder</strong>, née à New York en 1854 (elle a environ 23 ans). Les naissances de leurs enfants à New York, Charleston, Québec et Soissons suggèrent qu’elle l’a suivi dans ses postes. Elle lui survit : elle meurt à Paris le 3 mars 1931, à 76 ou 77 ans, près de deux ans après lui.</p>
-  <p>Leur premier fils, Jules-Alexandre, naît à New York le 1<sup>er</sup> septembre 1878, deux mois avant la nomination du père à Charleston. Les parents d’Anita ne sont pas connus dans le document.</p>
+<section id="legion">
+  <h2><span class="num">4</span>Décorations et Légion d’honneur (1902)</h2>
+  <p>En reconnaissance de ses longs services à l’étranger, Léon Duchastel de Montrouge reçoit plusieurs distinctions honorifiques :</p>
+  <ul>
+    <li><strong>29 décembre 1887 :</strong> Officier d’Académie (Palmes académiques).</li>
+    <li><strong>15 septembre 1890 :</strong> Officier de l’Ordre royal du Cambodge.</li>
+    <li><strong>Ordre du Nichan Iftikhar :</strong> Officier (Tunisie).</li>
+    <li><strong>12 juillet 1902 :</strong> Nommé <strong>Chevalier de la Légion d’honneur</strong> (matricule n° 65.360) par décret présidentiel sur rapport du ministre des Affaires étrangères.</li>
+  </ul>
+
   <div class="highlight">
-    <p><strong>Deux mariages à New York.</strong> Les parents de Léon-Hilaire s’étaient mariés à New York en 1845 ; lui-même s’y marie en 1877, trente-deux ans plus tard. Une famille de diplomates et d’hommes d’affaires installée des deux côtés de l’Atlantique.</p>
+    <p><strong>Réception à Montréal (17 octobre 1902).</strong> Depuis le Consulat général de France au Canada à Montréal, Léon Duchastel adresse au Grand Chancelier de la Légion d’honneur sa demande de constitution de parrain le 17 septembre 1902, désignant son supérieur hiérarchique <strong>Alfred Kleczkowski</strong>, Consul général de France au Canada et Chevalier de l’Ordre. Après acquittement des droits de chancellerie (37 francs auprès du Receveur central des Finances de la Seine), il signe le récépissé et le procès-verbal de réception à Montréal le 17 octobre 1902.</p>
+  </div>
+
+  <div class="gallery">
+    <figure class="fig-img"><a href="images/Légion d'honneur.jpg"><img src="images/Légion d'honneur.jpg" alt="Fiche matricule Légion d'honneur 65.360" loading="lazy"></a><figcaption>Fiche matricule de la Légion d’honneur (n° 65.360).</figcaption></figure>
+    <figure class="fig-img"><a href="images/Consulat Général de France dans la puissance du Canada-3.jpg"><img src="images/Consulat Général de France dans la puissance du Canada-3.jpg" alt="Lettre au Grand Chancelier, Montréal, 17 septembre 1902" loading="lazy"></a><figcaption>Lettre au Grand Chancelier (Montréal, 17 sept. 1902).</figcaption></figure>
+    <figure class="fig-img"><a href="images/Consulat Général de France dans la puissance du Canada-4.jpg"><img src="images/Consulat Général de France dans la puissance du Canada-4.jpg" alt="Désignation du parrain Alfred Kleczkowski" loading="lazy"></a><figcaption>Désignation d’Alfred Kleczkowski comme parrain.</figcaption></figure>
+    <figure class="fig-img"><a href="images/Récépissé Receveur central des Finances.jpg"><img src="images/Récépissé Receveur central des Finances.jpg" alt="Récépissé des droits de chancellerie" loading="lazy"></a><figcaption>Récépissé du Receveur central des Finances (37 F).</figcaption></figure>
+    <figure class="fig-img"><a href="images/Récépissé de décoration.jpg"><img src="images/Récépissé de décoration.jpg" alt="Récépissé de décoration signé le 17 octobre 1902" loading="lazy"></a><figcaption>Récépissé de la croix de Chevalier (17 oct. 1902).</figcaption></figure>
+    <figure class="fig-img"><a href="images/Procès-verbal de réception d'un Chevalier de la Légion d'Honneur.jpg"><img src="images/Procès-verbal de réception d'un Chevalier de la Légion d'Honneur.jpg" alt="Procès-verbal de réception" loading="lazy"></a><figcaption>Procès-verbal de réception de Chevalier.</figcaption></figure>
   </div>
 </section>
 
 <!-- 5 -->
-<section id="chronologie">
-  <h2><span class="num">5</span>Chronologie</h2>
-  <ul class="timeline">
-    <li><span class="d">17 avril 1848 · Paris</span> — naissance ; baptisé le 25 juin à Dampmart.</li>
-    <li><span class="d">10 septembre 1859</span> — mort de sa mère, à 29 ans ; il a 11 ans.</li>
-    <li><span class="d">18 mars 1861</span> — remariage de son père avec Berthe Follias.</li>
-    <li><span class="d">1863</span> — mort de son grand-père Alexandre-Louis-François, à Monthoury ; Léon-Hilaire a 15 ans.</li>
-    <li><span class="d">1871-1873</span> — formation au ministère des Affaires étrangères.</li>
-    <li><span class="d">15 novembre 1874 · New York</span> — commis à la chancellerie.</li>
-    <li><span class="d">7 juin 1877 · New York</span> — mariage avec Anita Snyder.</li>
-    <li><span class="d">1<sup>er</sup> septembre 1878 · New York</span> — naissance de Jules-Alexandre.</li>
-    <li><span class="d">4 novembre 1878 · Charleston</span> — chancelier de 3<sup>e</sup> classe ; naissance de France-Anita en 1880.</li>
-    <li><span class="d">5 août 1880 · Chicago</span> — nouveau poste.</li>
-    <li><span class="d">1<sup>er</sup> juillet 1881 · Québec</span> — début de l’affectation ; il dirige le consulat de 1883 à 1885.</li>
-    <li><span class="d">29 décembre 1887</span> — officier d’Académie.</li>
-    <li><span class="d">25 septembre 1888 · Québec</span> — naissance de son fils Jacques.</li>
-    <li><span class="d">4 janvier 1889</span> — mort de son père, à Paris ; Léon-Hilaire est nommé à Amsterdam le 30 janvier.</li>
-    <li><span class="d">15 septembre 1890</span> — officier de l’Ordre du Cambodge.</li>
-    <li><span class="d">8 juin 1894 · Montréal</span> — chargé de la chancellerie ; consul de 2<sup>e</sup> classe en 1895.</li>
-    <li><span class="d">16 mars 1901 · Montréal</span> — mort de sa fille Marie-Renée, à 7 ans.</li>
-    <li><span class="d">12 juillet 1902</span> — chevalier de la Légion d’honneur.</li>
-    <li><span class="d">1904</span> — mariage de Jules-Alexandre avec Jeanne Lacoste.</li>
-    <li><span class="d">1905</span> — mariage de Louise avec Frank Springer.</li>
-    <li><span class="d">14 juin 1906 · Vancouver</span> — consul de France.</li>
-    <li><span class="d">1908</span> — il se retire de la vie publique.</li>
-    <li><span class="d">1909</span> — mariage de France-Anita avec Paul Lacoste, à Paris.</li>
-    <li><span class="d">27 avril 1929 · Paris</span> — décès à 81 ans, 40, rue du Louvre.</li>
-    <li><span class="d">3 mars 1931</span> — mort d’Anita Snyder, à Paris.</li>
-    <li><span class="d">20 février 1938</span> — mort de son fils Jules-Alexandre.</li>
-  </ul>
-</section>
-
-<!-- 6 -->
 <section id="descendance">
-  <h2><span class="num">6</span>Famille et descendance</h2>
-  <p>Léon-Hilaire et Anita Snyder ont six enfants, nés au gré de ses affectations : New York, Charleston, Québec, Soissons. Deux d’entre eux épousent des Lacoste, une grande famille de Montréal, ce qui ancre durablement les Duchastel de Montrouge au Québec.</p>
+  <h2><span class="num">5</span>Mariage avec Anita Snyder et descendance</h2>
+  <p>Le <strong>7 juin 1877</strong> à New York, Léon épouse <strong>Anita Snyder</strong> (née le 4 mars 1851 à New York et décédée en 1931 à Paris). Au fil de leurs affectations entre les États-Unis, le Québec et la France naissent six enfants, dont plusieurs forment la souche canadienne de la famille Duchastel de Montrouge.</p>
 
   <div class="tree">
     <div class="couple">
-      <div class="node">Jules-Jean-Baptiste Duchastel<small>1823-1889</small></div>
+      <div class="node main">Léon-Hilaire-Alexandre Duchastel de Montrouge<small>1848-1929</small></div>
       <span class="amp">&amp;</span>
-      <div class="node sp">Julie-Sylvia-Félicie Pelerin<small>1830-1859</small></div>
-    </div>
-    <div class="vline"></div>
-    <div class="couple">
-      <div class="node main">Léon-Hilaire-Alexandre<small>1848-1929</small></div>
-      <span class="amp">&amp;</span>
-      <div class="node sp">Anita Snyder<small>1854-1931</small></div>
+      <div class="node sp">Anita Snyder<small>1851-1931</small></div>
     </div>
     <div class="vline"></div>
     <div class="hbar"></div>
-    <div class="row" style="gap:14px">
-      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:140px">Jules-Alexandre<small>1878-1938</small></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:140px">France-Anita<small>1880-1963</small></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:140px">Louise<small>1882-</small></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:140px">Gabrielle<small>1883-1967</small></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:140px">Jacques<small>1888-</small></div></div>
-      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:140px">Marie-Renée<small>1893-1901</small></div></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:130px">Jules-Alexandre<small>1878-1932</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:130px">Anita<small>1880-1961</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:130px">Louise<small>1882-?</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:130px">Gabrielle<small>1883-1967</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:130px">Jacques<small>1888-1964</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:130px">Marie-Renée<small>1893-1901</small></div></div>
     </div>
   </div>
 
   <div class="kids">
     <div class="kid">
       <h3>Jules-Alexandre</h3>
-      <p><strong>Né</strong> le 1<sup>er</sup> septembre 1878 à New York.<br><strong>Décédé</strong> le 20 février 1938 (Montréal).</p>
-      <p>Ingénieur à Outremont et major de l’armée canadienne, il est baron de Montrouge et le grand-père de l’actuel baron, Yves-Jules Duchastel. <strong>Marié</strong> à Jeanne Lacoste (24 juin 1879 – 26 mai 1962, Outremont), fille de Sir Alexandre Lacoste et de Marie-Louise Globensky. <a href="jules-duchastel-de-montrouge.html">Voir sa page →</a> · <a href="famille-jules-alexandre.html">Sa famille →</a></p>
+      <p><strong>Né</strong> le 1<sup>er</sup> septembre 1878 à New York.<br><strong>Décédé</strong> le 20 février 1932 à Montréal.</p>
+      <p>Ingénieur civil, gérant de la ville d’Outremont (1913-1926), ingénieur adjoint du Port de Montréal et gérant de la <em>Quebec Forest Association</em> (1927-1932). Marié en 1904 à <strong>Jeanne Lacoste</strong>, dont sept enfants : Renée, Léon, Jean, Louise, Marguerite, Paul et Pierre.</p>
     </div>
     <div class="kid">
-      <h3>France-Anita</h3>
-      <p><strong>Née</strong> en 1880 à Charleston (Caroline du Sud).<br><strong>Décédée</strong> en 1963.</p>
-      <p><strong>Mariée</strong> à Paris en 1909 avec Paul Lacoste, frère de Jeanne. Cinq enfants : Roger, Marc, Fernande, Anita et Norbert Lacoste.</p>
+      <h3>Anita</h3>
+      <p><strong>Née</strong> le 6 janvier 1880 à Charleston (S.C.).<br><strong>Décédée</strong> le 15 avril 1961.</p>
+      <p>Baptisée à l’église St. Francis Xavier de New York le 23 mai 1880. Épouse <strong>Paul Lacoste, C.R.</strong>, avocat de Montréal, le 10 novembre 1909 à Saint-Philippe-du-Roule (Paris), dont cinq enfants : Paul, Marc, Fernande, Anita et Norbert.</p>
     </div>
     <div class="kid">
-      <h3>Louise</h3>
-      <p><strong>Née</strong> le 8 janvier 1882 (parfois « Lucia Louise »).</p>
-      <p><strong>Mariée</strong> en 1905 avec Frank Springer, puis en 1918, à Vancouver, avec Albert Duchesnay.</p>
+      <h3>Louise (« Loulou »)</h3>
+      <p><strong>Née</strong> le 9 janvier 1882 à New York.<br><strong>Décédée</strong> en France.</p>
+      <p>Épouse en premières noces à Vancouver (1908) <strong>Frank Springer</strong> (décédé à Paris à 32 ans), dont deux filles : Anita et Gabrielle (« Gaby ») ; épouse en secondes noces (1919) <strong>Albert Juchereau Duchesnay</strong>.</p>
     </div>
     <div class="kid">
       <h3>Gabrielle</h3>
-      <p><strong>Née</strong> en 1883.<br><strong>Décédée</strong> en 1967.</p>
-      <p>Religieuse chez les Dames du Sacré-Cœur.</p>
+      <p><strong>Née</strong> le 31 décembre 1883 à Québec.<br><strong>Décédée</strong> en 1967 à Montréal.</p>
+      <p>Religieuse du Sacré-Cœur (noviciat en Belgique, puis séjours à Poitiers, à la Trinité-des-Monts à Rome et au Sault-au-Récollet à Montréal).</p>
     </div>
     <div class="kid">
       <h3>Jacques</h3>
-      <p><strong>Né</strong> le 25 septembre 1888 à Québec.<br><strong>Décédé</strong> à La Française (Tarn-et-Garonne).</p>
-      <p>Diplomate, comme son père.</p>
+      <p><strong>Né</strong> le 25 novembre 1888 à Québec.<br><strong>Décédé</strong> le 27 avril 1964 à La Française.</p>
+      <p>Attaché à la Légation canadienne à Paris puis vice-consul. Épouse à Londres le 15 décembre 1919 <strong>Marie France</strong> (née le 2 avril 1889), dont un fils : Guy.</p>
     </div>
     <div class="kid">
       <h3>Marie-Renée</h3>
-      <p><strong>Née</strong> le 24 juin 1893 à Soissons.<br><strong>Décédée</strong> le 16 mars 1901 à Montréal, à 7 ans.</p>
+      <p><strong>Née</strong> en 1893/1894 à Soissons.<br><strong>Décédée</strong> le 16 mars 1901 à Montréal (à 7 ans).</p>
+      <p>Inhumée au cimetière Notre-Dame-des-Neiges à Montréal.</p>
     </div>
   </div>
 
-  <div class="highlight">
-    <p><strong>Deux Lacoste, deux Duchastel.</strong> Jules-Alexandre épouse Jeanne Lacoste, et sa sœur France-Anita épouse Paul Lacoste, frère de Jeanne. Leur père, Sir Alexandre Lacoste (Boucherville 1842 – Montréal 1923), avocat et sénateur (1884), est juge en chef de la Cour du Banc de la Reine du Québec de 1891 à 1907 ; il est fait chevalier commandeur de l’ordre de Saint-Michel et Saint-Georges (KCMG) en 1892 et a épousé Marie-Louise Globensky le 8 mai 1866. Parmi ses nombreux enfants (au moins sept filles et trois fils) figure Justine, fondatrice de l’hôpital Sainte-Justine.</p>
-  </div>
-
-  <h3>Ascendance</h3>
+  <h3>Alliances et parentés notables</h3>
   <div class="identity">
-    <div><dt>Père</dt><dd>Jules-Jean-Baptiste Duchastel (1823-1889)</dd></div>
-    <div><dt>Mère</dt><dd>Julie-Sylvia-Félicie Pelerin (1830-1859)</dd></div>
-    <div><dt>Grand-père paternel</dt><dd><a href="Alexandre-Louis-Francois_Duchastel_1784-1863.html">Alexandre-Louis-François Duchastel</a> (1784-1863)</dd></div>
-    <div><dt>Grand-mère paternelle</dt><dd>Sophie Le Goix (1790-1860)</dd></div>
-    <div class="full"><dt>Arrière-grands-parents</dt><dd><a href="Jacques-Gabriel_Duchastel_de_Montrouge_1758-1792.html">Jacques-Gabriel Duchastel de Montrouge</a> (1758-1792) et Philippine-Élisabeth Durand de Courmont (1763-1842) ; Victor-André Le Goix et Joséphine-Sophie Du Bois.</dd></div>
+    <div class="full"><dt>Parenté religieuse au Canada et en France</dt><dd>Cousin germain de <strong>Mère Séraphine</strong> (née Adélaïde Liasse, de Reims), fondatrice et première supérieure du Carmel de Montréal ; arrière-cousin de <strong>Saint Jean-Baptiste de La Salle</strong>, fondateur des Frères des écoles chrétiennes.</dd></div>
+    <div><dt>Père</dt><dd>Baron Jean-Baptiste-Jules Duchastel de Montrouge († 1889/1899)</dd></div>
+    <div><dt>Mère</dt><dd>Julia Sylvia Thécla Périer</dd></div>
   </div>
+</section>
+
+<!-- 6 -->
+<section id="fin">
+  <h2><span class="num">6</span>Dernières années et décès (1908-1929)</h2>
+  <p>Après sa retraite en 1908, Léon Duchastel de Montrouge partage son temps entre la France (l’été au château de Monthoury dans l’Aisne et l’hiver à Paris) et le Canada. Durant la Première Guerre mondiale, alors que le domaine de Monthoury est réquisitionné comme quartier général par les troupes allemandes puis françaises, le couple séjourne au Canada, à Vancouver puis à Outremont (rue Rockland) chez son gendre Paul Lacoste.</p>
+
+  <p>Il rentre définitivement en France vers 1919-1920, résidant l’hiver au <strong>Central Hôtel</strong> (40, rue du Louvre, paroisse Saint-Eustache à Paris) et la belle saison à Monthoury. Il s’éteint à Paris (1<sup>er</sup> arrondissement, 40 rue du Louvre) en <strong>mars 1929</strong> et est inhumé au cimetière de <strong>Monnes / Cointicourt</strong>, tout près de Monthoury, où son épouse Anita Snyder le rejoint en 1931.</p>
+
+  <figure class="fig-img">
+    <a href="images/Avis de décès.jpg"><img src="images/Avis de décès.jpg" alt="Avis de décès transmis par la Préfecture de la Seine en mars 1929" style="max-height:360px" loading="lazy"></a>
+    <figcaption>Avis de décès de Léon-Hilaire-Alexandre Duchastel de Montrouge transmis par la mairie du 1<sup>er</sup> arrondissement de Paris à la Grande Chancellerie de la Légion d’honneur (mars 1929).</figcaption>
+  </figure>
 </section>
 
 <!-- 7 -->
 <section id="sources">
   <h2><span class="num">7</span>Notes et sources</h2>
-  <p class="note">Page établie à partir de la fiche « Léon-Hilaire-Alexandre Duchastel (baron de Montrouge) » (wiki duchastel.pbworks.com) et de l’article de Jean-Yves Bronze et du Dr Yves Duchastel, « Des barons d’Empire au Québec : les Duchastel de Montrouge », <em>Mémoires de la Société généalogique canadienne-française</em>, vol. 56, n<sup>o</sup> 4, hiver 2005, p. 289-305.</p>
+  <p class="note">Page établie à partir de la biographie familiale dactylographiée et des notes manuscrites de Pierre Duchastel (novembre 1986), des archives de l’état civil de Paris, du dossier de la Légion d’honneur et de l’<em>Annuaire diplomatique et consulaire</em>.</p>
 
   <div class="highlight">
-    <p><strong>Points à vérifier.</strong></p>
-    <p>• <strong>« Officier de l’Académie française » :</strong> la fiche l’écrit ainsi. Il s’agit sans doute d’<em>officier d’Académie</em>, grade des Palmes académiques (la notice de la Société généalogique signale elle-même le doute). Le diplôme ou le dossier ministériel permettrait de confirmer.<br>
-       • <strong>Date de mariage de Jeanne Lacoste :</strong> la fiche indique « 07 juin 1877 », qui est la date du mariage de Léon-Hilaire et d’Anita, recopiée par erreur ; le mariage de Jules-Alexandre et de Jeanne date de 1904 d’après le site.<br>
-       • <strong>Orthographe :</strong> Pelerin, Pellerin ou Pèlerin ; Julie ou Julia (la page d’Alexandre-Louis-François écrit « Julia Félicie Sylvia Pelerin »).<br>
-       • <strong>Date des postes :</strong> la fiche ne donne pas le lieu de la promotion du 12 novembre 1887 ni de celle du 31 janvier 1892, et rien sur les années 1892-1894 (Marie-Renée naît à Soissons en 1893).<br>
-       • <strong>Fin de carrière :</strong> « retiré de la vie publique en 1908 après un séjour à Montréal » : on ne sait pas si cela veut dire que le consulat de Vancouver a pris fin en 1908.<br>
-       • <strong>Jacques et Louise :</strong> dates de décès de Jacques, et de naissance et de décès de Louise, non précisées. Louise apparaît sous les prénoms « Lucia Louise » dans la fiche.<br>
-       • <strong>Anita Snyder :</strong> ses parents sont inconnus.</p>
-  </div>
-
-  <div class="highlight">
-    <p><strong>Pistes pour aller plus loin.</strong> Mes recherches en ligne n’ont pas trouvé d’article de presse ni de dossier détaillé sur son séjour à Vancouver, ni de liste des gérants du consulat de Québec en 1883-1885. Les sources les plus prometteuses sont : la base <em>Léonore</em> (dossier de la Légion d’honneur, 1902) ; les archives du Centre des Archives diplomatiques de Nantes pour les consulats de Québec, Montréal et Vancouver ; l’<em>Annuaire diplomatique et consulaire</em> (Gallica) ; le livre de Pierre Savard sur les consulats de Québec et de Montréal ; et les journaux de Vancouver et de Montréal de 1906 à 1908 (BAnQ, Canadiana).</p>
+    <p><strong>Points de détail relevés dans les documents.</strong></p>
+    <p>• <strong>Jour exact du décès :</strong> la biographie dactylographiée familiale mentionne le 2 mars 1929, tandis que l’avis officiel transmis par la Préfecture de la Seine à la Légion d’honneur indique le 17 mars 1929 (l’acte original du 1<sup>er</sup> arrondissement de Paris fait foi).<br>
+       • <strong>Date de décès du père :</strong> les notes familiales indiquent 1889 (ou 1899 en variante manuscrite) pour le décès du baron Jean-Baptiste-Jules Duchastel de Montrouge.<br>
+       • <strong>Naissance de Marie-Renée :</strong> notée tantôt en 1893, tantôt en 1894 à Soissons.</p>
   </div>
 
   <div class="srcgroup">
-    <h3>Léon-Hilaire et sa famille</h3>
+    <h3>Archives officielles</h3>
     <ul class="src">
-      <li>Fiche : <a href="http://duchastel.pbworks.com/w/page/10712386/L%C3%A9on-Hilaire%20Duchastel">duchastel.pbworks.com — Léon-Hilaire Duchastel</a></li>
-      <li>Article : <a href="https://laurentduchastel.com/wp-content/uploads/2018/12/duchastel.pdf">J.-Y. Bronze et Y. Duchastel, <em>Mémoires de la Société généalogique canadienne-française</em>, vol. 56, n<sup>o</sup> 4 (2005)</a></li>
-      <li>Arbres : <a href="https://gw.geneanet.org/oratio?lang=en&amp;n=de+montrouge&amp;oc=0&amp;p=anita+duchastel">Geneanet (Mario Scott) — Anita Duchastel de Montrouge</a> ; <a href="https://gw.geneanet.org/oratio?lang=en&amp;n=de+montrouge&amp;oc=0&amp;p=jules+duchastel">Jules Duchastel de Montrouge</a> ; <a href="https://gw.geneanet.org/mikefinances?lang=en&amp;p=jules&amp;n=duchastel+de+montrouge">Geneanet (Michel Boutin)</a> ; <a href="https://www.hemond.com/search.php?myfirstname=JULES-ALEXANDRE&amp;fnqualify=equals&amp;mybool=AND&amp;tree=001">Généalogie Hémond-Soucy</a></li>
-      <li>Parents et grand-père : voir la page <a href="Alexandre-Louis-Francois_Duchastel_1784-1863.html">Alexandre-Louis-François Duchastel</a></li>
+      <li>État civil de Paris : Extrait des minutes des actes de naissance du 1<sup>er</sup> arrondissement de Paris (acte reconstitué, naissance le 17 avril 1848, mention marginale du jugement du 22 avril 1880).</li>
+      <li>Base Léonore / Grande Chancellerie de la Légion d’honneur : Dossier matricule n° 65.360 (décret du 12 juillet 1902, correspondance du Consulat général de France à Montréal de septembre-octobre 1902, avis de décès de la Préfecture de la Seine de mars 1929).</li>
+      <li>Ministère des Affaires étrangères : <em>Annuaire diplomatique et consulaire de la République française</em> (états de services 1871-1908).</li>
     </ul>
-    <h3>Alliance Lacoste</h3>
+    <h3>Archives familiales</h3>
     <ul class="src">
-      <li><a href="https://fr.wikipedia.org/wiki/Paul_Lacoste">Wikipédia — Paul Lacoste</a> (mariage avec France-Anita Duchastel de Montrouge, leurs enfants)</li>
-      <li><a href="https://www.biographi.ca/en/bio/lacoste_alexandre_15E.html">Dictionnaire biographique du Canada — Alexandre Lacoste</a></li>
-    </ul>
-    <h3>Contexte historique</h3>
-    <ul class="src">
-      <li>Consulat général de France à Québec : <a href="https://fr.wikipedia.org/wiki/Consulat_g%C3%A9n%C3%A9ral_de_France_%C3%A0_Qu%C3%A9bec">Wikipédia</a>, d’après Pierre Savard, <em>Le Consulat général de France à Québec et à Montréal de 1859 à 1914</em> (Presses de l’Université Laval) et Samy Mesli, « Historique du consulat général de France », <em>Cap-aux-Diamants</em>, n<sup>o</sup> 99</li>
-      <li>Palmes académiques : <a href="https://en.wikipedia.org/wiki/Ordre_des_Palmes_acad%C3%A9miques">Wikipedia — Ordre des Palmes académiques</a></li>
-      <li>Ordre du Nichan Iftikhar : <a href="https://www.royalark.net/Tunisia/orders.htm">Royal Ark — Tunisia, orders</a></li>
-      <li>Dampmart : <a href="https://en.wikipedia.org/wiki/Dampmart">Wikipedia — Dampmart</a></li>
-      <li>Légion d’honneur : <a href="https://www.culture.gouv.fr/espace-documentation/bases-de-donnees/Fiches-bases-de-donnees/leonore-l-index-des-titulaires-de-l-ordre-de-la-legion-d-honneur">base Léonore (ministère de la Culture)</a></li>
+      <li>Notice biographique « Léon Duchastel de Montrouge (1848-1929) » (3 pages dactylographiées) et notes généalogiques manuscrites de Pierre Duchastel (novembre 1986).</li>
+      <li>Archives nationales (Paris) : Dépôt des lettres patentes du titre de baron accordé le 2 janvier 1814.</li>
     </ul>
   </div>
 </section>
