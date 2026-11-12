@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr Yves-Jules Duchastel de Montrouge (1934–...)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* Barre de navigation supérieure */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* En-tête héroïque */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* Fiche d'identité */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* Arbre généalogique */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:230px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(420px,75%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* Chiffres clés et tableaux */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.r,th.r{text-align:right;white-space:nowrap}
+
+  /* Chronologie */
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  /* Fiches enfants */
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:18px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+  .kid p:last-child{margin-bottom:0}
+
+  /* Sources */
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  /* Pied de page */
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-duchastel.html">← Site Duchastel</a>
+    <a href="leon_duchastel_de_montrouge.html">Léon-Alexandre (père)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#naissance">Naissance &amp; famille</a>
+    <a href="#carriere">Carrière médicale</a>
+    <a href="#mariage">Mariage &amp; alliance</a>
+    <a href="#descendance">Descendance</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Branche canadienne &bull; Dynastie Duchastel de Montrouge</p>
+    <h1>Dr Yves-Jules<br>Duchastel de Montrouge</h1>
+    <p class="dates">Né en 1934</p>
+    <p class="sub">De l’Hôpital Sainte-Justine à l’Hôpital du Sacré-Cœur, un pionnier de la neurologie à Montréal</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Yves-Jules Duchastel de Montrouge naît à Montréal, à l’Hôpital Sainte-Justine, le 7 avril 1934, fils de l’ingénieur civil et officier Léon-Alexandre Duchastel de Montrouge et de Marie-Antoinette-Yvette Beauchamp. Médecin neurologue, il fonde en 1964 le service de neurologie de l’Hôpital du Sacré-Cœur de Montréal, qu’il dirige jusqu’en 1980, et préside l’Association des neurologues du Québec en 1975-1976. Il épouse en 1957 la poétesse et dramaturge Michèle Lalonde, avec laquelle il a trois enfants.</p>
+  <dl class="identity">
+    <div><dt>Naissance</dt><dd>7 avril 1934, Hôpital Sainte-Justine, Montréal (Québec)</dd></div>
+    <div><dt>Référence archivistique</dt><dd>Généalogie du Québec (NosOrigines), fiche <strong>PID #135351</strong></dd></div>
+    <div><dt>Parents</dt><dd>Léon-Alexandre Duchastel de Montrouge (1905–1962)<br>Marie-Antoinette-Yvette Beauchamp (1909–2010)</dd></div>
+    <div><dt>Profession</dt><dd>Médecin neurologue ; fondateur et chef du service de neurologie à l’Hôpital du Sacré-Cœur de Montréal (1964–1980)</dd></div>
+    <div><dt>Fonctions électives</dt><dd>Président de l’Association des neurologues du Québec (1975–1976)</dd></div>
+    <div><dt>Mariage</dt><dd>21 décembre 1957, paroisse Saint-Pascal, Montréal, avec Michèle Lalonde (1937–2021)</dd></div>
+    <div><dt>Résidence</dt><dd>Montréal (Outremont / Quartier Saint-Pascal)</dd></div>
+    <div><dt>Enfants</dt><dd>Alexandra, Laurent (né en 1966) et Morency Duchastel</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="naissance">
+  <h2><span class="num">2</span>Naissance, origines familiales et filiation</h2>
+  <p>Yves-Jules Duchastel de Montrouge voit le jour le <strong>7 avril 1934</strong> à l’<strong>Hôpital Sainte-Justine de Montréal</strong>, institution pédiatrique emblématique fondée en 1907 notamment par sa grand-tante paternelle Justine Lacoste-Beaubien et par Dame Marie-Louise Globensky, son arrière-grand-mère. Il appartient à la branche canadienne de la famille Duchastel de Montrouge, issue de la noblesse française établie à Montréal au XIX<sup>e</sup> siècle.</p>
+  <p>Son père, <strong>Léon-Alexandre Duchastel de Montrouge</strong> (1905–1962), ingénieur civil diplômé de l’École Polytechnique de Montréal (promotion 1927) et major au Régiment de Maisonneuve, avait épousé le 29 avril 1933 en l’église Saint-Germain d’Outremont <strong>Marie-Antoinette-Yvette Beauchamp</strong> (1909–2010), fille de Léon Beauchamp et d’Annette Desjardins.</p>
+
+  <div class="highlight">
+    <p><strong>Double héritage montréalais.</strong> Par son grand-père paternel, <strong>Jules-Alexandre Duchastel de Montrouge</strong> (1878–1950), ingénieur et gérant de la Ville d’Outremont, et par sa grand-mère <strong>Jeanne Lacoste</strong>, fille du juge en chef et sénateur <strong>Sir Alexandre Lacoste</strong> (1842–1923), le jeune Yves-Jules grandit au confluent du génie civil, de la magistrature et de la philanthropie hospitalière montréalaise.</p>
+  </div>
+
+  <h3>Cadre familial proche</h3>
+  <table>
+    <thead>
+      <tr><th>Parenté</th><th>Identité</th><th>Dates et repères</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-l="Parenté">Père</td>
+        <td data-l="Identité"><strong>Léon-Alexandre Duchastel de Montrouge</strong></td>
+        <td data-l="Repères">22 juillet 1905 – 21 mars 1962 (56 ans). Baron de Montrouge, ingénieur civil (Polytechnique, 1927), major au Régiment de Maisonneuve.</td>
+      </tr>
+      <tr>
+        <td data-l="Parenté">Mère</td>
+        <td data-l="Identité"><strong>Marie-Antoinette-Yvette Beauchamp</strong></td>
+        <td data-l="Repères">1909 – 8 décembre 2010 (101 ans). Fille de Léon Beauchamp et d’Annette Desjardins ; mariée le 29 avril 1933 à Saint-Germain d’Outremont.</td>
+      </tr>
+      <tr>
+        <td data-l="Parenté">Tante paternelle</td>
+        <td data-l="Identité">Renée Duchastel de Montrouge</td>
+        <td data-l="Repères">Née en 1906, sœur de Léon-Alexandre.</td>
+      </tr>
+      <tr>
+        <td data-l="Parenté">Oncle paternel</td>
+        <td data-l="Identité">Jean-Lucien Duchastel de Montrouge</td>
+        <td data-l="Repères">Né en 1908, frère de Léon-Alexandre.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 3 -->
+<section id="carriere">
+  <h2><span class="num">3</span>Carrière médicale et neurologie clinique</h2>
+  <p>Tandis que son père et son grand-père paternel avaient illustré le génie civil et l’administration municipale, Yves-Jules Duchastel de Montrouge oriente sa vocation vers la médecine et se spécialise en <strong>neurologie</strong>. Ses débuts professionnels s’inscrivent dans la transformation majeure du réseau hospitalier québécois durant les années 1960, marquées par la création et l’autonomisation des services médicaux surspécialisés dans les grands centres hospitaliers universitaires francophones de Montréal.</p>
+
+  <div class="figures">
+    <div class="fig"><b>1964</b><span>Fondation du service de neurologie (Sacré-Cœur)</span></div>
+    <div class="fig"><b>16 ans</b><span>Direction du service clinique (1964–1980)</span></div>
+    <div class="fig"><b>1975–1976</b><span>Présidence de l’Association des neurologues du Québec</span></div>
+  </div>
+
+  <div class="highlight">
+    <p><strong>Fondateur du service de neurologie de l’Hôpital du Sacré-Cœur (1964–1980).</strong> En 1964, le Dr Yves Duchastel met sur pied le service de neurologie de l’Hôpital du Sacré-Cœur de Montréal et en assume la direction en tant que premier chef de service pendant seize années consécutives. Sous son impulsion, le département développe les soins cliniques spécialisés dans le nord de l’île de Montréal et participe activement à l’enseignement clinique des externes et des médecins résidents.</p>
+  </div>
+
+  <h3>Rayonnement professionnel et jalons</h3>
+  <p>Reconnu par ses pairs pour la rigueur de sa pratique clinique et son engagement envers le développement de sa spécialité au Québec, il accède en <strong>1975</strong> à la présidence de l’<strong>Association des neurologues du Québec (ANQ)</strong>, fonction qu’il exerce durant le mandat <strong>1975–1976</strong>.</p>
+
+  <ul class="timeline">
+    <li><span class="d">7 avril 1934 · Montréal</span> — naissance à l’Hôpital Sainte-Justine.</li>
+    <li><span class="d">Années 1950 – début 1960 · Formation médicale</span> — études de médecine et spécialisation en neurologie clinique.</li>
+    <li><span class="d">1964 · Hôpital du Sacré-Cœur de Montréal</span> — fondation du service de neurologie ; nomination comme premier chef de service.</li>
+    <li><span class="d">1975 – 1976 · Association des neurologues du Québec</span> — élection et mandat à la présidence de l’Association (ANQ).</li>
+    <li><span class="d">1980 · Hôpital du Sacré-Cœur de Montréal</span> — terme de son mandat de seize années à la tête du service de neurologie.</li>
+  </ul>
+</section>
+
+<!-- 4 -->
+<section id="mariage">
+  <h2><span class="num">4</span>Mariage et alliance littéraire</h2>
+  <p>Le <strong>21 décembre 1957</strong>, en l’église de la paroisse <strong>Saint-Pascal de Montréal</strong>, Yves-Jules Duchastel de Montrouge, alors âgé de 23 ans, épouse <strong>Michèle Lalonde</strong> (née le 28 juillet 1937 à Montréal et décédée le 22 juillet 2021), âgée de 20 ans, fille de Paul-Émile Lalonde et d’Armande Bélanger.</p>
+
+  <div class="highlight">
+    <p><strong>Une rencontre entre médecine et poésie québécoise.</strong> Cette union rapproche deux figures marquantes de la société québécoise de la seconde moitié du XX<sup>e</sup> siècle : le clinicien bâtisseur d’un service hospitalier de pointe et l’une des voix majeures de la littérature québécoise moderne. Poétesse, dramaturge, essayiste et professeure, Michèle Lalonde est l’autrice du célèbre poème-affiche <em>« Speak White »</em> (1968), de <em>Geôles</em> (1959), de <em>Terre des hommes</em> (1967) et de <em>Dernier recours de Baptiste à Catherine</em> (1977) ; elle reçoit le prix Athanase-David en 1979.</p>
+  </div>
+
+  <div class="identity">
+    <div class="full"><dt>L’épouse</dt><dd><strong>Michèle Lalonde</strong> (28 juillet 1937 – 22 juillet 2021), fille de Paul-Émile Lalonde et d’Armande Bélanger. Poétesse, dramaturge, essayiste et professeure à l’École nationale de théâtre du Canada et à l’Université du Québec à Montréal.</dd></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="descendance">
+  <h2><span class="num">5</span>Famille et descendance</h2>
+  <p>De l’union d’Yves-Jules Duchastel de Montrouge et de Michèle Lalonde naissent trois enfants à Montréal : Alexandra, Laurent et Morency Duchastel.</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Léon-Alexandre Duchastel de Montrouge<small>1905–1962</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie-Antoinette-Yvette Beauchamp<small>1909–2010</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Dr Yves-Jules Duchastel de Montrouge<small>Né en 1934</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Michèle Lalonde<small>1937–2021</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row" style="gap:20px">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:190px">Alexandra Duchastel<small>ép. Florent Mounier</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:190px">Laurent Duchastel<small>né le 19 fév. 1966</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:190px">Morency Duchastel<small>alliances Berry &amp; Grégoire</small></div></div>
+    </div>
+  </div>
+
+  <div class="kids">
+    <div class="kid">
+      <h3>Alexandra Duchastel</h3>
+      <p><strong>Filiation :</strong> fille d’Yves-Jules Duchastel de Montrouge et de Michèle Lalonde.</p>
+      <p><strong>Alliance :</strong> épouse de <strong>Florent Mounier</strong>.</p>
+    </div>
+    <div class="kid">
+      <h3>Laurent Duchastel</h3>
+      <p><strong>Naissance :</strong> 19 février 1966 à Montréal.</p>
+      <p><strong>Alliance :</strong> époux de <strong>Theodora Vassaramva</strong>.</p>
+    </div>
+    <div class="kid">
+      <h3>Morency Duchastel</h3>
+      <p><strong>Filiation :</strong> enfant d’Yves-Jules Duchastel de Montrouge et de Michèle Lalonde.</p>
+      <p><strong>Alliances :</strong> lié dans les registres généalogiques à <strong>Judith Berry</strong> et à <strong>Marie Grégoire</strong>.</p>
+    </div>
+  </div>
+
+  <h3>Ascendance</h3>
+  <div class="identity">
+    <div><dt>Père</dt><dd><a href="leon_duchastel_de_montrouge.html">Léon-Alexandre Duchastel de Montrouge</a> (1905–1962)</dd></div>
+    <div><dt>Mère</dt><dd>Marie-Antoinette-Yvette Beauchamp (1909–2010)</dd></div>
+    <div><dt>Grand-père paternel</dt><dd>Jules-Alexandre Duchastel de Montrouge (1878–1950)</dd></div>
+    <div><dt>Grand-mère paternelle</dt><dd>Jeanne Lacoste</dd></div>
+    <div><dt>Grand-père maternel</dt><dd>Léon Beauchamp</dd></div>
+    <div><dt>Grand-mère maternelle</dt><dd>Annette Desjardins</dd></div>
+    <div class="full"><dt>Arrière-grands-parents (lignée paternelle)</dt><dd>Léon-Claude-François-Marie Duchastel de Montrouge et Marie-Hélène-Charlotte-Eugénie-Émilie de Montigny ; <strong>Sir Alexandre Lacoste</strong> (1842–1923), juge en chef de la Cour du Banc de la Reine du Québec et sénateur du Canada, et <strong>Dame Marie-Louise Globensky</strong> (1849–1919).</dd></div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="sources">
+  <h2><span class="num">6</span>Notes et sources</h2>
+  <p class="note">Notice établie d’après la fiche généalogique d’Yves Duchastel sur <em>Généalogie du Québec et d’Amérique française</em> (NosOrigines, PID #135351), les archives hospitalières de l’Hôpital du Sacré-Cœur de Montréal et l’historique de l’Association des neurologues du Québec.</p>
+
+  <div class="srcgroup">
+    <h3>Généalogie et état civil</h3>
+    <ul class="src">
+      <li>Généalogie du Québec et d’Amérique française (NosOrigines) : <a href="https://www.nosorigines.qc.ca/GenealogieQuebec.aspx?genealogie=Duchastel_Yves&amp;pid=135351">Fiche d’Yves Duchastel (Yves-Jules Duchastel de Montrouge), PID #135351</a></li>
+      <li>Société généalogique canadienne-française (SGCF) : étude généalogique consacrée à la famille <em>Duchastel de Montrouge</em> au Québec</li>
+      <li>Registres de l’état civil du Québec : acte de naissance à l’Hôpital Sainte-Justine de Montréal (7 avril 1934) et acte de mariage à la paroisse Saint-Pascal de Montréal (21 décembre 1957)</li>
+    </ul>
+
+    <h3>Carrière médicale et institutions</h3>
+    <ul class="src">
+      <li>Hôpital du Sacré-Cœur de Montréal (CIUSSS du Nord-de-l’Île-de-Montréal) : historique du département de médecine et fondation du service de neurologie (1964–1980)</li>
+      <li>Association des neurologues du Québec (ANQ) : répertoire historique des présidents (mandat 1975–1976)</li>
+    </ul>
+
+    <h3>Alliance littéraire et ascendance</h3>
+    <ul class="src">
+      <li>Bibliothèque et Archives nationales du Québec (BAnQ) : Fonds Michèle Lalonde (1937–2021)</li>
+      <li>Dictionnaire biographique du Canada (DBC) : notice consacrée à <em>Sir Alexandre Lacoste (1842–1923)</em></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <a href="genealogie-duchastel.html">← Retour au site Duchastel de Montrouge</a>
+</footer>
+
+</body>
+</html>
