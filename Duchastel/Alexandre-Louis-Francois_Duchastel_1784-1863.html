@@ -1,667 +1,188 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alexandre-Louis-François Duchastel de Montrouge (1784–1863)</title>
-    
-    <!-- CSS externe -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alexandre-Louis-François Duchastel de Montrouge (1784-1863)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
 
-    <!-- Polices -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+SC:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg: #f7f4ee;
-            --color-parchment-dark: #ebe4d8;
-            --color-paper: #fffdf9;
-            --color-ink: #2b2521;
-            --color-ink-soft: #5e544a;
-            --color-rule: #dcd0bf;
-            --color-accent: #7c2331;
-            --color-accent-gold: #c79b3f;
-            --color-navy: #1f2c44;
-            --color-hl: #f2e9d8;
-            --font-eyebrow: 'Cinzel', serif;
-            --font-heading: 'Cormorant Garamond', Georgia, serif;
-            --font-body: 'EB Garamond', Georgia, serif;
-        }
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
 
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            background: var(--color-bg);
-            color: var(--color-ink);
-            font-family: var(--font-body);
-            font-size: 18px;
-            line-height: 1.7;
-        }
-        a { color: var(--color-accent); text-underline-offset: 3px; }
-        a:hover { color: var(--color-navy); }
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
 
-        .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
 
-        /* Topnav */
-        nav.topnav {
-            background: var(--color-parchment-dark);
-            border-bottom: 1px solid var(--color-rule);
-            padding: 12px 20px;
-            font-family: var(--font-eyebrow);
-            font-size: 12px;
-            letter-spacing: 0.1em;
-            text-align: center;
-        }
-        nav.topnav a {
-            margin: 0 10px;
-            text-decoration: none;
-            font-weight: 600;
-            color: var(--color-ink-soft);
-            display: inline-block;
-        }
-        nav.topnav a:hover { color: var(--color-accent); }
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
 
-        /* Hero Header */
-        header.hero {
-            background: linear-gradient(160deg, #1f2c44 0%, #2d1a22 100%);
-            color: #f4ecda;
-            padding: 50px 20px 45px;
-            text-align: center;
-            border-bottom: 4px solid var(--color-accent-gold);
-            position: relative;
-        }
-        .hero .seal {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto 15px;
-        }
-        .hero .eyebrow {
-            font-family: var(--font-eyebrow);
-            font-size: 12px;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--color-accent-gold);
-            display: block;
-            margin-bottom: 10px;
-        }
-        .hero h1 {
-            font-family: var(--font-heading);
-            font-size: clamp(32px, 5.5vw, 52px);
-            font-weight: 600;
-            margin: 0 0 10px;
-            line-height: 1.15;
-            color: #fffdf8;
-        }
-        .hero .subtitle-years {
-            color: var(--color-accent-gold);
-            font-weight: 400;
-        }
-        .hero .sub {
-            font-style: italic;
-            color: #d8cdb4;
-            font-size: 20px;
-            margin: 0 0 15px;
-        }
-        .hero .rule {
-            width: 80px;
-            height: 2px;
-            background: var(--color-accent-gold);
-            margin: 0 auto 15px;
-        }
-        .hero .lede {
-            max-width: 680px;
-            margin: 0 auto;
-            font-size: 16px;
-            color: #e5d7b7;
-        }
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
 
-        /* Section Headings */
-        section {
-            padding: 35px 0;
-            border-bottom: 1px dashed var(--color-rule);
-        }
-        section:last-of-type { border-bottom: none; }
-        .section-head { margin-bottom: 24px; }
-        .section-head .eyebrow {
-            font-family: var(--font-eyebrow);
-            font-size: 11px;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-accent);
-            margin: 0 0 4px;
-            display: block;
-        }
-        .section-head h2 {
-            font-family: var(--font-heading);
-            font-size: 30px;
-            margin: 0;
-            color: var(--color-navy);
-            line-height: 1.25;
-        }
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(480px,80%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
 
-        /* Identity Card */
-        .identity-card {
-            background: var(--color-paper);
-            border: 1px solid var(--color-rule);
-            border-radius: 6px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-            margin: 20px 0;
-        }
-        .identity-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 12px 20px;
-        }
-        .identity-item {
-            font-size: 16px;
-            line-height: 1.4;
-            border-bottom: 1px solid #f0e6d6;
-            padding-bottom: 8px;
-        }
-        .identity-item strong {
-            display: block;
-            font-family: var(--font-eyebrow);
-            font-size: 11px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--color-ink-soft);
-            margin-bottom: 2px;
-        }
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.r,th.r{text-align:right;white-space:nowrap}
+  tfoot td{font-weight:600;background:var(--hl);border-bottom:0}
 
-        /* Highlight box & quotes */
-        .highlight-box {
-            background: var(--color-hl);
-            border-left: 4px solid var(--color-accent);
-            padding: 18px 22px;
-            margin: 20px 0;
-            border-radius: 0 6px 6px 0;
-            font-size: 16.5px;
-        }
-        .highlight-box strong {
-            display: block;
-            color: var(--color-navy);
-            font-family: var(--font-heading);
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
 
-        /* Timeline Ladder */
-        .ladder {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            margin: 24px 0;
-        }
-        .rung {
-            display: flex;
-            gap: 18px;
-            background: var(--color-paper);
-            border: 1px solid var(--color-rule);
-            padding: 16px 20px;
-            border-radius: 6px;
-        }
-        .rung .numeral {
-            font-family: var(--font-heading);
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--color-accent);
-            min-width: 32px;
-        }
-        .rung h3 {
-            font-family: var(--font-heading);
-            font-size: 21px;
-            margin: 0 0 4px;
-            color: var(--color-navy);
-        }
-        .rung .meta {
-            font-size: 15.5px;
-            color: var(--color-ink-soft);
-        }
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:10px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
 
-        /* Figures & Tables */
-        .figures {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 14px;
-            margin: 20px 0;
-        }
-        .fig {
-            border: 1px solid var(--color-rule);
-            border-radius: 6px;
-            padding: 16px;
-            background: var(--color-paper);
-            text-align: center;
-        }
-        .fig b {
-            display: block;
-            font-family: var(--font-heading);
-            font-size: 32px;
-            color: var(--color-accent);
-            line-height: 1.1;
-        }
-        .fig span {
-            font-size: 13.5px;
-            color: var(--color-ink-soft);
-        }
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 15.5px;
-            margin: 18px 0;
-            background: var(--color-paper);
-            border: 1px solid var(--color-rule);
-        }
-        th {
-            background: var(--color-navy);
-            color: #f4ecda;
-            text-align: left;
-            font-family: var(--font-eyebrow);
-            font-weight: 500;
-            padding: 10px 12px;
-            font-size: 11px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-        td {
-            padding: 11px 12px;
-            border-bottom: 1px solid var(--color-rule);
-            vertical-align: top;
-        }
-        td.r, th.r { text-align: right; white-space: nowrap; }
-        tfoot td { font-weight: 600; background: var(--color-hl); border-bottom: 0; }
-        .bar { height: 7px; background: var(--color-rule); border-radius: 4px; margin-top: 5px; }
-        .bar i { display: block; height: 100%; background: var(--color-accent); border-radius: 4px; }
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
 
-        /* Tree & Kids */
-        .tree-box {
-            background: var(--color-paper);
-            border: 1px solid var(--color-rule);
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-            font-family: monospace;
-            white-space: pre;
-            overflow-x: auto;
-            font-size: 14px;
-            color: var(--color-navy);
-            line-height: 1.4;
-            margin: 20px 0;
-        }
-
-        .kids {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
-        }
-        .kid {
-            border: 1px solid var(--color-rule);
-            border-radius: 6px;
-            padding: 18px;
-            background: var(--color-paper);
-        }
-        .kid h3 {
-            margin: 0 0 6px;
-            font-family: var(--font-heading);
-            font-size: 22px;
-            color: var(--color-accent);
-        }
-        .kid p { margin: 0 0 8px; font-size: 15.5px; }
-
-        /* Sources */
-        ul.src { padding-left: 20px; margin: 8px 0 16px; font-size: 15px; }
-        ul.src li { margin-bottom: 6px; }
-        .note { font-size: 14.5px; color: var(--color-ink-soft); }
-
-        footer {
-            background: var(--color-navy);
-            color: #cfc6b0;
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 14px;
-            margin-top: 40px;
-        }
-        footer a { color: #e9e2d2; text-decoration: none; font-family: var(--font-eyebrow); font-size: 12px; letter-spacing: 0.08em; }
-
-        @media (max-width: 700px) {
-            body { font-size: 16.5px; }
-            .hero h1 { font-size: 32px; }
-            table, thead, tbody, tfoot, tr, td { display: block; }
-            thead { display: none; }
-            tr { border-bottom: 1px solid var(--color-rule); padding: 8px 0; }
-            td { border: 0; padding: 4px 10px; text-align: left !important; }
-            td[data-l]::before { content: attr(data-l) " : "; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-ink-soft); }
-            tfoot tr { background: var(--color-hl); }
-        }
-    </style>
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
 </head>
 <body>
 
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-duchastel.html">← Site Duchastel</a>
+    <a href="jacques-gabriel_duchastel_de_montrouge_1758-1792.html">Père (Jacques-Gabriel)</a>
+    <a href="Jean-Baptiste_Jules_Duchastel_1823-1889.html">Fils (Jean-Baptiste Jules)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#titre">Héritage</a>
+    <a href="#patrimoine">Patrimoine</a>
+    <a href="#liquidation">Liquidation</a>
+    <a href="#descendance">Descendance</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
 
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération 6 · Dynastie Duchastel</p>
+    <h1>Alexandre-Louis-François<br>Duchastel de Montrouge</h1>
+    <p class="dates">1784 – 1863</p>
+    <p class="sub">Négociant, propriétaire foncier et baron de Montrouge</p>
+  </div>
+</header>
 
-    <header class="hero">
-        <div class="seal" aria-hidden="true">
-            <svg viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="56" fill="#7c2331" stroke="#c79b3f" stroke-width="2"/>
-                <circle cx="60" cy="60" r="47" fill="none" stroke="#c79b3f" stroke-width="1" stroke-dasharray="2 3"/>
-                <text x="60" y="52" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="16" fill="#e5d7b7">Dynastie</text>
-                <text x="60" y="74" text-anchor="middle" font-family="'Cormorant SC', serif" font-size="16" fill="#e5d7b7">Duchastel</text>
-            </svg>
-        </div>
-        <span class="eyebrow">Génération 6 · Dynastie Duchastel</span>
-        <h1>Alexandre-Louis-François<br>Duchastel de Montrouge <span class="subtitle-years">(1784 — 1863)</span></h1>
-        <p class="sub">De Reims et Troyes à Monthoury</p>
-        <div class="rule"></div>
-        <p class="lede">Négociant et propriétaire foncier, baron de Montrouge, héritier de l'important patrimoine de Troyes et du domaine de Metz-Robert.</p>
-    </header>
+<main class="wrap">
 
-    <nav class="topnav">
-        <a href="genealogie-duchastel.html">← Site Duchastel</a> |
-        <a href="jacques-gabriel_duchastel_de_montrouge_1758-1792.html">Jacques-Gabriel (père)</a> |
-        <a href="#fiche">Fiche</a> |
-        <a href="#titre">Baron &amp; héritage</a> |
-        <a href="#patrimoine">Patrimoine</a> |
-        <a href="#liquidation">Liquidation</a> |
-        <a href="#descendance">Descendance</a> |
-        <a href="#sources">Sources</a>
-    </nav>
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Alexandre-Louis-François Duchastel naît à Rethel le 30 juin 1784, fils de Jacques-Gabriel Duchastel de Montrouge et de Philippine-Élisabeth Durand de Courmont[cite: 7]. Négociant et propriétaire, il hérite en 1830 du titre de baron et du vaste patrimoine de son oncle[cite: 7]. Il s'éteint le 23 juillet 1863 au château de Monthoury (Macogny – Montron) à l'âge de 79 ans[cite: 7].</p>
+  <dl class="identity">
+    <div><dt>Naissance</dt><dd>30 juin 1784, Rethel (Ardennes)[cite: 7]</dd></div>
+    <div><dt>Décès</dt><dd>23 juillet 1863 (à 79 ans), domaine de Monthoury, Macogny – Montron (Aisne)[cite: 7]</dd></div>
+    <div><dt>Parents</dt><dd>Jacques-Gabriel Duchastel de Montrouge (1758–1792)[cite: 7]<br>Philippine-Élisabeth Durand de Courmont (1763–1842)[cite: 7]</dd></div>
+    <div><dt>Profession</dt><dd>Négociant, propriétaire foncier, exploitant forestier[cite: 7]</dd></div>
+    <div><dt>Mariage</dt><dd>19 mai 1813 à Reims, avec Sophie Le Goix (1790–1860)[cite: 7]</dd></div>
+    <div><dt>Résidences</dt><dd>Reims (rue de Vesle) ; Troyes (rue du Temple) ; Paris ; Château de Monthoury[cite: 7]</dd></div>
+    <div><dt>Titre</dt><dd>Baron, hérité au décès de son oncle Jacques-Jean-Baptiste Duchastel-Berthelin (mort en 1830)[cite: 7]</dd></div>
+  </dl>
+</section>
 
-    <main class="wrap">
-        
-        <!-- 1. Fiche d'identité -->
-        <section id="fiche">
-            <div class="section-head">
-                <span class="eyebrow">Notice biographique</span>
-                <h2>Fiche d’identité</h2>
-            </div>
-            <p>Alexandre-Louis-François Duchastel naît à Rethel le 30 juin 1784, fils de Jacques-Gabriel Duchastel de Montrouge et de Philippine-Élisabeth Durand de Courmont. Négociant puis propriétaire foncier, il hérite en 1830 du titre de baron et du vaste domaine foncier de son oncle, qu’il liquidera en grande partie dans les années qui suivent.</p>
-            
-            <div class="identity-card">
-                <div class="identity-grid">
-                    <div class="identity-item"><strong>Naissance :</strong> 30 juin 1784, Rethel (Ardennes) — Baptisé le 1<sup>er</sup> juillet 1784</div>
-                    <div class="identity-item"><strong>Décès :</strong> 23 juillet 1863 (79 ans), domaine de Monthoury, Macogny – Montron (Aisne)</div>
-                    <div class="identity-item"><strong>Parents :</strong> Jacques-Gabriel Duchastel de Montrouge &amp; Philippine-Élisabeth Durand de Courmont</div>
-                    <div class="identity-item"><strong>Occupation :</strong> Négociant, propriétaire foncier, exploitant forestier</div>
-                    <div class="identity-item"><strong>Mariage :</strong> 19 mai 1813 à Reims, avec Sophie Le Goix (1790-1860)</div>
-                    <div class="identity-item"><strong>Résidences :</strong> Reims (rue de Vesle), Troyes (15, rue du Temple), Paris (dès 1823), Château de Monthoury</div>
-                    <div class="identity-item" style="grid-column: 1 / -1;"><strong>Titre :</strong> Baron, hérité au décès de son oncle Jacques-Jean-Baptiste Duchastel-Berthelin (mort en 1830, sans descendance)</div>
-                </div>
-            </div>
-        </section>
+<!-- 2 -->
+<section id="titre">
+  <h2><span class="num">2</span>Parcours, orphelinat et double héritage</h2>
+  <p>Alexandre-Louis-François a huit ans lorsque son père meurt à Reims le 25 mars 1792[cite: 7]. En 1830, son oncle Jacques-Jean-Baptiste Duchastel-Berthelin meurt sans descendance[cite: 7]. Alexandre-Louis-François lui succède dans le titre de baron et recueille l’ensemble de ses biens[cite: 7].</p>
 
-        <!-- 2. Parcours & Héritage -->
-        <section id="titre">
-            <div class="section-head">
-                <span class="eyebrow">Parcours familial</span>
-                <h2>Orphelin, puis héritier d’un oncle sans enfant</h2>
-            </div>
-            <p>Alexandre-Louis-François a huit ans lorsque son père, <a href="jacques-gabriel-duchastel-de-montrouge.html">Jacques-Gabriel Duchastel de Montrouge</a>, officier au 59<sup>e</sup> régiment d’infanterie, meurt à Reims le 25 mars 1792. Il a une sœur aînée, Jeanne-Élisabeth (née en 1781), et un frère cadet, Jean-Jacques (né en 1786, mort au combat en 1809 sans descendance).</p>
+  <div class="highlight">
+    <p><strong>L'héritage d'Aube et de Champagne.</strong> Étabibli à Reims puis à Troyes, il gère activement le patrimoine familial avant de procéder à la liquidation progressive de plusieurs biens aubois à partir de 1832[cite: 7].</p>
+  </div>
+</section>
 
-            <div class="highlight-box">
-                <strong>1830 — Un double héritage</strong>
-                Son oncle Jacques-Jean-Baptiste Duchastel-Berthelin, frère de son père, meurt en 1830 sans descendance. Alexandre-Louis-François, son neveu, lui succède dans le titre de baron et recueille l’ensemble de ses biens. Le nom de Montrouge, lui, lui vient de la lignée de son père.
-            </div>
+<!-- 3 -->
+<section id="patrimoine">
+  <h2><span class="num">3</span>Patrimoine foncier et domaine de Metz-Robert</h2>
+  <p>Les archives familiales témoignent de l'importance de ses actifs, notamment le domaine de Metz-Robert comprenant un petit château, des terres labourables, une bergerie pour 150 moutons, ainsi que des droits d'usage forestier et des activités de flottage de bois sur l'Armance[cite: 7]. Il détient également un portefeuille de créances hypothécaires d'Ancien Régime[cite: 7].</p>
+</section>
 
-            <p>Établi à Reims, puis à Troyes (où il réside notamment au 15, rue du Temple) et à Paris dès 1823, il liquide une bonne partie de ces biens : dès 1832, soit deux ans après le décès de son oncle, les ventes d'immeubles s'enchaînent.</p>
+<!-- 4 -->
+<section id="liquidation">
+  <h2><span class="num">4</span>Cessions et liquidation des biens (1832–1833)</h2>
+  <p>Un état récapitulatif dressé pour les héritiers recense cinq ventes immobilières majeures conclues entre 1832 et 1833 pour un produit total de 66 200 francs[cite: 7].</p>
 
-            <div class="section-head" style="margin-top: 30px;">
-                <span class="eyebrow">Chronologie</span>
-                <h2>Lieux de vie et événements marquants</h2>
-            </div>
+  <div class="figures">
+    <div class="fig"><b>5</b><span>Ventes immobilières[cite: 7]</span></div>
+    <div class="fig"><b>66 200 F</b><span>Produit total[cite: 7]</span></div>
+    <div class="fig"><b>≈ 582 k€</b><span>Valeur équiv. 2022[cite: 7]</span></div>
+  </div>
 
-            <div class="ladder">
-                <div class="rung">
-                    <div class="numeral">1784</div>
-                    <div>
-                        <h3>Rethel</h3>
-                        <div class="meta">Naissance et baptême (30 juin – 1<sup>er</sup> juillet 1784).</div>
-                    </div>
-                </div>
-                <div class="rung">
-                    <div class="numeral">1792</div>
-                    <div>
-                        <h3>Reims</h3>
-                        <div class="meta">Mort de son père Jacques-Gabriel ; Alexandre-Louis-François devient orphelin à l'âge de 8 ans.</div>
-                    </div>
-                </div>
-                <div class="rung">
-                    <div class="numeral">1813</div>
-                    <div>
-                        <h3>Reims</h3>
-                        <div class="meta">Mariage avec Sophie Le Goix (19 mai) ; établissement du couple rue de Vesle, n<sup>o</sup> 9.</div>
-                    </div>
-                </div>
-                <div class="rung">
-                    <div class="numeral">1823</div>
-                    <div>
-                        <h3>Paris &amp; Troyes</h3>
-                        <div class="meta">Installation de la famille dans la capitale, avec résidences d'affaires et foncières à Troyes (15, rue du Temple).</div>
-                    </div>
-                </div>
-                <div class="rung">
-                    <div class="numeral">1830</div>
-                    <div>
-                        <h3>Héritage</h3>
-                        <div class="meta">Décès de l’oncle Jacques-Jean-Baptiste ; transmission des domaines et du titre de baron.</div>
-                    </div>
-                </div>
-                <div class="rung">
-                    <div class="numeral">1832</div>
-                    <div>
-                        <h3>Ventes foncières (1832–1833)</h3>
-                        <div class="meta">Liquidation progressive d’une grande partie du patrimoine immobilier aubois.</div>
-                    </div>
-                </div>
-                <div class="rung">
-                    <div class="numeral">1863</div>
-                    <div>
-                        <h3>Domaine de Monthoury</h3>
-                        <div class="meta">Décès au château familial de Monthoury (commune de Macogny – Montron) à l'âge de 79 ans.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Patrimoine -->
-        <section id="patrimoine">
-            <div class="section-head">
-                <span class="eyebrow">Actifs &amp; Propriétés</span>
-                <h2>Patrimoine d'Aube : Domaine de Metz-Robert, Troyes &amp; Créances</h2>
-            </div>
-            <p>Les archives familiales révèlent l'ampleur des possessions seigneuriales et des activités économiques gérées par M. Duchastel dans le département de l'Aube avant leur cession :</p>
-            
-            <div class="highlight-box">
-                <strong>🏰 Le Domaine patrimonial de Metz-Robert</strong>
-                Une affiche de mise en vente de gré à gré désigne <em>« M. DUCHASTEL, Propriétaire dudit Domaine, demeurant rue du Temple, N° 15, à Troyes »</em>. Ce domaine rural et seigneurial d'exception comprenait :
-                <ul>
-                    <li><strong>Un petit château :</strong> construction élégante en pierre de taille couverte en tuiles.</li>
-                    <li><strong>Terres et prés :</strong> 20 à 21 arpents de terres labourables et de prairies.</li>
-                    <li><strong>Bâtiments d'exploitation complets :</strong> vastes granges, bergerie vaste pouvant abriter 150 moutons, écuries aménagées pour chevaux et bœufs, remise à carrosses, buanderie, poulailler, colombier garni et logements de fermier.</li>
-                    <li><strong>Plantations :</strong> 150 peupliers de haute tige et plus de 300 arbres fruitiers en plein rapport.</li>
-                    <li><strong>Droits seigneuriaux et forestiers :</strong> Droit de pature exclusive et d'usage dans plus de 5 300 arpents de forêts dépendant des domaines de Crogny et d’Aumont.</li>
-                    <li><strong>Commerce et flottage de bois :</strong> Activité directe d'exploitation forestière bénéficiant du flottage des bois sur la rivière Armance pour l'approvisionnement du marché parisien.</li>
-                </ul>
-            </div>
-
-            <div class="section-head" style="margin-top:25px;">
-                <span class="eyebrow">Finance</span>
-                <h2>Actifs financiers et créances d'Ancien Régime</h2>
-            </div>
-            <p>M. Duchastel conserve également un portefeuille de créances hypothécaires. Une note récapitulative mentionne notamment une obligation contractée par le <strong>Comte Azurel</strong> (actes du 27 janvier 1806 et 20 mai 1807) d'un principal de 1 600 francs. Cette créance a fait l'objet d'une inscription d'hypothèque le 1<sup>er</sup> juillet 1824 (Volume 144, N° 1) devant être renouvelée avant le 1<sup>er</sup> juillet 1834.</p>
-        </section>
-
-        <!-- 4. Liquidation -->
-        <section id="liquidation">
-            <div class="section-head">
-                <span class="eyebrow">Cessions foncières</span>
-                <h2>La liquidation des biens (1832–1833)</h2>
-            </div>
-            <p>Un état récapitulatif dressé pour les héritiers Duchastel recense cinq ventes immobilières majeures conclues en un peu plus d’un an. Chaque acte précise la date à partir de laquelle l’acquéreur devait commencer à payer l’assurance du bien, ce qui correspond au jour même de l’acte.</p>
-
-            <div class="figures">
-                <div class="fig"><b>5</b><span>ventes immobilières (1832-1833)</span></div>
-                <div class="fig"><b>66 200 F</b><span>produit total des ventes</span></div>
-                <div class="fig"><b>≈ 582 000 €</b><span>valeur équivalente en 2022</span></div>
-            </div>
-
-            <table>
-                <thead>
-                    <tr><th>Acquéreur</th><th>Date de l’acte</th><th>Nature du bien</th><th class="r">Prix</th><th>Part du total</th></tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td data-l="Acquéreur">M. Edme Legendre-Villain</td>
-                        <td data-l="Acte">19 février 1832</td>
-                        <td data-l="Bien">Vinée (vignoble)</td>
-                        <td class="r" data-l="Prix">4 200 F</td>
-                        <td data-l="Part">6,3 %<div class="bar"><i style="width:6.3%"></i></div></td>
-                    </tr>
-                    <tr>
-                        <td data-l="Acquéreur">J.-F. Mosdier &amp; M<sup>me</sup> Memeret <span class="note">(charron)</span></td>
-                        <td data-l="Acte">10 mars 1832</td>
-                        <td data-l="Bien">Bâtiments, terre et pré à Metz-Robert</td>
-                        <td class="r" data-l="Prix">15 000 F</td>
-                        <td data-l="Part">22,7 %<div class="bar"><i style="width:22.7%"></i></div></td>
-                    </tr>
-                    <tr>
-                        <td data-l="Acquéreur">M. Herment</td>
-                        <td data-l="Acte">20 septembre 1832</td>
-                        <td data-l="Bien">Maison</td>
-                        <td class="r" data-l="Prix">3 000 F</td>
-                        <td data-l="Part">4,5 %<div class="bar"><i style="width:4.5%"></i></div></td>
-                    </tr>
-                    <tr>
-                        <td data-l="Acquéreur">Bureau de bienfaisance de Troyes</td>
-                        <td data-l="Acte">6 avril 1833</td>
-                        <td data-l="Bien">Maison (orangerie)</td>
-                        <td class="r" data-l="Prix">8 000 F</td>
-                        <td data-l="Part">12,1 %<div class="bar"><i style="width:12.1%"></i></div></td>
-                    </tr>
-                    <tr>
-                        <td data-l="Acquéreur">M. Victor Truelle <span class="note">(Payeur de l'Aube)</span></td>
-                        <td data-l="Acte">20 avril 1833</td>
-                        <td data-l="Bien">Hôtel particulier à Troyes</td>
-                        <td class="r" data-l="Prix">36 000 F</td>
-                        <td data-l="Part">54,4 %<div class="bar"><i style="width:54.4%"></i></div></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr><td colspan="3">Total des cinq ventes</td><td class="r">66 200 F</td><td>100 %</td></tr>
-                </tfoot>
-            </table>
-            <p class="note">L’hôtel vendu à Victor Truelle représente à lui seul plus de la moitié du produit des ventes.</p>
-
-            <div class="highlight-box" style="margin-top: 25px;">
-                <strong>💡 Que représentent 66 200 francs de 1833 ?</strong>
-                À l’aide du convertisseur historique de Rodney Edvinsson (université de Stockholm), les équivalences suivantes sont établies :
-                <ul>
-                    <li>66 200 F de 1833 ≈ <strong>491 409 €</strong> de 2015 (pouvoir d’achat équivalent en biens de consommation) ;</li>
-                    <li>Avec l’inflation de l’euro entre 2015 et 2022 (+ 18,4 %) : ≈ <strong>581 828 €</strong> en 2022 (soit ~<strong>784 595 $ CA</strong>).</li>
-                </ul>
-                <p class="note">Ces conversions sont indicatives : en métal précieux, la somme équivaut à environ 19,4 kg d’or ou 309 kg d’argent ; en salaire du bâtiment, à plus de 611 000 heures de travail d’un ouvrier de l'époque.</p>
-            </div>
-
-            <div class="section-head" style="margin-top:25px;">
-                <span class="eyebrow">Profils</span>
-                <h2>Les acquéreurs des biens Duchastel</h2>
-            </div>
-            
-            <div class="kids">
-                <div class="kid">
-                    <h3>Edme Legendre-Villain</h3>
-                    <p>Marié à Troyes le 25 octobre 1809 avec Anne Villain. Acquéreur d'un vignoble (vinée) pour 4 200 F en février 1832.</p>
-                </div>
-                <div class="kid">
-                    <h3>Jacques-François Mosdier</h3>
-                    <p>(1796–1862) Charron à Metz-Robert. Associé à M<sup>me</sup> Memeret, il acquiert le corps de ferme, terres et prés du domaine pour 15 000 F.</p>
-                </div>
-                <div class="kid">
-                    <h3>Bureau de bienfaisance de Troyes</h3>
-                    <p>Institution d’assistance publique de Troyes, acquéreur d'une maison avec orangerie pour 8 000 F le 6 avril 1833.</p>
-                </div>
-                <div class="kid">
-                    <h3>Victor Truelle</h3>
-                    <p>(1786–1862) Payeur du département de l’Aube. Acquéreur du grand hôtel particulier de Troyes pour 36 000 F le 20 avril 1833.</p>
-                </div>
-                <div class="kid">
-                    <h3>M. Herment</h3>
-                    <p>Acquéreur d’une maison pour 3 000 F le 20 septembre 1832.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. Descendance -->
-        <section id="descendance">
-            <div class="section-head">
-                <span class="eyebrow">Lignée directe</span>
-                <h2>Famille et descendance</h2>
-            </div>
-            <p>Alexandre-Louis-François épouse à Reims, le 19 mai 1813, Sophie Le Goix, fille de Victor-André Le Goix et de Joséphine-Sophie Du Bois. Née à Reims en novembre 1790 (baptisée le 4 novembre), elle meurt le 30 janvier 1860 à Macogny – Montron. Deux fils sont issus de leur union.</p>
-
-            <div class="tree-box">Alexandre-Louis-François Duchastel (1784–1863)
-   &amp; 1813 Sophie Le Goix (1790–1860)
-   ├── Victor Duchastel (1820–1843) [Décédé à 23 ans]
-   └── Jean-Baptiste Jules Duchastel (1823–1889)
-        &amp;1) 1845 Julia Félicie Sylvia Pelerin (1830–1859)
-        &amp;2) 1861 Berthe Eugénie Follias (1841–1921)</div>
-
-            <div class="kids">
-                <div class="kid">
-                    <h3>Victor Duchastel</h3>
-                    <p><strong>Né :</strong> 13 février 1820 à Reims</p>
-                    <p><strong>Décédé :</strong> 27 août 1843 à Macogny – Montron (Aisne), à l’âge de 23 ans.</p>
-                </div>
-                <div class="kid">
-                    <h3>Jean-Baptiste Jules Duchastel</h3>
-                    <p><strong>Né :</strong> 19 juillet 1823 à Reims</p>
-                    <p><strong>Décédé :</strong> 4 janvier 1889 à Paris (17<sup>e</sup>), à 65 ans.</p>
-                    <p>Maire de Montron, conseiller d'arrondissement et propriétaire. Voyage aux États-Unis (1845), résida rue du Faubourg St-Honoré et rue de Prony à Paris, ainsi qu'au château de Monthoury.</p>
-                    <p><strong>Mariages :</strong><br>
-                    1) 19 mai 1845 à New York avec Julia Félicie Sylvia Pelerin (1830–1859).<br>
-                    2) 18 mars 1861 à Paris avec Berthe Eugénie Follias (1841–1921).</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. Sources -->
-        <section id="sources">
-            <div class="section-head">
-                <span class="eyebrow">Archives &amp; Références</span>
-                <h2>Notes et sources documentaires</h2>
-            </div>
-            <p class="note">Page établie à partir de la notice <em>« Alexandre-Louis-François Duchastel de Montrouge (1784-1863) — De Reims à Monthoury »</em>, des affiches de vente du Domaine de Metz-Robert, des registres d'hypothèques et du chiffrier d'inventaire des ventes Duchastel.</p>
-
-            <div class="highlight-box">
-                <strong>📌 Points à vérifier dans les pièces familiales</strong>
-                <ul>
-                    <li>La date de naissance exacte de Sophie Le Goix oscille entre le 2 et le 3 novembre 1790 (baptême le 4 novembre).</li>
-                    <li>Le domaine de Monthoury est rattaché selon les actes à Macogny – Montron ou à Dammard (Aisne).</li>
-                    <li>La lecture du patronyme « Memeret » (co-acquéreur du 10 mars 1832) reste incertaine.</li>
-                </ul>
-            </div>
-
-            <h3 style="font-family:var(--font-heading); font-size:22px; color:var(--color-navy); margin-top:20px;">Notice documentaire</h3>
-            <ul class="src">
-                <li><strong>Union A.-L.-F. Duchastel / S. Le Goix :</strong> 19 mai 1813 à Reims — <a href="http://archives.marne.fr/ark:/86869/a011310543791baXoVB/1/127" target="_blank">Archives de la Marne</a></li>
-                <li><strong>Décès A.-L.-F. Duchastel :</strong> 23 juillet 1863 à Monthoury — <a href="https://archives.aisne.fr/ark:/63271/vta956ba6289231f2aa/daogrp/0/23" target="_blank">Archives de l’Aisne</a></li>
-                <li><strong>Sophie Le Goix (Baptême &amp; Décès) :</strong> Baptême en 1790 — <a href="https://archives.marne.fr/ark:/86869/x1pmflq2s6jb/86c57043-761e-409a-9fb3-0c76e37e667d" target="_blank">Archives de la Marne</a> | Décès le 30 janvier 1860 — <a href="https://archives.aisne.fr/ark:/63271/vta956ba6289231f2aa/daogrp/0/6" target="_blank">Archives de l’Aisne</a></li>
-                <li><strong>Victor Duchastel (Naissance &amp; Décès) :</strong> N. 1820 — <a href="https://archives.marne.fr/ark:/86869/qknzw4f8mgr2/5efd16f9-cddd-4052-8abb-bbcd2d04da55" target="_blank">Marne</a> | D. 1843 — <a href="https://archives.aisne.fr/ark:/63271/vtafb84786906b6065e/daogrp/0/139" target="_blank">Aisne</a></li>
-                <li><strong>Jean-Baptiste Jules Duchastel &amp; Alliances :</strong> Naissance 1823 — <a href="http://archives.marne.fr/ark:/86869/a011310543791EH1aMX/1/177" target="_blank">Marne</a> | Mariage Pelerin (1845) — <a href="https://bklyn.newspapers.com/image/117459874/?match=1&amp;terms=%22Pelerin%22" target="_blank">Brooklyn Newsstand</a> | Notice Gallica — <a href="http://gallica.bnf.fr/ark:/12148/bpt6k526742f.image.r=Duchastel%20Montrouge.f3.hl" target="_blank">BnF</a></li>
-                <li><strong>Acquéreurs &amp; Ventes :</strong> Notices Geneanet pour Legendre-Villain, Mosdier et Truelle. Historique du paupérisme à Troyes (<a href="https://www.jschweitzer.fr/la-vie-%C3%A0-troyes/le-paup%C3%A9risme/" target="_blank">jschweitzer.fr</a>).</li>
-                <li><strong>Conversions monétaires :</strong> Convertisseur historique de Rodney Edvinsson (Université de Stockholm).</li>
-            </ul>
-        </section>
-
-    </main>
-
-    <footer>
-        <p class="eyebrow">Dynastie Duchastel de Montrouge</p>
-        <p>© 2026 — Document de mémoire et d'histoire généalogique.</p>
-        <p><a href="genealogie-duchastel.html">← Retour au site Duchastel de Montrouge</a></p>
-    </footer>
-
-</body>
-</html>
+  <table>
+    <thead>
+      <tr><th>Acquéreur</th><th>Date</th><th>Nature du bien</th><th class="r">Prix</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>M. Edme Legendre-Villain[cite: 7]</td><td>19 fév. 1832[cite: 7]</td><td>Vinée (vignoble)[cite: 7]</td><td class="r">4 200 F[cite: 7]</td></tr>
+      <tr><td>J.-F. Mosdier &amp; M<sup>me</sup> Memeret[cite: 7]</td><td>10 mars 1832[cite: 7]</td><td>Bâtiments, terre et pré[cite: 7]</td><td class="r">15 000 F[cite: 7]</td></tr>
+      <tr><td>M. Herment[cite: 7]</td><td>20 sept. 1832[cite: 7]</td><td>Maison[cite: 7]</td><td class="r">3 000 F[cite: 7]</td></tr>
+      <tr><td>Bureau de bienfaisance de Troyes[cite: 7]</td><td>6 avril 1833[cite: 7]</td><td>Maison (orangerie)[cite: 7]</td><td class="r">8 0
