@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M. le bâtonnier Pierre Sébastien, c.r., Ad. E.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* Barre de navigation supérieure */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* En-tête héroïque */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* Fiche d'identité */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* Chiffres clés et tableaux */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.r,th.r{text-align:right;white-space:nowrap}
+
+  /* Chronologie */
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  /* Fiches accréditations */
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:18px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+  .kid p:last-child{margin-bottom:0}
+
+  /* Sources */
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  /* Pied de page */
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-duchastel.html">← Site Duchastel</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#formation">Formation &amp; barreau</a>
+    <a href="#carriere">Carrière &amp; bâtonnat</a>
+    <a href="#arbitrage">Arbitrage &amp; médiation</a>
+    <a href="#rayonnement">Rayonnement</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Parcours juridique &bull; Barreau du Québec</p>
+    <h1>M. le bâtonnier Pierre Sébastien<br><span style="font-size:0.65em; font-weight:500;">c.r., Ad. E.</span></h1>
+    <p class="dates">Admis au Barreau du Québec en 1961</p>
+    <p class="sub">Bâtonnier du Québec (1984–1985), associé en litige, arbitre et médiateur commercial à Montréal</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Diplômé en droit de l’Université de Montréal (1960) et de l’Université McGill (4<sup>e</sup> année), M<sup>e</sup> Pierre Sébastien est admis au Barreau du Québec en 1961. Associé pendant plus de trente ans au cabinet montréalais Lafleur, Brown, De Grandpré (aujourd’hui Gowlings), puis associé chez Pouliot Mercure et au cabinet Sébastien Downs Astell Lachance à Montréal, il consacre sa carrière au litige civil et commercial, au droit des assurances, ainsi qu’à l’arbitrage et à la médiation. Nommé conseiller en loi de la Reine (c.r.) en 1976 et élu Bâtonnier du Québec pour l’exercice 1984–1985, il reçoit en 2007 la distinction inaugurale d’Avocat émérite (Ad. E.) du Barreau du Québec.</p>
+  <dl class="identity">
+    <div><dt>Formation</dt><dd>Licence en droit, Université de Montréal (1960) et Université McGill (4<sup>e</sup> année)</dd></div>
+    <div><dt>Admission au Barreau</dt><dd>1961, Barreau du Québec (60<sup>e</sup> anniversaire célébré en 2021)</dd></div>
+    <div><dt>Titres honorifiques</dt><dd>Conseiller en loi de la Reine (c.r., 1976) ; Avocat émérite (Ad. E., 2007)</dd></div>
+    <div><dt>Haute charge ordinale</dt><dd>Bâtonnier du Québec (1984–1985) ; Vice-président du Barreau du Québec (1983–1984)</dd></div>
+    <div><dt>Cabinets d'exercice</dt><dd>Lafleur, Brown, De Grandpré (1966–1992) ; Pouliot Mercure (1993–1996) ; Sébastien Downs Astell Lachance</dd></div>
+    <div><dt>Pratique spécialisée</dt><dd>Litige civil et commercial, droit des assurances, arbitrage et médiation</dd></div>
+    <div><dt>Rayonnement international</dt><dd>Vice-président pour le Canada de l’Union internationale des avocats (1987–1991)</dd></div>
+    <div><dt>Langues de travail</dt><dd>Français et anglais (notions d’espagnol)</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="formation">
+  <h2><span class="num">2</span>Formation académique et débuts au Barreau</h2>
+  <p>Pierre Sébastien poursuit ses études supérieures à la Faculté de droit de l’<strong>Université de Montréal</strong>, où il obtient sa licence en droit en <strong>1960</strong>, avant d’effectuer une quatrième année de formation juridique à l’<strong>Université McGill</strong>. Il est officiellement admis au <strong>Barreau du Québec en 1961</strong>, amorçant une carrière professionnelle de plus de six décennies au service du droit et de la justice.</p>
+  <p>Parallèlement à sa pratique en cabinet, il transmet son expertise aux étudiants en droit en agissant à titre de <strong>chargé de cours en droit des assurances</strong> à la Faculté de droit de l’Université de Montréal de <strong>1973 à 1979</strong>.</p>
+
+  <div class="highlight">
+    <p><strong>La distinction Avocat émérite (Ad. E., 2007).</strong> En 2007, lors de la création de cette nouvelle désignation honorifique par le Barreau du Québec visant à reconnaître l’excellence et les avocats au parcours exemplaire, M<sup>e</sup> Pierre Sébastien figure parmi les récipiendaires sélectionnés, portant désormais le titre <em>Advocatus Emeritus</em> (Ad. E.) à la suite de son nom.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="carriere">
+  <h2><span class="num">3</span>Carrière en cabinet et gouvernance du Barreau</h2>
+  <p>Dès les premières années de son exercice à Montréal, M<sup>e</sup> Pierre Sébastien s’illustre en plaidoirie et en droit commercial. Il exerce pendant plus de trente ans comme associé au sein du prestigieux cabinet montréalais <strong>Lafleur, Brown, De Grandpré</strong> (1966–1992, devenu Gowlings), avant de poursuivre sa pratique en qualité d’associé chez <strong>Pouliot Mercure</strong> (1993–1996), puis au sein du cabinet <strong>Sébastien Downs Astell Lachance</strong>.</p>
+
+  <div class="figures">
+    <div class="fig"><b>1976</b><span>Nommé Conseiller en loi de la Reine (c.r.)</span></div>
+    <div class="fig"><b>1984–1985</b><span>Bâtonnier du Québec</span></div>
+    <div class="fig"><b>2007</b><span>Distinction Avocat émérite (Ad. E.)</span></div>
+  </div>
+
+  <h3>Engagement ordinal et associatif</h3>
+  <p>Très tôt investi dans la vie démocratique et professionnelle de la magistrature debout, il gravit tous les échelons des instances du Barreau de Montréal, du Barreau du Québec et de l’Association du Barreau canadien, culminant avec son élection au poste de <strong>Bâtonnier du Québec pour l’exercice 1984–1985</strong>.</p>
+
+  <table>
+    <thead>
+      <tr><th>Période</th><th>Fonction ou mandat</th><th>Institution</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-l="Période">1967–1968</td>
+        <td data-l="Fonction">Membre du Conseil</td>
+        <td data-l="Institution">Association du Jeune Barreau de Montréal</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1969–1970</td>
+        <td data-l="Fonction">Secrétaire de la section de Montréal</td>
+        <td data-l="Institution">Barreau de Montréal</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1971–1973</td>
+        <td data-l="Fonction">Secrétaire</td>
+        <td data-l="Institution">Association du Barreau canadien – Division Québec</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1974–1978</td>
+        <td data-l="Fonction">Commissaire</td>
+        <td data-l="Institution">Commission des services juridiques</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1975–1976</td>
+        <td data-l="Fonction">Trésorier de la section de Montréal</td>
+        <td data-l="Institution">Barreau de Montréal</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1978–1979</td>
+        <td data-l="Fonction">Président</td>
+        <td data-l="Institution">Association du Barreau canadien – Division Québec</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1981–1983</td>
+        <td data-l="Fonction">Membre du Comité exécutif national</td>
+        <td data-l="Institution">Association du Barreau canadien</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1983–1984</td>
+        <td data-l="Fonction">Vice-président</td>
+        <td data-l="Institution">Barreau du Québec</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1984–1985</td>
+        <td data-l="Fonction"><strong>Bâtonnier du Québec</strong></td>
+        <td data-l="Institution">Barreau du Québec</td>
+      </tr>
+      <tr>
+        <td data-l="Période">1995–1999</td>
+        <td data-l="Fonction">Membre et président du Comité d’éthique</td>
+        <td data-l="Institution">Association du Barreau canadien</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 4 -->
+<section id="arbitrage">
+  <h2><span class="num">4</span>Arbitrage commercial et médiation</h2>
+  <p>Pionnier des modes alternatifs de règlement des différends au Québec, M<sup>e</sup> Pierre Sébastien suit dès la fin des années 1980 un programme approfondi de perfectionnement en arbitrage et en médiation (1989–1996) auprès du Centre canadien d’arbitrage commercial, du Barreau du Québec, de l’Institut d’arbitrage et de médiation du Canada et de l’<em>American Arbitration Association</em>. Il devient <strong>arbitre habilité au Centre canadien d’arbitrage commercial (CCAC) dès 1990</strong>, puis <strong>médiateur habilité au CCAC en 1995</strong>, ainsi qu’à la <strong>Cour supérieure du Québec</strong> et à la <strong>Banque de Montréal en 1996</strong>.</p>
+
+  <div class="kids">
+    <div class="kid">
+      <h3>Accréditations en arbitrage</h3>
+      <p><strong>1990 :</strong> Arbitre habilité au Centre canadien d’arbitrage commercial (CCAC).</p>
+      <p><strong>1998 :</strong> Membre du <em>National Arbitration Forum</em> (États-Unis).</p>
+    </div>
+    <div class="kid">
+      <h3>Accréditations en médiation</h3>
+      <p><strong>1995 :</strong> Médiateur habilité au Centre canadien d’arbitrage commercial (CCAC).</p>
+      <p><strong>1996 :</strong> Médiateur habilité auprès de la Cour supérieure du Québec et de la Banque de Montréal.</p>
+    </div>
+    <div class="kid">
+      <h3>Affiliations spécialisées</h3>
+      <p>Membre actif d’associations nationales et internationales de médiation et d’arbitrage : le <strong>CCAC</strong>, l’<strong>ACR</strong> (<em>Association for Conflict Resolution</em>), l’<strong>IAF</strong> et l’<strong>Association du Barreau canadien (ABC)</strong>.</p>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <p><strong>Expérience pratique en règlement des différends.</strong> M<sup>e</sup> Sébastien a agi comme arbitre institutionnel en matière de franchise et présidé de nombreux arbitrages en valeurs mobilières sous l’égide du CCAC. Il a également conduit un grand nombre d’arbitrages et de médiations en matière commerciale et corporative, touchant notamment le droit de la construction, le louage commercial, les conventions d’actionnaires, les recours en oppression, la dissolution de sociétés et l’évaluation du quantum de dommages-intérêts.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="rayonnement">
+  <h2><span class="num">5</span>Rayonnement international et engagement civique</h2>
+  <p>Au-delà de ses fonctions au Québec et au Canada, M<sup>e</sup> Pierre Sébastien a contribué au dialogue juridique international et soutenu activement plusieurs institutions scientifiques, culturelles et philanthropiques montréalaises.</p>
+
+  <ul class="timeline">
+    <li><span class="d">1975 – 1988 · Union internationale des avocats (UIA)</span> — membre du Conseil de l’Union internationale des avocats.</li>
+    <li><span class="d">1987 – 1991 · Vice-présidence internationale</span> — vice-président pour le Canada de l’Union internationale des avocats.</li>
+    <li><span class="d">Mission internationale · Égypte</span> — chargé de mission en Égypte pour le compte de la Commission internationale des juristes.</li>
+    <li><span class="d">Engagement scientifique et culturel · Montréal</span> — membre du Comité d’honneur de l’<strong>ACFAS</strong> (Association francophone pour le savoir) et membre du Comité des finances du <strong>Musée des beaux-arts de Montréal</strong>, en plus de siéger au sein de divers conseils d’administration.</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section id="sources">
+  <h2><span class="num">6</span>Notes et sources</h2>
+  <p class="note">Notice biographique établie d’après les publications officielles du Barreau du Québec, du Barreau de Montréal, de la Faculté de droit de l’Université de Montréal et les répertoires d’arbitrage et de médiation.</p>
+
+  <div class="srcgroup">
+    <h3>Archives ordinales et universitaires</h3>
+    <ul class="src">
+      <li>Barreau du Québec : <em>Livret des Avocats émérites (Ad. E.)</em>, notice biographique de M. le bâtonnier Pierre Sébastien, c.r., Ad. E. (2007).</li>
+      <li>Université de Montréal — Faculté de droit : <em>Liste des Avocats Émérites Diplômés de l’Université de Montréal</em> (promotion 1960).</li>
+      <li>Barreau de Montréal : <em>Cérémonie de la rentrée judiciaire</em> (9 septembre 2021) — hommage aux avocats célébrant leur 60<sup>e</sup> anniversaire d’admission au Barreau (1961–2021).</li>
+      <li>Curriculum vitae professionnel et répertoire d’arbitrage et de médiation (CCAC / ACR / National Arbitration Forum).</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <a href="genealogie-duchastel.html">← Retour au site Duchastel de Montrouge</a>
+</footer>
+
+</body>
+</html>
