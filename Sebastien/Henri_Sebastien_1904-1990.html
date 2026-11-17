@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Henri Sébastien (1904-1990)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(680px,90%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-sebastien.html">← Famille Sébastien</a>
+    <a href="biographie_de_m_le_batonnier_pierre_sebastien_c_r_adv_e.html">Pierre Sébastien (fils)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#biographie">Biographie</a>
+    <a href="#genealogie">Généalogie</a>
+    <a href="#chronologie">Chronologie</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération VIII · Famille Sébastien</p>
+    <h1>Henri Sébastien</h1>
+    <p class="dates">1904 – 1990</p>
+    <p class="sub">Typographe à la Librairie P. H. Marineau Ltée, puis à Montréal</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Joseph-Henri-Martial-Louis Sébastien naît le 20 février 1904 à Trois-Rivières et décède en 1990 (ou 1991 selon certains relevés familiaux) à Montréal. Orphelin dès l’enfance et élevé par son oncle Philippe Honoré Marineau et sa tante Eugénie St-Ours, il exerce le métier de typographe à Trois-Rivières avant d'emménager à Montréal, où il travaille notamment pour le journal <em>La Presse</em> puis pour l'imprimerie des *Prions en Église*.</p>
+  <dl class="identity">
+    <div><dt>Nom complet</dt><dd>Joseph-Henri-Martial-Louis Sébastien</dd></div>
+    <div><dt>Profession</dt><dd>Typographe (Librairie P. H. Marineau, journal <em>La Presse</em>, imprimerie des <em>Prions en Église</em>)</dd></div>
+    <div><dt>Naissance</dt><dd>20 février 1904, paroisse Immaculée-Conception, Trois-Rivières (Québec)</dd></div>
+    <div><dt>Décès</dt><dd>1990, Montréal (Québec) <span class="note">(note familiale : 1991)</span></dd></div>
+    <div><dt>Parents</dt><dd>Joseph-Édouard Sébastien (1879–1914), mégissier et gantier<br>Marie (Mary) St-Ours (1877–1906)</dd></div>
+    <div><dt>Tuteurs d’enfance</dt><dd>Philippe Honoré Marineau (oncle) et Eugénie St-Ours (tante maternelle)</dd></div>
+    <div><dt>Mariage</dt><dd>2 juin 1927 à Saint-Évariste-de-Forsyth (Québec), avec Blanche Blais (1901–1976)</dd></div>
+    <div><dt>Enfants</dt><dd>Suzanne (1928), Gilles (1930), Guy (1931–1972) et Pierre (1936)</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="biographie">
+  <h2><span class="num">2</span>Biographie et carrière</h2>
+  <p>Né à Trois-Rivières au sein d’une lignée huronne-wendat issue de Jeune-Lorette (Wendake) et établie en Mauricie depuis les années 1840, Henri Sébastien est le fils unique de Joseph-Édouard Sébastien et de Marie St-Ours. Il est baptisé à la paroisse de l’Immaculée-Conception avec pour parrain Louis St-Ours et pour marraine sa tante Corinne Sébastien.</p>
+  <p>Son enfance est marquée par des deuils précoces : sa mère Marie St-Ours s’éteint le 16 juillet 1906 à l’âge de 29 ans, alors qu’Henri n’a que deux ans. Son père se remarie en 1910 avec Caroline Paquin (veuve de Joseph DuSablon), mais décède prématurément le 25 novembre 1914 à l’hôpital Saint-Joseph de Trois-Rivières, à l’âge de 35 ans. Orphelin de père et de mère à dix ans, Henri est accueilli et élevé par sa tante maternelle Eugénie St-Ours et son époux, Philippe Honoré Marineau, pour qui il travaille également durant sa jeunesse.</p>
+  <p>À l’âge adulte, il embrasse le métier de <strong>typographe</strong> et commence sa carrière à Trois-Rivières au sein de la <strong>Librairie P. H. Marineau Ltée</strong>. Le 2 juin 1927, il épouse Blanche Blais (née le 9 ou 10 mars 1901 à Saint-Évariste-de-Forsyth, fille de Louis Blais et de Célina Lachance). Le couple élève quatre enfants à Trois-Rivières avant de s'établir à Montréal.</p>
+  <p>À Montréal, la famille déménage sur la <strong>rue Bordeau</strong>. Henri se trouve un emploi comme typographe pour le quotidien <strong><em>La Presse</em></strong> sur la rue St-Jacques. Lorsque l'usine se modernise et que le métier de typographe y devient obsolète, il termine sa carrière au service de la compagnie qui imprimait les publications religieuses des <em>Prions en Église</em>.</p>
+
+  <div class="figures">
+    <div class="fig"><b>1904</b><span>Naissance à Trois-Rivières</span></div>
+    <div class="fig"><b>Typographe</b><span>La Presse &amp; Prions en Église</span></div>
+    <div class="fig"><b>4 enfants</b><span>Suzanne, Gilles, Guy et Pierre</span></div>
+  </div>
+
+  <div class="highlight">
+    <p><strong>De Trois-Rivières à Montréal : une vie dédiée à la typographie.</strong> Formé à l'art de l'impression auprès de son oncle Philippe Honoré Marineau, Henri poursuit sa carrière dans les grandes imprimeries montréalaises (rue Bordeau, rue St-Jacques), s'adaptant aux mutations technologiques de son métier de l'époque du plomb jusqu'aux revues spirituelles populaires comme les <em>Prions en Église</em>.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="genealogie">
+  <h2><span class="num">3</span>Généalogie et famille</h2>
+  <p>Henri Sébastien appartient à la huitième génération documentée de la lignée huronne-wendat des Sébastien (autrefois <em>Sarenhes</em>, « le grand arbre »), descendant en ligne directe du Grand Chef Paul Tsa8enhohi (~1693–1774), d’Étienne Eha8ennon et de Sébastien Sarenhes (1749–1835), pensionnaire du Dartmouth College et premier chef des guerriers de Jeune-Lorette. Son arrière-arrière-grand-père Jean-Baptiste Sébastien (1785–1848) s’était fixé à Trois-Rivières vers 1840 avec son épouse Louise Savard, où ses descendants exercèrent notamment les métiers de corroyeur et de mégissier.</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Édouard Sébastien<small>1854–1905 · Mégissier</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Étudienne Panneton<small>1857–1901</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node">Joseph-Édouard Sébastien<small>1879–1914 · Gantier</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie (Mary) St-Ours<small>1877–1906</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Henri Sébastien<small>1904–1990 · Typographe</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Blanche Blais<small>1901–1976</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px">Suzanne<small>née en 1928</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px">Gilles<small>né en 1930 · Ingénieur</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px">Guy<small>1931–1972 · Médecin</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px">Pierre<small>né en 1936 · Avocat</small></div></div>
+    </div>
+  </div>
+
+  <h3>Descendance d’Henri Sébastien et de Blanche Blais</h3>
+  <div class="kids">
+    <div class="kid">
+      <h3>Suzanne Sébastien</h3>
+      <p><strong>Née</strong> le 4 juin 1928 et baptisée le 5 juin (Marie-Thérèse-Céline-Suzanne) à la paroisse Saint-Philippe de Trois-Rivières. Épouse le 10 septembre 1955 à Montréal Charles Arcand (né le 4 janvier 1925, fils de Léopold Arcand et de Jeanne Brosseau). Mère de Marie (1957), Charles (1959) et Geneviève (1963).</p>
+    </div>
+    <div class="kid">
+      <h3>Gilles Sébastien</h3>
+      <p><strong>Né</strong> le 24 mars 1930 (Joseph-Philippe-Henri-Gilles). Ingénieur. Épouse le 24 octobre 1959 à la paroisse Notre-Dame de Montréal Jacqueline Denise Arsenault (fille de Jean Arsenault et de Marcelline Bourdage). Père de Louise (~1961), Annie (~1963) et François (1965).</p>
+    </div>
+    <div class="kid">
+      <h3>Dr Guy Sébastien</h3>
+      <p><strong>Né</strong> le 23 novembre 1931 (Joseph-Guy-André) et décédé en 1972. Médecin. Épouse le 10 octobre 1959 à Montréal Marguerite « Margot » Lalonde (fille de Jean-Paul Lalonde). Père de Dominique (~1961), Nathalie (~1963) et Luc (1965–2014).</p>
+    </div>
+    <div class="kid">
+      <h3>M<sup>e</sup> Pierre Sébastien, c.r., Ad. E.</h3>
+      <p><strong>Né</strong> le 5 septembre 1936 à Trois-Rivières (Joseph-Pierre-Jean-Conrad). Avocat émérite et Bâtonnier du Québec (1984–1985), époux de Renée Charest (mariés le 26 mai 1962 à Ville Mont-Royal). <a href="biographie_de_m_le_batonnier_pierre_sebastien_c_r_adv_e.html">Voir sa page →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="chronologie">
+  <h2><span class="num">4</span>Repères chronologiques</h2>
+  <ul class="timeline">
+    <li><span class="d">20 février 1904</span> — Naissance à Trois-Rivières et baptême à la paroisse de l’Immaculée-Conception sous les prénoms de Joseph-Henri-Martial-Louis.</li>
+    <li><span class="d">16 juillet 1906</span> — Décès de sa mère, Marie St-Ours, à Trois-Rivières à l’âge de 29 ans.</li>
+    <li><span class="d">1911</span> — Recensé à Trois-Rivières (âgé de 7 ans) au foyer de son père Édouard Sébastien, gantier, et de sa belle-mère Caroline Paquin.</li>
+    <li><span class="d">25 novembre 1914</span> — Décès de son père, Joseph-Édouard Sébastien, à l’hôpital Saint-Joseph de Trois-Rivières ; Henri est recueilli par son oncle Philippe Honoré Marineau et sa tante Eugénie St-Ours, travaillant pour l'entreprise familiale.</li>
+    <li><span class="d">2 juin 1927</span> — Mariage à Saint-Évariste-de-Forsyth avec Blanche Blais (1901–1976).</li>
+    <li><span class="d">1928 – 1936</span> — Naissance de ses quatre enfants à Trois-Rivières : Suzanne, Gilles, Guy et Pierre.</li>
+    <li><span class="d">Période active à Montréal</span> — Déménagement de la famille sur la rue Bordeau ; emploi de typographe au journal <em>La Presse</em> (rue St-Jacques) jusqu'à la modernisation de l'usine, puis fin de carrière à l'imprimerie des <em>Prions en Église</em>.</li>
+    <li><span class="d">1976</span> — Décès de son épouse Blanche Blais.</li>
+    <li><span class="d">1990</span> — Décès d’Henri Sébastien à Montréal.</li>
+  </ul>
+</section>
+
+<!-- 5 -->
+<section id="sources">
+  <h2><span class="num">5</span>Sources et références archivistiques</h2>
+
+  <div class="srcgroup" style="border-top:0;margin-top:0;padding-top:0">
+    <h3>Registres paroissiaux et recensements</h3>
+    <ul class="src">
+      <li><strong>Acte de baptême d’Henri Sébastien (1904) :</strong> Paroisse de l’Immaculée-Conception, Trois-Rivières, février 1904 (BAnQ, série <code>04T_CE401S48</code>).</li>
+      <li><strong>Acte de baptême de Blanche Blais (1901) :</strong> Saint-Évariste-de-Forsyth, 1901 (BAnQ, série <code>03Q_CE305S21</code>).</li>
+      <li><strong>Recensement du Canada de 1911 :</strong> District de Trois-Rivières, foyer d’Édouard Sébastien et Caroline Paquin (Henri Sébastien, fils, né en février 1904, âgé de 7 ans).</li>
+      <li><strong>Registres d’état civil et souvenirs de famille :</strong> Notes biographiques familiales sur la carrière de typographe (Librairie P. H. Marineau, journal <em>La Presse</em> rue St-Jacques, rue Bordeau, et impression des <em>Prions en Église</em>).</li>
+    </ul>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Généalogie et histoire familiale</h3>
+    <ul class="src">
+      <li><strong>Archives familiales Sébastien :</strong> Dossier généalogique <em>Famille Sébastien</em> (Générations I à X, lignée de Paul Tsa8enhohi à Henri et Pierre Sébastien).</li>
+      <li><strong>Serge Goudreau :</strong> « Les Hurons de Lorette au 18<sup>e</sup> siècle », <em>Mémoires de la Société généalogique canadienne-française</em>, vol. 63, n<sup>o</sup> 2, cahier 272, été 2012, p. 125–147.</li>
+      <li><strong>Chroniques historiques de Trois-Rivières :</strong> « Des Hurons à Trois-Rivières » et « Les mégissiers », études sur l’établissement des familles Sébastien, Laveau, Picard, Romain et Sioui en Mauricie.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Généalogie de la famille Sébastien · <a href="biographie_de_m_le_batonnier_pierre_sebastien_c_r_adv_e.html">Pierre Sébastien (1936–)</a> · <a href="#fiche">Haut de page ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
