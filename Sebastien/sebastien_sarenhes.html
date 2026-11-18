@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sébastien Sarenhes (1749–1835)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* archive boxes */
+  .archive-box{background:var(--hl);border:1px solid var(--line);border-left:4px solid var(--accent);padding:18px 22px;margin:18px 0;border-radius:0 6px 6px 0}
+  .archive-title{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);margin-bottom:8px}
+  .archive-text{font-style:italic;color:var(--ink);font-size:16px;margin-bottom:10px}
+  .archive-meta{font-size:14px;color:var(--muted);border-top:1px dashed var(--accent-2);padding-top:8px}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 18px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(680px,90%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:12px 0 22px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even){background:#faf6ee}
+  tr.direct-ancestor{background:var(--hl);font-weight:500}
+  .badge-direct{display:inline-block;background:var(--accent);color:#fff;font-size:11px;letter-spacing:.06em;padding:2px 8px;border-radius:4px;text-transform:uppercase;margin-left:6px;vertical-align:middle}
+
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-sebastien.html">← Famille Sébastien</a>
+    <a href="etienne-eha8ennon.html">Étienne Eha8ennon (père)</a>
+    <a href="Jean-Baptiste_Sebastien_1785-1848.html">Jean-Baptiste Sébastien (fils)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#biographie">Biographie</a>
+    <a href="#genealogie">Généalogie</a>
+    <a href="#archives">Archives</a>
+    <a href="#chronologie">Chronologie</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération III · Nation Huronne-Wendat (Clan du Chevreuil)</p>
+    <h1>Sébastien Sarenhes</h1>
+    <p class="dates">v. 1749 – 1835</p>
+    <p class="sub">« Le grand arbre » · Premier chef des guerriers de la Jeune-Lorette · Pensionnaire du Dartmouth College</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Né vers 1749 au village huron de Saint-Ambroise-de-la-Jeune-Lorette (aujourd’hui Wendake), Sébastien Sarenhes — dont le prénom de baptême est à l’origine du patronyme héréditaire <strong>Sébastien</strong> et <strong>Bastien</strong> — compte parmi les figures marquantes de sa communauté au tournant du XIX<sup>e</sup> siècle. Pensionnaire du <em>Dartmouth College</em>, instituteur à la mission, vendeur de chaux, boulanger et premier chef des guerriers, il s’éteint à Lorette le 1<sup>er</sup> septembre 1835.</p>
+  <dl class="identity">
+    <div><dt>Nom et variantes</dt><dd>Sébastien Sarenhes, Sarenës, Sarenes, Sharenhesse, Shawranhass, Bastien <span class="note">(inscrit « Choyen » au recensement de 1784)</span></dd></div>
+    <div><dt>Signification wendat</dt><dd><em>Sarenhes</em> signifie « le grand arbre » (clan du Chevreuil / descendants des Attignaouatans)</dd></div>
+    <div><dt>Naissance</dt><dd>Vers 1749, probablement à Saint-Ambroise-de-la-Jeune-Lorette (Wendake), Québec</dd></div>
+    <div><dt>Décès &amp; Sépulture</dt><dd>Décédé le 1<sup>er</sup> septembre 1835 et inhumé le 2 septembre 1835 à Saint-Ambroise-de-la-Jeune-Lorette</dd></div>
+    <div><dt>Parents</dt><dd><a href="etienne-eha8ennon.html">Étienne Eha8ennon</a> (~1715 – av. 1767)<br>Geneviève Andhechonniak / Andheahonniak (« fille française », décédée avant 1754)</dd></div>
+    <div><dt>Grands-parents paternels</dt><dd><a href="paul-tsa8enhohi.html">Paul Tsa8enhohi</a> (~1693 – 1774), Grand Chef des Hurons, et Marie-Josèphe Tsoendask8a (~1693 – 1773)</dd></div>
+    <div><dt>Mariage</dt><dd>12 janvier 1778 à Saint-Ambroise-de-la-Jeune-Lorette avec <strong>Marie-Madeleine Hotte (Hoet)</strong> (bapt. 8 déc. 1757 à l’Ancienne-Lorette ; inh. 1<sup>er</sup> fév. 1836 à Jeune-Lorette), fille de Pierre Hoet et de Marie-Josèphe Liénard dit Mondor</dd></div>
+    <div><dt>Occupations &amp; Fonctions</dt><dd>Instituteur à la mission de Lorette (1775–1796), premier chef des guerriers, vendeur de chaux et boulanger</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="biographie">
+  <h2><span class="num">2</span>Origines et parcours biographique</h2>
+  <p>Né vers 1749 au village huron de la Jeune-Lorette, <strong>Sébastien Sarenhes</strong> est le fils d’Étienne Eha8ennon et de Geneviève Andhechonniak (une captive ou adoptée d’origine française), ainsi que le petit-fils du Grand Chef <strong>Paul Tsa8enhohi</strong>. Alors que son prénom de baptême, <em>Sébastien</em> (souvent contracté en <em>Bastien</em>), est à l’origine du patronyme héréditaire porté par sa nombreuse descendance, son nom traditionnel wendat, <strong>Sarenhes</strong>, signifie « le grand arbre ».</p>
+
+  <div class="figures">
+    <div class="fig"><b>1772–1774</b><span>Pensionnaire au Dartmouth College</span></div>
+    <div class="fig"><b>1775–1796</b><span>Instituteur à la mission de Lorette</span></div>
+    <div class="fig"><b>13 enfants</b><span>Avec Marie-Madeleine Hotte</span></div>
+  </div>
+
+  <h3>Instruction au Dartmouth College (1772–1774) et retour à Lorette</h3>
+  <p>À l’automne 1772, Sébastien Sarenhes (inscrit dans les registres américains sous le nom de <em>Basteen Shawranhass</em> ou parfois désigné à tort comme le frère de son compagnon <a href="#">Louis Vincent Sawantanan</a>) entreprend un voyage vers le New Hampshire afin de poursuivre son instruction à la <em>Moor’s Indian Charity School</em> et au <strong>Dartmouth College</strong>, fondés et dirigés par le révérend Eleazar Wheelock. Il y séjourne comme pensionnaire jusqu’en 1774.</p>
+  <p>En février 1773, muni d’une lettre de recommandation élogieuse d’Eleazar Wheelock, Sébastien et Louis Vincent rendent visite à Sir William Johnson à Johnson Hall (New York). Wheelock y souligne leur ardeur exceptionnelle aux études, leur courtoisie et leur sobriété, les qualifiant des « jeunes Indiens les plus prometteurs qu’il ait jamais vus ».</p>
+  <p>De retour à la Jeune-Lorette dès 1775, Sébastien met son instruction au service de sa communauté. Sa signature autographe, <strong>« Bastien Sharenhesse »</strong>, apparaît dès le 13 décembre 1775 au bas d’un contrat reçu par le notaire André Genest. Il agit comme maître d’école auprès du missionnaire jésuite Étienne-Thomas de Villeneuve Girault jusqu’en 1796, année où son ancien condisciple Louis Vincent prend sa relève. Parallèlement, selon l’historien Serge Goudreau, il exerce les métiers de vendeur de chaux et de boulanger. En février 1807, il effectue à pied le trajet de près de 300 milles jusqu’au Dartmouth College dans l’espoir d’y faire admettre deux de ses fils.</p>
+
+  <h3>Engagement politique et premier chef des guerriers</h3>
+  <p>Homme instruit et respecté au sein de la Nation huronne-wendat, Sébastien Sarenhes joue un rôle actif dans la défense des droits territoriaux de son peuple. Le <strong>17 mai 1805</strong>, lorsque les Hurons de Lorette adressent une pétition officielle aux autorités coloniales afin d’obtenir la rétrocession de la seigneurie de Sillery (sous l’autorité du Grand Chef Thomas Martin Thodato8an), Sébastien signe le document en qualité de <strong>premier chef des guerriers</strong>.</p>
+
+  <h3>Transactions foncières et succession</h3>
+  <p>À la suite de son union avec la Canadienne Marie Hotte en 1778, Sébastien devient héritier d’un tiers de la succession de son beau-père, Pierre Hotte ; le 12 janvier 1795, il cède ses droits successifs mobiliers et immobiliers à son beau-frère Charles Albœuf.</p>
+  <p>Le 28 mars 1799, il obtient du père Philippe-Jean-Louis Desjardins (procureur du père jésuite Jean-Joseph Casot, seigneur de Saint-Gabriel) une concession de terre en bois debout de 3 arpents de front sur 30 de profondeur au deuxième rang de la seigneurie de Saint-Gabriel (côte Saint-Michel), assortie d’une concession semblable pour son fils mineur Thomas Sébastien, âgé de 17 ans. Il revend cette concession en juin 1806 au maître meunier Joseph Plamondon pour la somme de 60 livres de 20 sols, tout comme un emplacement acquis en 1804 à la côte du Grand Saint-Antoine.</p>
+
+  <h3>Vieillesse, cécité et dernières volontés</h3>
+  <p>Le 13 octobre 1820, devant le notaire Dominique Lefrançois, Sébastien Sarenhes rédige son testament par lequel il lègue l’ensemble de ses biens meubles et immeubles à son épouse Marie Hotte, attribuant à chacun de ses six enfants vivants la somme de 40 sols à titre de droits légitimaires.</p>
+  <p>À la fin de leur vie, Sébastien et Marie sont tous deux frappés de cécité. En décembre 1833, les chefs hurons de Lorette (dont André Romain), appuyés par le missionnaire Thomas Cooke (futur premier évêque de Trois-Rivières), adressent une requête au gouverneur Lord Aylmer pour solliciter des secours en faveur de « Sébastien, vieillard octogénaire, et sa femme septuagénaire », soulignant qu’ils avaient toujours vécu honnêtement de leur propre industrie avant de devenir aveugles. Sébastien Sarenhes s’éteint le 1<sup>er</sup> septembre 1835 à Lorette, suivi de son épouse quelques mois plus tard, le 31 janvier 1836.</p>
+
+  <div class="highlight">
+    <p><strong>Ancêtre fondateur des lignées Sébastien et Bastien.</strong> Premier Huron de Lorette à avoir fréquenté le <em>Dartmouth College</em> aux côtés de Louis Vincent Sawantanan, Sébastien Sarenhes incarne le passage entre les noms claniques traditionnels wendat et l’adoption d’un patronyme héréditaire transmis à travers tout le Québec, de Wendake jusqu’à Trois-Rivières et Montréal.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="genealogie">
+  <h2><span class="num">3</span>Généalogie et descendance (1778–1799)</h2>
+  <p>Petit-fils du Grand Chef Paul Tsa8enhohi (~1693–1774) et frère du Grand Chef <a href="etienne-ondiaraete.html">Étienne Ondiaraété dit Petit-Étienne</a> (~1742–1830), Sébastien Sarenhes et Marie-Madeleine Hotte ont donné naissance à <strong>treize enfants</strong> entre 1778 et 1799 (dont six sont inscrits aux registres de baptême de Lorette). Six d’entre eux au moins ont fondé un foyer, assurant une vaste postérité à Lorette (Wendake) et à Trois-Rivières sous les patronymes <strong>Sébastien</strong> et <strong>Bastien</strong>.</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Paul Tsa8enhohi<small>~1693–1774 · Grand Chef des Hurons</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie-Josèphe Tsoendask8a<small>~1693–1773</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node">Étienne Eha8ennon<small>~1715–av. 1767</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Geneviève Andhechonniak<small>décédée av. 1754</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Sébastien Sarenhes<small>v. 1749–1835 · Chef des guerriers</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie-Madeleine Hotte<small>1757–1836</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:165px">Isaac<small>n. v. 1780 · Maçon</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:165px">Thomas<small>n. v. 1781–1782</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:185px;border-color:var(--accent)">Jean-Baptiste<small>1785–1848 · Lignée directe</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:165px">Stanislas<small>1799–1845</small></div></div>
+    </div>
+  </div>
+
+  <h3>Enfants de Sébastien Sarenhes et de Marie-Madeleine Hotte</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Enfant</th>
+        <th>Naissance / Baptême</th>
+        <th>Alliance(s)</th>
+        <th>Décès / Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-l="Enfant"><strong>Pierre Sébastien</strong></td>
+        <td data-l="Naissance">n. 16 oct. 1778<br>b. 17 oct. 1778 (Lorette)</td>
+        <td data-l="Alliance(s)">—</td>
+        <td data-l="Notes">s. 29 janvier 1784 à Saint-Pierre-de-Sorel, QC</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Marie-Madeleine Sébastien</strong></td>
+        <td data-l="Naissance">n. 12 oct. 1779<br>b. 13 oct. 1779 (Lorette)</td>
+        <td data-l="Alliance(s)">m. 9 avril 1813 (Jeune-Lorette) avec <strong>Ignace Rodrigue Picard Ok8andoron</strong> (veuf de Marie Petit-Étienne)</td>
+        <td data-l="Notes">Parrain : Grand Chef Thomas Martin Tsa8enhohi ; marraine : Marie-Josèphe Liénard</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Isaac Sébastien</strong><br><em>(dit Petit-Étienne)</em></td>
+        <td data-l="Naissance">n. vers 1780</td>
+        <td data-l="Alliance(s)">m. 31 juillet 1815 (Jeune-Lorette) avec <strong>Marie-Josèphe Zacharie-Thomas</strong></td>
+        <td data-l="Notes">Maçon à la Jeune-Lorette ; père notamment d’Édouard Sébastien (établi vers Trois-Rivières / Shawinigan)</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Thomas Sébastien</strong></td>
+        <td data-l="Naissance">n. vers 1781–1782</td>
+        <td data-l="Alliance(s)">m. avec <strong>Marie-Adélaïde Petit-Étienne</strong></td>
+        <td data-l="Notes">Reçoit une concession de terre en la seigneurie de Saint-Gabriel en mars 1799 à l’âge de 17 ans</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Marie-Louise Sébastien</strong></td>
+        <td data-l="Naissance">n. vers 1783</td>
+        <td data-l="Alliance(s)">1) m. 14 juin 1802 (Jeune-Lorette) avec <strong>Barthélemy Koska</strong><br>2) m. 10 mai 1831 avec <strong>Joseph Verret</strong></td>
+        <td data-l="Notes">Nombreuse descendance chez les Koska et Sioui</td>
+      </tr>
+      <tr class="direct-ancestor">
+        <td data-l="Enfant"><strong><a href="Jean-Baptiste_Sebastien_1785-1848.html">Jean-Baptiste Sébastien</a></strong> <span class="badge-direct">Lignée directe</span></td>
+        <td data-l="Naissance">n. et b. 3 mars 1785<br>(Saint-Ambroise-de-la-Jeune-Lorette)</td>
+        <td data-l="Alliance(s)">1) m. 13 février 1809 (Jeune-Lorette) avec <strong>Agathe Zacharie-Thomas</strong> (1772–1822)<br>2) m. 8 septembre 1823 (Jeune-Lorette) avec <strong>Marie-Louise Savard</strong> (1806–1876)</td>
+        <td data-l="Notes">s. 19 juin 1848 à Trois-Rivières, QC (où il s’établit avec sa famille vers 1847)</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Étienne Sébastien</strong></td>
+        <td data-l="Naissance">b. 3 sept. 1786 (Notre-Dame de Québec)</td>
+        <td data-l="Alliance(s)">—</td>
+        <td data-l="Notes">d. 10/18 février 1795, s. 19 février 1795 à Loretteville</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Moïse (Moyse) Sébastien</strong></td>
+        <td data-l="Naissance">n. vers 1792</td>
+        <td data-l="Alliance(s)">m. 3 novembre 1809 (Deschambault) avec <strong>Angélique Germain dit Bélisle</strong></td>
+        <td data-l="Notes">d. avant 1839 ; signe au mariage de son frère Jean-Baptiste en 1809</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Barthélemy Sébastien</strong></td>
+        <td data-l="Naissance">n. et b. 15 août 1795 (Jeune-Lorette)</td>
+        <td data-l="Alliance(s)">—</td>
+        <td data-l="Notes">d. 15 mars / 8 sept. 1797 (Jeune-Lorette) ; Sébastien Sarenhes signe l’acte de baptême</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Ursule Sébastien</strong></td>
+        <td data-l="Naissance">n. et b. 3 janvier 1798 (Jeune-Lorette)</td>
+        <td data-l="Alliance(s)">—</td>
+        <td data-l="Notes">d. 5 janvier 1798, s. 6 janvier 1798 (Jeune-Lorette)</td>
+      </tr>
+      <tr>
+        <td data-l="Enfant"><strong>Stanislas Sébastien</strong></td>
+        <td data-l="Naissance">n. et b. 23 juin 1799 (Jeune-Lorette)</td>
+        <td data-l="Alliance(s)">m. 27 octobre 1818 (Jeune-Lorette) avec <strong>Henriette Rodrigue dit Picard</strong></td>
+        <td data-l="Notes">d. 24 mars 1845 ; père du Grand Chef <strong>Maurice Sébastien Agnolien</strong> (1823–1897) et grand-père du Grand Chef <strong>Maurice Bastien Sarenhes</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 4 -->
+<section id="archives">
+  <h2><span class="num">4</span>Documents d’archives</h2>
+
+  <div class="archive-box">
+    <div class="archive-title">1. Acte de mariage de Sébastien Sarenhes et Marie Hotte (12 janvier 1778)</div>
+    <p class="archive-text">« L'an mil sept cent soixante-dix-huit, le douze du mois de janvier, après un ban publié seulement, selon la coutume dans la chapelle de la mission des hurons de la jeune Lorette, les sauvages tous assemblés le dimanche onzième jour du même mois de janvier [...] avec dispense du troisième ban dans la même église de la Vieille-Lorette accordée par monsieur de Briand / de Bigauville vicaire général du diocèse de Québec, entre <strong>Sébastien Sarenës</strong> fils d'Etienne Eha8ennon défunt et de Geneviève Andhechonniak aussi défunte ses père et mère de cette mission et <strong>Marie Hoet</strong> fille de Pierre Hoet et de Marie Josèphe Lienard ses père et mère de la paroisse de la Vieille-Lorette de l'autre part sans qu'il y ait eu aucun empêchement. Je soussigné missionnaire des hurons de la Jeune-Lorette ai reçu leur mutuel consentement de mariage et leur ai donné la bénédiction nuptiale avec les cérémonies prescrites par la sainte Église en présence de tous les sauvages et d'un grand nombre de français et de françaises qui ne savent ni écrire ni signer. »</p>
+    <div class="archive-meta">Transcription du registre français de la mission des Hurons de la Jeune-Lorette (12 janvier 1778).</div>
+  </div>
+
+  <div class="archive-box">
+    <div class="archive-title">2. Lettre de recommandation d’Eleazar Wheelock à Sir William Johnson (27 février 1773)</div>
+    <p class="archive-text">« The Bearers [Basteen and Lewis] of the Tribe at Lorett, have been [...] at My School, and have from [the first appeared] to have an uncommon thirst for [knowledge, and have] been diligent at their Studies, and [made good] Proficiency for the Time therein. They [appear] rational, Manly Spirited, courteous, [and] Obliging, far beyond What I have [commonly seen] in Indians; And I have Observed no [inclination] in them to Strong Drink [...] I esteem them the most promising young Indians I have ever Yet Seen... »</p>
+    <div class="archive-meta">Dartmouth College, 27 février 1773 (correspondance d’Eleazar Wheelock à Sir William Johnson).</div>
+  </div>
+
+  <div class="archive-box">
+    <div class="archive-title">3. Requête des chefs hurons de Lorette à Lord Aylmer (16 décembre 1833)</div>
+    <p class="archive-text">« À Son Excellence Lord Aylmer, Gouverneur en chef du Bas-Canada. Qu'il plaise à Votre Excellence : Représentent humblement les Chefs Hurons du village de Lorette qu'il se trouve dans leur village un nommé <strong>Sébastien</strong>, vieillard octogénaire, et sa femme septuagénaire, Hurons, lesquels ont vécu seuls jusqu'à l'année dernière par leur industrie, sans être à charge à personne ; mais qu'étant devenus tous deux aveugles, ils sont actuellement réduits à avoir recours à l'assistance des personnes bienveillantes... »</p>
+    <div class="archive-meta">Archives publiques du Canada (Indian Affairs, RG 10, vol. 87, pp. 34894–34895) — Certifié conforme le 16 décembre 1833 par André Romain (chef) et Thomas Cooke, prêtre missionnaire.</div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="chronologie">
+  <h2><span class="num">5</span>Repères chronologiques</h2>
+  <ul class="timeline">
+    <li><span class="d">Vers 1749</span> — Naissance au village huron de Saint-Ambroise-de-la-Jeune-Lorette (Wendake), fils d’Étienne Eha8ennon et de Geneviève Andhechonniak.</li>
+    <li><span class="d">1772 – 1774</span> — Séjour comme pensionnaire à la <em>Moor’s Indian Charity School</em> et au <em>Dartmouth College</em> (New Hampshire) auprès du révérend Eleazar Wheelock, avec Louis Vincent Sawantanan.</li>
+    <li><span class="d">Février 1773</span> — Visite auprès de Sir William Johnson à Johnson Hall (New York), muni d’une lettre élogieuse d’Eleazar Wheelock.</li>
+    <li><span class="d">1775 – 1796</span> — Retour à Lorette ; signe « Bastien Sharenhesse » dès décembre 1775 et agit comme instituteur de la mission auprès du père jésuite Girault.</li>
+    <li><span class="d">12 janvier 1778</span> — Mariage à la Jeune-Lorette avec Marie-Madeleine Hotte (Hoet), avec qui il aura treize enfants entre 1778 et 1799.</li>
+    <li><span class="d">28 mars 1799</span> — Obtention d’une concession de terre de 3 arpents sur 30 au deuxième rang de la seigneurie de Saint-Gabriel (côte Saint-Michel).</li>
+    <li><span class="d">17 mai 1805</span> — Signe, en qualité de premier chef des guerriers, la pétition des Hurons de Lorette réclamant la rétrocession de la seigneurie de Sillery.</li>
+    <li><span class="d">Février 1807</span> — Voyage à pied de près de 300 milles jusqu’au Dartmouth College pour tenter d’y faire admettre deux de ses fils.</li>
+    <li><span class="d">13 octobre 1820</span> — Rédaction de son testament devant le notaire Dominique Lefrançois en faveur de son épouse Marie Hotte.</li>
+    <li><span class="d">16 décembre 1833</span> — Requête des chefs hurons de Lorette et du missionnaire Thomas Cooke au gouverneur Lord Aylmer en faveur du couple, devenu aveugle.</li>
+    <li><span class="d">1<sup>er</sup> septembre 1835</span> — Décès à Saint-Ambroise-de-la-Jeune-Lorette (inhumé le 2 septembre) ; son épouse Marie Hotte décède le 31 janvier 1836.</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section id="sources">
+  <h2><span class="num">6</span>Sources et références archivistiques</h2>
+
+  <div class="srcgroup" style="border-top:0;margin-top:0;padding-top:0">
+    <h3>Archives nationales, notariales et universitaires</h3>
+    <ul class="src">
+      <li><strong>Bibliothèque et Archives nationales du Québec (BAnQ) :</strong> Minutier André Genest (24 décembre 1754 ; 13 décembre 1775) ; Minutier Jean-Baptiste Panet (12 janvier 1795 ; 28 mars 1799 ; 28 mai 1804 ; 29 mai et 11 juin 1806) ; Minutier Dominique Lefrançois (testament du 13 octobre 1820).</li>
+      <li><strong>Bibliothèque et Archives Canada (BAC) :</strong> Pétition des Hurons de Lorette pour la seigneurie de Sillery (RG1 L3L, vol. 139, f<sup>o</sup> 68670, 17 mai 1805) ; Affaires indiennes, requête à Lord Aylmer (RG 10, vol. 87, pp. 34894–34896, 16 décembre 1833) ; Recensement de 1784 (Indian Lorette) et Recensement de 1825 (bob. C-718, f<sup>o</sup> 1910).</li>
+      <li><strong>Dartmouth College (Rauner Library) :</strong> Correspondance d’Eleazar Wheelock et de Sir William Johnson (27 février et 23 mars 1773) ; Registres de la <em>Moor’s Indian Charity School</em> (1772–1774 et février 1807).</li>
+    </ul>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Études historiques et généalogiques</h3>
+    <ul class="src">
+      <li><strong>Serge Goudreau :</strong> « Les Hurons de Lorette au XVIII<sup>e</sup> siècle », <em>Mémoires de la Société généalogique canadienne-française (MSGCF)</em>, vol. 63, n<sup>o</sup> 2, cahier 272, été 2012, p. 132–133 ; et <em>Autochtones de l’Est du Québec</em>, Éditions GID, 2023, p. 214–215.</li>
+      <li><strong>Jean-Pierre Sawaya :</strong> « Les Amérindiens domiciliés et le protestantisme au XVIII<sup>e</sup> siècle : Eleazar Wheelock et le Dartmouth College », <em>Historical Studies in Education</em>, vol. 22, n<sup>o</sup> 2, automne 2010, p. 29.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Généalogie de la famille Sébastien / Bastien · <a href="../index.html">genearbre.org</a> · <a href="Jean-Baptiste_Sebastien_1785-1848.html">Jean-Baptiste Sébastien (1785–1848)</a> · <a href="#fiche">Haut de page ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>

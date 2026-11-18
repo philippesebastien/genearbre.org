@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jean-Baptiste Sébastien (1785–1848)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* archive boxes */
+  .archive-box{background:var(--hl);border:1px solid var(--line);border-left:4px solid var(--accent);padding:18px 22px;margin:18px 0;border-radius:0 6px 6px 0}
+  .archive-title{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--accent);margin-bottom:8px}
+  .archive-text{font-style:italic;color:var(--ink);font-size:16px;margin-bottom:10px}
+  .archive-meta{font-size:14px;color:var(--muted);border-top:1px dashed var(--accent-2);padding-top:8px}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 18px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(680px,90%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:12px 0 22px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even){background:#faf6ee}
+  tr.direct-ancestor{background:var(--hl);font-weight:500}
+  .badge-direct{display:inline-block;background:var(--accent);color:#fff;font-size:11px;letter-spacing:.06em;padding:2px 8px;border-radius:4px;text-transform:uppercase;margin-left:6px;vertical-align:middle}
+
+  /* spouses cards */
+  .spouses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:16px 0 22px}
+  .spouse{border:1px solid var(--line);border-radius:6px;padding:18px 20px;background:#fff}
+  .spouse h3{margin:0 0 10px;font-size:22px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  .spouse ul{list-style:none;padding:0;margin:0;font-size:15.5px}
+  .spouse li{margin-bottom:6px}
+
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-sebastien.html">← Famille Sébastien</a>
+    <a href="Sebastien_Sarenhes_1749-1835.html">Sébastien Sarenhes (père)</a>
+    <a href="Joseph_Edouard_Sebastien_1824-1869.html">Joseph Sébastien (fils)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#biographie">Biographie</a>
+    <a href="#unions">Unions</a>
+    <a href="#genealogie">Descendance</a>
+    <a href="#chronologie">Chronologie</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération IV · Lignée Huronne-Wendat (Clan du Chevreuil)</p>
+    <h1>Jean-Baptiste Sébastien</h1>
+    <p class="dates">1785 – 1848</p>
+    <p class="sub">Fils de Sébastien Sarenhes et de Marie-Madeleine Hotte — Père de Joseph Édouard Sébastien</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Jean-Baptiste Sébastien naît et est baptisé le 3 mars 1785 à la mission de Saint-Ambroise-de-la-Jeune-Lorette (aujourd’hui Wendake). Issu du clan huron-wendat dit <em>« ceux-de-la-famille-du-chevreuil »</em>, il fonde deux familles nombreuses à Lorette avant de migrer vers 1847 à Trois-Rivières, où il est inhumé le 19 juin 1848.</p>
+  <dl class="identity">
+    <div><dt>Nom complet</dt><dd>Jean-Baptiste Sébastien <span class="note">(variantes : Bastien, Basquin)</span></dd></div>
+    <div><dt>Clan &amp; Origine</dt><dd>Nation Huronne-Wendat — Clan du Chevreuil (Jeune-Lorette / Wendake)</dd></div>
+    <div><dt>Naissance &amp; Baptême</dt><dd>3 mars 1785, paroisse St-Ambroise-de-la-Jeune-Lorette (Québec)</dd></div>
+    <div><dt>Décès &amp; Sépulture</dt><dd>Inhumé le 19 juin 1848, Trois-Rivières (Québec), à l’âge de 63 ans</dd></div>
+    <div><dt>Parents</dt><dd>Sébastien Sarenhes (1749–1835), premier chef des guerriers<br>Marie-Madeleine Hotte (Hoet)</dd></div>
+    <div><dt>Parrain &amp; Marraine</dt><dd>Zacharie Hondaorenché &amp; Véronique Ahatoratrata</dd></div>
+    <div><dt>1<sup>re</sup> union</dt><dd>13 février 1809 à Jeune-Lorette, avec Agathe Zacharie-Thomas (1772–1822)</dd></div>
+    <div><dt>2<sup>e</sup> union</dt><dd>8 septembre 1823 à Jeune-Lorette, avec Marie Louise Élisabeth Savard (1806–1876)</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="biographie">
+  <h2><span class="num">2</span>Biographie et parcours historique</h2>
+  <p><strong>Jean-Baptiste Sébastien</strong> naît et est baptisé le <strong>3 mars 1785</strong> à la mission de Saint-Ambroise-de-la-Jeune-Lorette (aujourd’hui Wendake), au Québec. Il est le fils de <strong>Sébastien Sarenhes</strong> (aussi connu sous le nom de Bastien Sharenhesse, ancien élève du <em>Dartmouth College</em>, instituteur et premier chef des guerriers) et de <strong>Marie-Madeleine Hotte</strong> (Hoet), d’origine canadienne-française. Sa famille appartient traditionnellement au clan huron-wendat dit <em>« ceux-de-la-famille-du-chevreuil »</em>.</p>
+  <p>Au fil des registres paroissiaux de Lorette et de Trois-Rivières, son patronyme connaît les variations orthographiques caractéristiques de l’époque, apparaissant tantôt sous la forme <strong>Sébastien</strong>, tantôt sous celles de <strong>Bastien</strong> ou <strong>Basquin</strong>.</p>
+
+  <div class="figures">
+    <div class="fig"><b>1785</b><span>Naissance à Jeune-Lorette</span></div>
+    <div class="fig"><b>21 enfants</b><span>Issus de deux unions (1809 &amp; 1823)</span></div>
+    <div class="fig"><b>v. 1847</b><span>Établissement à Trois-Rivières</span></div>
+  </div>
+
+  <h3>La migration vers Trois-Rivières (1847–1848)</h3>
+  <p>Après avoir passé la majeure partie de sa vie au village huron de la Jeune-Lorette — où il fonde deux familles nombreuses —, Jean-Baptiste Sébastien quitte la communauté avec sa seconde épouse, <strong>Louise Savard</strong>, et leurs plus jeunes enfants vers <strong>1847</strong> pour s’établir à <strong>Trois-Rivières</strong>, à l’instar de plusieurs familles huronnes venues y chercher du travail (notamment dans le travail du cuir, la mégisserie et les chantiers forestiers).</p>
+  <p>Il s’éteint peu après son arrivée en Mauricie et est inhumé à Trois-Rivières le <strong>19 juin 1848</strong>. Sa veuve et ses enfants demeurent sur place, comme en témoigne une lettre officielle datée du 1<sup>er</sup> juillet 1850 rédigée par <strong>Joseph Boucher de Niverville</strong>, interprète des nations indiennes de la région de Trois-Rivières, demandant l’inscription de la famille sur la liste des Autochtones de Trois-Rivières afin de recevoir les présents du Roi :</p>
+
+  <div class="archive-box">
+    <div class="archive-title">Correspondance officielle — 1<sup>er</sup> juillet 1850</div>
+    <p class="archive-text">« Je vous previens que la famille Sébastien demeure au Trois Rivieres depuis trois ans, la famille est composée de deux hommes l'un sous le nom de Joseph et l'autre sous le nom d'Abraham Sébastien, la mère et deux filles l'une d'elle est agée de quinze ans et l'autre de douze ans. Je vous recommande aussi la veuve Agatte Kouska qui est chargée de famille et qui est aux Trois-Rivières depuis plusieurs années. »</p>
+    <div class="archive-meta">Lettre de Joseph Boucher de Niverville, interprète (citée par Serge Goudreau, <em>La famille Sébastien à Trois-Rivières en 1848</em>).</div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="unions">
+  <h2><span class="num">3</span>Unions et actes paroissiaux</h2>
+  <p>Jean-Baptiste Sébastien contracte deux mariages à la paroisse Saint-Ambroise-de-la-Jeune-Lorette : le premier en 1809 avec Agathe Zacharie-Thomas (issue d’une lignée huronne-wendat), et le second en 1823, après son veuvage, avec Marie Louise Élisabeth Savard.</p>
+
+  <div class="spouses">
+    <div class="spouse">
+      <h3>1<sup>er</sup> mariage : Agathe Zacharie-Thomas</h3>
+      <ul>
+        <li><strong>Date :</strong> 13 février 1809</li>
+        <li><strong>Lieu :</strong> Paroisse Notre-Dame / St-Ambroise de la Jeune-Lorette</li>
+        <li><strong>Naissance de l’épouse :</strong> 1772</li>
+        <li><strong>Parents de l’épouse :</strong> Zacharie Thomas Haondaorenché (1740–1814) et Élisabeth Sk8achiendati (1733–1813)</li>
+        <li><strong>Décès de l’épouse :</strong> 21 avril 1822 (inhumée le 23 avril à Jeune-Lorette)</li>
+      </ul>
+    </div>
+
+    <div class="spouse">
+      <h3>2<sup>e</sup> mariage : Marie Louise Élisabeth Savard</h3>
+      <ul>
+        <li><strong>Date :</strong> 8 septembre 1823</li>
+        <li><strong>Lieu :</strong> St-Ambroise-de-la-Jeune-Lorette, QC</li>
+        <li><strong>Naissance de l’épouse :</strong> 6 juin 1806</li>
+        <li><strong>Parents de l’épouse :</strong> Louis dit Savard, cultivateur, et Josephte Verret (Perrot)</li>
+        <li><strong>Décès de l’épouse :</strong> 7 décembre 1876 (inhumée le 9 décembre, Immaculée-Conception, Trois-Rivières)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="archive-box">
+    <div class="archive-title">Transcription — Acte du premier mariage (13 février 1809)</div>
+    <p class="archive-text">« Le treize février mil huit cent neuf après la publication d'un ban de mariage faite aux prônes de nos messes paroissiales les dispenses des deux autres ayant été accordée entre Jean Baptiste Sebastien fils majeur de [Sébastien] sauvage et de Marie Huet ces père et mère du village des hurons d'une part et Agathe Zacharie Thomas fille mineure de défunt Zacharie Thomas sauvage et de défunte Marguerite Véronique [Élisabeth] ces père et mère aussi de ce village d'autre part ; ne s'étant découvert au dit mariage aucun autre empêchement canonique ou civil venu à notre connaissance excepté le troisième ou quatrième degré de consanguinité dont ils ont obtenu dispense de Monseigneur évêque de Québec nous prêtre cure soussigné avons reçu leur mutuel consentement et leur avons donné la bénédiction nuptiale selon l'usage de notre Mère la Sainte Eglise catholique en présence et du consentement de Moise Sebastien de Nicolas Vincent de Zacharie Thomas de Petit Etienne dont les uns ont signé avec nous les autres ayant déclaré ne le savoir. »</p>
+    <div class="archive-meta">Signatures : Moyse Sébastien, Nicolas Vincent, Ant. Bédard, prêtre curé. (Note : le rédacteur a inscrit par erreur « Jean Baptiste » au lieu de Sébastien pour le prénom du père).</div>
+  </div>
+
+  <div class="archive-box">
+    <div class="archive-title">Transcription — Acte du second mariage (8 septembre 1823)</div>
+    <p class="archive-text">« Le huit septembre mil huit cent vingt trois, après la publication de trois bans de mariage faite au prône de nos messes paroissiales (même publication ayant eu lieu à la mission de la Jeune Laurette) entre Jean Baptiste Sébastien, veuf majeur d'Agathe Zacharie Thomas du village de la Jeune Laurette d'une part ; et Louise Savard, fille mineure de Louis Savard, cultivateur et de Josephte Perrot, ses père et mère d'autre part de cette paroisse d'autre part, nous prêtre, soussigné, avons reçu leur mutuel consentement, et leur avons accordé la bénédiction nuptiale ne s'étant découvert aucun empêchement au dit mariage suivant les formes et l'usage de notre Sainte Mère l'Eglise romaine, en présence d'Etienne Petitetienne, d'Augustin Picard, et de Nicolas Vincent, parents de l'époux, de Louis Savard, père de l'épouse, de Jean Baptiste Savard, de Joseph Savard, ses frères, les quels, ainsi que les époux ont déclaré ne savoir signer le seul Nicolas Vincent a signé avec nous. »</p>
+    <div class="archive-meta">Signatures : Nicola Vincent, J.M. Garon, prêtre à St-Ambroise de la Jeune Lorette.</div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="genealogie">
+  <h2><span class="num">4</span>Généalogie et descendance</h2>
+  <p>Quatrième génération documentée de la lignée huronne-wendat de Paul Tsa8enhohi (~1693–1774), Jean-Baptiste Sébastien assure la transition entre le village historique de Jeune-Lorette et la branche mauricienne établie à Trois-Rivières par l’entremise de son fils <strong>Joseph Édouard Sébastien</strong> (1824–1869).</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Étienne Eha8ennon<small>~1715–av. 1767</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie-Catherine Gonnor<small>~1720–1773</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node">Sébastien Sarenhes<small>1749–1835 · Chef des guerriers</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie-Madeleine Hotte<small>1755–1834</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node sp">1. Agathe Zacharie-Thomas<small>1772–1822 (9 enfants)</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node main">Jean-Baptiste Sébastien<small>1785–1848</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">2. Louise Savard<small>1806–1876 (12 enfants)</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:170px">Françoise<small>n. 1810 · 1<sup>er</sup> lit</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:170px">Thomas<small>n. 1820 · 1<sup>er</sup> lit</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:185px;border-color:var(--accent)">Joseph Édouard<small>1824–1869 · Lignée directe</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:170px">Abraham<small>1827–1871 · 2<sup>e</sup> lit</small></div></div>
+    </div>
+  </div>
+
+  <h3>Enfants issus du 1<sup>er</sup> mariage avec Agathe Zacharie-Thomas</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Naissance / Baptême</th>
+        <th>Décès</th>
+        <th>Alliance(s) et notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-l="Nom"><strong>Étienne Sébastien</strong></td>
+        <td data-l="Naissance">1803</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">—</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Hilaire Sébastien</strong></td>
+        <td data-l="Naissance">1808</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">—</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Françoise Sébastien</strong></td>
+        <td data-l="Naissance">n. 10 janv. 1810<br>b. 11 janv. 1810</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">
+          1. m. 25 sept. 1826 (Jeune-Lorette) à <strong>Basile Picard</strong> (fils de Laurent Picard et Charlotte Koska).<br>
+          2. m. 23 nov. 1841 à <strong>Jean Audet</strong>.<br>
+          <em>Note :</em> Françoise et sa fille Marguerite figurent dans le célèbre tableau de Henry Daniel Thielcke, <em>The Presentation of a Newly Elected Chief of the Huron Tribe, Canada</em> (1841).
+        </td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Émilie Sébastien</strong></td>
+        <td data-l="Naissance">n. 24 déc. 1811</td>
+        <td data-l="Décès">22 mars 1814</td>
+        <td data-l="Notes">Décédée à l’âge de 2 ans et 4 mois.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Julie Sébastien</strong></td>
+        <td data-l="Naissance">n. 20 juin 1812</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">—</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Judith Sébastien</strong></td>
+        <td data-l="Naissance">n. 7 déc. 1813</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">m. 26 nov. 1839 (Jeune-Lorette) à <strong>Charles Picard</strong> (fils de Laurent Picard et Charlotte Koska). Inscrite sous le nom « Judith Basquin » au mariage.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Émilie Sébastien</strong></td>
+        <td data-l="Naissance">n. 23 mars 1814</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">—</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Jean-Baptiste Sébastien</strong></td>
+        <td data-l="Naissance">n. 19 oct. 1817</td>
+        <td data-l="Décès">13 août 1819</td>
+        <td data-l="Notes">Parrain : Moyse Bastien ; Marraine : Marie Simon Ignace. Décédé en bas âge.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Thomas Sébastien</strong></td>
+        <td data-l="Naissance">n. 2 janv. 1820</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">m. 24 janv. 1843 (Jeune-Lorette) à <strong>Marie Petit-Étienne</strong>. Parrain : Damase Vincent.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Enfants issus du 2<sup>e</sup> mariage avec Louise Savard</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Naissance / Baptême</th>
+        <th>Décès</th>
+        <th>Alliance(s) et notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="direct-ancestor">
+        <td data-l="Nom"><strong>Joseph Édouard Sébastien</strong> <span class="badge-direct">Lignée directe</span></td>
+        <td data-l="Naissance">n. 7 mai 1824<br>b. 8 mai 1824 (Jeune-Lorette)</td>
+        <td data-l="Décès">3 déc. 1869<br>(inh. 23 janv. 1871, Trois-Rivières)</td>
+        <td data-l="Notes">
+          Voyageur, contremaître, conducteur de chantiers et corroyeur.<br>
+          m. 7 fév. 1853 (Immaculée-Conception, Trois-Rivières) à <strong>Caroline Blais</strong> (fille de Jacques Blais et Apolline Gélinas). Noyé accidentellement dans la rivière Vermillon.
+        </td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Jean-Baptiste Sébastien</strong></td>
+        <td data-l="Naissance">n. 29 oct. 1825</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">—</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Abraham Sébastien</strong></td>
+        <td data-l="Naissance">n. 25 janv. 1827<br>b. 27 janv. 1827</td>
+        <td data-l="Décès">1<sup>er</sup> mars 1871 (44 ans)</td>
+        <td data-l="Notes">Vit à Trois-Rivières avec sa mère et son frère Joseph aux recensements de 1852 et 1861.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Henriette Sébastien</strong></td>
+        <td data-l="Naissance">n. &amp; b. 12 juin 1828</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">Recensée à Trois-Rivières en 1852 (24 ans) auprès d’Antoine Noël.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Marie-Anne Sébastien</strong></td>
+        <td data-l="Naissance">n. ~1829–1832</td>
+        <td data-l="Décès">8 mai 1905</td>
+        <td data-l="Notes">m. 18 sept. 1848 (Trois-Rivières) à <strong>Antoine Noël</strong>, journalier (fils d’Antoine Noël et Martine Perreault).</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Jean-Baptiste Adilon Sébastien</strong></td>
+        <td data-l="Naissance">n. 2 nov. 1832</td>
+        <td data-l="Décès">23 janv. 1833</td>
+        <td data-l="Notes">Décédé à moins de 3 mois.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Prosper Sébastien</strong></td>
+        <td data-l="Naissance">n. 20 avril 1834</td>
+        <td data-l="Décès">20 sept. 1834</td>
+        <td data-l="Notes">Décédé à 5 mois.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Marie Céleste Sébastien</strong></td>
+        <td data-l="Naissance">n. 28 juil. 1835<br>b. 29 juil. 1835</td>
+        <td data-l="Décès">1<sup>er</sup> août 1835</td>
+        <td data-l="Notes">Jumelle de Marie Sara ; décédée à 3 jours.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Marie Sara Sébastien</strong></td>
+        <td data-l="Naissance">n. 28 juil. 1835<br>b. 29 juil. 1835</td>
+        <td data-l="Décès">15 sept. 1835</td>
+        <td data-l="Notes">Jumelle de Marie Céleste ; décédée à 1 mois et demi.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Marie Louise Sébastien</strong></td>
+        <td data-l="Naissance">n. &amp; b. 13 nov. 1836</td>
+        <td data-l="Décès">13 déc. 1876 (40 ans)</td>
+        <td data-l="Notes">Baptisée <em>Louise Basquin</em>. m. 10 nov. 1869 (Trois-Rivières) à <strong>Alexandre Laveau</strong> (fils de George Laveau et Agathe Koska).</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Philomène Sébastien</strong></td>
+        <td data-l="Naissance">n. 29 nov. 1838<br>b. 30 nov. 1838</td>
+        <td data-l="Décès">—</td>
+        <td data-l="Notes">Baptisée <em>Philomène Basquin</em>. m. 25 juil. 1859 (Immaculée-Conception, Trois-Rivières) à <strong>Prudent Ouellet</strong>, journalier.</td>
+      </tr>
+      <tr>
+        <td data-l="Nom"><strong>Angélique Sébastien</strong></td>
+        <td data-l="Naissance">n. &amp; b. 18 mars 1841</td>
+        <td data-l="Décès">8 oct. 1841</td>
+        <td data-l="Notes">Baptisée <em>Angélique Basquin</em>. Décédée à 8 mois.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 5 -->
+<section id="chronologie">
+  <h2><span class="num">5</span>Repères chronologiques</h2>
+  <ul class="timeline">
+    <li><span class="d">3 mars 1785</span> — Naissance et baptême à Saint-Ambroise-de-la-Jeune-Lorette (Wendake).</li>
+    <li><span class="d">13 février 1809</span> — Premier mariage avec Agathe Zacharie-Thomas à Jeune-Lorette, en présence de son frère Moyse Sébastien et du futur Grand Chef Nicolas Vincent.</li>
+    <li><span class="d">21 avril 1822</span> — Décès de sa première épouse, Agathe Zacharie-Thomas.</li>
+    <li><span class="d">8 septembre 1823</span> — Second mariage avec Marie Louise Élisabeth Savard à Saint-Ambroise-de-la-Jeune-Lorette.</li>
+    <li><span class="d">7 mai 1824</span> — Naissance de son fils Joseph Édouard Sébastien, baptisé le lendemain par l’abbé Thomas Cooke (futur premier évêque de Trois-Rivières).</li>
+    <li><span class="d">Vers 1847</span> — Départ du village huron de Lorette et établissement de la famille à Trois-Rivières.</li>
+    <li><span class="d">19 juin 1848</span> — Inhumation de Jean-Baptiste Sébastien à Trois-Rivières.</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section id="sources">
+  <h2><span class="num">6</span>Sources et références archivistiques</h2>
+
+  <div class="srcgroup" style="border-top:0;margin-top:0;padding-top:0">
+    <h3>Registres paroissiaux et recensements</h3>
+    <ul class="src">
+      <li><strong>Registres de St-Ambroise-de-la-Jeune-Lorette (Wendake) :</strong> Actes de baptême (1785), mariages (1809 et 1823), baptêmes et sépultures des enfants (Fonds Drouin).</li>
+      <li><strong>Registres de l’Immaculée-Conception de Trois-Rivières :</strong> Acte de sépulture de Jean-Baptiste Sébastien (19 juin 1848) et actes d’état civil de ses enfants et de sa veuve Louise Savard (1876).</li>
+      <li><strong>Recensements du Canada (1852 et 1861) :</strong> District de Trois-Rivières, foyer de la veuve Louise Savard et de ses fils Joseph et Abraham Sébastien.</li>
+    </ul>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Études historiques et archives</h3>
+    <ul class="src">
+      <li><strong>Serge Goudreau :</strong> « La famille Sébastien à Trois-Rivières en 1848 » et « Les Hurons de Lorette au 18<sup>e</sup> siècle », <em>Mémoires de la Société généalogique canadienne-française</em> (MSGCF).</li>
+      <li><strong>Correspondance de Joseph Boucher de Niverville (1<sup>er</sup> juillet 1850) :</strong> Lettre de l’interprète des nations indiennes de Trois-Rivières concernant l’inscription de la famille Sébastien aux présents du Roi.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Archives et généalogie de la famille Sébastien · <a href="Joseph_Edouard_Sebastien_1824-1869.html">Joseph Édouard Sébastien (1824–1869)</a> · <a href="#fiche">Haut de page ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
