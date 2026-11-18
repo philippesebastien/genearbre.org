@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Édouard Sébastien (1854-1905)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(760px,92%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:21px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-sebastien.html">← Famille Sébastien</a>
+    <a href="Joseph_Edouard_Sebastien_1879-1914.html">Joseph-Édouard Sébastien (fils)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#biographie">Biographie</a>
+    <a href="#genealogie">Généalogie</a>
+    <a href="#chronologie">Chronologie</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération VI · Famille Sébastien</p>
+    <h1>Édouard Sébastien</h1>
+    <p class="dates">1854 – 1905</p>
+    <p class="sub">Baptisé Joseph-Édouard Sébastien · Cordonnier et mégissier à Trois-Rivières</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Baptisé sous les prénoms de <strong>Joseph-Édouard Sébastien</strong> mais connu toute sa vie sous son prénom usuel d’<strong>Édouard</strong>, il naît le 28 février 1854 à Trois-Rivières et y décède le 1<sup>er</sup> juillet 1905 à l’âge de 51 ans. Artisan cordonnier et mégissier au cœur de la communauté huronne-wendat de Trois-Rivières, il épouse Étudienne Panneton en 1877, avec laquelle il fonde une nombreuse famille de onze enfants.</p>
+  <dl class="identity">
+    <div><dt>Nom de baptême &amp; usuel</dt><dd>Joseph-Édouard Sébastien, dit <strong>Édouard Sébastien</strong></dd></div>
+    <div><dt>Profession</dt><dd>Cordonnier et mégissier</dd></div>
+    <div><dt>Naissance</dt><dd>28 février 1854, baptisé le même jour à la paroisse Immaculée-Conception, Trois-Rivières (Québec)</dd></div>
+    <div><dt>Décès</dt><dd>1<sup>er</sup> juillet 1905, inhumé le 3 juillet à la paroisse Immaculée-Conception, Trois-Rivières (Québec)</dd></div>
+    <div><dt>Parents</dt><dd>Joseph Sébastien (1824–1869), conducteur de chantiers et corroyeur<br>Caroline Blais (1835–?), remariée à Thomas Laveau</dd></div>
+    <div><dt>Mariage</dt><dd>10 octobre 1877 à la paroisse Immaculée-Conception, Trois-Rivières, avec Étudienne Panneton (1857–1901)</dd></div>
+    <div class="full"><dt>Descendance</dt><dd>11 enfants : Marie Georgiana, Joseph-Édouard, Fédora, Zéphirin, Corinne, Joséphine, Marie Florette Hélène, Joseph Louis Adélard, Marie Anna Cécile, Marie Louise Gabrielle et Joseph Victor</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="biographie">
+  <h2><span class="num">2</span>Biographie et carrière</h2>
+  <p>Né le 28 février 1854 à Trois-Rivières, Joseph-Édouard — usuellement appelé <strong>Édouard</strong> — est le fils aîné de Joseph Sébastien, voyageur, conducteur de chantiers et corroyeur originaire de Jeune-Lorette, et de Caroline Blais, fille du cordonnier Jacques Blais. Alors qu’Édouard n’a que quinze ans, son père disparaît tragiquement par noyade accidentelle dans la rivière Vermillon en décembre 1869 lors d’un chantier forestier en Mauricie. Sa mère Caroline Blais se remarie en septembre 1871 avec <strong>Thomas Laveau</strong>, Huron lui aussi établi comme mégissier à Trois-Rivières.</p>
+  <p>Élevé dans cet univers d’artisans du cuir où se côtoient cordonniers, corroyeurs et mégissiers hurons-wendat, Édouard embrasse naturellement les métiers de <strong>cordonnier</strong> et de <strong>mégissier</strong>, consacrant son savoir-faire à l’apprêt et au travail des peaux fines dans les ateliers du quartier Notre-Dame à Trois-Rivières.</p>
+  <p>Le 10 octobre 1877, en l’église de l’Immaculée-Conception de Trois-Rivières, il épouse <strong>Étudienne Panneton</strong> (1857–1901), fille de Zéphirin Panneton et de Marie Gendron, en présence de son beau-père Thomas Laveau qui signe au registre. Entre 1877 et 1893, le couple met au monde <strong>onze enfants</strong>, dont neuf atteignent l’âge adulte et s’établissent entre Trois-Rivières, Montréal, les Laurentides et le nord de l’Ontario.</p>
+  <p>Veuf d’Étudienne Panneton en 1901 — année où il est recensé à 47 ans sous « Edwad Bastien » au foyer de sa mère Caroline Blais et de son beau-père Thomas Laveau —, Édouard Sébastien s’éteint à Trois-Rivières le 1<sup>er</sup> juillet 1905 et est inhumé deux jours plus tard en la paroisse de l’Immaculée-Conception.</p>
+
+  <div class="figures">
+    <div class="fig"><b>1854–1905</b><span>Cité de Trois-Rivières</span></div>
+    <div class="fig"><b>Mégissier</b><span>Cordonnier et artisan du cuir</span></div>
+    <div class="fig"><b>11 enfants</b><span>Avec Étudienne Panneton</span></div>
+  </div>
+
+  <div class="highlight">
+    <p><strong>La dynastie des mégissiers de Trois-Rivières.</strong> Entre le grand-père maternel Jacques Blais (cordonnier), le père Joseph Sébastien (corroyeur), le beau-père Thomas Laveau (mégissier), Édouard Sébastien lui-même (cordonnier et mégissier) et son fils <a href="Joseph_Edouard_Sebastien_1879-1914.html">Joseph-Édouard</a> (gantier formé à Wendake), quatre générations successives ont perpétué les métiers de la peausserie et du cuir à Trois-Rivières.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="genealogie">
+  <h2><span class="num">3</span>Généalogie et famille</h2>
+  <p>Édouard Sébastien appartient à la sixième génération documentée de la lignée huronne-wendat des Sébastien (<em>Sarenhes</em>). Il est le petit-fils de Jean-Baptiste Sébastien (1785–1848) et Louise Savard, premiers membres de la famille à quitter Jeune-Lorette (Wendake) pour s’établir à Trois-Rivières vers 1840.</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Jean-Baptiste Sébastien<small>1785–1848 · Pionnier à Trois-Rivières</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Louise Savard<small>m. 1823 à Jeune-Lorette</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node">Joseph Sébastien<small>1824–1869 · Conducteur de chantiers, corroyeur</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Caroline Blais<small>1835–? · remariée à Thomas Laveau</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Édouard Sébastien<small>1854–1905 · Cordonnier, mégissier</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Étudienne Panneton<small>1857–1901 · m. 10 octobre 1877</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:140px">Georgiana<small>1877–~1924</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:155px"><a href="Joseph_Edouard_Sebastien_1879-1914.html">Joseph-Édouard</a><small>1879–1914 · Gantier</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:130px">Fédora<small>née en 1880</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:145px">Corinne &amp; fratrie<small>8 autres enfants (1882–1893)</small></div></div>
+    </div>
+  </div>
+
+  <h3>Les 11 enfants d’Édouard Sébastien et d’Étudienne Panneton</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Enfant</th>
+        <th>Naissance / Baptême</th>
+        <th>Alliance et destinée</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-l="#">1</td>
+        <td data-l="Enfant"><strong>Marie Georgiana Sébastien</strong></td>
+        <td data-l="Naissance">13 octobre 1877 (décédée v. 1924)</td>
+        <td data-l="Alliance">Recensée chez son oncle Joseph C. Panneton à Laval en 1901 ; épouse <strong>Moïse Dauphinais</strong> le 5 juillet 1908 à Grenville (Qc).</td>
+      </tr>
+      <tr>
+        <td data-l="#">2</td>
+        <td data-l="Enfant"><strong><a href="Joseph_Edouard_Sebastien_1879-1914.html">Joseph-Édouard Sébastien</a></strong></td>
+        <td data-l="Naissance">30 juillet 1879 – décédé 25 novembre 1914</td>
+        <td data-l="Alliance">Tailleur de gants à Wendake (1901) et gantier à Trois-Rivières ; épouse <strong>Marie (Mary) St-Ours</strong> (1902), père d’Henri Sébastien (1904–1990), puis <strong>Caroline Paquin</strong> (1910).</td>
+      </tr>
+      <tr>
+        <td data-l="#">3</td>
+        <td data-l="Enfant"><strong>Fédora Sébastien</strong></td>
+        <td data-l="Naissance">Née vers 1880</td>
+        <td data-l="Alliance">Épouse <strong>Joseph Côté</strong> le 14 février 1904 à L’Annonciation (comté de Labelle, Qc).</td>
+      </tr>
+      <tr>
+        <td data-l="#">4</td>
+        <td data-l="Enfant"><strong>Zéphirin Sébastien</strong></td>
+        <td data-l="Naissance">7 mars 1882 (baptisé le même jour)</td>
+        <td data-l="Alliance">Prénommé en hommage à son grand-père maternel Zéphirin Panneton.</td>
+      </tr>
+      <tr>
+        <td data-l="#">5</td>
+        <td data-l="Enfant"><strong>Corinne Sébastien</strong></td>
+        <td data-l="Naissance">11 février 1884 – décédée 9 mars 1929 (Montréal)</td>
+        <td data-l="Alliance">Marraine d’Henri Sébastien en 1904 ; épouse le machiniste <strong>Horace Brunet</strong> le 19 juillet 1909 à Montréal (paroisse Saint-Jean-de-la-Croix).</td>
+      </tr>
+      <tr>
+        <td data-l="#">6</td>
+        <td data-l="Enfant"><strong>Joséphine Sébastien</strong></td>
+        <td data-l="Naissance">Mai 1885 – décédée 18 novembre 1886</td>
+        <td data-l="Alliance">Décédée en bas âge à Trois-Rivières à l’âge de 18 mois.</td>
+      </tr>
+      <tr>
+        <td data-l="#">7</td>
+        <td data-l="Enfant"><strong>Marie Florette Hélène Sébastien</strong></td>
+        <td data-l="Naissance">24 décembre 1886</td>
+        <td data-l="Alliance">Épouse <strong>Joseph Henri Arthur Olivier</strong> le 27 juin 1923 à la paroisse Saint-Viateur d’Outremont (Montréal).</td>
+      </tr>
+      <tr>
+        <td data-l="#">8</td>
+        <td data-l="Enfant"><strong>Joseph Louis Adélard Sébastien</strong></td>
+        <td data-l="Naissance">24 février 1888 (baptisé le même jour)</td>
+        <td data-l="Alliance">Épouse <strong>Anna Bradette</strong> (de La Malbaie) avant 1922 ; s’établit à Cochrane en Ontario.</td>
+      </tr>
+      <tr>
+        <td data-l="#">9</td>
+        <td data-l="Enfant"><strong>Marie Anna Cécile Sébastien</strong></td>
+        <td data-l="Naissance">28 septembre 1889 (baptisée le 29)</td>
+        <td data-l="Alliance">Épouse le menuisier <strong>Pamphile Roy</strong> (de Timmins, Ont.) le 29 juin 1916 à la paroisse Saint-François-Solano de Montréal.</td>
+      </tr>
+      <tr>
+        <td data-l="#">10</td>
+        <td data-l="Enfant"><strong>Marie Louise Gabrielle Sébastien</strong></td>
+        <td data-l="Naissance">21 mai 1891 (baptisée le même jour)</td>
+        <td data-l="Alliance">Baptisée à Trois-Rivières.</td>
+      </tr>
+      <tr>
+        <td data-l="#">11</td>
+        <td data-l="Enfant"><strong>Joseph Victor Sébastien</strong></td>
+        <td data-l="Naissance">29 mai 1893 (baptisé le même jour)</td>
+        <td data-l="Alliance">Benjamin de la famille, baptisé à Trois-Rivières.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 4 -->
+<section id="chronologie">
+  <h2><span class="num">4</span>Repères chronologiques</h2>
+  <ul class="timeline">
+    <li><span class="d">28 février 1854</span> — Naissance à Trois-Rivières et baptême le même jour à la paroisse de l’Immaculée-Conception sous les prénoms de Joseph-Édouard.</li>
+    <li><span class="d">3 décembre 1869</span> — Disparition tragique de son père, Joseph Sébastien, noyé accidentellement dans la rivière Vermillon à l’âge de 46 ans (inhumé en janvier 1871).</li>
+    <li><span class="d">2 septembre 1871</span> — Remariage de sa mère, Caroline Blais, avec le mégissier huron Thomas Laveau à Trois-Rivières.</li>
+    <li><span class="d">10 octobre 1877</span> — Mariage à l’Immaculée-Conception de Trois-Rivières avec Étudienne Panneton (1857–1901).</li>
+    <li><span class="d">1877 – 1893</span> — Naissance des onze enfants du couple à Trois-Rivières.</li>
+    <li><span class="d">1891</span> — Recensé dans le quartier Notre-Dame à Trois-Rivières (« Bastien Edouard », 37 ans) avec son épouse Étudienne (33 ans) et leurs enfants.</li>
+    <li><span class="d">1901</span> — Veuf d’Étudienne Panneton, il est recensé à 47 ans à Trois-Rivières (« Bastien Edwad ») au foyer de sa mère Caroline Blais et de son beau-père Thomas Laveau.</li>
+    <li><span class="d">1<sup>er</sup> juillet 1905</span> — Décès d’Édouard Sébastien à Trois-Rivières à l’âge de 51 ans ; inhumation le 3 juillet à l’Immaculée-Conception.</li>
+  </ul>
+</section>
+
+<!-- 5 -->
+<section id="sources">
+  <h2><span class="num">5</span>Sources et références archivistiques</h2>
+
+  <div class="srcgroup" style="border-top:0;margin-top:0;padding-top:0">
+    <h3>Registres paroissiaux et recensements</h3>
+    <ul class="src">
+      <li><strong>Registres de la paroisse Immaculée-Conception de Trois-Rivières (1854–1905) :</strong> Acte de baptême de Joseph-Édouard Sébastien (28 février 1854) ; acte de mariage d’Édouard Sébastien et Étudienne Panneton (10 octobre 1877) ; acte de sépulture d’Édouard Sébastien (3 juillet 1905, BAnQ, série <code>04T_CE401S48</code>).</li>
+      <li><strong>Recensement du Canada de 1891 (Trois-Rivières, quartier Notre-Dame) :</strong> Foyer d’Édouard Bastien (37 ans) et Étudienne Panneton (33 ans) avec leurs huit premiers enfants vivants (Georgiana, Édouard, Alphéda/Fédora, Arthur/Zéphirin, Corinne, Florette, Adélard et Cécile).</li>
+      <li><strong>Recensement du Canada de 1901 (Trois-Rivières) :</strong> Foyer de Thomas Laveau (68 ans) et Caroline Blais (66 ans), où réside « Bastien Edwad », fils, veuf, né le 28 février 1854 (47 ans).</li>
+    </ul>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Généalogie et histoire familiale</h3>
+    <ul class="src">
+      <li><strong>Arbre généalogique Geneanet :</strong> Fiche d’Édouard Sébastien (1854–1905), base <code>philsebastien_w</code> (<a href="https://gw.geneanet.org/philsebastien_w?lang=fr&n=sebastien&p=edouard&type=fiche" target="_blank" rel="noopener">Consulter sur Geneanet</a>).</li>
+      <li><strong>Archives familiales Sébastien :</strong> Dossier généalogique <em>Famille Sébastien</em> (Générations I à X, lignée huronne-wendat de Paul Tsa8enhohi à Édouard, Joseph-Édouard et Henri Sébastien).</li>
+      <li><strong>Chroniques historiques de Trois-Rivières :</strong> « Des Hurons à Trois-Rivières » et « Les mégissiers », études sur les artisans du cuir, cordonniers et mégissiers hurons-wendat en Mauricie.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Généalogie de la famille Sébastien · <a href="Joseph_Edouard_Sebastien_1879-1914.html">Joseph-Édouard Sébastien (1879–1914)</a> · <a href="#fiche">Haut de page ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
