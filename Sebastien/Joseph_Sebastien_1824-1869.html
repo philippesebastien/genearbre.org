@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joseph Sébastien (1824-1869)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(680px,90%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:21px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-sebastien.html">← Famille Sébastien</a>
+    <a href="Edouard_Sebastien_1854-1905.html">Édouard Sébastien (fils)</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#biographie">Biographie</a>
+    <a href="#genealogie">Généalogie</a>
+    <a href="#chronologie">Chronologie</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération V · Famille Sébastien</p>
+    <h1>Joseph Sébastien</h1>
+    <p class="dates">1824 – 1869</p>
+    <p class="sub">Voyageur, contremaître dans les chantiers forestiers, corroyeur et artisan du cuir entre Wendake et Trois-Rivières</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Baptisé Joseph-Édouard Sébastien le 8 mai 1824 à Saint-Ambroise-de-la-Jeune-Lorette (Wendake) et connu sous le prénom de Joseph Sébastien (parfois orthographié « Jos. Bastien »), il est le premier enfant issu du second mariage de Jean-Baptiste Sébastien et de Louise Savard. Établi à Trois-Rivières avec ses parents vers 1840, il exerce les métiers de voyageur, corroyeur et conducteur de chantiers forestiers avant de périr tragiquement noyé lors d’une tournée de drave dans la rivière Vermillon à l’automne 1869.</p>
+  <dl class="identity">
+    <div><dt>Nom complet</dt><dd>Joseph Sébastien <span class="note">(baptisé Joseph-Édouard Sébastien ; aussi cité « Jos. Bastien »)</span></dd></div>
+    <div><dt>Professions</dt><dd>Voyageur, corroyeur (apprêteur de cuir), contremaître et conducteur de chantiers forestiers</dd></div>
+    <div><dt>Naissance</dt><dd>7 mai 1824, baptisé le 8 mai 1824 à Saint-Ambroise-de-la-Jeune-Lorette (Wendake, Québec)</dd></div>
+    <div><dt>Décès</dt><dd>Automne / 3 décembre 1869 (à 45 ans), noyé dans la rivière Vermillon ; inhumé le 23 janvier 1871 à Trois-Rivières</dd></div>
+    <div><dt>Parents</dt><dd>Jean-Baptiste Sébastien (1785–1848)<br>Louise Savard (1806–1876)</dd></div>
+    <div><dt>Mariage</dt><dd>7 février 1853 à l’Immaculée-Conception, Trois-Rivières, avec Caroline Blais (1834–?)</dd></div>
+    <div class="full"><dt>Enfants (7)</dt><dd><a href="Edouard_Sebastien_1854-1905.html">Édouard (Joseph-Édouard, 1854–1905)</a>, Marie-Élise-Georgine (1858), Louise (~1856), Églephire (1860–1915), Georgiana, Marie-Philomène (1862–1863) et Marie-Anne (1865–1867)</dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="biographie">
+  <h2><span class="num">2</span>Biographie et carrière</h2>
+  <p>Joseph Sébastien naît le 7 mai 1824 au village huron de la Jeune-Lorette (Wendake) et est baptisé le lendemain par l’abbé Thomas Cooke — futur premier évêque de Trois-Rivières — avec pour parrain Joseph Chamberland et pour marraine sa grand-mère maternelle Josephte Savard. Vers 1840, alors qu’il est adolescent, ses parents Jean-Baptiste Sébastien et Louise Savard quittent Jeune-Lorette pour s’établir à <strong>Trois-Rivières</strong>, rejoignant un noyau de familles huronnes-wendat attirées par les emplois dans les tanneries, les manufactures de cuir et l’exploitation forestière en Mauricie.</p>
+  <p>Héritier des savoir-faire traditionnels de Wendake en matière de pelleterie et d’apprêt des peaux, Joseph travaille le cuir comme <strong>corroyeur</strong> (artisan chargé d’assouplir et de finir le cuir après le tannage, métier étroitement lié à celui de mégissier) tout en menant une carrière exigeante de <strong>voyageur</strong>, contremaître et conducteur de chantiers dans les bois. Lors du recensement de 1852, il vit sur la rue Niverville à Trois-Rivières auprès de sa mère Louise Savard (devenue veuve en 1848) et de ses frères et sœurs, déclarant la profession de voyageur.</p>
+  <p>Le 7 février 1853, il épouse en la paroisse de l’Immaculée-Conception de Trois-Rivières <strong>Caroline Blais</strong> (née le 15 mai 1834, fille du cordonnier Jacques Bénoni Blais et d’Apolline Gélinas), avec dispense de deux bans accordée par M<sup>gr</sup> Thomas Cooke — le même prêtre qui l’avait baptisé vingt-neuf ans plus tôt à Lorette. Le couple fonde un foyer de sept enfants, dont l’aîné, <a href="Edouard_Sebastien_1854-1905.html">Édouard Sébastien</a> (né en 1854), poursuivra la tradition familiale du travail des peaux comme mégissier.</p>
+  <p>Au service du marchand de bois trifluvien <strong>M. Gouin</strong>, Joseph occupe la fonction de conducteur de chantiers et supervise l’approvisionnement (vivres, chevaux, matériel) des camps forestiers de la Haute-Mauricie. À l’automne 1869, au cours d’une tournée d’inspection à la drave sur la <strong>rivière Vermillon</strong>, il disparaît et se noie accidentellement (accident rapporté par le journal trifluvien <em>Le Constitutionnel</em> dès le 3 décembre 1869). Son corps n’est retrouvé et inhumé officiellement au cimetière Saint-Louis de Trois-Rivières que le 23 janvier 1871, à la suite du certificat dressé par le coroner Valère Guillet.</p>
+
+  <div class="figures">
+    <div class="fig"><b>1824</b><span>Baptisé à Jeune-Lorette par l’abbé Cooke</span></div>
+    <div class="fig"><b>Corroyeur &amp; Draveur</b><span>Travail du cuir et chantiers forestiers</span></div>
+    <div class="fig"><b>1869</b><span>Disparu en mission sur la rivière Vermillon</span></div>
+  </div>
+
+  <div class="highlight">
+    <p><strong>Du savoir-faire de Wendake aux ateliers du cuir de Trois-Rivières.</strong> Porteur des techniques huronnes-wendat de traitement des peaux acquises dans sa communauté d’origine à Jeune-Lorette, Joseph Sébastien transmet le métier de corroyeur et mégissier à son fils aîné <a href="Edouard_Sebastien_1854-1905.html">Édouard Sébastien</a> ainsi qu’à son petit-fils <a href="Joseph_Edouard_Sebastien_1879-1914.html">Joseph-Édouard</a> (qui retournera lui-même parfaire son apprentissage de tailleur de gants à Wendake vers 1901). Après la disparition tragique de Joseph, sa veuve Caroline Blais épousera en secondes noces en 1871 Thomas Laveau, lui aussi Huron de Lorette et mégissier à Trois-Rivières.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="genealogie">
+  <h2><span class="num">3</span>Généalogie et famille</h2>
+  <p>Joseph Sébastien représente la cinquième génération documentée de la lignée huronne-wendat des Sébastien (<em>Sarenhes</em>). Il est le petit-fils de <strong>Sébastien Sarenhes</strong> (1749–1835), ancien élève du Dartmouth College, instituteur et premier chef des guerriers de Jeune-Lorette, et l’arrière-arrière-petit-fils du Grand Chef <strong>Paul Tsa8enhohi</strong> (~1693–1774).</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Sébastien Sarenhes<small>1749–1835 · Chef des guerriers</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie-Madeleine Hotte<small>1757–1836</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node">Jean-Baptiste Sébastien<small>1785–1848 · Pionnier à Trois-Rivières</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Louise Savard <span class="note">(2<sup>e</sup> épouse)</span><small>1806–1876</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Joseph Sébastien<small>1824–1869 · Corroyeur et conducteur</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Caroline Blais<small>1834–? · remariée à Thomas Laveau (1871)</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px"><a href="Edouard_Sebastien_1854-1905.html">Édouard Sébastien</a><small>1854–1905 · Mégissier</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px">Louise<small>ép. Luc Picard (1876)</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px">Georgiana<small>ép. Louis Racette (1884)</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:175px">Églephire<small>1860–1915 · ép. Lamothe / Soucy</small></div></div>
+    </div>
+  </div>
+
+  <h3>Les enfants de Joseph Sébastien et Caroline Blais</h3>
+  <div class="kids">
+    <div class="kid">
+      <h3><a href="Edouard_Sebastien_1854-1905.html">Édouard Sébastien (1854–1905)</a></h3>
+      <p><strong>Né et baptisé</strong> le 28 février 1854 à Trois-Rivières (Joseph-Édouard). Mégissier. Épouse le 10 octobre 1877 Étudienne Panneton (1857–1901), avec qui il a douze enfants, dont <a href="Joseph_Edouard_Sebastien_1879-1914.html">Joseph-Édouard Sébastien (1879–1914)</a>. <a href="Edouard_Sebastien_1854-1905.html">Voir sa page →</a></p>
+    </div>
+    <div class="kid">
+      <h3>Louise Sébastien</h3>
+      <p><strong>Épouse</strong> le 12 septembre 1876 à Trois-Rivières son cousin <strong>Luc Picard</strong> (Huron de Jeune-Lorette, fils de Charles Picard et de Judith Sébastien). Le couple réside dans le quartier Notre-Dame à Trois-Rivières où Luc exerce le métier de journalier.</p>
+    </div>
+    <div class="kid">
+      <h3>Marie-Élise-Georgine &amp; Georgiana</h3>
+      <p><strong>Marie-Élise-Georgine</strong> naît le 15 mars 1858 (baptisée le 18 mars). <strong>Georgiana Sébastien</strong> épouse le 15 janvier 1884 en la paroisse Immaculée-Conception de Trois-Rivières <strong>Louis Racette</strong> (fils d’Adolphe Racette et de Louise Harnois).</p>
+    </div>
+    <div class="kid">
+      <h3>Églephire Sébastien (1860–1915)</h3>
+      <p><strong>Née</strong> le 9 avril 1860 et décédée le 1<sup>er</sup> janvier 1915. Épouse en premières noces le 2 juillet 1884 <strong>Edmond Lamothe</strong> (fils d’Adolphe Lamothe et Marie-Marguerite Gauthier), puis en secondes noces le 21 juin 1897 le journalier <strong>Pierre Soucy</strong>.</p>
+    </div>
+    <div class="kid">
+      <h3>Marie-Philomène &amp; Marie-Anne</h3>
+      <p><strong>Marie-Philomène</strong> (née le 7 juin 1862, décédée le 6 août 1863 à 14 mois) et <strong>Marie-Anne</strong> (née le 1<sup>er</sup> juin 1865, décédée le 13 mai 1867 à près de 2 ans), toutes deux décédées en bas âge à Trois-Rivières.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="chronologie">
+  <h2><span class="num">4</span>Repères chronologiques</h2>
+  <ul class="timeline">
+    <li><span class="d">7 mai 1824</span> — Naissance à Saint-Ambroise-de-la-Jeune-Lorette (Wendake) ; baptisé le 8 mai sous les prénoms de Joseph-Édouard par l’abbé Thomas Cooke.</li>
+    <li><span class="d">Vers 1840</span> — Installation à Trois-Rivières avec ses parents Jean-Baptiste Sébastien et Louise Savard et leurs jeunes enfants.</li>
+    <li><span class="d">19 juin 1848</span> — Inhumation de son père Jean-Baptiste Sébastien à Trois-Rivières ; Joseph devient le soutien principal de sa mère et de ses frères et sœurs.</li>
+    <li><span class="d">1852</span> — Recensé à Trois-Rivières (24 ans selon le recenseur) comme <em>voyageur</em> auprès de sa mère Louise Savard et de sa fratrie (Abraham, Louise, Philomène).</li>
+    <li><span class="d">7 février 1853</span> — Mariage à l’Immaculée-Conception de Trois-Rivières avec Caroline Blais (1834–?), fille du cordonnier Jacques Bénoni Blais.</li>
+    <li><span class="d">28 février 1854</span> — Naissance de son fils aîné, <a href="Edouard_Sebastien_1854-1905.html">Édouard Sébastien</a>, futur mégissier.</li>
+    <li><span class="d">1861</span> — Recensé rue Niverville (côté est) à Trois-Rivières avec sa mère Louise Savard et sa famille.</li>
+    <li><span class="d">Automne / 3 décembre 1869</span> — Alors qu’il effectue comme conducteur de chantiers pour M. Gouin une tournée d’approvisionnement sur la rivière Vermillon, il disparaît et périt noyé à l’âge de 45 ans.</li>
+    <li><span class="d">23 janvier 1871</span> — Sépulture officielle au cimetière Saint-Louis de Trois-Rivières sur certificat du coroner Valère Guillet, en présence de Joseph Blais et Thomas Laveau.</li>
+  </ul>
+</section>
+
+<!-- 5 -->
+<section id="sources">
+  <h2><span class="num">5</span>Sources et références archivistiques</h2>
+
+  <div class="srcgroup" style="border-top:0;margin-top:0;padding-top:0">
+    <h3>Registres paroissiaux, presse et recensements</h3>
+    <ul class="src">
+      <li><strong>Acte de baptême de Joseph-Édouard Sébastien (8 mai 1824) :</strong> Paroisse Saint-Ambroise-de-la-Jeune-Lorette (Wendake), signé T. Cooke, prêtre (<a href="https://familysearch.org/pal:/MM9.3.1/TH-1961-28022-40745-84?cc=1321742&wc=9RLN-ZNR:15604801,15604802,15604803" target="_blank" rel="noopener">FamilySearch — Registres paroissiaux de Jeune-Lorette</a>).</li>
+      <li><strong>Acte de mariage avec Caroline Blais (7 février 1853) :</strong> Paroisse Immaculée-Conception, Trois-Rivières, dispense de M<sup>gr</sup> Cooke, signé J. O. Prince, prêtre.</li>
+      <li><strong>Acte de sépulture (23 janvier 1871) :</strong> Paroisse Immaculée-Conception, Trois-Rivières (inhumation au cimetière Saint-Louis suite au certificat du coroner Valère Guillet daté du 21 janvier 1871 attestant la noyade dans la rivière du Vermillon à l’automne 1869) (<a href="https://familysearch.org/pal:/MM9.3.1/TH-1961-28029-16566-35?cc=1321742&wc=9RLV-HZW:25042301,25229401,27882401" target="_blank" rel="noopener">FamilySearch — Registres de Trois-Rivières</a>).</li>
+      <li><strong>Journal <em>Le Constitutionnel</em> (Trois-Rivières, 3 et 10 décembre 1869) :</strong> « Faits divers » — disparition de « Jos. Sébastien, employé de M. Gouin » lors de sa tournée des chantiers forestiers (CIEQ Mauricie, fiches n<sup>o</sup> 20011 et n<sup>o</sup> 19956).</li>
+      <li><strong>Recensements du Canada de 1852 et 1861 (Trois-Rivières) :</strong> Foyer de Louise Savard et Joseph Bastien/Sébastien (rue Niverville, 1861).</li>
+    </ul>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Généalogie et histoire familiale</h3>
+    <ul class="src">
+      <li><strong>Archives familiales Sébastien :</strong> Dossier généalogique <em>Famille Sébastien</em> (Générations I à X) et arbre Geneanet de Philippe Sébastien (<a href="https://gw.geneanet.org/philsebastien_w?lang=fr&n=sebastien&p=joseph&type=fiche" target="_blank" rel="noopener">Geneanet — Fiche Joseph Sébastien</a>).</li>
+      <li><strong>Chroniques historiques de Trois-Rivières :</strong> « Des Hurons à Trois-Rivières » et « Les mégissiers » (études sur les corroyeurs et mégissiers hurons-wendat en Mauricie).</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Généalogie de la famille Sébastien · <a href="Edouard_Sebastien_1854-1905.html">Édouard Sébastien (1854–1905)</a> · <a href="#fiche">Haut de page ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
