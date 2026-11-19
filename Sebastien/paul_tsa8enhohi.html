@@ -1,533 +1,398 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paul Tsa8enhohi (~1693 – 1774) — Grand Chef des Hurons-Wendats | Famille Sébastien</title>
-  <link rel="stylesheet" href="../style.css">
-  <style>
-    /* Styles de repli assurant un rendu fidèle au portail genearbre.org si ../style.css est absent */
-    :root {
-      --primary: #2c3e50;
-      --accent: #8b5a2b;
-      --bg-page: #f9f7f2;
-      --bg-card: #ffffff;
-      --text-main: #2b2b2b;
-      --text-muted: #5a5a5a;
-      --border-light: #dcd6c8;
-      --quote-bg: #f3efe6;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paul Tsa8enhohi (v. 1693 – 1774)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
 
-    body {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      background-color: var(--bg-page);
-      color: var(--text-main);
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-    }
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 25px 20px 60px;
-    }
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
 
-    header.page-header {
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 18px;
-      margin-bottom: 28px;
-      text-align: center;
-    }
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
 
-    header.page-header .breadcrumb {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
 
-    header.page-header .breadcrumb a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .highlight .latin{display:block;font-style:italic;color:var(--navy);margin-bottom:8px}
+  .highlight .trad{display:block;border-top:1px dashed var(--accent-2);padding-top:8px;margin-top:8px}
+  .note{font-size:14.5px;color:var(--muted)}
 
-    header.page-header .breadcrumb a:hover {
-      text-decoration: underline;
-    }
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .node a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(680px,90%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
 
-    header.page-header h1 {
-      font-size: 2.2rem;
-      color: var(--primary);
-      margin: 5px 0;
-      letter-spacing: 0.5px;
-    }
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
 
-    header.page-header .subtitle {
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--accent);
-      margin: 0;
-    }
+  .archive-fig{margin:20px 0;padding:16px;background:#fff;border:1px solid var(--line);border-radius:6px;text-align:center}
+  .archive-fig img{max-width:100%;height:auto;border-radius:4px;border:1px solid var(--line)}
+  .archive-fig figcaption{margin-top:10px;font-size:14px;color:var(--muted);font-style:italic}
 
-    .nav-lineage {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
-      padding: 12px 18px;
-      margin-bottom: 30px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 0.9rem;
-    }
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr.hl-row{background:var(--hl);font-weight:600}
 
-    .nav-lineage a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
-    }
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
 
-    .nav-lineage a:hover {
-      color: var(--accent);
-      text-decoration: underline;
-    }
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
 
-    .nav-lineage .gen-badge {
-      background-color: var(--accent);
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
 
-    .card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
-      padding: 24px 28px;
-      margin-bottom: 26px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-    }
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
 
-    h2 {
-      color: var(--primary);
-      font-size: 1.45rem;
-      border-bottom: 1px solid var(--border-light);
-      padding-bottom: 8px;
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-
-    h3 {
-      color: var(--accent);
-      font-size: 1.15rem;
-      margin-top: 20px;
-      margin-bottom: 10px;
-    }
-
-    .vital-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px 24px;
-    }
-
-    .vital-item strong {
-      color: var(--primary);
-      display: inline-block;
-      min-width: 115px;
-    }
-
-    blockquote.archive-quote {
-      background-color: var(--quote-bg);
-      border-left: 4px solid var(--accent);
-      margin: 16px 0;
-      padding: 14px 20px;
-      font-style: italic;
-      color: #333;
-    }
-
-    blockquote.archive-quote .latin {
-      font-family: 'Georgia', serif;
-      color: #1f2d3d;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    blockquote.archive-quote .traduction {
-      font-style: normal;
-      color: #444;
-      display: block;
-      border-top: 1px dashed #cfc7b4;
-      padding-top: 8px;
-      margin-top: 8px;
-    }
-
-    blockquote.archive-quote cite {
-      display: block;
-      margin-top: 8px;
-      font-size: 0.88rem;
-      font-style: normal;
-      color: var(--text-muted);
-    }
-
-    .figure-box {
-      text-align: center;
-      margin: 20px 0;
-      padding: 14px;
-      background-color: #fcfbf8;
-      border: 1px solid var(--border-light);
-      border-radius: 4px;
-    }
-
-    .figure-box img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 3px;
-    }
-
-    .figure-box figcaption {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    table.data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 0.95rem;
-    }
-
-    table.data-table th,
-    table.data-table td {
-      border: 1px solid var(--border-light);
-      padding: 10px 12px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    table.data-table th {
-      background-color: var(--quote-bg);
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    table.data-table tr.highlight-row {
-      background-color: #fdf6ec;
-      font-weight: bold;
-    }
-
-    .children-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .children-list > li {
-      padding: 14px 16px;
-      border-left: 3px solid var(--accent);
-      background-color: #fcfbf8;
-      margin-bottom: 14px;
-    }
-
-    .research-note {
-      background-color: #f4f7f9;
-      border-left: 4px solid #4a708b;
-      padding: 12px 16px;
-      margin: 14px 0;
-      font-size: 0.94rem;
-    }
-
-    .sources-list {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      padding-left: 20px;
-    }
-
-    .sources-list li {
-      margin-bottom: 6px;
-    }
-
-    footer.page-footer {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-light);
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-  </style>
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
 </head>
 <body>
 
-<div class="container">
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-sebastien.html">← Famille Sébastien</a>
+    <a href="Etienne_Eha8ennon.html">Étienne Eha8ennon (fils) →</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#nom">Son nom</a>
+    <a href="#alliance">Alliance</a>
+    <a href="#descendance">Descendance</a>
+    <a href="#actes">Actes</a>
+    <a href="#role">Grand chef</a>
+    <a href="#chefs">Lignée des chefs</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
 
-  <!-- EN-TÊTE -->
-  <header class="page-header">
-    <div class="breadcrumb">
-      <a href="../index.html">Accueil</a> &rsaquo;
-      <a href="index.html">Famille Sébastien</a> &rsaquo;
-      Paul Tsa8enhohi
-    </div>
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération I · Famille Sébastien</p>
     <h1>Paul Tsa8enhohi</h1>
-    <p class="subtitle">Grand Chef des Hurons-Wendats de la Jeune-Lorette (Wendake) &bull; Vers 1693 – 24 juillet 1774</p>
-  </header>
+    <p class="dates">v. 1693 – 24 juillet 1774</p>
+    <p class="sub">Grand Chef des Hurons-Wendats de la Jeune-Lorette (Wendake), père d’Étienne Eha8ennon, grand-père de Petit Étienne Ondiaraété et de Sébastien Sarenhes</p>
+  </div>
+</header>
 
-  <!-- NAVIGATION LIGNÉE ANCESTRALE (PÈRE -> FILS) -->
-  <nav class="nav-lineage" aria-label="Navigation dans la lignée directe">
-    <span>&larr; <em>Souche ancestrale connue (Génération 1)</em></span>
-    <span class="gen-badge">Génération 1 &bull; Lignée Sébastien</span>
-    <a href="Etienne_Ehawennon_1715-1767.html">Fils : Étienne Eha8ennon (~1715 – av. 1767) &rarr;</a>
-  </nav>
+<main class="wrap">
 
-  <!-- 1. REPÈRES GÉNÉALOGIQUES -->
-  <section class="card">
-    <h2>1. Repères généalogiques</h2>
-    <div class="vital-grid">
-      <div class="vital-item"><strong>Naissance :</strong> Avant ou vers 1693</div>
-      <div class="vital-item"><strong>Lieu de naissance :</strong> Ancienne-Lorette, Canada (Nouvelle-France)</div>
-      <div class="vital-item"><strong>Titre :</strong> Grand Chef de la Nation Huronne-Wendat</div>
-      <div class="vital-item"><strong>Graphies :</strong> Tsa8enhohi, Tsawenhohi, Tsawawanhi, Tsa-wa-wan-hi, Tsa-a-ra-lih-to</div>
-      <div class="vital-item"><strong>Épouse :</strong> Marie-Josèphe Tsoendask8a (Tsoendaskoua)</div>
-      <div class="vital-item"><strong>Mariage :</strong> Date inconnue (avant ~1715)</div>
-      <div class="vital-item"><strong>Décès :</strong> 24 juillet 1774 (inhumé le 25 juillet 1774)</div>
-      <div class="vital-item"><strong>Lieu de sépulture :</strong> Paroisse Saint-Ambroise-de-la-Jeune-Lorette (Wendake)</div>
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Paul Tsa8enhohi naît avant ou vers 1693 à l’Ancienne-Lorette, peu avant l’installation définitive des Hurons-Wendats à la Jeune-Lorette (Wendake) en 1697. Grand chef de la Nation huronne-wendat pendant une grande partie du XVIII<sup>e</sup> siècle, il épouse Marie-Josèphe Tsoendask8a, avec qui il a au moins un fils biologique documenté, <a href="Etienne_Eha8ennon.html">Étienne Eha8ennon</a>, ainsi que deux fils adoptifs intégrés à la mission. Il s’éteint à la Jeune-Lorette le 24 juillet 1774, à l’âge d’environ 81 ans.</p>
+
+  <div class="figures">
+    <div class="fig"><b>v. 1693</b><span>Naissance à Ancienne-Lorette</span></div>
+    <div class="fig"><b>1759</b><span>Chef à la bataille des Plaines</span></div>
+    <div class="fig"><b>~81 ans</b><span>Décès le 24 juillet 1774</span></div>
+  </div>
+
+  <dl class="identity">
+    <div><dt>Nom et graphies</dt><dd>Paul Tsa8enhohi <span class="note">(aussi Tsawenhohi, Tsawawanhi, Tsa-wa-wan-hi, Tsa-a-ra-lih-to)</span></dd></div>
+    <div><dt>Titre</dt><dd>Grand Chef de la Nation Huronne-Wendat à la Jeune-Lorette</dd></div>
+    <div><dt>Naissance</dt><dd>Avant ou vers 1693, Ancienne-Lorette, Canada (Nouvelle-France)</dd></div>
+    <div><dt>Décès</dt><dd>24 juillet 1774, inhumé le 25 juillet 1774 à Saint-Ambroise-de-la-Jeune-Lorette</dd></div>
+    <div><dt>Épouse</dt><dd>Marie-Josèphe Tsoendask8a (Tsoendaskoua) <span class="note">(b. 4 mai 1693 à Québec · † 16 août 1773 à Jeune-Lorette)</span></dd></div>
+    <div><dt>Fils et descendance</dt><dd><a href="Etienne_Eha8ennon.html">Étienne Eha8ennon</a> (v. 1715 – av. 1767)<br>Pierre Haronhienta et René <span class="note">(fils adoptifs)</span></dd></div>
+    <div class="full"><dt>Lignée directe vers Henri Sébastien</dt><dd><strong>Paul Tsa8enhohi</strong> → <a href="Etienne_Eha8ennon.html">Étienne Eha8ennon</a> → <a href="sebastien_sarenhes.html">Sébastien Sarenhes</a> → Jean-Baptiste Sébastien → Joseph Sébastien → Édouard Sébastien → Joseph-Édouard Sébastien → <a href="Henri_Sebastien_1904-1990.html">Henri Sébastien</a> → <a href="biographie_de_m_le_batonnier_pierre_sebastien_c_r_adv_e.html">Pierre Sébastien</a></dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="nom">
+  <h2><span class="num">2</span>Étymologie et signification du nom <em>Tsa8enhohi</em></h2>
+  <p>Dans l’orthographe missionnaire utilisée par les Jésuites au XVII<sup>e</sup> et au XVIII<sup>e</sup> siècle, le chiffre <strong>8</strong> (ou ligature latine <em>ȣ</em>) note le son <strong>/w/</strong> devant une voyelle ; ainsi, <em>Tsa8enhohi</em> se prononce et s’écrit aujourd’hui <strong>Tsawenhohi</strong>. Ce nom désigne un rapace piscivore : le <strong>balbuzard pêcheur</strong> (<em>Pandion haliaetus</em>), appelé <em>osprey</em> ou <em>fish hawk</em> en anglais, et parfois surnommé « aigle-pêcheur » en français.</p>
+
+  <p>Cette signification a été confirmée personnellement par le linguiste et spécialiste des langues iroquoiennes <strong>Dr John L. Steckley</strong> lors du colloque sur l’archéologie huronne-wendat tenu le 17 octobre 2015. Le nom du Grand Chef Tsawenhohi signifie littéralement <strong>« celui qui voit clair »</strong> ou <strong>« celui qui plonge des choses dans l’eau »</strong> — une image directement liée au regard perçant et à la pêche en plongée du balbuzard.</p>
+
+  <table>
+    <thead><tr><th>Terme / Porteur</th><th>Sens attesté</th><th>Précisions historiques</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Terme / Porteur"><strong>Tsawenhohi</strong> (Paul Tsa8enhohi)</td><td data-l="Sens attesté">« Celui qui voit clair » / « Celui qui plonge des choses dans l’eau »</td><td data-l="Précisions">Désigne le balbuzard pêcheur (<em>Pandion haliaetus</em>). Sens confirmé par John L. Steckley (2015) et repris pour Nicolas Vincent Tsawenhohi (1810–1844).</td></tr>
+      <tr><td data-l="Terme / Porteur">Traductions coloniales anciennes</td><td data-l="Sens attesté">« Faucon » ou « Vautour »</td><td data-l="Précisions">Traductions approximatives fréquentes dans les textes français et anglais des XVIII<sup>e</sup> et XIX<sup>e</sup> siècles ; « Le Vautour » était notamment associé à Ignace Tsa8enhohi (1685–1693).</td></tr>
+    </tbody>
+  </table>
+
+  <figure class="archive-fig">
+    <img src="images/tsawenhohi_balbuzard.jpg" alt="Le balbuzard pêcheur (Pandion haliaetus), emblème du nom Tsawenhohi">
+    <figcaption>Le balbuzard pêcheur (<em>Pandion haliaetus</em>), rapace piscivore dont le nom wendat est <em>Tsawenhohi</em>.</figcaption>
+  </figure>
+</section>
+
+<!-- 3 -->
+<section id="alliance">
+  <h2><span class="num">3</span>Union avec Marie-Josèphe Tsoendask8a</h2>
+  <p>Paul Tsa8enhohi est uni à <strong>Marie-Josèphe Tsoendask8a</strong> (également orthographiée <em>Tsoendaskoua</em>). Selon les relevés de Mgr Cyprien Tanguay (<em>Dictionnaire généalogique des familles canadiennes</em>, tome 7, p. 129, ainsi que ses listes des Amérindiens de Québec), elle est très vraisemblablement la <strong>Marie-Joseph, Huronne</strong>, née et baptisée le <strong>4 mai 1693</strong> en l’église Notre-Dame de Québec — ce qui lui donnerait environ le même âge que son époux.</p>
+
+  <p>Marie-Josèphe Tsoendask8a meurt le <strong>16 août 1773</strong> à la Jeune-Lorette, à l’âge d’environ 80 ans, et est inhumée le lendemain dans le cimetière de la mission, précédant Paul Tsa8enhohi de onze mois.</p>
+
+  <figure class="archive-fig">
+    <img src="images/1693-05-04_Bapteme_Marie_Joseph_Tsoendask8a.jpg" alt="Acte de baptême de Marie-Joseph, Huronne, le 4 mai 1693 à Notre-Dame de Québec">
+    <figcaption>Acte de baptême de Marie-Joseph, Huronne (4 mai 1693, paroisse Notre-Dame de Québec). Registres paroissiaux du Québec.</figcaption>
+  </figure>
+</section>
+
+<!-- 4 -->
+<section id="descendance">
+  <h2><span class="num">4</span>Famille, descendance et adoptions</h2>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node main">Paul Tsa8enhohi<small>v. 1693 – 1774 · Grand chef</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie-Josèphe Tsoendask8a<small>1693 – 16 août 1773</small></div>
     </div>
-  </section>
+    <div class="vline"></div>
+    <div class="hbar" style="width:min(640px,90%)"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="vline"></div>
+        <div class="node"><a href="Etienne_Eha8ennon.html">Étienne Eha8ennon</a><small>v. 1715 – av. 1767</small></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="vline"></div>
+        <div class="node sp">Pierre Haronhienta<small>Fils adoptif (v. 1762)</small></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="vline"></div>
+        <div class="node sp">René<small>Fils adoptif (b. 13 fév. 1764)</small></div>
+      </div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar" style="width:min(420px,80%)"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="vline"></div>
+        <div class="node">Petit Étienne Ondiaraété<small>v. 1742 – 1830 · Grand chef</small></div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="vline"></div>
+        <div class="node"><a href="sebastien_sarenhes.html">Sébastien Sarenhes</a><small>1749 – 1835 · Chef des guerriers</small></div>
+      </div>
+    </div>
+  </div>
 
-  <!-- 2. SIGNIFICATION DU NOM TSA8ENHOHI -->
-  <section class="card">
-    <h2>2. Étymologie et signification du nom <em>Tsa8enhohi</em></h2>
-    <p>
-      En langue wendat, le « 8 » (ou <em>ou</em> latin ȣ) transcrit le son <strong>/w/</strong> devant une voyelle ; ainsi, <strong>Tsa8enhohi</strong> se prononce et s'écrit aujourd'hui <strong>Tsawenhohi</strong>. Ce nom désigne un rapace piscivore : le <strong>balbuzard pêcheur</strong> (<em>Pandion haliaetus</em>), appelé <em>osprey</em> ou <em>fish hawk</em> en anglais, et parfois surnommé « aigle-pêcheur ».
-    </p>
-    <p>
-      Cette signification a été confirmée personnellement par le linguiste et spécialiste des langues iroquoiennes <strong>Dr John L. Steckley</strong> lors du colloque sur l'archéologie huronne-wendat tenu le 17 octobre 2015. Le nom du Grand Chef Tsawenhohi signifie littéralement <strong>« celui qui voit clair »</strong> ou <strong>« celui qui plonge des choses dans l'eau »</strong> (en référence à la technique de chasse du balbuzard).
-    </p>
+  <p>Fidèle aux usages sociaux et diplomatiques de la Nation huronne-wendat au XVIII<sup>e</sup> siècle, le foyer de Paul Tsa8enhohi et de Marie-Josèphe Tsoendask8a assure à la fois sa lignée directe et l’adoption de jeunes personnes au sein de la communauté de Lorette :</p>
 
-    <div class="research-note">
-      <strong>Note linguistique et historique :</strong> Plusieurs grands chefs hurons-wendats ont porté le titre héréditaire ou honorifique de <em>Tsawenhohi</em>, notamment Ignace Tsa8enhohi (1685–1693) et plus tard Nicolas Vincent Tsawenhohi (1810–1844). Dans les sources coloniales anciennes, le terme a parfois été traduit approximativement par « faucon » ou « vautour », mais la traduction transmise par John Steckley (« celui qui voit clair ») demeure la plus fidèle à l'étymologie wendat.
+  <div class="kids">
+    <div class="kid">
+      <h3><a href="Etienne_Eha8ennon.html">Étienne Eha8ennon</a></h3>
+      <p><strong>Né</strong> vers 1715 à la Jeune-Lorette ; <strong>décédé</strong> entre décembre 1754 et février 1767. Épouse vers 1740 <strong>Geneviève Andhechonniak</strong> (« fille française », décédée avant décembre 1754).</p>
+      <p>Il est le père de deux grandes figures de Wendake : le Grand Chef <strong>Petit Étienne Ondiaraété</strong> (v. 1742 – 1830) et <a href="sebastien_sarenhes.html"><strong>Sébastien Sarenhes</strong></a> (1749 – 1835), ancêtre direct de la famille Sébastien-Bastien.</p>
     </div>
 
-    <figure class="figure-box">
-      <img src="images/tsawenhohi_balbuzard.jpg" alt="Le balbuzard pêcheur (Pandion haliaetus), emblème du nom Tsawenhohi">
-      <figcaption>Le balbuzard pêcheur (<em>Pandion haliaetus</em>), rapace piscivore dont le nom wendat est <em>Tsawenhohi</em>.</figcaption>
-    </figure>
-  </section>
+    <div class="kid">
+      <h3>Pierre Haronhienta (adoptif)</h3>
+      <p><strong>Adopté</strong> vers 1762 par Paul Tsa8enhohi ; <strong>marié</strong> le 18 août 1770 à <strong>Marie-Josèphe Arak8indes</strong>.</p>
+      <p>L’acte de mariage précise : <em>« gallum octo hinc circiter annis adoptatum a Paulo Tsa8enhohi »</em> (« Français, adopté il y a huit ans par Paul Tsa8enhohi »). Adopté peu après la Conquête britannique alors qu’il était adolescent ou jeune adulte, il reçut le nom wendat <em>Haronhienta</em>.</p>
+    </div>
 
-  <!-- 3. UNION AVEC MARIE-JOSÈPHE TSOENDASK8A -->
-  <section class="card">
-    <h2>3. Union avec Marie-Josèphe Tsoendask8a</h2>
-    <p>
-      Paul Tsa8enhohi était marié à <strong>Marie-Josèphe Tsoendask8a</strong> (aussi orthographié <em>Tsoendaskoua</em>). Selon les relevés de Mgr Cyprien Tanguay (<em>Dictionnaire généalogique des familles canadiennes</em>, tome 7, p. 129, et les listes des Amérindiens de Québec), elle est très vraisemblablement la <strong>Marie-Joseph, Huronne</strong>, née et baptisée le <strong>4 mai 1693</strong> à la paroisse Notre-Dame de Québec, ce qui lui donnerait exactement le même âge que son époux.
-    </p>
-    <p>
-      Marie-Josèphe Tsoendask8a s'éteint le <strong>16 août 1773</strong> à la Jeune-Lorette, à l'âge d'environ 80 ans, précédant son mari d'un peu moins d'un an.
-    </p>
+    <div class="kid">
+      <h3>René (adoptif)</h3>
+      <p><strong>Né</strong> le 12 février 1764 et <strong>baptisé</strong> le 13 février 1764 à Saint-Ambroise-de-la-Jeune-Lorette par le père Étienne-Thomas de Villeneuve Girault.</p>
+      <p>Inscrit de père et mère inconnus (<em>spurium</em>) et adopté par Paul Tsa8enhohi et Marie-Josèphe Tsoendask8a. Son parrain est <strong>Thomas Atondatouann</strong> (futur grand chef Thomas Martin Thodato8an) et sa marraine <strong>Louise Ondaenton</strong>.</p>
+    </div>
+  </div>
+</section>
 
-    <figure class="figure-box">
-      <img src="images/1693-05-04_Bapteme_Marie_Joseph_Tsoendask8a.jpg" alt="Acte de baptême de Marie-Joseph, Huronne, le 4 mai 1693 à Notre-Dame de Québec">
-      <figcaption>Acte de baptême de Marie-Joseph, Huronne (4 mai 1693, Notre-Dame de Québec). Source : Registres paroissiaux du Québec (Collection Drouin / FamilySearch).</figcaption>
-    </figure>
-  </section>
+<!-- 5 -->
+<section id="actes">
+  <h2><span class="num">5</span>Actes du registre paroissial de la Jeune-Lorette</h2>
+  <p>Les registres tenus par les missionnaires jésuites de Saint-Ambroise-de-la-Jeune-Lorette conservent en latin plusieurs mentions directes concernant Paul Tsa8enhohi et les siens :</p>
 
-  <!-- 4. DESCENDANCE ET ADOPTIONS -->
-  <section class="card">
-    <h2>4. Descendance et enfants adoptifs</h2>
-    <p>
-      Conformément aux traditions d'hospitalité et d'intégration de la Nation Huronne-Wendat au XVIII<sup>e</sup> siècle, Paul Tsa8enhohi et Marie-Josèphe Tsoendask8a ont non seulement assuré leur descendance directe, mais également adopté des jeunes gens au sein de la mission de la Jeune-Lorette :
-    </p>
+  <h3>Sépulture de Paul Tsa8enhohi (25 juillet 1774)</h3>
+  <div class="highlight">
+    <span class="latin">« Die 24<sup>ie</sup> Julius mortuus est Paulus Tsa8enhoh8i omnibus sacramentis Ecclesia munitus et postridie hûc sepultus. »</span>
+    <span class="trad"><strong>Traduction :</strong> « Le 24<sup>e</sup> jour de juillet [1774] est mort Paul Tsa8enhohi, muni de tous les sacrements de l’Église, et enterré ici le lendemain. »</span>
+  </div>
 
-    <ul class="children-list">
-      <li>
-        <strong>1. <a href="Etienne_Ehawennon_1715-1767.html">Étienne Eha8ennon (Ehawennon)</a></strong> (né vers 1715 à la Jeune-Lorette – décédé entre 1754 et 1767)<br>
-        <em>Conjointe :</em> <strong>Geneviève Andheahonniak (Andhechonniak)</strong>, fille d'origine française intégrée à la communauté (mariés vers 1740 ; décédée avant décembre 1754).<br>
-        <em>Descendance notable :</em> Parents de deux figures majeures de la Nation : le Grand Chef <strong>Petit Étienne Ondiaraété</strong> (~1742–1830) et le premier chef des guerriers et instituteur <strong>Sébastien Sarenhes</strong> (1749–1835), ancêtre direct de la lignée <strong>Sébastien / Bastien</strong>.
-      </li>
+  <h3>Sépulture de Marie-Josèphe Tsoendaskoua (17 août 1773)</h3>
+  <div class="highlight">
+    <span class="latin">« Die 16<sup>ie</sup> Augustus anno 1773 mortua est maria josephe Tsoendaskoua omnibus sacramentis Ecclesia munita et postridie hûc sepulta. »</span>
+    <span class="trad"><strong>Traduction :</strong> « Le 16<sup>e</sup> jour d’août de l’an 1773 est morte Marie-Josèphe Tsoendaskoua, munie de tous les sacrements de l’Église, et enterrée ici le lendemain. »</span>
+  </div>
 
-      <li>
-        <strong>2. Pierre Haronhienta</strong> (fils adoptif vers 1762)<br>
-        <em>Conjointe :</em> <strong>Marie-Josèphe Arak8indes</strong> (mariés le 18 août 1770 à la Jeune-Lorette).<br>
-        <em>Contexte historique :</em> Dans l'acte de mariage de 1770, le missionnaire jésuite inscrit la mention latine <em>« gallum octo hinc circiter annis adoptatum a Paulo Tsa8enhohi »</em> (« Français, adopté il y a environ huit ans par Paul Tsa8enhohi »). Adopté vers 1762 — au lendemain de la Conquête britannique — alors qu'il était adolescent ou jeune adulte, Pierre reçut le nom wendat <em>Haronhienta</em>, illustrant l'assimilation coutumière d'étrangers d'origine française à la communauté huronne.
-      </li>
+  <h3>Baptême de René, fils adoptif (13 février 1764)</h3>
+  <div class="highlight">
+    <span class="latin">« Ego infra scriptus Sacerd Soc Jes baptizavi Renatum spurium heri natum adoptativus à Paulu Tsa8enhoh8i et maria Josepha Tsoendask8a patrinus fuit Thomas Atondatouann matrina vero Ludovica Ondaenton Die 13<sup>ie</sup> februar 1764. — Steph. Th. de Vill Girault miss. »</span>
+    <span class="trad"><strong>Traduction :</strong> « Je, soussigné, prêtre de la Compagnie de Jésus, ai baptisé René, illégitime, né hier, adopté par Paul Tsa8enhohi et Marie-Josèphe Tsoendask8a ; le parrain fut Thomas Atondatouann et la marraine Louise Ondaenton, ce 13<sup>e</sup> jour de février 1764. — Étienne-Thomas de Villeneuve Girault, missionnaire. »</span>
+    <p class="note" style="margin-top:8px"><em>Sacerd Soc Jes</em> est l’abréviation de <em>Sacerdos Societatis Jesu</em> (prêtre de la Compagnie de Jésus).</p>
+  </div>
+</section>
 
-      <li>
-        <strong>3. René</strong> (fils adoptif, né le 12 février 1764 et baptisé le 13 février 1764 à la Jeune-Lorette)<br>
-        Baptisé le lendemain de sa naissance par le père jésuite Étienne-Thomas de Villeneuve Girault, il est inscrit au registre comme né de père et mère inconnus (<em>spurium</em>) et adopté par Paul Tsa8enhohi et Marie-Josèphe Tsoendask8a. Son parrain fut Thomas Atondatouann (le futur Grand Chef Thomas Martin Thodato8an) et sa marraine Louise Ondaenton.
-      </li>
+<!-- 6 -->
+<section id="role">
+  <h2><span class="num">6</span>Rôle historique et archives</h2>
+
+  <h3>Les terres de la seigneurie de Saint-Gabriel (30 juin 1744)</h3>
+  <p>Le <strong>30 juin 1744</strong>, le grand voyer Jean-Eustache Lanouillier de Boiscler dresse un procès-verbal marquant et traçant le grand chemin royal de la côte Saint-Jean-Baptiste, dans la seigneurie de Saint-Gabriel, passant en biais sur le terrain des Hurons. Ce document d’archives cite nommément <strong>« Paul et Estienne Sauvages hurons »</strong> (Paul Tsa8enhohi et son fils <a href="Etienne_Eha8ennon.html">Étienne Eha8ennon</a>) parmi les occupants chargés d’ouvrir et d’entretenir le chemin sur leurs terres.</p>
+
+  <figure class="archive-fig">
+    <img src="images/1744-06-30_Seigneurie_St-Gabriel_Paul_et_Etienne.png" alt="Procès-verbal de Jean-Eustache Lanouillier de Boiscler du 30 juin 1744 mentionnant Paul et Étienne">
+    <figcaption>Extrait du procès-verbal de Jean-Eustache Lanouillier de Boiscler (30 juin 1744) : « ...Paul et Estienne Sauvages hurons feront de même chose... ». Source : BAnQ numérique.</figcaption>
+  </figure>
+
+  <h3>La bataille des Plaines d’Abraham (13 septembre 1759)</h3>
+  <p>Lors de la défense de Québec en septembre 1759, Paul Tsa8enhohi — alors âgé d’environ 66 ans — accompagne le contingent des guerriers hurons-wendats. Son petit-fils, <strong>Petit Étienne Ondiaraété</strong> (alors jeune homme d’environ 17 ans), livra en 1828 un témoignage célèbre sur cet épisode :</p>
+
+  <div class="highlight">
+    <p><em>« Mon grand-père était trop âgé pour maintenir le rythme de ses guerriers. Il voulait que je l’accompagne, mais juste au moment où il aperçut les Hurons et fut sur le point de se joindre à eux, il m’ordonna de retourner ; je lui obéis, mais ne revins sur mes pas que sur une courte distance, et me cachai pour observer ce qui se passait. Je n’ai pas vu grand-chose de la bataille. »</em></p>
+    <p class="note">Témoignage de Petit Étienne, chef du Conseil du village huron, publié dans <em>The Star and Commercial Advertiser</em>, n<sup>o</sup> 13 (27 février 1828).</p>
+  </div>
+
+  <h3>Un grand chef lettré : la lettre de 1773</h3>
+  <p>Les recherches de l’historien <strong>Thomas Peace</strong> (Huron University College) ont mis en lumière une lettre écrite en français à l’été <strong>1773</strong> par Paul Tsa8enhohi, alors grand chef de la nation wendat de Lorette, à son neveu <strong>André Otiondi</strong> établi à Détroit, au sujet de la gestion des terres de ce dernier. Ce document témoigne de la maîtrise de l’écriture et de l’alphabet latin chez certains dirigeants wendats de cette génération, tout en confirmant que Paul Tsa8enhohi exerçait toujours la fonction de grand chef jusqu’à un an de son décès.</p>
+
+  <figure class="archive-fig">
+    <img src="images/Huronne_Huron_1750-1780.jpg" alt="Gravure représentant un couple huron vers 1750-1780">
+    <figcaption>« Huronne, Huron » — Estampe d’époque (vers 1750–1780) illustrant le costume traditionnel des Hurons de Lorette. Source : Collection Philéas Gagnon, Archives de la Ville de Montréal.</figcaption>
+  </figure>
+
+  <h3>Un ou deux Paul Tsa8enhohi ? Mise en perspective</h3>
+  <p>Certaines listes chronologiques attribuent à Paul Tsa8enhohi la période « 1693–1747 » tout en notant son décès en « 1774 », ce qui a parfois suscité l’hypothèse de deux chefs homonymes. Le croisement des sources plaide toutefois pour un chef unique :</p>
+  <ul class="src" style="font-size:15.5px;color:var(--ink)">
+    <li><strong>Un seul individu dans les registres :</strong> les actes paroissiaux et les relevés généalogiques (Tanguay, Geneanet) ne connaissent qu’un seul Paul Tsa8enhohi, né vers 1693 à l’Ancienne-Lorette et mort en juillet 1774 à la Jeune-Lorette à environ 81 ans.</li>
+    <li><strong>Continuité attestée en 1759 et 1773 :</strong> le témoignage de Petit Étienne (décrivant son grand-père comme « trop âgé » en 1759, soit 66 ans) et la lettre de 1773 signée en tant que grand chef comblent l’écart entre 1747 et 1774, même si des chefs de guerre plus jeunes — tel <strong>Thomas Martin Thodato8an</strong> (né vers 1729) — conduisaient les opérations militaires dès 1759.</li>
+    <li><strong>Listes historiques :</strong> la <em>Catholic Encyclopedia</em> (1913) ne répertorie qu’un seul <em>Paul Tsawenhohi</em> entre Ignace Tsawenhohi (« Le Vautour ») et Thomas Martin Thodatowan.</li>
+  </ul>
+</section>
+
+<!-- 7 -->
+<section id="chefs">
+  <h2><span class="num">7</span>Place dans la lignée des Grands Chefs (1650–1844)</h2>
+  <p>Paul Tsa8enhohi s’inscrit au cœur d’une longue continuité politique et familiale à Wendake : son petit-fils <strong>Petit Étienne Ondiaraété</strong> deviendra grand chef en 1809–1810, puis deux descendants directs issus de la branche de son petit-fils <a href="sebastien_sarenhes.html">Sébastien Sarenhes</a> porteront à leur tour le titre au XX<sup>e</sup> siècle — <strong>Maurice Bastien Sarenhes</strong> (1909–1916) et <strong>Ludger Bastien Sarenhes</strong> (1929–1935).</p>
+
+  <table>
+    <thead><tr><th>Période</th><th>Grand Chef</th><th>Notes historiques et liens familiaux</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Période">1650 – 1685</td><td data-l="Grand Chef"><strong>Shastaretsi</strong></td><td data-l="Notes">Premier chef chrétien de Sillery ; mort à la Vieille-Lorette.</td></tr>
+      <tr><td data-l="Période">1685 – 1693</td><td data-l="Grand Chef"><strong>Ignace Tsa8enhohi</strong> (« Le Vautour »)</td><td data-l="Notes">Prédécesseur de Paul Tsa8enhohi.</td></tr>
+      <tr class="hl-row"><td data-l="Période">v. 1693 – 1774</td><td data-l="Grand Chef"><strong>Paul Tsa8enhohi</strong> (« Celui qui voit clair »)</td><td data-l="Notes">Grand Chef à la Jeune-Lorette ; présent en 1759 ; décédé le 24 juillet 1774.</td></tr>
+      <tr><td data-l="Période">1774 – 1776</td><td data-l="Grand Chef"><strong>Stanislas-de-Koska Tchachitaharenre</strong></td><td data-l="Notes">Époux de Marie Perrine Savard.</td></tr>
+      <tr><td data-l="Période">1776 – 1796</td><td data-l="Grand Chef"><strong>Thomas Martin Thodato8an</strong> (« Celui qui parle juste »)</td><td data-l="Notes">Né vers 1729, décédé le 21 juin 1809 ; nommé <em>Thomas Tsa8enhohi</em> au baptême d’un enfant de Sébastien Sarenhes.</td></tr>
+      <tr><td data-l="Période">1796 – 1810</td><td data-l="Grand Chef"><strong>José Vincent</strong></td><td data-l="Notes">Oncle de Nicolas Vincent Tsawenhohi.</td></tr>
+      <tr><td data-l="Période">1809 – 1811</td><td data-l="Grand Chef"><strong>Petit Étienne Ondiaraété</strong> (« Le porteur de canot »)</td><td data-l="Notes">Petit-fils de Paul Tsa8enhohi (fils d’Étienne Eha8ennon et de Geneviève Andhechonniak).</td></tr>
+      <tr><td data-l="Période">1810 – 1844</td><td data-l="Grand Chef"><strong>Nicolas Vincent Tsawenhohi</strong></td><td data-l="Notes">Reprend le nom <em>Tsawenhohi</em> ; époux de Véronique Petit-Étienne (arrière-petite-fille de Paul Tsa8enhohi).</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 8 -->
+<section id="sources">
+  <h2><span class="num">8</span>Sources et références</h2>
+
+  <div class="srcgroup" style="border-top:0;margin-top:0;padding-top:0">
+    <h3>Actes, registres et archives</h3>
+    <ul class="src">
+      <li><strong>Registres paroissiaux de Saint-Ambroise-de-la-Jeune-Lorette :</strong> baptême de René, fils adoptif (13 février 1764), mariage de Pierre Haronhienta (18 août 1770), sépulture de Marie-Josèphe Tsoendaskoua (17 août 1773) et sépulture de Paul Tsa8enhohi (25 juillet 1774).</li>
+      <li><strong>Registres paroissiaux de Notre-Dame de Québec :</strong> baptême de Marie-Joseph, Huronne (4 mai 1693).</li>
+      <li><strong>Procès-verbal de Jean-Eustache Lanouillier de Boiscler (30 juin 1744) :</strong> tracé du chemin royal de la côte Saint-Jean-Baptiste dans la seigneurie de Saint-Gabriel mentionnant « Paul et Estienne Sauvages hurons », <a href="https://numerique.banq.qc.ca/patrimoine/details/52327/3317111?docref=OBYuIfzy2AFPzS0tmojg9Q">BAnQ numérique</a>.</li>
+      <li><strong>Archives de la Ville de Montréal :</strong> Collection Philéas Gagnon, estampe <a href="https://archivesdemontreal.ica-atom.org/huronne-huron-ca-1750-ca-1780">« Huronne, Huron » (vers 1750–1780)</a>.</li>
     </ul>
-  </section>
+  </div>
 
-  <!-- 5. ACTES PAROISSIAUX ET TRANSCRIPTIONS -->
-  <section class="card">
-    <h2>5. Actes du registre paroissial de la Jeune-Lorette</h2>
-
-    <h3>Sépulture de Paul Tsa8enhohi (25 juillet 1774)</h3>
-    <blockquote class="archive-quote">
-      <span class="latin">« Die 24<sup>ie</sup> Julius mortuus est Paulus Tsa8enhoh8i omnibus sacramentis Ecclesia munitus et postridie hûc sepultus. »</span>
-      <span class="traduction">« Le 24<sup>e</sup> jour de juillet [1774] est mort Paul Tsa8enhohi, muni de tous les sacrements de l'Église, et enterré ici le lendemain. »</span>
-      <cite>Registre de la paroisse Saint-Ambroise-de-la-Jeune-Lorette, juillet 1774.</cite>
-    </blockquote>
-
-    <h3>Sépulture de Marie-Josèphe Tsoendaskoua (17 août 1773)</h3>
-    <blockquote class="archive-quote">
-      <span class="latin">« Die 16<sup>ie</sup> Augustus anno 1773 mortua est maria josephe Tsoendaskoua omnibus sacramentis Ecclesia munita et postridie hûc sepulta. »</span>
-      <span class="traduction">« Le 16<sup>e</sup> jour d'août de l'an 1773 est morte Marie-Josèphe Tsoendaskoua, munie de tous les sacrements de l'Église, et enterrée ici le lendemain. »</span>
-      <cite>Registre de la paroisse Saint-Ambroise-de-la-Jeune-Lorette, août 1773.</cite>
-    </blockquote>
-
-    <h3>Baptême de René, fils adoptif (13 février 1764)</h3>
-    <blockquote class="archive-quote">
-      <span class="latin">« Ego infra scriptus Sacerd Soc Jes baptizavi Renatum spurium heri natum adoptativus à Paulu Tsa8enhoh8i et maria Josepha Tsoendask8a patrinus fuit Thomas Atondatouann matrina vero Ludovica Ondaenton Die 13<sup>ie</sup> februar 1764. — Steph. Th. de Vill Girault miss. »</span>
-      <span class="traduction">« Je, soussigné, prêtre de la Compagnie de Jésus, ai baptisé René, illégitime, né hier, adopté par Paul Tsa8enhohi et Marie-Josèphe Tsoendask8a ; le parrain fut Thomas Atondatouann et la marraine Louise Ondaenton, ce 13<sup>e</sup> jour de février 1764. — Étienne-Thomas de Villeneuve Girault, missionnaire. »</span>
-      <cite>Registre de la paroisse Saint-Ambroise-de-la-Jeune-Lorette, 13 février 1764. (Note : <em>Sacerd Soc Jes</em> est l'abréviation de <em>Sacerdos Societatis Jesu</em>).</cite>
-    </blockquote>
-  </section>
-
-  <!-- 6. RÔLE HISTORIQUE ET ARCHIVES -->
-  <section class="card">
-    <h2>6. Rôle historique comme Grand Chef des Hurons-Wendats</h2>
-    <p>
-      Né vers 1693 — à l'époque où les Hurons résidaient encore à l'Ancienne-Lorette avant leur établissement définitif à la Jeune-Lorette (Wendake) à l'automne 1697 —, Paul Tsa8enhohi traverse près d'un siècle d'histoire coloniale, diplomatique et militaire de la Nation Huronne-Wendat.
-    </p>
-
-    <h3>6.1 Les terres de la seigneurie de Saint-Gabriel (30 juin 1744)</h3>
-    <p>
-      Le <strong>30 juin 1744</strong>, le grand voyer Jean-Eustache Lanouillier de Boiscler dresse un procès-verbal marquant le tracé du grand chemin royal de la côte Saint-Jean-Baptiste dans la seigneurie de Saint-Gabriel, passant en biais sur les terres des Hurons. Ce document d'archives cite nommément <strong>« Paul et Estienne Sauvages hurons »</strong> (Paul Tsa8enhohi et son fils Étienne Eha8ennon) parmi les occupants et responsables de l'aménagement du chemin sur leurs concessions.
-    </p>
-
-    <figure class="figure-box">
-      <img src="images/1744-06-30_Seigneurie_St-Gabriel_Paul_et_Etienne.png" alt="Extrait du procès-verbal de Jean-Eustache Lanouillier de Boiscler du 30 juin 1744 mentionnant Paul et Étienne">
-      <figcaption>Procès-verbal de Jean-Eustache Lanouillier de Boiscler (30 juin 1744) : « ...Paul et Estienne Sauvages hurons feront de même chose... ». Source : BAnQ numérique.</figcaption>
-    </figure>
-
-    <h3>6.2 La bataille des Plaines d'Abraham (13 septembre 1759)</h3>
-    <p>
-      Lors de la guerre de la Conquête, plus d'une centaine de guerriers hurons-wendats combattent aux côtés de leurs alliés français pour la défense de Québec, le <strong>13 septembre 1759</strong>. Grand chef de la Nation, Paul Tsa8enhohi est alors âgé d'environ 66 ans. Son petit-fils, le chef <strong>Petit Étienne Ondiaraété</strong> (alors âgé de 17 ans), livra en 1828 un témoignage saisissant de cette journée :
-    </p>
-
-    <blockquote class="archive-quote">
-      « Mon Grand-père était trop âgé pour maintenir le rythme de ses Guerriers. Il voulait que je l'accompagne, mais juste au moment où il aperçut les Hurons et fut sur le point de se joindre à eux, il m'ordonna de retourner ; je lui obéis ; mais ne revins sur mes pas que sur une courte distance, et me cachai pour observer ce qui se passait. Je n'ai pas vu grand-chose de la bataille. »
-      <cite>Témoignage de Petit Étienne Ondiaraété, chef du Conseil du village huron, publié dans <em>The Star and Commercial Advertiser</em>, n° 13 (27 février 1828).</cite>
-    </blockquote>
-
-    <p>
-      Quelques mois après la capitulation de Québec, la Nation Huronne-Wendat adopte une politique de neutralité et conclut avec le général britannique James Murray l'alliance permanente du <strong>5 septembre 1760</strong> (le « Traité Murray »), dont la valeur juridique et la reconnaissance de la souveraineté wendat furent confirmées à l'unanimité par la Cour suprême du Canada dans l'<strong>arrêt Sioui en 1990</strong>.
-    </p>
-
-    <h3>6.3 Un Grand Chef lettré : la correspondance de 1773</h3>
-    <p>
-      Les travaux de l'historien <strong>Thomas Peace</strong> (Huron University College) ont mis en lumière une lettre rédigée en français à l'été <strong>1773</strong> par Paul Tsa8enhohi, en sa qualité de grand chef de la nation wendat de Lorette, à l'intention de son neveu <strong>André Otiondi</strong> établi à Détroit, concernant la gestion de ses terres. L'historien souligne la maîtrise de l'écriture et de l'alphabet latin chez les dirigeants wendats de cette génération, tout en confirmant que Paul Tsa8enhohi exerçait pleinement sa charge de grand chef jusqu'à la veille de son décès en juillet 1774.
-    </p>
-
-    <figure class="figure-box">
-      <img src="images/Huronne_Huron_1750-1780.jpg" alt="Gravure représentant un couple huron de Lorette vers 1750-1780">
-      <figcaption>« Huronne, Huron » — Estampe d'époque (vers 1750–1780) illustrant le costume traditionnel des Hurons de Lorette à l'époque de Paul Tsa8enhohi. Source : Collection Philéas Gagnon, Archives de la Ville de Montréal.</figcaption>
-    </figure>
-  </section>
-
-  <!-- 7. QUESTION HISTORIOGRAPHIQUE : UN OU DEUX PAUL TSA8ENHOHI ? -->
-  <section class="card">
-    <h2>7. Mise en perspective : un ou deux chefs nommés Paul Tsa8enhohi ?</h2>
-    <p>
-      Certaines listes chronologiques des grands chefs indiquent pour Paul Tsa8enhohi les dates « 1693–1747 » tout en mentionnant son décès en « 1774 », soulevant l'hypothèse de deux chefs homonymes ou d'une interruption de mandat. Le croisement des sources primaires éclaire cette question :
-    </p>
-    <ul>
-      <li><strong>Continuité biographique :</strong> Les registres paroissiaux et les relevés généalogiques (Tanguay, Geneanet) ne recensent qu'un seul Paul Tsa8enhohi, né vers 1693 à l'Ancienne-Lorette et décédé le 24 juillet 1774 à la Jeune-Lorette à l'âge d'environ 81 ans.</li>
-      <li><strong>Cohérence des témoignages :</strong> Le récit de Petit Étienne (précisant qu'en 1759 son grand-père était « trop âgé pour maintenir le rythme de ses guerriers », soit 66 ans) et la lettre de 1773 signée en tant que grand chef confirment qu'il a conservé son autorité morale et politique jusqu'à la fin de sa vie, même si des chefs de guerre plus jeunes — tel <strong>Thomas Martin Thodato8an</strong> (né vers 1729, grand chef officiel après 1774/1776) — l'assistaient sur le terrain militaire.</li>
-      <li><strong>Listes historiques :</strong> La <em>Catholic Encyclopedia</em> (1913) ne répertorie qu'un seul <em>Paul Tsawenhohi</em> entre Ignace Tsawenhohi (« Le Vautour ») et Thomas Martin Thodatowan.</li>
+  <div class="srcgroup">
+    <h3>Ouvrages et articles</h3>
+    <ul class="src">
+      <li><strong>Dr John L. Steckley :</strong> confirmation de la signification de <em>Tsawenhohi</em> (« celui qui voit clair » / « celui qui plonge des choses dans l’eau »), colloque sur l’archéologie huronne-wendat, 17 octobre 2015.</li>
+      <li><strong>Serge Goudreau :</strong> « Les Hurons de Lorette au 18<sup>e</sup> siècle », <em>Mémoires de la Société généalogique canadienne-française</em>, vol. 63, n<sup>o</sup> 2, cahier 272, été 2012, p. 125–147.</li>
+      <li><strong>Thomas Peace :</strong> « Contextualizing Colonial Schooling at Odanak, Lorette, and Kahnawake », <em>Historical Studies in Education / Revue d’histoire de l’éducation</em> ; et « Borderlands, Primary Sources, and the Longue Durée », <em>Open History Seminar: Canadian History</em>.</li>
+      <li><strong>Témoignage de Petit Étienne</strong>, <em>The Star and Commercial Advertiser</em>, n<sup>o</sup> 13, 27 février 1828.</li>
+      <li><strong>Cyprien Tanguay :</strong> <em>Dictionnaire généalogique des familles canadiennes</em>, tome 7, p. 129.</li>
+      <li><strong>Archives familiales Sébastien :</strong> dossier <em>Famille Sébastien</em> (génération 1, Paul Tsa8enhohi) et arbre Geneanet de la famille.</li>
     </ul>
-  </section>
+  </div>
 
-  <!-- 8. CHRONOLOGIE DES GRANDS CHEFS HURONS-WENDATS -->
-  <section class="card">
-    <h2>8. Place dans la lignée des Grands Chefs Hurons-Wendats (1650–1844)</h2>
-    <table class="data-table">
-      <thead>
-        <tr>
-          <th>Période</th>
-          <th>Grand Chef</th>
-          <th>Notes historiques et liens familiaux</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1650 – 1685</td>
-          <td><strong>Shastaretsi</strong></td>
-          <td>Premier chef chrétien de Sillery ; décédé à la Vieille-Lorette.</td>
-        </tr>
-        <tr>
-          <td>1685 – 1693</td>
-          <td><strong>Ignace Tsa8enhohi</strong> (« Le Vautour »)</td>
-          <td>Prédécesseur de Paul Tsa8enhohi à la tête de la Nation.</td>
-        </tr>
-        <tr class="highlight-row">
-          <td>~1693 – 1774</td>
-          <td><strong>Paul Tsa8enhohi</strong> (« Celui qui voit clair »)</td>
-          <td>Grand Chef à la Jeune-Lorette ; présent en 1759 ; décédé le 24 juillet 1774.</td>
-        </tr>
-        <tr>
-          <td>1774 – 1776</td>
-          <td><strong>Stanislas-de-Koska Tchachitaharenre</strong></td>
-          <td>Époux de Marie Perrine Savard.</td>
-        </tr>
-        <tr>
-          <td>1776 – 1796</td>
-          <td><strong>Thomas Martin Thodato8an</strong> (« Celui qui parle juste »)</td>
-          <td>Né vers 1729, décédé en 1809 ; nommé <em>Thomas Tsa8enhohi</em> au baptême de Marie-Magdeleine Sébastien (1779).</td>
-        </tr>
-        <tr>
-          <td>1796 – 1810</td>
-          <td><strong>José Vincent</strong></td>
-          <td>Oncle de Nicolas Vincent Tsawenhohi.</td>
-        </tr>
-        <tr>
-          <td>1810 – 1811</td>
-          <td><strong>Petit Étienne Ondiaraété</strong> (« Le porteur de canot »)</td>
-          <td>Petit-fils de Paul Tsa8enhohi (fils d'Étienne Eha8ennon et de Geneviève Andheahonniak).</td>
-        </tr>
-        <tr>
-          <td>1810 – 1844</td>
-          <td><strong>Nicolas Vincent Tsawenhohi</strong></td>
-          <td>Reprend le nom <em>Tsawenhohi</em> ; époux de Véronique Petit-Étienne (arrière-petite-fille de Paul Tsa8enhohi).</td>
-        </tr>
-      </tbody>
-    </table>
-    <p>
-      Au XX<sup>e</sup> siècle, deux autres descendants directs de Paul Tsa8enhohi et de son petit-fils Sébastien Sarenhes accéderont à la fonction de Grand Chef : <strong>Maurice Bastien Sarenhes</strong> (1909–1916) et <strong>Ludger Bastien Sarenhes</strong> (1929–1935).
-    </p>
-  </section>
-
-  <!-- 9. SOURCES ET RÉFÉRENCES -->
-  <section class="card">
-    <h2>9. Sources et références documentaires</h2>
-    <ul class="sources-list">
-      <li>Registres paroissiaux de Saint-Ambroise-de-la-Jeune-Lorette (1764, 1773, 1774) et de Notre-Dame de Québec (1693), Collection Drouin / BAnQ.</li>
-      <li>Bibliothèque et Archives nationales du Québec (BAnQ), <em>Procès-verbal de Jean-Eustache Lanouillier de Boiscler</em>, 30 juin 1744 (Seigneurie de Saint-Gabriel).</li>
-      <li>Dr John L. Steckley, communication personnelle au colloque sur l'archéologie huronne-wendat, 17 octobre 2015.</li>
-      <li>Serge Goudreau, « Les Hurons de Lorette au 18<sup>e</sup> siècle », <em>Mémoires de la Société généalogique canadienne-française</em> (MSGCF), vol. 63, n° 2, cahier 272, été 2012, p. 125–147.</li>
-      <li>Thomas Peace, « Contextualizing Colonial Schooling at Odanak, Lorette, and Kahnawake », <em>Historical Studies in Education / Revue d'histoire de l'éducation</em>.</li>
-      <li>Témoignage de Petit Étienne Ondiaraété, <em>The Star and Commercial Advertiser</em>, n° 13, 27 février 1828.</li>
-      <li>Cyprien Tanguay, <em>Dictionnaire généalogique des familles canadiennes</em>, tome 7, p. 129.</li>
-      <li>Archives de la Ville de Montréal, Collection Philéas Gagnon, estampe « Huronne, Huron » (vers 1750–1780).</li>
+  <div class="srcgroup">
+    <h3>Références consultées en ligne</h3>
+    <ul class="src">
+      <li><a href="https://wendake.com/chefs.html">Nation Huronne-Wendat : Les Grands Chefs de la Nation Huronne-Wendat</a></li>
+      <li><a href="https://en.wikisource.org/wiki/Page:Catholic_Encyclopedia,_volume_7.djvu/648">Catholic Encyclopedia, vol. 7 (1913) : article « Hurons » (Chiefs of the Hurons of Quebec, 1650–1909)</a></li>
+      <li><a href="http://www.archipel.uqam.ca/7107/1/M13670.pdf">Archipel UQAM : mémoire sur l’adoption et l’assimilation à la mission de Lorette (cas de Pierre Haronhienta)</a></li>
+      <li><a href="https://www.patrimoine-culturel.gouv.qc.ca">Répertoire du patrimoine culturel du Québec : notice « Vincent, Nicolas »</a></li>
     </ul>
-  </section>
+  </div>
+</section>
 
-  <!-- NAVIGATION INFÉRIEURE -->
-  <nav class="nav-lineage" aria-label="Navigation inférieure dans la lignée">
-    <a href="index.html">&larr; Retour à l'index de la Famille Sébastien</a>
-    <a href="Etienne_Ehawennon_1715-1767.html">Génération suivante : Étienne Eha8ennon &rarr;</a>
-  </nav>
+</main>
 
-  <!-- PIED DE PAGE -->
-  <footer class="page-footer">
-    <p>Généalogie de la Famille Sébastien &bull; Portail <strong>genearbre.org</strong> &bull; Recherche et compilation : Philippe Sébastien</p>
-  </footer>
-
-</div>
+<footer>
+  <div class="wrap">
+    Généalogie de la famille Sébastien · <a href="genealogie-sebastien.html">Famille Sébastien</a> · <a href="Etienne_Eha8ennon.html">Étienne Eha8ennon (fils) →</a> · <a href="#fiche">Haut de page ↑</a>
+  </div>
+</footer>
 
 </body>
 </html>
