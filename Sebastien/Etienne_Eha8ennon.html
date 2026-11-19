@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Étienne Eha8ennon (v. 1715 – avant 1767)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* nav */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* hero */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* identity card */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* tree */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:210px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(680px,90%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* figures & tables */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:16px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tfoot,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-sebastien.html">← Famille Sébastien</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#nom">Son nom</a>
+    <a href="#contexte">Contexte</a>
+    <a href="#famille">Famille</a>
+    <a href="#descendance">Descendance</a>
+    <a href="#chronologie">Chronologie</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Génération II · Famille Sébastien</p>
+    <h1>Étienne Eha8ennon</h1>
+    <p class="dates">v. 1715 – avant 1767</p>
+    <p class="sub">Huron-Wendat de Lorette, fils du grand chef Paul Tsa8enhohi, père de Sébastien Sarenhes et de Petit Étienne Ondiaraété</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Étienne Eha8ennon naît vers 1715 au sein de la communauté huronne-wendat de Lorette, près de Québec. Il épouse vers 1740 Geneviève Andhechonniak, une jeune femme d’origine française, et la perd avant décembre 1754. Il est mort avant 1767. Aucun acte conservé dans le dossier familial ne le montre en personne : il est surtout connu par ses deux fils, Petit Étienne Ondiaraété, futur grand chef de Lorette, et Sébastien Sarenhes, ancêtre direct de la famille Sébastien-Bastien.</p>
+  <dl class="identity">
+    <div><dt>Nom</dt><dd>Étienne Eha8ennon <span class="note">(aussi Ehawennon, Ihaouennon, Ghawennon)</span></dd></div>
+    <div><dt>Naissance</dt><dd>vers 1715-1718, probablement à Lorette (Québec)</dd></div>
+    <div><dt>Décès</dt><dd>entre 1754 et 1767 <span class="note">(déjà « défunt » à l’acte de mariage de son fils, le 9 février 1767)</span></dd></div>
+    <div><dt>Père</dt><dd>Paul Tsa8enhohi (v. 1693 – 1774), grand chef des Hurons <span class="note">(filiation selon le dossier familial et Tanguay)</span></dd></div>
+    <div><dt>Épouse</dt><dd>Geneviève Andhechonniak <span class="note">(« fille française »)</span>, mariage vers 1740, décédée avant le 24 décembre 1754</dd></div>
+    <div><dt>Enfants connus</dt><dd>Petit Étienne Ondiaraété (v. 1742 – 1830)<br>Sébastien Sarenhes (v. 1749 – 1835)</dd></div>
+    <div class="full"><dt>Lignée directe vers Henri Sébastien</dt><dd>Paul Tsa8enhohi → <strong>Étienne Eha8ennon</strong> → Sébastien Sarenhes → Jean-Baptiste Sébastien → Joseph Sébastien → Édouard Sébastien → Joseph-Édouard Sébastien → <a href="Henri_Sebastien_1904-1990.html">Henri Sébastien</a> → <a href="biographie_de_m_le_batonnier_pierre_sebastien_c_r_adv_e.html">Pierre Sébastien</a></dd></div>
+  </dl>
+</section>
+
+<!-- 2 -->
+<section id="nom">
+  <h2><span class="num">2</span>Un nom, plusieurs graphies</h2>
+  <p>Comme beaucoup de noms wendat consignés par les missionnaires jésuites, « Eha8ennon » est écrit avec le chiffre <strong>8</strong>, signe que les missionnaires utilisaient pour noter un son propre au wendat (proche du <em>ou</em> ou du <em>w</em>). L’orthographe varie d’un acte à l’autre. La graphie la plus courante est <em>Ehawennon</em>. On rencontre aussi <em>Ihaouennon</em>, déformation de la première, et <em>Ghawennon</em>, orthographe transmise par l’archiviste de la Nation huronne-wendat.</p>
+
+  <h3>Que veut dire Eha8ennon ?</h3>
+  <p>Le sens n’est pas arrêté. Deux pistes sont proposées dans le dossier familial :</p>
+  <table>
+    <thead><tr><th>Piste</th><th>Interprétation</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Piste">« Le voyageur »</td><td data-l="Interprétation">« Celui qui aime voyager » ; la racine <em>8innon</em> évoque la marche.</td><td data-l="Source">Michel Tharehtade Gros-Louis, linguiste et ethnolinguiste ; hypothèse voisine de Megan Lukaniec, anthropologue</td></tr>
+      <tr><td data-l="Piste">« Le chien »</td><td data-l="Interprétation">Le mot wendat pour « chien » (<em>yäniennonh</em>) est proche de <em>Ihawennon</em>.</td><td data-l="Source">Rapprochement phonétique signalé dans le dossier familial, avec lien vers la prononciation sur FirstVoices</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Aucune de ces lectures n’est confirmée par un acte. Les noms wendat de Lorette entre 1762 et 1791 ont fait l’objet d’une étude de John Steckley (bulletin de recherche), à consulter pour qui voudrait approfondir la question.</p>
+
+  <h3>Un prénom chrétien doublé d’un nom wendat</h3>
+  <p>« Étienne » est le prénom de baptême imposé par les missionnaires ; « Eha8ennon » est le nom hérité de la tradition. À la fin du XVIII<sup>e</sup> siècle, les prénoms chrétiens deviennent des patronymes et supplantent peu à peu les noms wendat. Le fils d’Étienne, Sébastien Sarenhes, en est un bon exemple : « Sébastien » (devenu « Bastien ») est ainsi le nom de famille des descendants.</p>
+</section>
+
+<!-- 3 -->
+<section id="contexte">
+  <h2><span class="num">3</span>Lorette au temps d’Étienne</h2>
+  <p>Étienne naît environ vingt ans après l’installation définitive des Hurons-Wendat à Jeune-Lorette (1697), au terme de plusieurs déplacements depuis l’île d’Orléans (1651) et Québec. La mission Notre-Dame-de-Lorette avait été fondée par le père Chaumonot en 1674 ; c’est elle qui donne son nom au village. Les Jésuites y tiennent les registres ; les missionnaires, dont Étienne-Thomas de Villeneuve Girault, y rédigent des actes qui s’écrivent en latin et en wendat « francisé ».</p>
+
+  <div class="highlight">
+    <p><strong>Un père chef, un monde qui bascule.</strong> Étienne est le fils du grand chef Paul Tsa8enhohi, titulaire du nom de chef « Tsawenhohi », longtemps porté par le chef civil des Hurons de Lorette. La guerre de la Conquête éclate quand ses fils sont encore jeunes : Petit Étienne dira plus tard avoir suivi son grand-père Tsawenhohi jusqu’aux abords du combat de 1759 avant d’être renvoyé. La communauté passe ensuite sous régime britannique. On ignore si Étienne était encore vivant à cette date.</p>
+  </div>
+
+  <p>Le témoignage de Petit Étienne, publié dans le <em>Star and Commercial Advertiser</em> le 27 février 1828, est la plus ancienne description par un Huron de Lorette des événements de 1759 :</p>
+  <div class="highlight">
+    <p><em>« Mon grand-père était trop âgé pour maintenir le rythme de ses guerriers. Il voulait que je l’accompagne, mais […] il m’ordonna de retourner ; je lui obéis ; mais ne revins sur mes pas que sur une courte distance, et me cachai pour observer ce qui se passait. Je n’ai pas vu grand’chose de la bataille. »</em></p>
+    <p class="note">Traduction française d’un témoignage publié en anglais en 1828 ; extrait tiré du dossier familial.</p>
+  </div>
+
+  <p>Au moment où Étienne se marie (vers 1740), la communauté de Lorette connaît des tensions avec les Hurons établis au Lac-des-Deux-Montagnes (querelle de 1740 autour de colliers de wampum, rapportée au gouverneur de Beauharnois). Les Hurons participent à la même époque à la guerre de Succession d’Autriche en Acadie. Rien n’indique cependant qu’Étienne ait été personnellement mêlé à ces événements.</p>
+</section>
+
+<!-- 4 -->
+<section id="famille">
+  <h2><span class="num">4</span>Famille et alliances</h2>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Paul Tsa8enhohi<small>v. 1693 – 1774 · Grand chef</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Marie Josèphe Tsoendask8a<small>† 16 août 1773</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Étienne Eha8ennon<small>v. 1715 – avant 1767</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Geneviève Andhechonniak<small>m. v. 1740 · † avant 1754</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar" style="width:min(420px,80%)"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:210px">Petit Étienne Ondiaraété<small>v. 1742 – 1830 · Grand chef</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:210px">Sébastien Sarenhes<small>1749 – 1835 · Premier chef des guerriers</small></div></div>
+    </div>
+  </div>
+
+  <h3>Les parents d’Étienne</h3>
+  <p>Selon le dossier familial (qui s’appuie notamment sur les listes de Tanguay), Étienne est le fils du grand chef Paul Tsa8enhohi, qui meurt à Lorette en 1774, et de Marie Josèphe Tsoendask8a, morte le 16 août 1773. Le couple adopte aussi deux enfants : Pierre Haronhienta, un Français adopté vers 1762, et René, baptisé en 1764 de parents inconnus. <span class="note">Précision : les actes de mariage de 1767 et de 1778 donnent Étienne comme « défunt » sans nommer son père ; la filiation Paul → Étienne vient du dossier familial, pas d’un acte cité.</span></p>
+
+  <h3>Geneviève Andhechonniak, « fille française »</h3>
+  <p>L’épouse d’Étienne est désignée dans plusieurs actes comme « fille française ». Son nom wendat s’écrit de plusieurs manières : <em>Andhechonniak</em>, <em>Andheahonniak</em>, <em>Andheahonnick</em>. Le notaire André Genest, dans un acte du 24 décembre 1754, présente Étienne comme « huron de la Nouvelle-Lorette, veuf de Geneviève, fille française ». Geneviève est donc déjà décédée à cette date. Son cas rappelle celui d’autres personnes d’origine française intégrées à la communauté, tel Pierre Haronhienta, adopté vers 1762 par Paul Tsa8enhohi.</p>
+
+  <h3>Un acte de 1754 : la vente d’une terre</h3>
+  <p>La seule trace directe d’Étienne mentionnée dans le dossier est cet acte notarié du 24 décembre 1754 (minutier André Genest, BAnQ). Étienne, veuf, y vend une terre située à la côte Saint-Antoine, dans le fief de Saint-Jean-Baptiste. Goudreau cite aussi, pour la filiation de ses fils, un acte du notaire Noël Duprac du 21 octobre 1733.</p>
+
+  <h3>Sa mort</h3>
+  <p>On ignore la date et le lieu. Étienne est vivant en décembre 1754 ; il est déclaré « défunt » dans l’acte de mariage de son fils Petit Étienne le 9 février 1767, et encore « défunt » dans celui de Sébastien Sarenhes en 1778. La fourchette la plus sûre est donc <strong>1754 – 1767</strong>. <span class="note">Le dossier indique ailleurs « avant 1784 » : cette borne est large, celle de 1767 est plus précise.</span></p>
+
+  <div class="highlight">
+    <p><strong>Acte de mariage de son fils Petit Étienne (9 février 1767).</strong> Le missionnaire Étienne-Thomas de Villeneuve Girault unit « Stephanum Ondiaraete filium Eha8ennon defuncti », c’est-à-dire « Étienne Ondiaraete, fils du défunt Eha8ennon », à Véronique Tehonatsenhong, veuve de Pierre Annionachi8t, avec dispense de consanguinité accordée par Mgr Briand.</p>
+    <p><strong>Acte de mariage de Sébastien Sarenhes (12 janvier 1778).</strong> Sébastien Sarenës est dit « fils d’Étienne Eha8ennon défunt et de Geneviève Andhechonniak aussi défunte », de la mission de Lorette. C’est cet acte qui établit la parenté des deux frères.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="descendance">
+  <h2><span class="num">5</span>Descendance d’Étienne Eha8ennon</h2>
+  <p>Deux fils d’Étienne sont connus. Ils donnent deux grandes familles huronnes-wendat de Lorette.</p>
+
+  <div class="kids">
+    <div class="kid">
+      <h3>Petit Étienne Ondiaraété</h3>
+      <p><strong>Né</strong> vers 1742 (selon son âge au décès, 98 ans, plutôt vers 1732) ; <strong>mort</strong> le 17 avril 1830, inhumé le 19 avril à Lorette. Son nom wendat signifierait « le porteur de canot ». Quatre filles de son premier mariage, une descendance masculine réduite à un fils du second lit.</p>
+      <p>Chef civil dès 1791, il devient grand chef à la mort de Thomas Martin (1809) mais cède la place à Nicolas Vincent en 1810-1811. En 1828, il livre ses souvenirs au <em>Star and Commercial Advertiser</em>.</p>
+    </div>
+    <div class="kid">
+      <h3>Sébastien Sarenhes</h3>
+      <p><strong>Né</strong> vers 1749 ; <strong>mort</strong> le 1<sup>er</sup> septembre 1835. Pensionnaire du Dartmouth College (1772-1774), maître d’école à Lorette dès 1775, premier chef des guerriers (pétition de 1805 pour la seigneurie de Sillery). Marié le 12 janvier 1778 à Marie Hotte ; treize enfants. C’est de lui que descend la famille Sébastien-Bastien.</p>
+    </div>
+  </div>
+
+  <h3>Les enfants de Petit Étienne et leurs alliances</h3>
+  <table>
+    <thead><tr><th>Enfant</th><th>Naissance</th><th>Alliance</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Enfant">Marie-Angélique</td><td data-l="Naissance">19 février 1768 · † 26 juillet 1809</td><td data-l="Alliance">Épouse Michel Raphaël Tsei8ei Sioui, le 3 février 1795 <a href="genealogie_sioui.html">(famille Sioui)</a></td></tr>
+      <tr><td data-l="Enfant">Véronique</td><td data-l="Naissance">27 mai 1770 · † 15 juillet 1820</td><td data-l="Alliance">Épouse Nicolas Vincent Tsawenhohi, futur grand chef, en novembre 1794 <a href="genealogie_vincent.html">(famille Vincent)</a> ; neuf enfants</td></tr>
+      <tr><td data-l="Enfant">Thérèse</td><td data-l="Naissance">29 novembre 1772</td><td data-l="Alliance">Épouse Ignace Picard, le 23 novembre 1801 <a href="genealogie_picard.html">(famille Picard)</a></td></tr>
+      <tr><td data-l="Enfant">Étienne (second lit)</td><td data-l="Naissance">1798</td><td data-l="Alliance">Épouse Madeleine Genest, le 2 octobre 1821 ; seul enfant du second mariage parvenu à l’âge adulte</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Des divergences existent entre les sources : le dossier familial place le mariage de Véronique et de Nicolas Vincent le 24 novembre 1794 (date aussi donnée par le <em>Dictionnaire biographique du Canada</em>), Goudreau le 21 novembre 1794. Le dossier mentionne aussi une « Marie » (née en 1776) mariée à Ignace Picard, là où Goudreau désigne Thérèse comme l’épouse d’Ignace Picard en 1801.</p>
+
+  <h3>Les enfants de Sébastien Sarenhes (selon Goudreau)</h3>
+  <p>Sébastien et Marie Hotte ont treize enfants entre 1778 et 1799, dont six seulement sont inscrits au registre de baptême de Lorette. Au moins six se marient :</p>
+  <table>
+    <thead><tr><th>Enfant</th><th>Mariage</th><th>Conjoint</th></tr></thead>
+    <tbody>
+      <tr><td data-l="Enfant">Louise</td><td data-l="Mariage">14 juin 1802</td><td data-l="Conjoint">Barthélemy Koska</td></tr>
+      <tr><td data-l="Enfant">Jean-Baptiste</td><td data-l="Mariage">13 février 1809</td><td data-l="Conjoint">Agathe Zacharie-Thomas</td></tr>
+      <tr><td data-l="Enfant">Moïse</td><td data-l="Mariage">3 novembre 1809</td><td data-l="Conjoint">Angélique Bélisle</td></tr>
+      <tr><td data-l="Enfant">Marie-Madeleine</td><td data-l="Mariage">9 avril 1813</td><td data-l="Conjoint">Ignace Picard (veuf)</td></tr>
+      <tr><td data-l="Enfant">Isaac</td><td data-l="Mariage">31 juillet 1815</td><td data-l="Conjoint">Marie-Josèphe Zacharie-Thomas</td></tr>
+      <tr><td data-l="Enfant">Stanislas</td><td data-l="Mariage">27 octobre 1818</td><td data-l="Conjoint">Henriette Picard</td></tr>
+    </tbody>
+  </table>
+  <p>Remarque : Ignace Picard a épousé successivement deux petites-filles d’Étienne Eha8ennon, d’abord une fille de Petit Étienne, puis Marie-Madeleine, fille de Sébastien Sarenhes. Les deux branches issues d’Étienne sont ainsi liées par les Picard.</p>
+
+  <h3>La ligne directe jusqu’à Henri Sébastien</h3>
+  <ul class="timeline">
+    <li><span class="d">Génération I</span> — Paul Tsa8enhohi (v. 1693 – 1774), grand chef</li>
+    <li><span class="d">Génération II</span> — <strong>Étienne Eha8ennon</strong> (v. 1715 – avant 1767)</li>
+    <li><span class="d">Génération III</span> — Sébastien Sarenhes (1749 – 1835)</li>
+    <li><span class="d">Génération IV</span> — Jean-Baptiste Sébastien (1785 – 1848), établi à Trois-Rivières vers 1840</li>
+    <li><span class="d">Génération V</span> — Joseph Sébastien (1824 – 1869)</li>
+    <li><span class="d">Génération VI</span> — Édouard Sébastien (1854 – 1905), mégissier</li>
+    <li><span class="d">Génération VII</span> — Joseph-Édouard Sébastien (1879 – 1914), gantier</li>
+    <li><span class="d">Génération VIII</span> — <a href="Henri_Sebastien_1904-1990.html">Henri Sébastien</a> (1904 – 1990), typographe</li>
+    <li><span class="d">Génération IX</span> — <a href="biographie_de_m_le_batonnier_pierre_sebastien_c_r_adv_e.html">Pierre Sébastien</a> (1936 – ), bâtonnier du Québec</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section id="chronologie">
+  <h2><span class="num">6</span>Repères chronologiques</h2>
+  <ul class="timeline">
+    <li><span class="d">1674</span> — Fondation de la mission Notre-Dame-de-Lorette par le père Chaumonot.</li>
+    <li><span class="d">1697</span> — Installation définitive des Hurons-Wendat à Jeune-Lorette.</li>
+    <li><span class="d">v. 1715 – 1718</span> — Naissance d’Étienne Eha8ennon, probablement à Lorette.</li>
+    <li><span class="d">v. 1740</span> — Mariage d’Étienne avec Geneviève Andhechonniak.</li>
+    <li><span class="d">v. 1742</span> — Naissance de Petit Étienne Ondiaraété.</li>
+    <li><span class="d">1749</span> — Naissance de Sébastien Sarenhes.</li>
+    <li><span class="d">24 décembre 1754</span> — Étienne, veuf de Geneviève, vend une terre à la côte Saint-Antoine (notaire André Genest).</li>
+    <li><span class="d">1759</span> — Bataille des plaines d’Abraham : Petit Étienne accompagne son grand-père, le grand chef Tsawenhohi, jusqu’aux abords du combat.</li>
+    <li><span class="d">9 février 1767</span> — Mariage de Petit Étienne avec Véronique Tehonatsenhong ; Étienne Eha8ennon est déjà décédé.</li>
+    <li><span class="d">16 août 1773</span> — Mort de Marie Josèphe Tsoendask8a, mère d’Étienne.</li>
+    <li><span class="d">1774</span> — Mort de Paul Tsa8enhohi, père d’Étienne.</li>
+    <li><span class="d">12 janvier 1778</span> — Mariage de Sébastien Sarenhes avec Marie Hotte ; Étienne et Geneviève sont dits « défunts ».</li>
+  </ul>
+</section>
+
+<!-- 7 -->
+<section id="sources">
+  <h2><span class="num">7</span>Sources et références</h2>
+
+  <div class="srcgroup" style="border-top:0;margin-top:0;padding-top:0">
+    <h3>Actes et registres</h3>
+    <ul class="src">
+      <li><strong>Acte de mariage de Petit Étienne Ondiaraété et de Véronique Tehonatsenhong :</strong> mission de Lorette, 9 février 1767 (Étienne-Thomas de Villeneuve Girault, missionnaire).</li>
+      <li><strong>Acte de mariage de Sébastien Sarenës et de Marie Hotte :</strong> Lorette, 12 janvier 1778.</li>
+      <li><strong>Vente de terre par Étienne, huron de la Nouvelle-Lorette :</strong> BAnQ, minutier André Genest, 24 décembre 1754 (CN301, S115).</li>
+      <li><strong>Acte du notaire Noël Duprac :</strong> 21 octobre 1733 (cité par Goudreau pour la filiation des fils d’Étienne).</li>
+    </ul>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Ouvrages et articles</h3>
+    <ul class="src">
+      <li><strong>Serge Goudreau :</strong> « Les Hurons de Lorette au 18<sup>e</sup> siècle », <em>Mémoires de la Société généalogique canadienne-française</em>, vol. 63, n<sup>o</sup> 2, cahier 272, été 2012, p. 125-147.</li>
+      <li><strong>Serge Goudreau :</strong> « Étienne Ondiaraété (1742-1830), un chef huron du village de Lorette », <em>Mémoires de la Société généalogique canadienne-française</em>, vol. 54, n<sup>o</sup> 4, cahier 238, hiver 2003, p. 269-288.</li>
+      <li><strong>Témoignage de Petit Étienne</strong>, <em>The Star and Commercial Advertiser</em>, n<sup>o</sup> 13, 27 février 1828.</li>
+      <li><strong>Archives familiales Sébastien :</strong> dossier <em>Famille Sébastien</em> (génération 2, Étienne Eha8ennon) et arbre Geneanet de la famille.</li>
+      <li><strong>Tanguay</strong> (listes de « sauvages »), cité dans le dossier familial pour les enfants de Paul Tsa8enhohi.</li>
+    </ul>
+  </div>
+
+  <div class="srcgroup">
+    <h3>Références consultées en ligne</h3>
+    <ul class="src">
+      <li><a href="https://www.biographi.ca/en/bio/vincent_nicolas_7E.html">Dictionnaire biographique du Canada : Vincent, Nicolas (Tsaouenhohoui)</a> — mariage avec Véronique Petit-Étienne en 1794.</li>
+      <li><a href="https://www.biographi.ca/en/bio/vincent_3E.html">Dictionnaire biographique du Canada : Vincent, chef des Hurons de Lorette (v. 1740-1745)</a> — contexte des années 1740.</li>
+      <li><a href="https://thecanadianencyclopedia.ca/en/article/hurons-wendat-of-wendake">L’Encyclopédie canadienne : Hurons-Wendat de Wendake</a> — installation à Jeune-Lorette en 1697.</li>
+      <li><a href="https://jesuits.ca/press-release/history-today-the-virgin-of-loreto-a-devotion-that-crosses-oceans/">Jésuites du Canada : la dévotion de Lorette</a> — fondation de la mission en 1674.</li>
+      <li><a href="https://www.wyandot.org/wyandotKS/wp-content/uploads/2021/02/PRI19.pdf">John L. Steckley, <em>Wendat names recorded at Lorette 1762-1791</em></a> — étude des noms wendat de Lorette.</li>
+      <li><a href="https://archive.dartmouthalumnimagazine.com/article/1929/12/1/the-dartmouth-indians">Dartmouth Alumni Magazine, « The Dartmouth Indians » (1929)</a> — Louis Vincent, diplômé de Dartmouth en 1781, Huron de Lorette.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Généalogie de la famille Sébastien · <a href="genealogie-sebastien.html">Famille Sébastien</a> · <a href="#fiche">Haut de page ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
