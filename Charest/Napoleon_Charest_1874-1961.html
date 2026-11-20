@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Napoléon Charest (1874–1961)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f6f1e7; --paper:#fffdf8; --ink:#2a2420; --muted:#6d6257;
+    --accent:#7a1f2b; --accent-2:#b08d4f; --line:#e3d9c6; --navy:#1f2c44;
+    --hl:#f3ead7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Lora',Georgia,serif;font-size:17px;line-height:1.7}
+  a{color:var(--accent);text-underline-offset:3px}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* Barre de navigation supérieure */
+  .topnav{background:var(--navy);color:#e9e2d2;font-size:14px}
+  .topnav .wrap{display:flex;flex-wrap:wrap;gap:6px 22px;padding:12px 20px}
+  .topnav a{color:#e9e2d2;text-decoration:none;border-bottom:1px solid transparent}
+  .topnav a:hover{border-bottom-color:var(--accent-2);color:#fff}
+
+  /* En-tête héroïque */
+  .hero{background:linear-gradient(160deg,#1f2c44 0%,#2d1a22 100%);color:#f4ecda;padding:64px 0 56px;text-align:center;border-bottom:4px solid var(--accent-2)}
+  .hero .gen{letter-spacing:.2em;text-transform:uppercase;font-size:13px;color:var(--accent-2);margin:0 0 14px}
+  .hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,58px);line-height:1.1;margin:0 0 10px}
+  .hero .dates{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.5vw,30px);color:var(--accent-2);margin:0 0 14px}
+  .hero .sub{font-style:italic;color:#d8cdb4;margin:0}
+
+  main{padding:36px 0 60px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:30px 34px;margin:0 0 26px;box-shadow:0 1px 0 rgba(0,0,0,.03)}
+  h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:32px;line-height:1.2;margin:0 0 16px;color:var(--navy);display:flex;gap:14px;align-items:baseline}
+  h2 .num{font-size:20px;color:var(--accent-2);font-weight:700;min-width:30px}
+  h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:23px;margin:26px 0 8px;color:var(--accent)}
+  p{margin:0 0 14px}
+
+  /* Fiche d'identité */
+  .identity{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin:6px 0 0}
+  .identity div{padding:12px 16px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .identity div:nth-child(2n){border-right:0}
+  .identity div:nth-last-child(-n+2){border-bottom:0}
+  .identity dt{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 2px}
+  .identity dd{margin:0;font-size:16px;line-height:1.45}
+  .identity .full{grid-column:1/-1;border-right:0;border-bottom:0}
+
+  .highlight{background:var(--hl);border-left:4px solid var(--accent);padding:16px 20px;margin:18px 0;border-radius:0 6px 6px 0}
+  .highlight p:last-child{margin-bottom:0}
+  .note{font-size:14.5px;color:var(--muted)}
+
+  /* Chiffres clés */
+  .figures{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 22px}
+  .fig{border:1px solid var(--line);border-radius:6px;padding:14px 16px;background:#fff;text-align:center}
+  .fig b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:30px;color:var(--accent);line-height:1.15}
+  .fig span{font-size:13.5px;color:var(--muted)}
+
+  /* Arbre généalogique */
+  .tree{display:flex;flex-direction:column;align-items:center;gap:0;margin:22px 0 6px;font-size:15px}
+  .node{background:#fff;border:1.5px solid var(--navy);border-radius:6px;padding:10px 16px;text-align:center;min-width:230px;max-width:100%}
+  .node small{display:block;color:var(--muted);font-size:13px}
+  .node.main{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .node.main small{color:#cfc6b0}
+  .node.sp{border-style:dashed;border-color:var(--accent-2)}
+  .vline{width:2px;height:20px;background:var(--navy)}
+  .row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .hbar{width:min(760px,92%);height:2px;background:var(--navy)}
+  .couple{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .couple .amp{color:var(--accent);font-size:22px}
+
+  /* Tableaux */
+  table{width:100%;border-collapse:collapse;font-size:15.5px;margin:10px 0 6px}
+  th{background:var(--navy);color:#f4ecda;text-align:left;font-weight:500;padding:10px 12px;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+  td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  td.r,th.r{text-align:right;white-space:nowrap}
+  tr.highlight-row td{background:var(--hl);font-weight:600}
+
+  /* Chronologie */
+  .timeline{list-style:none;margin:18px 0 0;padding:0 0 0 22px;border-left:2px solid var(--accent-2)}
+  .timeline li{position:relative;margin:0 0 16px;padding-left:6px}
+  .timeline li::before{content:"";position:absolute;left:-30px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--accent)}
+  .timeline .d{font-weight:600;color:var(--navy)}
+
+  /* Fiches enfants */
+  .kids{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:18px}
+  .kid{border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:#fff}
+  .kid h3{margin:0 0 6px;font-size:22px}
+  .kid p{margin:0 0 8px;font-size:15.5px}
+  .kid p:last-child{margin-bottom:0}
+
+  /* Bouton d'archive */
+  .btn-link{
+    display:inline-block;background:var(--navy);color:#f4ecda;text-decoration:none;
+    padding:9px 16px;border-radius:4px;font-size:14.5px;margin-top:6px;
+    border:1px solid var(--navy)
+  }
+  .btn-link:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  /* Sources */
+  ul.src{padding-left:20px;margin:6px 0 14px;font-size:14.5px}
+  ul.src li{margin-bottom:5px;overflow-wrap:anywhere}
+  .srcgroup{margin-top:22px;padding-top:6px;border-top:1px dashed var(--line)}
+  .srcgroup h3{font-size:20px;margin-top:12px}
+
+  /* Pied de page */
+  footer{background:var(--navy);color:#cfc6b0;text-align:center;padding:26px 20px;font-size:14px}
+  footer a{color:#e9e2d2}
+
+  @media (max-width:700px){
+    body{font-size:16px}
+    section{padding:22px 18px}
+    h2{font-size:27px}
+    .identity{grid-template-columns:1fr}
+    .identity div{border-right:0}
+    .identity div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+    .identity div:last-child{border-bottom:0}
+    .figures{grid-template-columns:1fr}
+    table,thead,tbody,tr,td{display:block}
+    thead{display:none}
+    tr{border:1px solid var(--line);border-radius:6px;margin-bottom:12px;padding:6px 4px;background:#fff}
+    td{border:0;padding:5px 10px;text-align:left!important}
+    td[data-l]::before{content:attr(data-l) " : ";font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  }
+  @media print{.topnav{display:none} body{background:#fff} section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="genealogie-charest.html">← Site Charest</a>
+    <a href="Clement_Charest_1912-1989.html">Clément C. Charest (fils) →</a>
+    <a href="#fiche">Fiche</a>
+    <a href="#origines">Origines &amp; formation</a>
+    <a href="#carriere">J.-J. Joubert Ltée</a>
+    <a href="#engagement">Engagement public &amp; social</a>
+    <a href="#mariage">Mariage &amp; descendance</a>
+    <a href="#lignee">Lignée ancestrale</a>
+    <a href="#sources">Sources</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="gen">Archives Familiales &bull; Généalogie Charest (10<sup>e</sup> génération)</p>
+    <h1>Joseph-Napoléon Charest</h1>
+    <p class="dates">Novembre 1873 / 1874 – 20 mars 1961</p>
+    <p class="sub">Président et gérant général de la Laiterie J.-J. Joubert Ltée, bâtisseur d’un fleuron laitier canadien</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section id="fiche">
+  <h2><span class="num">1</span>Fiche d’identité</h2>
+  <p>Joseph-Napoléon Charest naît à Montréal en novembre 1873 ou 1874, fils de Joseph Charest, cultivateur originaire de la région de Deux-Montagnes et de Vaudreuil, et de Martine Clara Lebrun. Comptable et administrateur de premier plan, il entre en 1907 au service de la laiterie fondée par son beau-frère Janvier-Jacques Joubert (<em>J.-J. Joubert Ltée</em>), dont il devient gérant général dès 1909 puis président, contribuant de façon décisive à son essor à travers le Canada. Il épouse le 14 mai 1901 Berthilde Joubert, avec laquelle il a six enfants.</p>
+  <dl class="identity">
+    <div><dt>Naissance</dt><dd>11 ou 14 novembre 1873 / 1874, Montréal (Québec)</dd></div>
+    <div><dt>Décès</dt><dd>20 mars 1961 (86 ans)</dd></div>
+    <div><dt>Parents</dt><dd>Joseph Charest (1827/28–av. 1911) &amp; Martine Clara Lebrun (1843–ap. 1911)</dd></div>
+    <div><dt>Formation</dt><dd>École Plessis &amp; cours commercial à l’École Saint-Patrice (diplômé en 1889)</dd></div>
+    <div><dt>Profession</dt><dd>Président et gérant général de <em>J.-J. Joubert Ltée</em> (4141, rue Saint-André, Montréal)</dd></div>
+    <div><dt>Fonctions publiques</dt><dd>Membre de la Commission d’industrie laitière de la Province de Québec (1932) ; Gouverneur de l’Hôpital Notre-Dame</dd></div>
+    <div><dt>Mariage</dt><dd>14 mai 1901, paroisse Saint-Jean-Baptiste (Montréal), avec Berthilde Joubert (1875–1958)</dd></div>
+    <div><dt>Domicile &amp; Descendance</dt><dd>505, avenue Stuart, Outremont &bull; 6 enfants : Jean, Pierre, Clément, Gertrude, Thérèse et Françoise</dd></div>
+  </dl>
+  <p style="margin-top:18px;margin-bottom:0">
+    <a class="btn-link" href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=charest&amp;oc=0&amp;p=napoleon&amp;type=tree" target="_blank" rel="noopener noreferrer">Consulter la fiche de Napoléon Charest sur Geneanet</a>
+  </p>
+</section>
+
+<!-- 2 -->
+<section id="origines">
+  <h2><span class="num">2</span>Origines familiales, études et débuts dans les affaires</h2>
+  <p>Napoléon Charest est issu du mariage célébré le <strong>7 novembre 1859</strong> à Saint-Eustache (comté de Deux-Montagnes) entre <strong>Joseph Charest</strong> (cultivateur établi à Saint-Eustache puis Vaudreuil) et <strong>Martine Clara Lebrun</strong> (née le 2 octobre 1843, fille de Pierre Lebrun de Saint-Eustache). Il grandit au sein d’une famille nombreuse comptant dix enfants : Adélard (~1862), Alexina (~1865), Joseph (~1866), Marie-Angelina (1868), Ovila (~1869), Amanda (~1871), Joseph-Napoléon (1873/74), Anna (1877), Hormidas (1878) et Albert (1881).</p>
+  <p>Les sources d’état civil et biographiques situent sa naissance à Montréal en novembre : les registres paroissiaux et recensements (1881 et 1901) mentionnent le <strong>11 ou 14 novembre 1873</strong>, tandis que les <em>Biographies canadiennes-françaises</em> (1937) retiennent la date du <strong>11 novembre 1874</strong>.</p>
+
+  <div class="highlight">
+    <p><strong>Formation commerciale et apprentissage dans le grand commerce montréalais.</strong> Napoléon Charest fait ses premières classes à l’<strong>école Plessis</strong> puis complète un solide cours commercial à l’<strong>école Saint-Patrice</strong> de Montréal. Dès la fin de ses études en <strong>1889</strong>, il embrasse la carrière des affaires comme commis chez <em>Carroll</em>, marchand de nouveautés, avant d’entrer en <strong>1891</strong> au service de l’importante maison montréalaise <strong>W. H. Scroggie</strong>, où il effectue un stage approfondi de plusieurs années en comptabilité et gestion commerciale.</p>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="carriere">
+  <h2><span class="num">3</span>L’essor de la Laiterie J.-J. Joubert Ltée (1907–1934+)</h2>
+  <p>En <strong>1907</strong>, son beau-frère <strong>Janvier-Jacques Joubert</strong> (1869–1943) — fondateur de la laiterie de la ferme Saint-Michel (1899) et premier laitier de l’Empire britannique à livrer du lait en bouteilles de verre (1892) — fait appel aux compétences financières de Napoléon Charest et lui confie la <strong>direction de la comptabilité</strong> de l’établissement récemment installé au <strong>4141, rue Saint-André</strong> à Montréal.</p>
+  <p>Deux ans plus tard, en <strong>1909</strong>, J.-J. Joubert le nomme <strong>gérant général</strong>, fonction qu’il occupe sans interruption avant d’accéder également à la <strong>présidence</strong> de la compagnie <strong>J.-J. Joubert Ltée</strong> (incorporée en 1910). Selon les chroniqueurs de l’époque, <em>« homme d’une expérience consommée, d’un jugement solide et d’une probité parfaite, M. Charest fut pour M. Joubert un collaborateur précieux dans la réalisation de son entreprise, modeste à ses débuts, mais devenue en peu d’années l’une des plus considérables du genre dans toute la puissance du Canada »</em>.</p>
+
+  <div class="figures">
+    <div class="fig"><b>1907</b><span>Entrée comme directeur de la comptabilité</span></div>
+    <div class="fig"><b>1909</b><span>Nomination comme gérant général de J.-J. Joubert Ltée</span></div>
+    <div class="fig"><b>+400</b><span>Employés et expansion à travers tout Montréal</span></div>
+  </div>
+
+  <div class="highlight">
+    <p><strong>Modernisation industrielle et santé publique à Montréal.</strong> Sous la direction administrative de Napoléon Charest et l’impulsion de J.-J. Joubert, la laiterie devient un modèle d’innovation sanitaire et logistique : acquisition dès <strong>1908</strong> d’un système de <strong>pasteurisation</strong> et de stérilisation mécanique des bouteilles (dix-huit ans avant que la Ville de Montréal ne rende la pasteurisation obligatoire en mai 1926), lancement de la crème glacée et achat du premier camion Ford en <strong>1910</strong>, installation d’un laboratoire en <strong>1918</strong>, ouverture de la succursale de Notre-Dame-de-Grâce (920, boul. Décarie) en <strong>1923</strong>, construction des grandes écuries et garages du 5415, rue Saint-André en <strong>1926</strong> et mise en place en <strong>1931</strong> du programme de distribution de lait à 0,03 $ dans les écoles de la Commission des Écoles Catholiques de Montréal.</p>
+  </div>
+
+  <h3>Jalons de sa carrière et de l’entreprise</h3>
+  <ul class="timeline">
+    <li><span class="d">1889 – 1906 · Formation et expérience commerciale</span> — diplômé de l’école Saint-Patrice (1889), commis chez <em>Carroll</em> puis cadre administratif chez <em>W. H. Scroggie</em> (à partir de 1891).</li>
+    <li><span class="d">1907 · Entrée chez J.-J. Joubert</span> — nommé directeur de la comptabilité de la laiterie au 4141, rue Saint-André (8 routes de livraison, 200 gallons de lait et 150 livres de beurre par jour).</li>
+    <li><span class="d">1908 – 1910 · Révolution industrielle</span> — nomination comme <strong>gérant général</strong> (1909) ; pasteurisation du lait (1908), incorporation de <em>J.-J. Joubert Ltée</em> et début de la crème glacée (1910).</li>
+    <li><span class="d">1913 – 1926 · Expansion métropolitaine</span> — passage à plus de 20 routes de lait, ouverture d’un laboratoire (1918), d’une succursale à N.-D.-G. (1923) et d’un poste d’écrémage à Baie-du-Febvre.</li>
+    <li><span class="d">1932 · Acquisition par Borden &amp; Commission laitière</span> — la laiterie est acquise par la compagnie <em>Borden</em> (tout en conservant son nom et sa direction) ; Napoléon Charest siège à la <strong>Commission d’industrie laitière de la Province de Québec</strong>.</li>
+    <li><span class="d">1934 – 1937 · Président de J.-J. Joubert Ltée</span> — exerce la présidence et la direction générale de la maison tandis que J.-J. Joubert agit comme président du conseil (<em>Chairman of the Board</em>) et que son fils aîné Jean Charest accède à la vice-présidence.</li>
+  </ul>
+</section>
+
+<!-- 4 -->
+<section id="engagement">
+  <h2><span class="num">4</span>Engagement civique, philanthropique et vie sociale</h2>
+  <p>Tout en consacrant l’essentiel de son énergie à la bonne marche de <em>J.-J. Joubert Ltée</em> — se tenant à l’écart des charges politiques électives tout en demeurant de sensibilité <strong>libérale</strong> —, Napoléon Charest joue un rôle actif dans les institutions économiques, philanthropiques et sociales de Montréal.</p>
+
+  <div class="identity">
+    <div><dt>Commissions &amp; Affaires</dt><dd>Membre de la <strong>Commission d’industrie laitière de la Province de Québec</strong> (1932), du <strong>Board of Trade</strong> et de la <strong>Chambre de Commerce de Montréal</strong>.</dd></div>
+    <div><dt>Philanthropie hospitalière</dt><dd><strong>Gouverneur de l’Hôpital Notre-Dame</strong> de Montréal.</dd></div>
+    <div><dt>Cercles &amp; Sociétés</dt><dd>Membre du <strong>Club de Réforme</strong>, du <strong>Club Laval-sur-le-Lac</strong> et de l’Ordre des <strong>Forestiers Canadiens</strong>.</dd></div>
+    <div><dt>Vie personnelle &amp; Loisirs</dt><dd>Résident du <strong>505, avenue Stuart à Outremont</strong> ; grand amateur de tourisme et de voyages à travers le Canada et les États-Unis en famille.</dd></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="mariage">
+  <h2><span class="num">5</span>Mariage avec Berthilde Joubert et descendance</h2>
+  <p>Le <strong>14 mai 1901</strong>, en l’église paroissiale <strong>Saint-Jean-Baptiste de Montréal</strong>, Napoléon Charest épouse <strong>Berthilde Joubert</strong> (1875–1958), fille de Jacques-Charles Zéphirin Joubert et de Marie-Célina Dagenais, et sœur de son futur associé Janvier-Jacques Joubert (dont Napoléon sera également le parrain du fils Maurice Joubert le 16 juin 1915 au Sault-au-Récollet). De leur union naissent six enfants.</p>
+
+  <div class="tree">
+    <div class="couple">
+      <div class="node">Joseph Charest<small>1827/28–av. 1911</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Martine Clara Lebrun<small>1843–ap. 1911</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="couple">
+      <div class="node main">Joseph-Napoléon Charest<small>1873/74–1961, marié 1901</small></div>
+      <span class="amp">&amp;</span>
+      <div class="node sp">Berthilde Joubert<small>1875–1958</small></div>
+    </div>
+    <div class="vline"></div>
+    <div class="hbar"></div>
+    <div class="row">
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:125px">Jean Charest<small>† déc. 1985</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:125px">Pierre Charest<small>ép. T. Gadbois</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:125px"><a href="Clement_Charest_1912-1989.html">Clément Charest</a><small>1912–1989</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:125px">Gertrude Charest<small>ép. C. Campeau</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:125px">Thérèse Charest<small>ép. G. Beaugrand</small></div></div>
+      <div style="display:flex;flex-direction:column;align-items:center"><div class="vline"></div><div class="node" style="min-width:125px">Françoise Charest<small>ép. B. Boissonneau</small></div></div>
+    </div>
+  </div>
+
+  <div class="kids">
+    <div class="kid">
+      <h3>Jean Charest</h3>
+      <p><strong>Repères :</strong> inhumé le 30 décembre 1985.</p>
+      <p><strong>Conjointe :</strong> Esther Desaulniers.</p>
+      <p><strong>Carrière :</strong> vice-président de <em>J.-J. Joubert Ltée</em> dès 1934 sous la présidence de son père, puis président de <em>Borden</em>.</p>
+      <p><strong>Descendance :</strong> Jean, Luc-Pierre (1939–2011), André et Guy.</p>
+    </div>
+    <div class="kid">
+      <h3>Pierre Charest</h3>
+      <p><strong>Conjointe :</strong> (Amanda) Thérèse Gadbois (1910–2000, m. 17 avril 1933).</p>
+      <p><strong>Carrière :</strong> a également exercé la présidence de <em>J.-J. Joubert Ltée</em>.</p>
+    </div>
+    <div class="kid">
+      <h3><a href="Clement_Charest_1912-1989.html">Clément C. Charest</a></h3>
+      <p><strong>Dates :</strong> 19 octobre 1912 – 31 décembre 1989.</p>
+      <p><strong>Conjointe :</strong> Paule Duchastel de Montrouge (1914–1989, m. 22 avril 1937).</p>
+      <p><strong>Descendance :</strong> Michel (1937), Renée (1941), Andrée (1945), Denis (1949).</p>
+    </div>
+    <div class="kid">
+      <h3>Gertrude Charest</h3>
+      <p><strong>Conjoint :</strong> Charles Campeau.</p>
+    </div>
+    <div class="kid">
+      <h3>Marie Thérèse Gabrielle Charest</h3>
+      <p><strong>Conjoint :</strong> Gilles Beaugrand-Champagne (m. 15 juillet 1940, paroisse Saint-Viateur d’Outremont), maître orfèvre fondateur de <em>Gilles Beaugrand Inc.</em></p>
+    </div>
+    <div class="kid">
+      <h3>Françoise Charest</h3>
+      <p><strong>Conjoint :</strong> Bertrand Boissonneau.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="lignee">
+  <h2><span class="num">6</span>Lignée ancestrale (10 générations)</h2>
+  <p>La lignée paternelle de Napoléon Charest remonte à <strong>(Robert) Mathieu Choret</strong> (né vers 1624 à Notre-Dame-de-Cougnes, La Rochelle), arrivé en Nouvelle-France en 1643 comme engagé des Pères Jésuites aux Trois-Rivières avant d’épouser <strong>Sébastienne Veillon</strong> à La Rochelle le 4 mars 1647 et de s’établir à Beauport.</p>
+
+  <table>
+    <thead>
+      <tr><th>Gén.</th><th>Ancêtre</th><th>Dates</th><th>Conjointe &amp; repères</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-l="Gén.">1</td>
+        <td data-l="Ancêtre">Thomas Chaure</td>
+        <td data-l="Dates">~1575 – ?</td>
+        <td data-l="Repères">La Rochelle, Aunis / Poitou-Charentes, France</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">2</td>
+        <td data-l="Ancêtre">Mathieu Chaure Choret</td>
+        <td data-l="Dates">~1592 – 1636</td>
+        <td data-l="Repères">Jeanne Serre (La Rochelle, France)</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">3</td>
+        <td data-l="Ancêtre">(Robert) Mathieu Choret</td>
+        <td data-l="Dates">~1624 – 1664</td>
+        <td data-l="Repères">Sébastienne Veillon (m. 1647, La Rochelle) &bull; Pionnier à Beauport</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">4</td>
+        <td data-l="Ancêtre">Pierre (Le Cadet) Choret</td>
+        <td data-l="Dates">1662 – 1736</td>
+        <td data-l="Repères">Marie-Anne Baugis (m. 1686, Beauport)</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">5</td>
+        <td data-l="Ancêtre">Jean-Baptiste Choret</td>
+        <td data-l="Dates">1710 – 1759</td>
+        <td data-l="Repères">Angélique Rapidieu-Lemaire (m. 1733, Beauport) &bull; Établi à Pointe-Claire</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">6</td>
+        <td data-l="Ancêtre">Jean-Baptiste Choret</td>
+        <td data-l="Dates">1738 – 1773</td>
+        <td data-l="Repères">Marie-Claire Catherine Létourneux (m. 1759, Pointe-Claire)</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">7</td>
+        <td data-l="Ancêtre">Jean-Baptiste Charest</td>
+        <td data-l="Dates">1761 – 1849</td>
+        <td data-l="Repères">Geneviève Giroux (m. 1794, Saint-Laurent) &bull; Décédé à Saint-Eustache</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">8</td>
+        <td data-l="Ancêtre">Joseph Charest</td>
+        <td data-l="Dates">1803 – ap. 1871</td>
+        <td data-l="Repères">Geneviève Demers (m. 1821, Saint-Benoît, Deux-Montagnes)</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">9</td>
+        <td data-l="Ancêtre">Joseph Charest</td>
+        <td data-l="Dates">1827/28 – av. 1911</td>
+        <td data-l="Repères">Martine Clara Lebrun (m. 1859, Saint-Eustache)</td>
+      </tr>
+      <tr class="highlight-row">
+        <td data-l="Gén.">10</td>
+        <td data-l="Ancêtre">Joseph-Napoléon Charest</td>
+        <td data-l="Dates">1873/74 – 1961</td>
+        <td data-l="Repères">Berthilde Joubert (m. 1901, Montréal) &bull; Président de J.-J. Joubert Ltée</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">11</td>
+        <td data-l="Ancêtre"><a href="Clement_Charest_1912-1989.html">Clément C. Charest</a></td>
+        <td data-l="Dates">1912 – 1989</td>
+        <td data-l="Repères">Paule Duchastel de Montrouge (m. 1937, Outremont)</td>
+      </tr>
+      <tr>
+        <td data-l="Gén.">12</td>
+        <td data-l="Ancêtre">Renée Charest</td>
+        <td data-l="Dates">1941 –</td>
+        <td data-l="Repères">Pierre Sébastien (m. 1962, Mont-Royal)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="highlight">
+    <p><strong>Note historique.</strong> L’ancêtre pionnier Mathieu Choret obtint le 6 mars 1649 du père Jérôme Lalemant une terre de trois arpents de front sur le fleuve Saint-Laurent à Beauport, voisine de la ferme Bonsecours des Jésuites. C’est à partir de la 7<sup>e</sup> génération (Jean-Baptiste Charest, 1761–1849) que l’orthographe <em>Charest</em> s’est définitivement fixée dans cette branche.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="sources">
+  <h2><span class="num">7</span>Notes et sources</h2>
+  <p class="note">Notice établie à partir des archives familiales <em>Famille Charest.docx</em>, des <em>Biographies canadiennes-françaises</em> (1937), de l’arbre généalogique sur Geneanet et des recherches historiques consacrées à la Laiterie J.-J. Joubert Limitée.</p>
+
+  <div class="srcgroup">
+    <h3>Généalogie et état civil</h3>
+    <ul class="src">
+      <li>Archives familiales : <em>Famille Charest.docx</em></li>
+      <li>Geneanet : <a href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=charest&amp;oc=0&amp;p=napoleon&amp;type=tree" target="_blank" rel="noopener noreferrer">Fiche de Napoléon Charest (philsebastien_w)</a></li>
+      <li>Recensements du Canada (1881, 1901, 1911) et registres paroissiaux de Saint-Eustache et Saint-Jean-Baptiste de Montréal</li>
+      <li><em>Le Devoir</em> : avis nécrologiques de Berthilde Joubert (5 août 1958) et de Napoléon Charest (21 mars 1961), BAnQ</li>
+    </ul>
+
+    <h3>Carrière et histoire de la Laiterie J.-J. Joubert Ltée</h3>
+    <ul class="src">
+      <li>Raphaël Ouimet (éd.), <em>Biographies canadiennes-françaises</em>, 13<sup>e</sup> édition, Montréal, 1937, p. 61 : notice « Napoléon Charest, Président et gérant de J. J. Joubert Ltée »</li>
+      <li>Lise Jolin et Robert Caron (Société d’histoire et de généalogie de l’Île Jésus) : monographie historique sur la <em>Laiterie J.-J. Joubert Limitée</em></li>
+      <li><em>The Gazette</em> (Montréal), 14 avril 1934 : nomination de Jean Charest à la vice-présidence de <em>J.-J. Joubert Ltée</em></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  Page générée à partir des archives familiales <em>Famille Charest.docx</em> &bull;
+  <a href="Clement_Charest_1912-1989.html">Clément C. Charest (fils)</a> &bull;
+  <a href="https://gw.geneanet.org/philsebastien_w?lang=fr&amp;n=charest&amp;oc=0&amp;p=napoleon&amp;type=tree" target="_blank" rel="noopener noreferrer">Arbre Geneanet</a>
+</footer>
+
+</body>
+</html>
